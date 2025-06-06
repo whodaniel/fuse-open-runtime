@@ -6364,6 +6364,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/passport@npm:^10.0.3":
+  version: 10.0.3
+  resolution: "@nestjs/passport@npm:10.0.3"
+  peerDependencies:
+    "@nestjs/common": ^8.0.0 || ^9.0.0 || ^10.0.0
+    passport: ^0.4.0 || ^0.5.0 || ^0.6.0 || ^0.7.0
+  checksum: 10/29114c6cfead44a18f7081f8a00bafc154fff37c9f63f4182db8b1e52d0178fa65e1961c4a74ed16c49f013969a76dc29d13f9a01d49962ef882857e81bb2326
+  languageName: node
+  linkType: hard
+
 "@nestjs/passport@npm:^11.0.5":
   version: 11.0.5
   resolution: "@nestjs/passport@npm:11.0.5"
@@ -6487,6 +6497,61 @@ __metadata:
     class-validator:
       optional: true
   checksum: 10/e3f9cac6a092442461fe7e4edd45b8af3377a02c626bb2b9f7da2e0ffe4999c3c20f32240aa1a67e9999a919946e6ed6c0da01c703e7d83d49823f1d7b9caf09
+  languageName: node
+  linkType: hard
+
+"@nestjs/terminus@npm:^10.2.3":
+  version: 10.3.0
+  resolution: "@nestjs/terminus@npm:10.3.0"
+  dependencies:
+    boxen: "npm:5.1.2"
+    check-disk-space: "npm:3.4.0"
+  peerDependencies:
+    "@grpc/grpc-js": "*"
+    "@grpc/proto-loader": "*"
+    "@mikro-orm/core": "*"
+    "@mikro-orm/nestjs": "*"
+    "@nestjs/axios": ^1.0.0 || ^2.0.0 || ^3.0.0
+    "@nestjs/common": ^9.0.0 || ^10.0.0
+    "@nestjs/core": ^9.0.0 || ^10.0.0
+    "@nestjs/microservices": ^9.0.0 || ^10.0.0
+    "@nestjs/mongoose": ^9.0.0 || ^10.0.0
+    "@nestjs/sequelize": ^9.0.0 || ^10.0.0
+    "@nestjs/typeorm": ^9.0.0 || ^10.0.0
+    "@prisma/client": "*"
+    mongoose: "*"
+    reflect-metadata: 0.1.x || 0.2.x
+    rxjs: 7.x
+    sequelize: "*"
+    typeorm: "*"
+  peerDependenciesMeta:
+    "@grpc/grpc-js":
+      optional: true
+    "@grpc/proto-loader":
+      optional: true
+    "@mikro-orm/core":
+      optional: true
+    "@mikro-orm/nestjs":
+      optional: true
+    "@nestjs/axios":
+      optional: true
+    "@nestjs/microservices":
+      optional: true
+    "@nestjs/mongoose":
+      optional: true
+    "@nestjs/sequelize":
+      optional: true
+    "@nestjs/typeorm":
+      optional: true
+    "@prisma/client":
+      optional: true
+    mongoose:
+      optional: true
+    sequelize:
+      optional: true
+    typeorm:
+      optional: true
+  checksum: 10/787562b52792f486e5a4bb42edcc9c110e7826ffb1068c2ee4fedf9d1eb06cf3c0bbbd65681e15e3db417b3399ca1cb35c0cf216a29dddfd73bbda1e35672ce4
   languageName: node
   linkType: hard
 
@@ -6773,6 +6838,13 @@ __metadata:
   dependencies:
     "@octokit/openapi-types": "npm:^25.1.0"
   checksum: 10/ea5549ca6176bd1184427141a77bca88c68f07d252d3ea1db7f9b58ec16b66391218a75a99927efb1e36a2cb00e8ed37a79b71fdc95a1117a9982516156fd997
+  languageName: node
+  linkType: hard
+
+"@opentelemetry/api@npm:^1.4.0":
+  version: 1.9.0
+  resolution: "@opentelemetry/api@npm:1.9.0"
+  checksum: 10/a607f0eef971893c4f2ee2a4c2069aade6ec3e84e2a1f5c2aac19f65c5d9eeea41aa72db917c1029faafdd71789a1a040bdc18f40d63690e22ccae5d7070f194
   languageName: node
   linkType: hard
 
@@ -10656,9 +10728,11 @@ __metadata:
     "@nestjs/config": "npm:^3.3.0"
     "@nestjs/core": "npm:^11.0.0"
     "@nestjs/jwt": "npm:^11.0.0"
+    "@nestjs/passport": "npm:^10.0.3"
     "@nestjs/platform-express": "npm:^11.0.0"
     "@nestjs/schematics": "npm:9.2.0"
     "@nestjs/swagger": "npm:^7.1.17"
+    "@nestjs/terminus": "npm:^10.2.3"
     "@nestjs/testing": "npm:^11.0.0"
     "@nestjs/throttler": "npm:^6.4.0"
     "@prisma/client": "npm:^6.5.0"
@@ -10669,6 +10743,8 @@ __metadata:
     "@types/express": "npm:^5.0.0"
     "@types/jest": "npm:^29.0.0"
     "@types/node": "npm:^20.1.0"
+    "@types/passport": "npm:^1.0.16"
+    "@types/passport-jwt": "npm:^4.0.1"
     "@types/uuid": "npm:^9.0.8"
     "@typescript-eslint/eslint-plugin": "npm:^8.22.0"
     "@typescript-eslint/parser": "npm:^8.22.0"
@@ -10676,6 +10752,8 @@ __metadata:
     eslint: "npm:^9.19.0"
     express: "npm:^4.21.2"
     jest: "npm:^29.0.0"
+    passport: "npm:^0.7.0"
+    passport-jwt: "npm:^4.0.1"
     prisma: "npm:^6.5.0"
     reflect-metadata: "npm:^0.2.2"
     rimraf: "npm:^5.0.0"
@@ -10719,6 +10797,7 @@ __metadata:
     "@types/bcrypt": "npm:^5.0.2"
     "@types/bcryptjs": "npm:^2.4.6"
     "@types/cors": "npm:^2.8.17"
+    "@types/crypto-js": "npm:^4"
     "@types/express": "npm:^5.0.0"
     "@types/express-serve-static-core": "npm:^5.0.5"
     "@types/express-session": "npm:^1.17.10"
@@ -10731,6 +10810,7 @@ __metadata:
     "@types/supertest": "npm:^2.0.12"
     "@typescript-eslint/eslint-plugin": "npm:^8.22.0"
     "@typescript-eslint/parser": "npm:^8.22.0"
+    "@willsoto/nestjs-prometheus": "npm:^6.0.2"
     axios: "npm:^1.6.5"
     bcrypt: "npm:5.1.0"
     bcryptjs: "npm:^2.4.3"
@@ -10740,6 +10820,7 @@ __metadata:
     connect-redis: "npm:7.1.0"
     cors: "npm:^2.8.5"
     cron: "npm:3.1.7"
+    crypto-js: "npm:^4.2.0"
     dotenv: "npm:^16.3.1"
     eslint: "npm:^9.19.0"
     eslint-config-prettier: "npm:^9.0.0"
@@ -10758,6 +10839,7 @@ __metadata:
     passport-jwt: "npm:^4.0.1"
     prettier: "npm:^3.0.0"
     prisma: "npm:5.22.0"
+    prom-client: "npm:^15.1.3"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     react-router: "npm:^6.22.0"
@@ -10859,6 +10941,64 @@ __metadata:
     reflect-metadata: "npm:^0.2.0"
     rxjs: "npm:^7.8.0"
     typescript: "npm:^5.0.2"
+  languageName: unknown
+  linkType: soft
+
+"@the-new-fuse/fairtable-adapters@workspace:packages/fairtable-adapters":
+  version: 0.0.0-use.local
+  resolution: "@the-new-fuse/fairtable-adapters@workspace:packages/fairtable-adapters"
+  dependencies:
+    "@the-new-fuse/fairtable-components": "workspace:*"
+    "@the-new-fuse/fairtable-core": "workspace:*"
+    "@the-new-fuse/fairtable-utils": "workspace:*"
+    "@types/react": "npm:^18.0.0"
+    "@types/react-dom": "npm:^18.0.0"
+    react: "npm:^18.0.0"
+    react-dom: "npm:^18.0.0"
+    typescript: "npm:^5.0.0"
+  peerDependencies:
+    react: ">=17.0.0"
+    react-dom: ">=17.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@the-new-fuse/fairtable-components@workspace:*, @the-new-fuse/fairtable-components@workspace:packages/fairtable-components":
+  version: 0.0.0-use.local
+  resolution: "@the-new-fuse/fairtable-components@workspace:packages/fairtable-components"
+  dependencies:
+    "@the-new-fuse/fairtable-core": "workspace:*"
+    "@the-new-fuse/fairtable-utils": "workspace:*"
+    "@types/react": "npm:^18.3.1"
+    "@types/react-dom": "npm:^18.3.1"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
+    rimraf: "npm:^6.0.1"
+    typescript: "npm:^5.8.3"
+  peerDependencies:
+    react: ">=18.0.0"
+    react-dom: ">=18.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@the-new-fuse/fairtable-core@workspace:*, @the-new-fuse/fairtable-core@workspace:packages/fairtable-core":
+  version: 0.0.0-use.local
+  resolution: "@the-new-fuse/fairtable-core@workspace:packages/fairtable-core"
+  dependencies:
+    rimraf: "npm:^6.0.1"
+    typescript: "npm:^5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@the-new-fuse/fairtable-utils@workspace:*, @the-new-fuse/fairtable-utils@workspace:packages/fairtable-utils":
+  version: 0.0.0-use.local
+  resolution: "@the-new-fuse/fairtable-utils@workspace:packages/fairtable-utils"
+  dependencies:
+    "@types/react": "npm:^18.3.1"
+    react: "npm:^18.3.1"
+    rimraf: "npm:^6.0.1"
+    typescript: "npm:^5.8.3"
+  peerDependencies:
+    react: ">=18.0.0"
   languageName: unknown
   linkType: soft
 
@@ -11670,7 +11810,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/crypto-js@npm:^4.1.1":
+"@types/crypto-js@npm:^4, @types/crypto-js@npm:^4.1.1":
   version: 4.2.2
   resolution: "@types/crypto-js@npm:4.2.2"
   checksum: 10/a40fc5a9219fd33f54ba3e094c5e5ab2904d3106681a76f1029bb038976591e9c8959099963bf4474fde21c2d8d00c1f896445206a3a58f85588f9cb1bd96a9a
@@ -12318,6 +12458,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/jsonwebtoken@npm:*, @types/jsonwebtoken@npm:^9.0.4, @types/jsonwebtoken@npm:^9.0.5, @types/jsonwebtoken@npm:^9.0.9":
+  version: 9.0.9
+  resolution: "@types/jsonwebtoken@npm:9.0.9"
+  dependencies:
+    "@types/ms": "npm:*"
+    "@types/node": "npm:*"
+  checksum: 10/ef4dc05ae5ae78e3d2e20c364437e4afb788017cc80dd8a23a3eb17a3fcecb41e6abba254aba974d45a71307dd375aba4fda73cec358923aaaf8dff4667bea09
+  languageName: node
+  linkType: hard
+
 "@types/jsonwebtoken@npm:9.0.5":
   version: 9.0.5
   resolution: "@types/jsonwebtoken@npm:9.0.5"
@@ -12333,16 +12483,6 @@ __metadata:
   dependencies:
     "@types/node": "npm:*"
   checksum: 10/4c0cffc488ba200765b50004de5e046c55360121a91ad9520d904e303cdd217b3f77b51b6ba8b9cbdd03d73876d546cbd0d9992d6e205d97decba918aee5b395
-  languageName: node
-  linkType: hard
-
-"@types/jsonwebtoken@npm:^9.0.4, @types/jsonwebtoken@npm:^9.0.5, @types/jsonwebtoken@npm:^9.0.9":
-  version: 9.0.9
-  resolution: "@types/jsonwebtoken@npm:9.0.9"
-  dependencies:
-    "@types/ms": "npm:*"
-    "@types/node": "npm:*"
-  checksum: 10/ef4dc05ae5ae78e3d2e20c364437e4afb788017cc80dd8a23a3eb17a3fcecb41e6abba254aba974d45a71307dd375aba4fda73cec358923aaaf8dff4667bea09
   languageName: node
   linkType: hard
 
@@ -12554,6 +12694,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/passport-jwt@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "@types/passport-jwt@npm:4.0.1"
+  dependencies:
+    "@types/jsonwebtoken": "npm:*"
+    "@types/passport-strategy": "npm:*"
+  checksum: 10/778f88eaefe39d845ba4824760f9b149c1e408249357514ea9b3d302c180af1faadc164af3fbf41596a23ad01f0a1c95501e193693f4db804f34713853fdc727
+  languageName: node
+  linkType: hard
+
 "@types/passport-oauth2@npm:*":
   version: 1.4.17
   resolution: "@types/passport-oauth2@npm:1.4.17"
@@ -12565,7 +12715,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/passport@npm:*":
+"@types/passport-strategy@npm:*":
+  version: 0.2.38
+  resolution: "@types/passport-strategy@npm:0.2.38"
+  dependencies:
+    "@types/express": "npm:*"
+    "@types/passport": "npm:*"
+  checksum: 10/b580e165182b137a6e57b6b7511904e6c875a5e372f08679ec54f456dc5c2a72d86f23d9373a52d8286b207fe8240946686f9e3d50b0bc1b4f7316f336a06fa2
+  languageName: node
+  linkType: hard
+
+"@types/passport@npm:*, @types/passport@npm:^1.0.16":
   version: 1.0.17
   resolution: "@types/passport@npm:1.0.17"
   dependencies:
@@ -12622,16 +12782,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^16.8.5":
-  version: 16.9.25
-  resolution: "@types/react-dom@npm:16.9.25"
-  peerDependencies:
-    "@types/react": ^16.0.0
-  checksum: 10/bbb1371daa3a3697ebafe6478c579f43a67016db73210fed66fbf8032d68c2a49dd35fda7d2e060d1d869c2e85f183414899120eb9b10da831309748f42dcaeb
-  languageName: node
-  linkType: hard
-
-"@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.2.0, @types/react-dom@npm:^18.2.18, @types/react-dom@npm:^18.2.19, @types/react-dom@npm:^18.2.4":
+"@types/react-dom@npm:^18.3.0":
   version: 18.3.7
   resolution: "@types/react-dom@npm:18.3.7"
   peerDependencies:
@@ -12682,14 +12833,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^16.14.60":
-  version: 16.14.65
-  resolution: "@types/react@npm:16.14.65"
+"@types/react@npm:^18.3.1":
+  version: 18.3.23
+  resolution: "@types/react@npm:18.3.23"
   dependencies:
     "@types/prop-types": "npm:*"
-    "@types/scheduler": "npm:^0.16"
     csstype: "npm:^3.0.2"
-  checksum: 10/6cfb7553cad4df7863ee902aab0c398681d083cc278e8c7971490c946ee5f37182d55948db0a6b53c534a5be2398bcc4d0afad73a65ce767c3634d985d0a9be1
+  checksum: 10/4b965dffe34a1f8aac8e2d7e976f113373f38134f9e37239f7e75d7ac6b3c2e1333a8df21febf1fe7749640f8de5708f7668cdfc70bffebda1cc4d3346724fd5
   languageName: node
   linkType: hard
 
@@ -12728,13 +12878,6 @@ __metadata:
     "@types/glob": "npm:*"
     "@types/node": "npm:*"
   checksum: 10/b47fa302f46434cba704d20465861ad250df79467d3d289f9d6490d3aeeb41e8cb32dd80bd1a8fd833d1e185ac719fbf9be12e05ad9ce9be094d8ee8f1405347
-  languageName: node
-  linkType: hard
-
-"@types/scheduler@npm:^0.16":
-  version: 0.16.8
-  resolution: "@types/scheduler@npm:0.16.8"
-  checksum: 10/6c091b096daa490093bf30dd7947cd28e5b2cd612ec93448432b33f724b162587fed9309a0acc104d97b69b1d49a0f3fc755a62282054d62975d53d7fd13472d
   languageName: node
   linkType: hard
 
@@ -13985,6 +14128,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@willsoto/nestjs-prometheus@npm:^6.0.2":
+  version: 6.0.2
+  resolution: "@willsoto/nestjs-prometheus@npm:6.0.2"
+  peerDependencies:
+    "@nestjs/common": ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0
+    prom-client: ^15.0.0
+  checksum: 10/2cf2c4be179f8288f7dee2ce0b1a285d9632995cb27e276e28ca96f0d2bfebcccbfd13e10a8dd0d60a54f3bb4988fa2281fa8aa6119d2126540325d16a8503d7
+  languageName: node
+  linkType: hard
+
 "@xtuc/ieee754@npm:^1.2.0":
   version: 1.2.0
   resolution: "@xtuc/ieee754@npm:1.2.0"
@@ -14277,6 +14430,15 @@ __metadata:
     json-schema-traverse: "npm:^0.4.1"
     uri-js: "npm:^4.2.2"
   checksum: 10/48d6ad21138d12eb4d16d878d630079a2bda25a04e745c07846a4ad768319533031e28872a9b3c5790fa1ec41aabdf2abed30a56e5a03ebc2cf92184b8ee306c
+  languageName: node
+  linkType: hard
+
+"ansi-align@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "ansi-align@npm:3.0.1"
+  dependencies:
+    string-width: "npm:^4.1.0"
+  checksum: 10/4c7e8b6a10eaf18874ecee964b5db62ac86d0b9266ad4987b3a1efcb5d11a9e12c881ee40d14951833135a8966f10a3efe43f9c78286a6e632f53d85ad28b9c0
   languageName: node
   linkType: hard
 
@@ -15133,6 +15295,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"boxen@npm:5.1.2":
+  version: 5.1.2
+  resolution: "boxen@npm:5.1.2"
+  dependencies:
+    ansi-align: "npm:^3.0.0"
+    camelcase: "npm:^6.2.0"
+    chalk: "npm:^4.1.0"
+    cli-boxes: "npm:^2.2.1"
+    string-width: "npm:^4.2.2"
+    type-fest: "npm:^0.20.2"
+    widest-line: "npm:^3.1.0"
+    wrap-ansi: "npm:^7.0.0"
+  checksum: 10/bc3d3d88d77dc8cabb0811844acdbd4805e8ca8011222345330817737042bf6f86d93eb74a3f7e0cab634e64ef69db03cf52b480761ed90a965de0c8ff1bea8c
+  languageName: node
+  linkType: hard
+
 "bplist-parser@npm:^0.2.0":
   version: 0.2.0
   resolution: "bplist-parser@npm:0.2.0"
@@ -15600,6 +15778,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"check-disk-space@npm:3.4.0":
+  version: 3.4.0
+  resolution: "check-disk-space@npm:3.4.0"
+  checksum: 10/73130c32e26aaa1eda359706d9cbcde21785285dd829ec2b850c59e88ce99d8ebf830d6849315b2d4bc7eed9082aaea7c5f065f1ace591f49d3851f0c21157f9
+  languageName: node
+  linkType: hard
+
 "check-error@npm:^1.0.3":
   version: 1.0.3
   resolution: "check-error@npm:1.0.3"
@@ -15799,6 +15984,13 @@ __metadata:
   version: 2.2.0
   resolution: "clean-stack@npm:2.2.0"
   checksum: 10/2ac8cd2b2f5ec986a3c743935ec85b07bc174d5421a5efc8017e1f146a1cf5f781ae962618f416352103b32c9cd7e203276e8c28241bbe946160cab16149fb68
+  languageName: node
+  linkType: hard
+
+"cli-boxes@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "cli-boxes@npm:2.2.1"
+  checksum: 10/be79f8ec23a558b49e01311b39a1ea01243ecee30539c880cf14bf518a12e223ef40c57ead0cb44f509bffdffc5c129c746cd50d863ab879385370112af4f585
   languageName: node
   linkType: hard
 
@@ -16530,7 +16722,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"crypto-js@npm:^4.1.1":
+"crypto-js@npm:^4.1.1, crypto-js@npm:^4.2.0":
   version: 4.2.0
   resolution: "crypto-js@npm:4.2.0"
   checksum: 10/c7bcc56a6e01c3c397e95aa4a74e4241321f04677f9a618a8f48a63b5781617248afb9adb0629824792e7ec20ca0d4241a49b6b2938ae6f973ec4efc5c53c924
@@ -20377,7 +20569,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:10.4.5, glob@npm:^10.0.0, glob@npm:^10.2.2, glob@npm:^10.3.10, glob@npm:^10.3.7, glob@npm:^10.4.1, glob@npm:^10.4.5":
+"glob@npm:10.4.5, glob@npm:^10.0.0, glob@npm:^10.2.2, glob@npm:^10.3.10, glob@npm:^10.4.1, glob@npm:^10.4.5":
   version: 10.4.5
   resolution: "glob@npm:10.4.5"
   dependencies:
@@ -20420,6 +20612,22 @@ __metadata:
     once: "npm:^1.3.0"
     path-is-absolute: "npm:^1.0.0"
   checksum: 10/ff5aab0386e9cace92b0550d42085b71013c5ea382982dd7fdded998a559635f61413b8ba6fb7294eef289c83b52f4e64136f888300ac8afc4f3e5623182d6c8
+  languageName: node
+  linkType: hard
+
+"glob@npm:^11.0.0":
+  version: 11.0.2
+  resolution: "glob@npm:11.0.2"
+  dependencies:
+    foreground-child: "npm:^3.1.0"
+    jackspeak: "npm:^4.0.1"
+    minimatch: "npm:^10.0.0"
+    minipass: "npm:^7.1.2"
+    package-json-from-dist: "npm:^1.0.0"
+    path-scurry: "npm:^2.0.0"
+  bin:
+    glob: dist/esm/bin.mjs
+  checksum: 10/53501530240150fdceb9ace47ab856acd1e0d598f8101b0760b665fc11dae2160d366563b89232ae4f5df7ddba8f7c92294719268fe932bd3a32d16cc58c3d02
   languageName: node
   linkType: hard
 
@@ -26754,6 +26962,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prom-client@npm:^15.1.3":
+  version: 15.1.3
+  resolution: "prom-client@npm:15.1.3"
+  dependencies:
+    "@opentelemetry/api": "npm:^1.4.0"
+    tdigest: "npm:^0.1.1"
+  checksum: 10/eba75e15ab896845d39359e3a4d6f7913ea05339b3122d8dde8c8c374669ad1a1d1ab2694ab2101c420bd98086a564e4f2a18aa29018fc14a4732e57c1c19aec
+  languageName: node
+  linkType: hard
+
 "promise-retry@npm:^2.0.1":
   version: 2.0.1
   resolution: "promise-retry@npm:2.0.1"
@@ -28165,14 +28383,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:^5.0.5":
-  version: 5.0.10
-  resolution: "rimraf@npm:5.0.10"
+"rimraf@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "rimraf@npm:6.0.1"
   dependencies:
-    glob: "npm:^10.3.7"
+    glob: "npm:^11.0.0"
+    package-json-from-dist: "npm:^1.0.0"
   bin:
     rimraf: dist/esm/bin.mjs
-  checksum: 10/f3b8ce81eecbde4628b07bdf9e2fa8b684e0caea4999acb1e3b0402c695cd41f28cd075609a808e61ce2672f528ca079f675ab1d8e8d5f86d56643a03e0b8d2e
+  checksum: 10/0eb7edf08aa39017496c99ba675552dda11a20811ba78f8232da2ba945308c91e9cd673f95998b1a8202bc7436d33390831d23ea38ae52751038d56373ad99e2
   languageName: node
   linkType: hard
 
@@ -29229,7 +29448,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"string-width-cjs@npm:string-width@^4.2.0, string-width@npm:^1.0.2 || 2 || 3 || 4, string-width@npm:^4.1.0, string-width@npm:^4.2.0, string-width@npm:^4.2.3":
+"string-width-cjs@npm:string-width@^4.2.0, string-width@npm:^1.0.2 || 2 || 3 || 4, string-width@npm:^4.0.0, string-width@npm:^4.1.0, string-width@npm:^4.2.0, string-width@npm:^4.2.2, string-width@npm:^4.2.3":
   version: 4.2.3
   resolution: "string-width@npm:4.2.3"
   dependencies:
@@ -30205,9 +30424,13 @@ __metadata:
     "@the-new-fuse/port-manager-cli": "workspace:*"
     "@turbo/gen": "npm:^2.5.3"
     cross-env: "npm:^7.0.3"
+    crypto-js: "npm:^4.2.0"
     eslint: "npm:^8.56.0"
     express: "npm:^4.21.2"
     html-webpack-plugin: "npm:^5.6.0"
+    jsonwebtoken: "npm:^9.0.2"
+    passport: "npm:^0.7.0"
+    passport-jwt: "npm:^4.0.1"
     prisma: "npm:6.8.2"
     rimraf: "npm:^6.0.1"
     turbo: "npm:^2.5.3"
@@ -32339,6 +32562,15 @@ __metadata:
   dependencies:
     string-width: "npm:^1.0.2 || 2 || 3 || 4"
   checksum: 10/d5f8027b9a8255a493a94e4ec1b74a27bff6679d5ffe29316a3215e4712945c84ef73ca4045c7e20ae7d0c72f5f57f296e04a4928e773d4276a2f1222e4c2e99
+  languageName: node
+  linkType: hard
+
+"widest-line@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "widest-line@npm:3.1.0"
+  dependencies:
+    string-width: "npm:^4.0.0"
+  checksum: 10/03db6c9d0af9329c37d74378ff1d91972b12553c7d72a6f4e8525fe61563fa7adb0b9d6e8d546b7e059688712ea874edd5ded475999abdeedf708de9849310e0
   languageName: node
   linkType: hard
 
