@@ -1262,6 +1262,7 @@
       "name": "@the-new-fuse/ui-components",
       "version": "0.1.0",
       "dependencies": {
+        "@chakra-ui/react": "^2.8.2",
         "@emotion/react": "^11.11.3",
         "@emotion/styled": "^11.11.0",
         "@the-new-fuse/prompt-templating": "workspace:*",
@@ -1380,6 +1381,7 @@
       "version": "1.0.0",
       "dependencies": {
         "@prisma/client": "^6.10.1",
+        "@tnf/relay-core": "workspace:*",
         "events": "^3.3.0",
       },
       "devDependencies": {
@@ -1392,9 +1394,6 @@
         "rimraf": "^5.0.5",
         "ts-jest": "^29.1.1",
         "typescript": "^5.3.0",
-      },
-      "peerDependencies": {
-        "@tnf/relay-core": "^1.0.0",
       },
     },
     "tools/port-manager": {

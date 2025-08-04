@@ -934,7 +934,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/danielgoldberg/Desktop/A1-Inter-LLM-Com/The New Fuse/packages/database/generated/prisma",
+      "value": "/Users/danielgoldberg/Desktop/A1-Inter-LLM-Com/The-New-Fuse/packages/database/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -952,12 +952,11 @@ const config = {
       "fullTextSearchPostgres",
       "metrics"
     ],
-    "sourceFilePath": "/Users/danielgoldberg/Desktop/A1-Inter-LLM-Com/The New Fuse/packages/database/prisma/schema.prisma",
+    "sourceFilePath": "/Users/danielgoldberg/Desktop/A1-Inter-LLM-Com/The-New-Fuse/packages/database/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
-    "schemaEnvPath": "../../.env"
+    "rootEnvPath": null
   },
   "relativePath": "../../prisma",
   "clientVersion": "6.11.0",
