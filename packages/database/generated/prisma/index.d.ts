@@ -3785,7 +3785,7 @@ export namespace Prisma {
     messages: number
     codeExecutions: number
     pipelines: number
-    tasks: number
+    tasksAssigned: number
     workflows: number
     workflowSteps: number
   }
@@ -3795,7 +3795,7 @@ export namespace Prisma {
     messages?: boolean | AgentCountOutputTypeCountMessagesArgs
     codeExecutions?: boolean | AgentCountOutputTypeCountCodeExecutionsArgs
     pipelines?: boolean | AgentCountOutputTypeCountPipelinesArgs
-    tasks?: boolean | AgentCountOutputTypeCountTasksArgs
+    tasksAssigned?: boolean | AgentCountOutputTypeCountTasksAssignedArgs
     workflows?: boolean | AgentCountOutputTypeCountWorkflowsArgs
     workflowSteps?: boolean | AgentCountOutputTypeCountWorkflowStepsArgs
   }
@@ -3842,7 +3842,7 @@ export namespace Prisma {
   /**
    * AgentCountOutputType without action
    */
-  export type AgentCountOutputTypeCountTasksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AgentCountOutputTypeCountTasksAssignedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: TaskWhereInput
   }
 
@@ -9016,7 +9016,7 @@ export namespace Prisma {
     messages?: boolean | Agent$messagesArgs<ExtArgs>
     codeExecutions?: boolean | Agent$codeExecutionsArgs<ExtArgs>
     pipelines?: boolean | Agent$pipelinesArgs<ExtArgs>
-    tasks?: boolean | Agent$tasksArgs<ExtArgs>
+    tasksAssigned?: boolean | Agent$tasksAssignedArgs<ExtArgs>
     workflows?: boolean | Agent$workflowsArgs<ExtArgs>
     workflowSteps?: boolean | Agent$workflowStepsArgs<ExtArgs>
     _count?: boolean | AgentCountOutputTypeDefaultArgs<ExtArgs>
@@ -9082,7 +9082,7 @@ export namespace Prisma {
     messages?: boolean | Agent$messagesArgs<ExtArgs>
     codeExecutions?: boolean | Agent$codeExecutionsArgs<ExtArgs>
     pipelines?: boolean | Agent$pipelinesArgs<ExtArgs>
-    tasks?: boolean | Agent$tasksArgs<ExtArgs>
+    tasksAssigned?: boolean | Agent$tasksAssignedArgs<ExtArgs>
     workflows?: boolean | Agent$workflowsArgs<ExtArgs>
     workflowSteps?: boolean | Agent$workflowStepsArgs<ExtArgs>
     _count?: boolean | AgentCountOutputTypeDefaultArgs<ExtArgs>
@@ -9105,7 +9105,7 @@ export namespace Prisma {
       messages: Prisma.$MessagePayload<ExtArgs>[]
       codeExecutions: Prisma.$CodeExecutionUsagePayload<ExtArgs>[]
       pipelines: Prisma.$PipelinePayload<ExtArgs>[]
-      tasks: Prisma.$TaskPayload<ExtArgs>[]
+      tasksAssigned: Prisma.$TaskPayload<ExtArgs>[]
       workflows: Prisma.$WorkflowPayload<ExtArgs>[]
       workflowSteps: Prisma.$WorkflowStepPayload<ExtArgs>[]
     }
@@ -9525,7 +9525,7 @@ export namespace Prisma {
     messages<T extends Agent$messagesArgs<ExtArgs> = {}>(args?: Subset<T, Agent$messagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     codeExecutions<T extends Agent$codeExecutionsArgs<ExtArgs> = {}>(args?: Subset<T, Agent$codeExecutionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CodeExecutionUsagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     pipelines<T extends Agent$pipelinesArgs<ExtArgs> = {}>(args?: Subset<T, Agent$pipelinesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PipelinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    tasks<T extends Agent$tasksArgs<ExtArgs> = {}>(args?: Subset<T, Agent$tasksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    tasksAssigned<T extends Agent$tasksAssignedArgs<ExtArgs> = {}>(args?: Subset<T, Agent$tasksAssignedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     workflows<T extends Agent$workflowsArgs<ExtArgs> = {}>(args?: Subset<T, Agent$workflowsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WorkflowPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     workflowSteps<T extends Agent$workflowStepsArgs<ExtArgs> = {}>(args?: Subset<T, Agent$workflowStepsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WorkflowStepPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
@@ -10119,9 +10119,9 @@ export namespace Prisma {
   }
 
   /**
-   * Agent.tasks
+   * Agent.tasksAssigned
    */
-  export type Agent$tasksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Agent$tasksAssignedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Task
      */
@@ -10222,17 +10222,29 @@ export namespace Prisma {
   export type AgentMetadataMinAggregateOutputType = {
     id: string | null
     agentId: string | null
+    version: string | null
+    lastActive: Date | null
+    communicationStyle: string | null
   }
 
   export type AgentMetadataMaxAggregateOutputType = {
     id: string | null
     agentId: string | null
+    version: string | null
+    lastActive: Date | null
+    communicationStyle: string | null
   }
 
   export type AgentMetadataCountAggregateOutputType = {
     id: number
     agentId: number
     metadata: number
+    version: number
+    config: number
+    lastActive: number
+    personalityTraits: number
+    communicationStyle: number
+    expertiseAreas: number
     _all: number
   }
 
@@ -10240,17 +10252,29 @@ export namespace Prisma {
   export type AgentMetadataMinAggregateInputType = {
     id?: true
     agentId?: true
+    version?: true
+    lastActive?: true
+    communicationStyle?: true
   }
 
   export type AgentMetadataMaxAggregateInputType = {
     id?: true
     agentId?: true
+    version?: true
+    lastActive?: true
+    communicationStyle?: true
   }
 
   export type AgentMetadataCountAggregateInputType = {
     id?: true
     agentId?: true
     metadata?: true
+    version?: true
+    config?: true
+    lastActive?: true
+    personalityTraits?: true
+    communicationStyle?: true
+    expertiseAreas?: true
     _all?: true
   }
 
@@ -10330,6 +10354,12 @@ export namespace Prisma {
     id: string
     agentId: string
     metadata: JsonValue
+    version: string | null
+    config: JsonValue | null
+    lastActive: Date | null
+    personalityTraits: JsonValue | null
+    communicationStyle: string | null
+    expertiseAreas: string[]
     _count: AgentMetadataCountAggregateOutputType | null
     _min: AgentMetadataMinAggregateOutputType | null
     _max: AgentMetadataMaxAggregateOutputType | null
@@ -10353,6 +10383,12 @@ export namespace Prisma {
     id?: boolean
     agentId?: boolean
     metadata?: boolean
+    version?: boolean
+    config?: boolean
+    lastActive?: boolean
+    personalityTraits?: boolean
+    communicationStyle?: boolean
+    expertiseAreas?: boolean
     agent?: boolean | AgentDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["agentMetadata"]>
 
@@ -10360,6 +10396,12 @@ export namespace Prisma {
     id?: boolean
     agentId?: boolean
     metadata?: boolean
+    version?: boolean
+    config?: boolean
+    lastActive?: boolean
+    personalityTraits?: boolean
+    communicationStyle?: boolean
+    expertiseAreas?: boolean
     agent?: boolean | AgentDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["agentMetadata"]>
 
@@ -10367,6 +10409,12 @@ export namespace Prisma {
     id?: boolean
     agentId?: boolean
     metadata?: boolean
+    version?: boolean
+    config?: boolean
+    lastActive?: boolean
+    personalityTraits?: boolean
+    communicationStyle?: boolean
+    expertiseAreas?: boolean
     agent?: boolean | AgentDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["agentMetadata"]>
 
@@ -10374,9 +10422,15 @@ export namespace Prisma {
     id?: boolean
     agentId?: boolean
     metadata?: boolean
+    version?: boolean
+    config?: boolean
+    lastActive?: boolean
+    personalityTraits?: boolean
+    communicationStyle?: boolean
+    expertiseAreas?: boolean
   }
 
-  export type AgentMetadataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "agentId" | "metadata", ExtArgs["result"]["agentMetadata"]>
+  export type AgentMetadataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "agentId" | "metadata" | "version" | "config" | "lastActive" | "personalityTraits" | "communicationStyle" | "expertiseAreas", ExtArgs["result"]["agentMetadata"]>
   export type AgentMetadataInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     agent?: boolean | AgentDefaultArgs<ExtArgs>
   }
@@ -10396,6 +10450,12 @@ export namespace Prisma {
       id: string
       agentId: string
       metadata: Prisma.JsonValue
+      version: string | null
+      config: Prisma.JsonValue | null
+      lastActive: Date | null
+      personalityTraits: Prisma.JsonValue | null
+      communicationStyle: string | null
+      expertiseAreas: string[]
     }, ExtArgs["result"]["agentMetadata"]>
     composites: {}
   }
@@ -10823,6 +10883,12 @@ export namespace Prisma {
     readonly id: FieldRef<"AgentMetadata", 'String'>
     readonly agentId: FieldRef<"AgentMetadata", 'String'>
     readonly metadata: FieldRef<"AgentMetadata", 'Json'>
+    readonly version: FieldRef<"AgentMetadata", 'String'>
+    readonly config: FieldRef<"AgentMetadata", 'Json'>
+    readonly lastActive: FieldRef<"AgentMetadata", 'DateTime'>
+    readonly personalityTraits: FieldRef<"AgentMetadata", 'Json'>
+    readonly communicationStyle: FieldRef<"AgentMetadata", 'String'>
+    readonly expertiseAreas: FieldRef<"AgentMetadata", 'String[]'>
   }
     
 
@@ -20736,6 +20802,8 @@ export namespace Prisma {
 
   export type TaskMinAggregateOutputType = {
     id: string | null
+    title: string | null
+    description: string | null
     type: string | null
     status: $Enums.TaskStatus | null
     priority: $Enums.TaskPriority | null
@@ -20743,7 +20811,7 @@ export namespace Prisma {
     startTime: Date | null
     endTime: Date | null
     pipelineId: string | null
-    agentId: string | null
+    assignedToId: string | null
     userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -20752,6 +20820,8 @@ export namespace Prisma {
 
   export type TaskMaxAggregateOutputType = {
     id: string | null
+    title: string | null
+    description: string | null
     type: string | null
     status: $Enums.TaskStatus | null
     priority: $Enums.TaskPriority | null
@@ -20759,7 +20829,7 @@ export namespace Prisma {
     startTime: Date | null
     endTime: Date | null
     pipelineId: string | null
-    agentId: string | null
+    assignedToId: string | null
     userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -20768,6 +20838,8 @@ export namespace Prisma {
 
   export type TaskCountAggregateOutputType = {
     id: number
+    title: number
+    description: number
     type: number
     status: number
     priority: number
@@ -20777,17 +20849,20 @@ export namespace Prisma {
     startTime: number
     endTime: number
     pipelineId: number
-    agentId: number
+    assignedToId: number
     userId: number
     createdAt: number
     updatedAt: number
     deletedAt: number
+    metadata: number
     _all: number
   }
 
 
   export type TaskMinAggregateInputType = {
     id?: true
+    title?: true
+    description?: true
     type?: true
     status?: true
     priority?: true
@@ -20795,7 +20870,7 @@ export namespace Prisma {
     startTime?: true
     endTime?: true
     pipelineId?: true
-    agentId?: true
+    assignedToId?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
@@ -20804,6 +20879,8 @@ export namespace Prisma {
 
   export type TaskMaxAggregateInputType = {
     id?: true
+    title?: true
+    description?: true
     type?: true
     status?: true
     priority?: true
@@ -20811,7 +20888,7 @@ export namespace Prisma {
     startTime?: true
     endTime?: true
     pipelineId?: true
-    agentId?: true
+    assignedToId?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
@@ -20820,6 +20897,8 @@ export namespace Prisma {
 
   export type TaskCountAggregateInputType = {
     id?: true
+    title?: true
+    description?: true
     type?: true
     status?: true
     priority?: true
@@ -20829,11 +20908,12 @@ export namespace Prisma {
     startTime?: true
     endTime?: true
     pipelineId?: true
-    agentId?: true
+    assignedToId?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
+    metadata?: true
     _all?: true
   }
 
@@ -20911,6 +20991,8 @@ export namespace Prisma {
 
   export type TaskGroupByOutputType = {
     id: string
+    title: string | null
+    description: string | null
     type: string
     status: $Enums.TaskStatus
     priority: $Enums.TaskPriority
@@ -20919,12 +21001,13 @@ export namespace Prisma {
     error: string | null
     startTime: Date | null
     endTime: Date | null
-    pipelineId: string
-    agentId: string | null
+    pipelineId: string | null
+    assignedToId: string | null
     userId: string
     createdAt: Date
     updatedAt: Date
     deletedAt: Date | null
+    metadata: JsonValue | null
     _count: TaskCountAggregateOutputType | null
     _min: TaskMinAggregateOutputType | null
     _max: TaskMaxAggregateOutputType | null
@@ -20946,6 +21029,8 @@ export namespace Prisma {
 
   export type TaskSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    title?: boolean
+    description?: boolean
     type?: boolean
     status?: boolean
     priority?: boolean
@@ -20955,13 +21040,14 @@ export namespace Prisma {
     startTime?: boolean
     endTime?: boolean
     pipelineId?: boolean
-    agentId?: boolean
+    assignedToId?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
-    pipeline?: boolean | PipelineDefaultArgs<ExtArgs>
-    agent?: boolean | Task$agentArgs<ExtArgs>
+    metadata?: boolean
+    pipeline?: boolean | Task$pipelineArgs<ExtArgs>
+    assignedTo?: boolean | Task$assignedToArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
     taskExecutions?: boolean | Task$taskExecutionsArgs<ExtArgs>
     _count?: boolean | TaskCountOutputTypeDefaultArgs<ExtArgs>
@@ -20969,6 +21055,8 @@ export namespace Prisma {
 
   export type TaskSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    title?: boolean
+    description?: boolean
     type?: boolean
     status?: boolean
     priority?: boolean
@@ -20978,18 +21066,21 @@ export namespace Prisma {
     startTime?: boolean
     endTime?: boolean
     pipelineId?: boolean
-    agentId?: boolean
+    assignedToId?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
-    pipeline?: boolean | PipelineDefaultArgs<ExtArgs>
-    agent?: boolean | Task$agentArgs<ExtArgs>
+    metadata?: boolean
+    pipeline?: boolean | Task$pipelineArgs<ExtArgs>
+    assignedTo?: boolean | Task$assignedToArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["task"]>
 
   export type TaskSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    title?: boolean
+    description?: boolean
     type?: boolean
     status?: boolean
     priority?: boolean
@@ -20999,18 +21090,21 @@ export namespace Prisma {
     startTime?: boolean
     endTime?: boolean
     pipelineId?: boolean
-    agentId?: boolean
+    assignedToId?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
-    pipeline?: boolean | PipelineDefaultArgs<ExtArgs>
-    agent?: boolean | Task$agentArgs<ExtArgs>
+    metadata?: boolean
+    pipeline?: boolean | Task$pipelineArgs<ExtArgs>
+    assignedTo?: boolean | Task$assignedToArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["task"]>
 
   export type TaskSelectScalar = {
     id?: boolean
+    title?: boolean
+    description?: boolean
     type?: boolean
     status?: boolean
     priority?: boolean
@@ -21020,42 +21114,45 @@ export namespace Prisma {
     startTime?: boolean
     endTime?: boolean
     pipelineId?: boolean
-    agentId?: boolean
+    assignedToId?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
+    metadata?: boolean
   }
 
-  export type TaskOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type" | "status" | "priority" | "data" | "result" | "error" | "startTime" | "endTime" | "pipelineId" | "agentId" | "userId" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["task"]>
+  export type TaskOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "type" | "status" | "priority" | "data" | "result" | "error" | "startTime" | "endTime" | "pipelineId" | "assignedToId" | "userId" | "createdAt" | "updatedAt" | "deletedAt" | "metadata", ExtArgs["result"]["task"]>
   export type TaskInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    pipeline?: boolean | PipelineDefaultArgs<ExtArgs>
-    agent?: boolean | Task$agentArgs<ExtArgs>
+    pipeline?: boolean | Task$pipelineArgs<ExtArgs>
+    assignedTo?: boolean | Task$assignedToArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
     taskExecutions?: boolean | Task$taskExecutionsArgs<ExtArgs>
     _count?: boolean | TaskCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type TaskIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    pipeline?: boolean | PipelineDefaultArgs<ExtArgs>
-    agent?: boolean | Task$agentArgs<ExtArgs>
+    pipeline?: boolean | Task$pipelineArgs<ExtArgs>
+    assignedTo?: boolean | Task$assignedToArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type TaskIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    pipeline?: boolean | PipelineDefaultArgs<ExtArgs>
-    agent?: boolean | Task$agentArgs<ExtArgs>
+    pipeline?: boolean | Task$pipelineArgs<ExtArgs>
+    assignedTo?: boolean | Task$assignedToArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
   export type $TaskPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Task"
     objects: {
-      pipeline: Prisma.$PipelinePayload<ExtArgs>
-      agent: Prisma.$AgentPayload<ExtArgs> | null
+      pipeline: Prisma.$PipelinePayload<ExtArgs> | null
+      assignedTo: Prisma.$AgentPayload<ExtArgs> | null
       user: Prisma.$UserPayload<ExtArgs>
       taskExecutions: Prisma.$TaskExecutionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      title: string | null
+      description: string | null
       type: string
       status: $Enums.TaskStatus
       priority: $Enums.TaskPriority
@@ -21064,12 +21161,13 @@ export namespace Prisma {
       error: string | null
       startTime: Date | null
       endTime: Date | null
-      pipelineId: string
-      agentId: string | null
+      pipelineId: string | null
+      assignedToId: string | null
       userId: string
       createdAt: Date
       updatedAt: Date
       deletedAt: Date | null
+      metadata: Prisma.JsonValue | null
     }, ExtArgs["result"]["task"]>
     composites: {}
   }
@@ -21464,8 +21562,8 @@ export namespace Prisma {
    */
   export interface Prisma__TaskClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    pipeline<T extends PipelineDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PipelineDefaultArgs<ExtArgs>>): Prisma__PipelineClient<$Result.GetResult<Prisma.$PipelinePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    agent<T extends Task$agentArgs<ExtArgs> = {}>(args?: Subset<T, Task$agentArgs<ExtArgs>>): Prisma__AgentClient<$Result.GetResult<Prisma.$AgentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    pipeline<T extends Task$pipelineArgs<ExtArgs> = {}>(args?: Subset<T, Task$pipelineArgs<ExtArgs>>): Prisma__PipelineClient<$Result.GetResult<Prisma.$PipelinePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    assignedTo<T extends Task$assignedToArgs<ExtArgs> = {}>(args?: Subset<T, Task$assignedToArgs<ExtArgs>>): Prisma__AgentClient<$Result.GetResult<Prisma.$AgentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     taskExecutions<T extends Task$taskExecutionsArgs<ExtArgs> = {}>(args?: Subset<T, Task$taskExecutionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TaskExecutionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
@@ -21498,6 +21596,8 @@ export namespace Prisma {
    */
   interface TaskFieldRefs {
     readonly id: FieldRef<"Task", 'String'>
+    readonly title: FieldRef<"Task", 'String'>
+    readonly description: FieldRef<"Task", 'String'>
     readonly type: FieldRef<"Task", 'String'>
     readonly status: FieldRef<"Task", 'TaskStatus'>
     readonly priority: FieldRef<"Task", 'TaskPriority'>
@@ -21507,11 +21607,12 @@ export namespace Prisma {
     readonly startTime: FieldRef<"Task", 'DateTime'>
     readonly endTime: FieldRef<"Task", 'DateTime'>
     readonly pipelineId: FieldRef<"Task", 'String'>
-    readonly agentId: FieldRef<"Task", 'String'>
+    readonly assignedToId: FieldRef<"Task", 'String'>
     readonly userId: FieldRef<"Task", 'String'>
     readonly createdAt: FieldRef<"Task", 'DateTime'>
     readonly updatedAt: FieldRef<"Task", 'DateTime'>
     readonly deletedAt: FieldRef<"Task", 'DateTime'>
+    readonly metadata: FieldRef<"Task", 'Json'>
   }
     
 
@@ -21908,9 +22009,28 @@ export namespace Prisma {
   }
 
   /**
-   * Task.agent
+   * Task.pipeline
    */
-  export type Task$agentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Task$pipelineArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pipeline
+     */
+    select?: PipelineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pipeline
+     */
+    omit?: PipelineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PipelineInclude<ExtArgs> | null
+    where?: PipelineWhereInput
+  }
+
+  /**
+   * Task.assignedTo
+   */
+  export type Task$assignedToArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Agent
      */
@@ -37282,7 +37402,13 @@ export namespace Prisma {
   export const AgentMetadataScalarFieldEnum: {
     id: 'id',
     agentId: 'agentId',
-    metadata: 'metadata'
+    metadata: 'metadata',
+    version: 'version',
+    config: 'config',
+    lastActive: 'lastActive',
+    personalityTraits: 'personalityTraits',
+    communicationStyle: 'communicationStyle',
+    expertiseAreas: 'expertiseAreas'
   };
 
   export type AgentMetadataScalarFieldEnum = (typeof AgentMetadataScalarFieldEnum)[keyof typeof AgentMetadataScalarFieldEnum]
@@ -37431,6 +37557,8 @@ export namespace Prisma {
 
   export const TaskScalarFieldEnum: {
     id: 'id',
+    title: 'title',
+    description: 'description',
     type: 'type',
     status: 'status',
     priority: 'priority',
@@ -37440,11 +37568,12 @@ export namespace Prisma {
     startTime: 'startTime',
     endTime: 'endTime',
     pipelineId: 'pipelineId',
-    agentId: 'agentId',
+    assignedToId: 'assignedToId',
     userId: 'userId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
-    deletedAt: 'deletedAt'
+    deletedAt: 'deletedAt',
+    metadata: 'metadata'
   };
 
   export type TaskScalarFieldEnum = (typeof TaskScalarFieldEnum)[keyof typeof TaskScalarFieldEnum]
@@ -37776,7 +37905,10 @@ export namespace Prisma {
 
   export const AgentMetadataOrderByRelevanceFieldEnum: {
     id: 'id',
-    agentId: 'agentId'
+    agentId: 'agentId',
+    version: 'version',
+    communicationStyle: 'communicationStyle',
+    expertiseAreas: 'expertiseAreas'
   };
 
   export type AgentMetadataOrderByRelevanceFieldEnum = (typeof AgentMetadataOrderByRelevanceFieldEnum)[keyof typeof AgentMetadataOrderByRelevanceFieldEnum]
@@ -37871,10 +38003,12 @@ export namespace Prisma {
 
   export const TaskOrderByRelevanceFieldEnum: {
     id: 'id',
+    title: 'title',
+    description: 'description',
     type: 'type',
     error: 'error',
     pipelineId: 'pipelineId',
-    agentId: 'agentId',
+    assignedToId: 'assignedToId',
     userId: 'userId'
   };
 
@@ -38722,7 +38856,7 @@ export namespace Prisma {
     messages?: MessageListRelationFilter
     codeExecutions?: CodeExecutionUsageListRelationFilter
     pipelines?: PipelineListRelationFilter
-    tasks?: TaskListRelationFilter
+    tasksAssigned?: TaskListRelationFilter
     workflows?: WorkflowListRelationFilter
     workflowSteps?: WorkflowStepListRelationFilter
   }
@@ -38749,7 +38883,7 @@ export namespace Prisma {
     messages?: MessageOrderByRelationAggregateInput
     codeExecutions?: CodeExecutionUsageOrderByRelationAggregateInput
     pipelines?: PipelineOrderByRelationAggregateInput
-    tasks?: TaskOrderByRelationAggregateInput
+    tasksAssigned?: TaskOrderByRelationAggregateInput
     workflows?: WorkflowOrderByRelationAggregateInput
     workflowSteps?: WorkflowStepOrderByRelationAggregateInput
     _relevance?: AgentOrderByRelevanceInput
@@ -38780,7 +38914,7 @@ export namespace Prisma {
     messages?: MessageListRelationFilter
     codeExecutions?: CodeExecutionUsageListRelationFilter
     pipelines?: PipelineListRelationFilter
-    tasks?: TaskListRelationFilter
+    tasksAssigned?: TaskListRelationFilter
     workflows?: WorkflowListRelationFilter
     workflowSteps?: WorkflowStepListRelationFilter
   }, "id">
@@ -38830,6 +38964,12 @@ export namespace Prisma {
     id?: StringFilter<"AgentMetadata"> | string
     agentId?: StringFilter<"AgentMetadata"> | string
     metadata?: JsonFilter<"AgentMetadata">
+    version?: StringNullableFilter<"AgentMetadata"> | string | null
+    config?: JsonNullableFilter<"AgentMetadata">
+    lastActive?: DateTimeNullableFilter<"AgentMetadata"> | Date | string | null
+    personalityTraits?: JsonNullableFilter<"AgentMetadata">
+    communicationStyle?: StringNullableFilter<"AgentMetadata"> | string | null
+    expertiseAreas?: StringNullableListFilter<"AgentMetadata">
     agent?: XOR<AgentScalarRelationFilter, AgentWhereInput>
   }
 
@@ -38837,6 +38977,12 @@ export namespace Prisma {
     id?: SortOrder
     agentId?: SortOrder
     metadata?: SortOrder
+    version?: SortOrderInput | SortOrder
+    config?: SortOrderInput | SortOrder
+    lastActive?: SortOrderInput | SortOrder
+    personalityTraits?: SortOrderInput | SortOrder
+    communicationStyle?: SortOrderInput | SortOrder
+    expertiseAreas?: SortOrder
     agent?: AgentOrderByWithRelationInput
     _relevance?: AgentMetadataOrderByRelevanceInput
   }
@@ -38848,6 +38994,12 @@ export namespace Prisma {
     OR?: AgentMetadataWhereInput[]
     NOT?: AgentMetadataWhereInput | AgentMetadataWhereInput[]
     metadata?: JsonFilter<"AgentMetadata">
+    version?: StringNullableFilter<"AgentMetadata"> | string | null
+    config?: JsonNullableFilter<"AgentMetadata">
+    lastActive?: DateTimeNullableFilter<"AgentMetadata"> | Date | string | null
+    personalityTraits?: JsonNullableFilter<"AgentMetadata">
+    communicationStyle?: StringNullableFilter<"AgentMetadata"> | string | null
+    expertiseAreas?: StringNullableListFilter<"AgentMetadata">
     agent?: XOR<AgentScalarRelationFilter, AgentWhereInput>
   }, "id" | "agentId">
 
@@ -38855,6 +39007,12 @@ export namespace Prisma {
     id?: SortOrder
     agentId?: SortOrder
     metadata?: SortOrder
+    version?: SortOrderInput | SortOrder
+    config?: SortOrderInput | SortOrder
+    lastActive?: SortOrderInput | SortOrder
+    personalityTraits?: SortOrderInput | SortOrder
+    communicationStyle?: SortOrderInput | SortOrder
+    expertiseAreas?: SortOrder
     _count?: AgentMetadataCountOrderByAggregateInput
     _max?: AgentMetadataMaxOrderByAggregateInput
     _min?: AgentMetadataMinOrderByAggregateInput
@@ -38867,6 +39025,12 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"AgentMetadata"> | string
     agentId?: StringWithAggregatesFilter<"AgentMetadata"> | string
     metadata?: JsonWithAggregatesFilter<"AgentMetadata">
+    version?: StringNullableWithAggregatesFilter<"AgentMetadata"> | string | null
+    config?: JsonNullableWithAggregatesFilter<"AgentMetadata">
+    lastActive?: DateTimeNullableWithAggregatesFilter<"AgentMetadata"> | Date | string | null
+    personalityTraits?: JsonNullableWithAggregatesFilter<"AgentMetadata">
+    communicationStyle?: StringNullableWithAggregatesFilter<"AgentMetadata"> | string | null
+    expertiseAreas?: StringNullableListFilter<"AgentMetadata">
   }
 
   export type ChatWhereInput = {
@@ -39627,6 +39791,8 @@ export namespace Prisma {
     OR?: TaskWhereInput[]
     NOT?: TaskWhereInput | TaskWhereInput[]
     id?: StringFilter<"Task"> | string
+    title?: StringNullableFilter<"Task"> | string | null
+    description?: StringNullableFilter<"Task"> | string | null
     type?: StringFilter<"Task"> | string
     status?: EnumTaskStatusFilter<"Task"> | $Enums.TaskStatus
     priority?: EnumTaskPriorityFilter<"Task"> | $Enums.TaskPriority
@@ -39635,20 +39801,23 @@ export namespace Prisma {
     error?: StringNullableFilter<"Task"> | string | null
     startTime?: DateTimeNullableFilter<"Task"> | Date | string | null
     endTime?: DateTimeNullableFilter<"Task"> | Date | string | null
-    pipelineId?: StringFilter<"Task"> | string
-    agentId?: StringNullableFilter<"Task"> | string | null
+    pipelineId?: StringNullableFilter<"Task"> | string | null
+    assignedToId?: StringNullableFilter<"Task"> | string | null
     userId?: StringFilter<"Task"> | string
     createdAt?: DateTimeFilter<"Task"> | Date | string
     updatedAt?: DateTimeFilter<"Task"> | Date | string
     deletedAt?: DateTimeNullableFilter<"Task"> | Date | string | null
-    pipeline?: XOR<PipelineScalarRelationFilter, PipelineWhereInput>
-    agent?: XOR<AgentNullableScalarRelationFilter, AgentWhereInput> | null
+    metadata?: JsonNullableFilter<"Task">
+    pipeline?: XOR<PipelineNullableScalarRelationFilter, PipelineWhereInput> | null
+    assignedTo?: XOR<AgentNullableScalarRelationFilter, AgentWhereInput> | null
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     taskExecutions?: TaskExecutionListRelationFilter
   }
 
   export type TaskOrderByWithRelationInput = {
     id?: SortOrder
+    title?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
     type?: SortOrder
     status?: SortOrder
     priority?: SortOrder
@@ -39657,14 +39826,15 @@ export namespace Prisma {
     error?: SortOrderInput | SortOrder
     startTime?: SortOrderInput | SortOrder
     endTime?: SortOrderInput | SortOrder
-    pipelineId?: SortOrder
-    agentId?: SortOrderInput | SortOrder
+    pipelineId?: SortOrderInput | SortOrder
+    assignedToId?: SortOrderInput | SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
+    metadata?: SortOrderInput | SortOrder
     pipeline?: PipelineOrderByWithRelationInput
-    agent?: AgentOrderByWithRelationInput
+    assignedTo?: AgentOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
     taskExecutions?: TaskExecutionOrderByRelationAggregateInput
     _relevance?: TaskOrderByRelevanceInput
@@ -39675,6 +39845,8 @@ export namespace Prisma {
     AND?: TaskWhereInput | TaskWhereInput[]
     OR?: TaskWhereInput[]
     NOT?: TaskWhereInput | TaskWhereInput[]
+    title?: StringNullableFilter<"Task"> | string | null
+    description?: StringNullableFilter<"Task"> | string | null
     type?: StringFilter<"Task"> | string
     status?: EnumTaskStatusFilter<"Task"> | $Enums.TaskStatus
     priority?: EnumTaskPriorityFilter<"Task"> | $Enums.TaskPriority
@@ -39683,20 +39855,23 @@ export namespace Prisma {
     error?: StringNullableFilter<"Task"> | string | null
     startTime?: DateTimeNullableFilter<"Task"> | Date | string | null
     endTime?: DateTimeNullableFilter<"Task"> | Date | string | null
-    pipelineId?: StringFilter<"Task"> | string
-    agentId?: StringNullableFilter<"Task"> | string | null
+    pipelineId?: StringNullableFilter<"Task"> | string | null
+    assignedToId?: StringNullableFilter<"Task"> | string | null
     userId?: StringFilter<"Task"> | string
     createdAt?: DateTimeFilter<"Task"> | Date | string
     updatedAt?: DateTimeFilter<"Task"> | Date | string
     deletedAt?: DateTimeNullableFilter<"Task"> | Date | string | null
-    pipeline?: XOR<PipelineScalarRelationFilter, PipelineWhereInput>
-    agent?: XOR<AgentNullableScalarRelationFilter, AgentWhereInput> | null
+    metadata?: JsonNullableFilter<"Task">
+    pipeline?: XOR<PipelineNullableScalarRelationFilter, PipelineWhereInput> | null
+    assignedTo?: XOR<AgentNullableScalarRelationFilter, AgentWhereInput> | null
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     taskExecutions?: TaskExecutionListRelationFilter
   }, "id">
 
   export type TaskOrderByWithAggregationInput = {
     id?: SortOrder
+    title?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
     type?: SortOrder
     status?: SortOrder
     priority?: SortOrder
@@ -39705,12 +39880,13 @@ export namespace Prisma {
     error?: SortOrderInput | SortOrder
     startTime?: SortOrderInput | SortOrder
     endTime?: SortOrderInput | SortOrder
-    pipelineId?: SortOrder
-    agentId?: SortOrderInput | SortOrder
+    pipelineId?: SortOrderInput | SortOrder
+    assignedToId?: SortOrderInput | SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
+    metadata?: SortOrderInput | SortOrder
     _count?: TaskCountOrderByAggregateInput
     _max?: TaskMaxOrderByAggregateInput
     _min?: TaskMinOrderByAggregateInput
@@ -39721,6 +39897,8 @@ export namespace Prisma {
     OR?: TaskScalarWhereWithAggregatesInput[]
     NOT?: TaskScalarWhereWithAggregatesInput | TaskScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Task"> | string
+    title?: StringNullableWithAggregatesFilter<"Task"> | string | null
+    description?: StringNullableWithAggregatesFilter<"Task"> | string | null
     type?: StringWithAggregatesFilter<"Task"> | string
     status?: EnumTaskStatusWithAggregatesFilter<"Task"> | $Enums.TaskStatus
     priority?: EnumTaskPriorityWithAggregatesFilter<"Task"> | $Enums.TaskPriority
@@ -39729,12 +39907,13 @@ export namespace Prisma {
     error?: StringNullableWithAggregatesFilter<"Task"> | string | null
     startTime?: DateTimeNullableWithAggregatesFilter<"Task"> | Date | string | null
     endTime?: DateTimeNullableWithAggregatesFilter<"Task"> | Date | string | null
-    pipelineId?: StringWithAggregatesFilter<"Task"> | string
-    agentId?: StringNullableWithAggregatesFilter<"Task"> | string | null
+    pipelineId?: StringNullableWithAggregatesFilter<"Task"> | string | null
+    assignedToId?: StringNullableWithAggregatesFilter<"Task"> | string | null
     userId?: StringWithAggregatesFilter<"Task"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Task"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Task"> | Date | string
     deletedAt?: DateTimeNullableWithAggregatesFilter<"Task"> | Date | string | null
+    metadata?: JsonNullableWithAggregatesFilter<"Task">
   }
 
   export type TaskExecutionWhereInput = {
@@ -41254,7 +41433,7 @@ export namespace Prisma {
     messages?: MessageCreateNestedManyWithoutAgentInput
     codeExecutions?: CodeExecutionUsageCreateNestedManyWithoutAgentInput
     pipelines?: PipelineCreateNestedManyWithoutAgentInput
-    tasks?: TaskCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskCreateNestedManyWithoutAssignedToInput
     workflows?: WorkflowCreateNestedManyWithoutAgentInput
     workflowSteps?: WorkflowStepCreateNestedManyWithoutAgentInput
   }
@@ -41280,7 +41459,7 @@ export namespace Prisma {
     messages?: MessageUncheckedCreateNestedManyWithoutAgentInput
     codeExecutions?: CodeExecutionUsageUncheckedCreateNestedManyWithoutAgentInput
     pipelines?: PipelineUncheckedCreateNestedManyWithoutAgentInput
-    tasks?: TaskUncheckedCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskUncheckedCreateNestedManyWithoutAssignedToInput
     workflows?: WorkflowUncheckedCreateNestedManyWithoutAgentInput
     workflowSteps?: WorkflowStepUncheckedCreateNestedManyWithoutAgentInput
   }
@@ -41306,7 +41485,7 @@ export namespace Prisma {
     messages?: MessageUpdateManyWithoutAgentNestedInput
     codeExecutions?: CodeExecutionUsageUpdateManyWithoutAgentNestedInput
     pipelines?: PipelineUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUpdateManyWithoutAssignedToNestedInput
     workflows?: WorkflowUpdateManyWithoutAgentNestedInput
     workflowSteps?: WorkflowStepUpdateManyWithoutAgentNestedInput
   }
@@ -41332,7 +41511,7 @@ export namespace Prisma {
     messages?: MessageUncheckedUpdateManyWithoutAgentNestedInput
     codeExecutions?: CodeExecutionUsageUncheckedUpdateManyWithoutAgentNestedInput
     pipelines?: PipelineUncheckedUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUncheckedUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUncheckedUpdateManyWithoutAssignedToNestedInput
     workflows?: WorkflowUncheckedUpdateManyWithoutAgentNestedInput
     workflowSteps?: WorkflowStepUncheckedUpdateManyWithoutAgentNestedInput
   }
@@ -41387,6 +41566,12 @@ export namespace Prisma {
   export type AgentMetadataCreateInput = {
     id?: string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: string | null
+    config?: NullableJsonNullValueInput | InputJsonValue
+    lastActive?: Date | string | null
+    personalityTraits?: NullableJsonNullValueInput | InputJsonValue
+    communicationStyle?: string | null
+    expertiseAreas?: AgentMetadataCreateexpertiseAreasInput | string[]
     agent: AgentCreateNestedOneWithoutMetadataInput
   }
 
@@ -41394,11 +41579,23 @@ export namespace Prisma {
     id?: string
     agentId: string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: string | null
+    config?: NullableJsonNullValueInput | InputJsonValue
+    lastActive?: Date | string | null
+    personalityTraits?: NullableJsonNullValueInput | InputJsonValue
+    communicationStyle?: string | null
+    expertiseAreas?: AgentMetadataCreateexpertiseAreasInput | string[]
   }
 
   export type AgentMetadataUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: NullableStringFieldUpdateOperationsInput | string | null
+    config?: NullableJsonNullValueInput | InputJsonValue
+    lastActive?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    personalityTraits?: NullableJsonNullValueInput | InputJsonValue
+    communicationStyle?: NullableStringFieldUpdateOperationsInput | string | null
+    expertiseAreas?: AgentMetadataUpdateexpertiseAreasInput | string[]
     agent?: AgentUpdateOneRequiredWithoutMetadataNestedInput
   }
 
@@ -41406,23 +41603,47 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     agentId?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: NullableStringFieldUpdateOperationsInput | string | null
+    config?: NullableJsonNullValueInput | InputJsonValue
+    lastActive?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    personalityTraits?: NullableJsonNullValueInput | InputJsonValue
+    communicationStyle?: NullableStringFieldUpdateOperationsInput | string | null
+    expertiseAreas?: AgentMetadataUpdateexpertiseAreasInput | string[]
   }
 
   export type AgentMetadataCreateManyInput = {
     id?: string
     agentId: string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: string | null
+    config?: NullableJsonNullValueInput | InputJsonValue
+    lastActive?: Date | string | null
+    personalityTraits?: NullableJsonNullValueInput | InputJsonValue
+    communicationStyle?: string | null
+    expertiseAreas?: AgentMetadataCreateexpertiseAreasInput | string[]
   }
 
   export type AgentMetadataUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: NullableStringFieldUpdateOperationsInput | string | null
+    config?: NullableJsonNullValueInput | InputJsonValue
+    lastActive?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    personalityTraits?: NullableJsonNullValueInput | InputJsonValue
+    communicationStyle?: NullableStringFieldUpdateOperationsInput | string | null
+    expertiseAreas?: AgentMetadataUpdateexpertiseAreasInput | string[]
   }
 
   export type AgentMetadataUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     agentId?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: NullableStringFieldUpdateOperationsInput | string | null
+    config?: NullableJsonNullValueInput | InputJsonValue
+    lastActive?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    personalityTraits?: NullableJsonNullValueInput | InputJsonValue
+    communicationStyle?: NullableStringFieldUpdateOperationsInput | string | null
+    expertiseAreas?: AgentMetadataUpdateexpertiseAreasInput | string[]
   }
 
   export type ChatCreateInput = {
@@ -42256,6 +42477,8 @@ export namespace Prisma {
 
   export type TaskCreateInput = {
     id?: string
+    title?: string | null
+    description?: string | null
     type: string
     status?: $Enums.TaskStatus
     priority?: $Enums.TaskPriority
@@ -42267,14 +42490,17 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
-    pipeline: PipelineCreateNestedOneWithoutTasksInput
-    agent?: AgentCreateNestedOneWithoutTasksInput
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    pipeline?: PipelineCreateNestedOneWithoutTasksInput
+    assignedTo?: AgentCreateNestedOneWithoutTasksAssignedInput
     user: UserCreateNestedOneWithoutTasksInput
     taskExecutions?: TaskExecutionCreateNestedManyWithoutTaskInput
   }
 
   export type TaskUncheckedCreateInput = {
     id?: string
+    title?: string | null
+    description?: string | null
     type: string
     status?: $Enums.TaskStatus
     priority?: $Enums.TaskPriority
@@ -42283,17 +42509,20 @@ export namespace Prisma {
     error?: string | null
     startTime?: Date | string | null
     endTime?: Date | string | null
-    pipelineId: string
-    agentId?: string | null
+    pipelineId?: string | null
+    assignedToId?: string | null
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     taskExecutions?: TaskExecutionUncheckedCreateNestedManyWithoutTaskInput
   }
 
   export type TaskUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
     status?: EnumTaskStatusFieldUpdateOperationsInput | $Enums.TaskStatus
     priority?: EnumTaskPriorityFieldUpdateOperationsInput | $Enums.TaskPriority
@@ -42305,14 +42534,17 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    pipeline?: PipelineUpdateOneRequiredWithoutTasksNestedInput
-    agent?: AgentUpdateOneWithoutTasksNestedInput
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    pipeline?: PipelineUpdateOneWithoutTasksNestedInput
+    assignedTo?: AgentUpdateOneWithoutTasksAssignedNestedInput
     user?: UserUpdateOneRequiredWithoutTasksNestedInput
     taskExecutions?: TaskExecutionUpdateManyWithoutTaskNestedInput
   }
 
   export type TaskUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
     status?: EnumTaskStatusFieldUpdateOperationsInput | $Enums.TaskStatus
     priority?: EnumTaskPriorityFieldUpdateOperationsInput | $Enums.TaskPriority
@@ -42321,17 +42553,20 @@ export namespace Prisma {
     error?: NullableStringFieldUpdateOperationsInput | string | null
     startTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    pipelineId?: StringFieldUpdateOperationsInput | string
-    agentId?: NullableStringFieldUpdateOperationsInput | string | null
+    pipelineId?: NullableStringFieldUpdateOperationsInput | string | null
+    assignedToId?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     taskExecutions?: TaskExecutionUncheckedUpdateManyWithoutTaskNestedInput
   }
 
   export type TaskCreateManyInput = {
     id?: string
+    title?: string | null
+    description?: string | null
     type: string
     status?: $Enums.TaskStatus
     priority?: $Enums.TaskPriority
@@ -42340,16 +42575,19 @@ export namespace Prisma {
     error?: string | null
     startTime?: Date | string | null
     endTime?: Date | string | null
-    pipelineId: string
-    agentId?: string | null
+    pipelineId?: string | null
+    assignedToId?: string | null
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type TaskUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
     status?: EnumTaskStatusFieldUpdateOperationsInput | $Enums.TaskStatus
     priority?: EnumTaskPriorityFieldUpdateOperationsInput | $Enums.TaskPriority
@@ -42361,10 +42599,13 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type TaskUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
     status?: EnumTaskStatusFieldUpdateOperationsInput | $Enums.TaskStatus
     priority?: EnumTaskPriorityFieldUpdateOperationsInput | $Enums.TaskPriority
@@ -42373,12 +42614,13 @@ export namespace Prisma {
     error?: NullableStringFieldUpdateOperationsInput | string | null
     startTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    pipelineId?: StringFieldUpdateOperationsInput | string
-    agentId?: NullableStringFieldUpdateOperationsInput | string | null
+    pipelineId?: NullableStringFieldUpdateOperationsInput | string | null
+    assignedToId?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type TaskExecutionCreateInput = {
@@ -44308,6 +44550,14 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
   export type AgentScalarRelationFilter = {
     is?: AgentWhereInput
     isNot?: AgentWhereInput
@@ -44323,16 +44573,28 @@ export namespace Prisma {
     id?: SortOrder
     agentId?: SortOrder
     metadata?: SortOrder
+    version?: SortOrder
+    config?: SortOrder
+    lastActive?: SortOrder
+    personalityTraits?: SortOrder
+    communicationStyle?: SortOrder
+    expertiseAreas?: SortOrder
   }
 
   export type AgentMetadataMaxOrderByAggregateInput = {
     id?: SortOrder
     agentId?: SortOrder
+    version?: SortOrder
+    lastActive?: SortOrder
+    communicationStyle?: SortOrder
   }
 
   export type AgentMetadataMinOrderByAggregateInput = {
     id?: SortOrder
     agentId?: SortOrder
+    version?: SortOrder
+    lastActive?: SortOrder
+    communicationStyle?: SortOrder
   }
   export type JsonWithAggregatesFilter<$PrismaModel = never> =
     | PatchUndefined<
@@ -44449,14 +44711,6 @@ export namespace Prisma {
     in?: $Enums.MessageRole[] | ListEnumMessageRoleFieldRefInput<$PrismaModel>
     notIn?: $Enums.MessageRole[] | ListEnumMessageRoleFieldRefInput<$PrismaModel>
     not?: NestedEnumMessageRoleFilter<$PrismaModel> | $Enums.MessageRole
-  }
-
-  export type StringNullableListFilter<$PrismaModel = never> = {
-    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    has?: string | StringFieldRefInput<$PrismaModel> | null
-    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
-    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
-    isEmpty?: boolean
   }
 
   export type UserNullableScalarRelationFilter = {
@@ -44900,9 +45154,9 @@ export namespace Prisma {
     not?: NestedEnumTaskPriorityFilter<$PrismaModel> | $Enums.TaskPriority
   }
 
-  export type PipelineScalarRelationFilter = {
-    is?: PipelineWhereInput
-    isNot?: PipelineWhereInput
+  export type PipelineNullableScalarRelationFilter = {
+    is?: PipelineWhereInput | null
+    isNot?: PipelineWhereInput | null
   }
 
   export type TaskExecutionListRelationFilter = {
@@ -44923,6 +45177,8 @@ export namespace Prisma {
 
   export type TaskCountOrderByAggregateInput = {
     id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
     type?: SortOrder
     status?: SortOrder
     priority?: SortOrder
@@ -44932,15 +45188,18 @@ export namespace Prisma {
     startTime?: SortOrder
     endTime?: SortOrder
     pipelineId?: SortOrder
-    agentId?: SortOrder
+    assignedToId?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
+    metadata?: SortOrder
   }
 
   export type TaskMaxOrderByAggregateInput = {
     id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
     type?: SortOrder
     status?: SortOrder
     priority?: SortOrder
@@ -44948,7 +45207,7 @@ export namespace Prisma {
     startTime?: SortOrder
     endTime?: SortOrder
     pipelineId?: SortOrder
-    agentId?: SortOrder
+    assignedToId?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -44957,6 +45216,8 @@ export namespace Prisma {
 
   export type TaskMinOrderByAggregateInput = {
     id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
     type?: SortOrder
     status?: SortOrder
     priority?: SortOrder
@@ -44964,7 +45225,7 @@ export namespace Prisma {
     startTime?: SortOrder
     endTime?: SortOrder
     pipelineId?: SortOrder
-    agentId?: SortOrder
+    assignedToId?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -46562,10 +46823,10 @@ export namespace Prisma {
     connect?: PipelineWhereUniqueInput | PipelineWhereUniqueInput[]
   }
 
-  export type TaskCreateNestedManyWithoutAgentInput = {
-    create?: XOR<TaskCreateWithoutAgentInput, TaskUncheckedCreateWithoutAgentInput> | TaskCreateWithoutAgentInput[] | TaskUncheckedCreateWithoutAgentInput[]
-    connectOrCreate?: TaskCreateOrConnectWithoutAgentInput | TaskCreateOrConnectWithoutAgentInput[]
-    createMany?: TaskCreateManyAgentInputEnvelope
+  export type TaskCreateNestedManyWithoutAssignedToInput = {
+    create?: XOR<TaskCreateWithoutAssignedToInput, TaskUncheckedCreateWithoutAssignedToInput> | TaskCreateWithoutAssignedToInput[] | TaskUncheckedCreateWithoutAssignedToInput[]
+    connectOrCreate?: TaskCreateOrConnectWithoutAssignedToInput | TaskCreateOrConnectWithoutAssignedToInput[]
+    createMany?: TaskCreateManyAssignedToInputEnvelope
     connect?: TaskWhereUniqueInput | TaskWhereUniqueInput[]
   }
 
@@ -46629,10 +46890,10 @@ export namespace Prisma {
     connect?: PipelineWhereUniqueInput | PipelineWhereUniqueInput[]
   }
 
-  export type TaskUncheckedCreateNestedManyWithoutAgentInput = {
-    create?: XOR<TaskCreateWithoutAgentInput, TaskUncheckedCreateWithoutAgentInput> | TaskCreateWithoutAgentInput[] | TaskUncheckedCreateWithoutAgentInput[]
-    connectOrCreate?: TaskCreateOrConnectWithoutAgentInput | TaskCreateOrConnectWithoutAgentInput[]
-    createMany?: TaskCreateManyAgentInputEnvelope
+  export type TaskUncheckedCreateNestedManyWithoutAssignedToInput = {
+    create?: XOR<TaskCreateWithoutAssignedToInput, TaskUncheckedCreateWithoutAssignedToInput> | TaskCreateWithoutAssignedToInput[] | TaskUncheckedCreateWithoutAssignedToInput[]
+    connectOrCreate?: TaskCreateOrConnectWithoutAssignedToInput | TaskCreateOrConnectWithoutAssignedToInput[]
+    createMany?: TaskCreateManyAssignedToInputEnvelope
     connect?: TaskWhereUniqueInput | TaskWhereUniqueInput[]
   }
 
@@ -46757,17 +47018,17 @@ export namespace Prisma {
     deleteMany?: PipelineScalarWhereInput | PipelineScalarWhereInput[]
   }
 
-  export type TaskUpdateManyWithoutAgentNestedInput = {
-    create?: XOR<TaskCreateWithoutAgentInput, TaskUncheckedCreateWithoutAgentInput> | TaskCreateWithoutAgentInput[] | TaskUncheckedCreateWithoutAgentInput[]
-    connectOrCreate?: TaskCreateOrConnectWithoutAgentInput | TaskCreateOrConnectWithoutAgentInput[]
-    upsert?: TaskUpsertWithWhereUniqueWithoutAgentInput | TaskUpsertWithWhereUniqueWithoutAgentInput[]
-    createMany?: TaskCreateManyAgentInputEnvelope
+  export type TaskUpdateManyWithoutAssignedToNestedInput = {
+    create?: XOR<TaskCreateWithoutAssignedToInput, TaskUncheckedCreateWithoutAssignedToInput> | TaskCreateWithoutAssignedToInput[] | TaskUncheckedCreateWithoutAssignedToInput[]
+    connectOrCreate?: TaskCreateOrConnectWithoutAssignedToInput | TaskCreateOrConnectWithoutAssignedToInput[]
+    upsert?: TaskUpsertWithWhereUniqueWithoutAssignedToInput | TaskUpsertWithWhereUniqueWithoutAssignedToInput[]
+    createMany?: TaskCreateManyAssignedToInputEnvelope
     set?: TaskWhereUniqueInput | TaskWhereUniqueInput[]
     disconnect?: TaskWhereUniqueInput | TaskWhereUniqueInput[]
     delete?: TaskWhereUniqueInput | TaskWhereUniqueInput[]
     connect?: TaskWhereUniqueInput | TaskWhereUniqueInput[]
-    update?: TaskUpdateWithWhereUniqueWithoutAgentInput | TaskUpdateWithWhereUniqueWithoutAgentInput[]
-    updateMany?: TaskUpdateManyWithWhereWithoutAgentInput | TaskUpdateManyWithWhereWithoutAgentInput[]
+    update?: TaskUpdateWithWhereUniqueWithoutAssignedToInput | TaskUpdateWithWhereUniqueWithoutAssignedToInput[]
+    updateMany?: TaskUpdateManyWithWhereWithoutAssignedToInput | TaskUpdateManyWithWhereWithoutAssignedToInput[]
     deleteMany?: TaskScalarWhereInput | TaskScalarWhereInput[]
   }
 
@@ -46885,17 +47146,17 @@ export namespace Prisma {
     deleteMany?: PipelineScalarWhereInput | PipelineScalarWhereInput[]
   }
 
-  export type TaskUncheckedUpdateManyWithoutAgentNestedInput = {
-    create?: XOR<TaskCreateWithoutAgentInput, TaskUncheckedCreateWithoutAgentInput> | TaskCreateWithoutAgentInput[] | TaskUncheckedCreateWithoutAgentInput[]
-    connectOrCreate?: TaskCreateOrConnectWithoutAgentInput | TaskCreateOrConnectWithoutAgentInput[]
-    upsert?: TaskUpsertWithWhereUniqueWithoutAgentInput | TaskUpsertWithWhereUniqueWithoutAgentInput[]
-    createMany?: TaskCreateManyAgentInputEnvelope
+  export type TaskUncheckedUpdateManyWithoutAssignedToNestedInput = {
+    create?: XOR<TaskCreateWithoutAssignedToInput, TaskUncheckedCreateWithoutAssignedToInput> | TaskCreateWithoutAssignedToInput[] | TaskUncheckedCreateWithoutAssignedToInput[]
+    connectOrCreate?: TaskCreateOrConnectWithoutAssignedToInput | TaskCreateOrConnectWithoutAssignedToInput[]
+    upsert?: TaskUpsertWithWhereUniqueWithoutAssignedToInput | TaskUpsertWithWhereUniqueWithoutAssignedToInput[]
+    createMany?: TaskCreateManyAssignedToInputEnvelope
     set?: TaskWhereUniqueInput | TaskWhereUniqueInput[]
     disconnect?: TaskWhereUniqueInput | TaskWhereUniqueInput[]
     delete?: TaskWhereUniqueInput | TaskWhereUniqueInput[]
     connect?: TaskWhereUniqueInput | TaskWhereUniqueInput[]
-    update?: TaskUpdateWithWhereUniqueWithoutAgentInput | TaskUpdateWithWhereUniqueWithoutAgentInput[]
-    updateMany?: TaskUpdateManyWithWhereWithoutAgentInput | TaskUpdateManyWithWhereWithoutAgentInput[]
+    update?: TaskUpdateWithWhereUniqueWithoutAssignedToInput | TaskUpdateWithWhereUniqueWithoutAssignedToInput[]
+    updateMany?: TaskUpdateManyWithWhereWithoutAssignedToInput | TaskUpdateManyWithWhereWithoutAssignedToInput[]
     deleteMany?: TaskScalarWhereInput | TaskScalarWhereInput[]
   }
 
@@ -46927,10 +47188,19 @@ export namespace Prisma {
     deleteMany?: WorkflowStepScalarWhereInput | WorkflowStepScalarWhereInput[]
   }
 
+  export type AgentMetadataCreateexpertiseAreasInput = {
+    set: string[]
+  }
+
   export type AgentCreateNestedOneWithoutMetadataInput = {
     create?: XOR<AgentCreateWithoutMetadataInput, AgentUncheckedCreateWithoutMetadataInput>
     connectOrCreate?: AgentCreateOrConnectWithoutMetadataInput
     connect?: AgentWhereUniqueInput
+  }
+
+  export type AgentMetadataUpdateexpertiseAreasInput = {
+    set?: string[]
+    push?: string | string[]
   }
 
   export type AgentUpdateOneRequiredWithoutMetadataNestedInput = {
@@ -47455,9 +47725,9 @@ export namespace Prisma {
     connect?: PipelineWhereUniqueInput
   }
 
-  export type AgentCreateNestedOneWithoutTasksInput = {
-    create?: XOR<AgentCreateWithoutTasksInput, AgentUncheckedCreateWithoutTasksInput>
-    connectOrCreate?: AgentCreateOrConnectWithoutTasksInput
+  export type AgentCreateNestedOneWithoutTasksAssignedInput = {
+    create?: XOR<AgentCreateWithoutTasksAssignedInput, AgentUncheckedCreateWithoutTasksAssignedInput>
+    connectOrCreate?: AgentCreateOrConnectWithoutTasksAssignedInput
     connect?: AgentWhereUniqueInput
   }
 
@@ -47489,22 +47759,24 @@ export namespace Prisma {
     set?: $Enums.TaskPriority
   }
 
-  export type PipelineUpdateOneRequiredWithoutTasksNestedInput = {
+  export type PipelineUpdateOneWithoutTasksNestedInput = {
     create?: XOR<PipelineCreateWithoutTasksInput, PipelineUncheckedCreateWithoutTasksInput>
     connectOrCreate?: PipelineCreateOrConnectWithoutTasksInput
     upsert?: PipelineUpsertWithoutTasksInput
+    disconnect?: PipelineWhereInput | boolean
+    delete?: PipelineWhereInput | boolean
     connect?: PipelineWhereUniqueInput
     update?: XOR<XOR<PipelineUpdateToOneWithWhereWithoutTasksInput, PipelineUpdateWithoutTasksInput>, PipelineUncheckedUpdateWithoutTasksInput>
   }
 
-  export type AgentUpdateOneWithoutTasksNestedInput = {
-    create?: XOR<AgentCreateWithoutTasksInput, AgentUncheckedCreateWithoutTasksInput>
-    connectOrCreate?: AgentCreateOrConnectWithoutTasksInput
-    upsert?: AgentUpsertWithoutTasksInput
+  export type AgentUpdateOneWithoutTasksAssignedNestedInput = {
+    create?: XOR<AgentCreateWithoutTasksAssignedInput, AgentUncheckedCreateWithoutTasksAssignedInput>
+    connectOrCreate?: AgentCreateOrConnectWithoutTasksAssignedInput
+    upsert?: AgentUpsertWithoutTasksAssignedInput
     disconnect?: AgentWhereInput | boolean
     delete?: AgentWhereInput | boolean
     connect?: AgentWhereUniqueInput
-    update?: XOR<XOR<AgentUpdateToOneWithWhereWithoutTasksInput, AgentUpdateWithoutTasksInput>, AgentUncheckedUpdateWithoutTasksInput>
+    update?: XOR<XOR<AgentUpdateToOneWithWhereWithoutTasksAssignedInput, AgentUpdateWithoutTasksAssignedInput>, AgentUncheckedUpdateWithoutTasksAssignedInput>
   }
 
   export type UserUpdateOneRequiredWithoutTasksNestedInput = {
@@ -48676,7 +48948,7 @@ export namespace Prisma {
     messages?: MessageCreateNestedManyWithoutAgentInput
     codeExecutions?: CodeExecutionUsageCreateNestedManyWithoutAgentInput
     pipelines?: PipelineCreateNestedManyWithoutAgentInput
-    tasks?: TaskCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskCreateNestedManyWithoutAssignedToInput
     workflows?: WorkflowCreateNestedManyWithoutAgentInput
     workflowSteps?: WorkflowStepCreateNestedManyWithoutAgentInput
   }
@@ -48701,7 +48973,7 @@ export namespace Prisma {
     messages?: MessageUncheckedCreateNestedManyWithoutAgentInput
     codeExecutions?: CodeExecutionUsageUncheckedCreateNestedManyWithoutAgentInput
     pipelines?: PipelineUncheckedCreateNestedManyWithoutAgentInput
-    tasks?: TaskUncheckedCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskUncheckedCreateNestedManyWithoutAssignedToInput
     workflows?: WorkflowUncheckedCreateNestedManyWithoutAgentInput
     workflowSteps?: WorkflowStepUncheckedCreateNestedManyWithoutAgentInput
   }
@@ -48754,6 +49026,8 @@ export namespace Prisma {
 
   export type TaskCreateWithoutUserInput = {
     id?: string
+    title?: string | null
+    description?: string | null
     type: string
     status?: $Enums.TaskStatus
     priority?: $Enums.TaskPriority
@@ -48765,13 +49039,16 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
-    pipeline: PipelineCreateNestedOneWithoutTasksInput
-    agent?: AgentCreateNestedOneWithoutTasksInput
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    pipeline?: PipelineCreateNestedOneWithoutTasksInput
+    assignedTo?: AgentCreateNestedOneWithoutTasksAssignedInput
     taskExecutions?: TaskExecutionCreateNestedManyWithoutTaskInput
   }
 
   export type TaskUncheckedCreateWithoutUserInput = {
     id?: string
+    title?: string | null
+    description?: string | null
     type: string
     status?: $Enums.TaskStatus
     priority?: $Enums.TaskPriority
@@ -48780,11 +49057,12 @@ export namespace Prisma {
     error?: string | null
     startTime?: Date | string | null
     endTime?: Date | string | null
-    pipelineId: string
-    agentId?: string | null
+    pipelineId?: string | null
+    assignedToId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     taskExecutions?: TaskExecutionUncheckedCreateNestedManyWithoutTaskInput
   }
 
@@ -49098,6 +49376,8 @@ export namespace Prisma {
     OR?: TaskScalarWhereInput[]
     NOT?: TaskScalarWhereInput | TaskScalarWhereInput[]
     id?: StringFilter<"Task"> | string
+    title?: StringNullableFilter<"Task"> | string | null
+    description?: StringNullableFilter<"Task"> | string | null
     type?: StringFilter<"Task"> | string
     status?: EnumTaskStatusFilter<"Task"> | $Enums.TaskStatus
     priority?: EnumTaskPriorityFilter<"Task"> | $Enums.TaskPriority
@@ -49106,12 +49386,13 @@ export namespace Prisma {
     error?: StringNullableFilter<"Task"> | string | null
     startTime?: DateTimeNullableFilter<"Task"> | Date | string | null
     endTime?: DateTimeNullableFilter<"Task"> | Date | string | null
-    pipelineId?: StringFilter<"Task"> | string
-    agentId?: StringNullableFilter<"Task"> | string | null
+    pipelineId?: StringNullableFilter<"Task"> | string | null
+    assignedToId?: StringNullableFilter<"Task"> | string | null
     userId?: StringFilter<"Task"> | string
     createdAt?: DateTimeFilter<"Task"> | Date | string
     updatedAt?: DateTimeFilter<"Task"> | Date | string
     deletedAt?: DateTimeNullableFilter<"Task"> | Date | string | null
+    metadata?: JsonNullableFilter<"Task">
   }
 
   export type WorkflowUpsertWithWhereUniqueWithoutCreatorInput = {
@@ -49726,11 +50007,23 @@ export namespace Prisma {
   export type AgentMetadataCreateWithoutAgentInput = {
     id?: string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: string | null
+    config?: NullableJsonNullValueInput | InputJsonValue
+    lastActive?: Date | string | null
+    personalityTraits?: NullableJsonNullValueInput | InputJsonValue
+    communicationStyle?: string | null
+    expertiseAreas?: AgentMetadataCreateexpertiseAreasInput | string[]
   }
 
   export type AgentMetadataUncheckedCreateWithoutAgentInput = {
     id?: string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: string | null
+    config?: NullableJsonNullValueInput | InputJsonValue
+    lastActive?: Date | string | null
+    personalityTraits?: NullableJsonNullValueInput | InputJsonValue
+    communicationStyle?: string | null
+    expertiseAreas?: AgentMetadataCreateexpertiseAreasInput | string[]
   }
 
   export type AgentMetadataCreateOrConnectWithoutAgentInput = {
@@ -49968,8 +50261,10 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type TaskCreateWithoutAgentInput = {
+  export type TaskCreateWithoutAssignedToInput = {
     id?: string
+    title?: string | null
+    description?: string | null
     type: string
     status?: $Enums.TaskStatus
     priority?: $Enums.TaskPriority
@@ -49981,13 +50276,16 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
-    pipeline: PipelineCreateNestedOneWithoutTasksInput
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    pipeline?: PipelineCreateNestedOneWithoutTasksInput
     user: UserCreateNestedOneWithoutTasksInput
     taskExecutions?: TaskExecutionCreateNestedManyWithoutTaskInput
   }
 
-  export type TaskUncheckedCreateWithoutAgentInput = {
+  export type TaskUncheckedCreateWithoutAssignedToInput = {
     id?: string
+    title?: string | null
+    description?: string | null
     type: string
     status?: $Enums.TaskStatus
     priority?: $Enums.TaskPriority
@@ -49996,21 +50294,22 @@ export namespace Prisma {
     error?: string | null
     startTime?: Date | string | null
     endTime?: Date | string | null
-    pipelineId: string
+    pipelineId?: string | null
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     taskExecutions?: TaskExecutionUncheckedCreateNestedManyWithoutTaskInput
   }
 
-  export type TaskCreateOrConnectWithoutAgentInput = {
+  export type TaskCreateOrConnectWithoutAssignedToInput = {
     where: TaskWhereUniqueInput
-    create: XOR<TaskCreateWithoutAgentInput, TaskUncheckedCreateWithoutAgentInput>
+    create: XOR<TaskCreateWithoutAssignedToInput, TaskUncheckedCreateWithoutAssignedToInput>
   }
 
-  export type TaskCreateManyAgentInputEnvelope = {
-    data: TaskCreateManyAgentInput | TaskCreateManyAgentInput[]
+  export type TaskCreateManyAssignedToInputEnvelope = {
+    data: TaskCreateManyAssignedToInput | TaskCreateManyAssignedToInput[]
     skipDuplicates?: boolean
   }
 
@@ -50189,11 +50488,23 @@ export namespace Prisma {
   export type AgentMetadataUpdateWithoutAgentInput = {
     id?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: NullableStringFieldUpdateOperationsInput | string | null
+    config?: NullableJsonNullValueInput | InputJsonValue
+    lastActive?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    personalityTraits?: NullableJsonNullValueInput | InputJsonValue
+    communicationStyle?: NullableStringFieldUpdateOperationsInput | string | null
+    expertiseAreas?: AgentMetadataUpdateexpertiseAreasInput | string[]
   }
 
   export type AgentMetadataUncheckedUpdateWithoutAgentInput = {
     id?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: NullableStringFieldUpdateOperationsInput | string | null
+    config?: NullableJsonNullValueInput | InputJsonValue
+    lastActive?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    personalityTraits?: NullableJsonNullValueInput | InputJsonValue
+    communicationStyle?: NullableStringFieldUpdateOperationsInput | string | null
+    expertiseAreas?: AgentMetadataUpdateexpertiseAreasInput | string[]
   }
 
   export type AgentNFTUpsertWithoutAgentInput = {
@@ -50375,20 +50686,20 @@ export namespace Prisma {
     data: XOR<PipelineUpdateManyMutationInput, PipelineUncheckedUpdateManyWithoutAgentInput>
   }
 
-  export type TaskUpsertWithWhereUniqueWithoutAgentInput = {
+  export type TaskUpsertWithWhereUniqueWithoutAssignedToInput = {
     where: TaskWhereUniqueInput
-    update: XOR<TaskUpdateWithoutAgentInput, TaskUncheckedUpdateWithoutAgentInput>
-    create: XOR<TaskCreateWithoutAgentInput, TaskUncheckedCreateWithoutAgentInput>
+    update: XOR<TaskUpdateWithoutAssignedToInput, TaskUncheckedUpdateWithoutAssignedToInput>
+    create: XOR<TaskCreateWithoutAssignedToInput, TaskUncheckedCreateWithoutAssignedToInput>
   }
 
-  export type TaskUpdateWithWhereUniqueWithoutAgentInput = {
+  export type TaskUpdateWithWhereUniqueWithoutAssignedToInput = {
     where: TaskWhereUniqueInput
-    data: XOR<TaskUpdateWithoutAgentInput, TaskUncheckedUpdateWithoutAgentInput>
+    data: XOR<TaskUpdateWithoutAssignedToInput, TaskUncheckedUpdateWithoutAssignedToInput>
   }
 
-  export type TaskUpdateManyWithWhereWithoutAgentInput = {
+  export type TaskUpdateManyWithWhereWithoutAssignedToInput = {
     where: TaskScalarWhereInput
-    data: XOR<TaskUpdateManyMutationInput, TaskUncheckedUpdateManyWithoutAgentInput>
+    data: XOR<TaskUpdateManyMutationInput, TaskUncheckedUpdateManyWithoutAssignedToInput>
   }
 
   export type WorkflowUpsertWithWhereUniqueWithoutAgentInput = {
@@ -50465,7 +50776,7 @@ export namespace Prisma {
     messages?: MessageCreateNestedManyWithoutAgentInput
     codeExecutions?: CodeExecutionUsageCreateNestedManyWithoutAgentInput
     pipelines?: PipelineCreateNestedManyWithoutAgentInput
-    tasks?: TaskCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskCreateNestedManyWithoutAssignedToInput
     workflows?: WorkflowCreateNestedManyWithoutAgentInput
     workflowSteps?: WorkflowStepCreateNestedManyWithoutAgentInput
   }
@@ -50490,7 +50801,7 @@ export namespace Prisma {
     messages?: MessageUncheckedCreateNestedManyWithoutAgentInput
     codeExecutions?: CodeExecutionUsageUncheckedCreateNestedManyWithoutAgentInput
     pipelines?: PipelineUncheckedCreateNestedManyWithoutAgentInput
-    tasks?: TaskUncheckedCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskUncheckedCreateNestedManyWithoutAssignedToInput
     workflows?: WorkflowUncheckedCreateNestedManyWithoutAgentInput
     workflowSteps?: WorkflowStepUncheckedCreateNestedManyWithoutAgentInput
   }
@@ -50531,7 +50842,7 @@ export namespace Prisma {
     messages?: MessageUpdateManyWithoutAgentNestedInput
     codeExecutions?: CodeExecutionUsageUpdateManyWithoutAgentNestedInput
     pipelines?: PipelineUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUpdateManyWithoutAssignedToNestedInput
     workflows?: WorkflowUpdateManyWithoutAgentNestedInput
     workflowSteps?: WorkflowStepUpdateManyWithoutAgentNestedInput
   }
@@ -50556,7 +50867,7 @@ export namespace Prisma {
     messages?: MessageUncheckedUpdateManyWithoutAgentNestedInput
     codeExecutions?: CodeExecutionUsageUncheckedUpdateManyWithoutAgentNestedInput
     pipelines?: PipelineUncheckedUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUncheckedUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUncheckedUpdateManyWithoutAssignedToNestedInput
     workflows?: WorkflowUncheckedUpdateManyWithoutAgentNestedInput
     workflowSteps?: WorkflowStepUncheckedUpdateManyWithoutAgentNestedInput
   }
@@ -50581,7 +50892,7 @@ export namespace Prisma {
     messages?: MessageCreateNestedManyWithoutAgentInput
     codeExecutions?: CodeExecutionUsageCreateNestedManyWithoutAgentInput
     pipelines?: PipelineCreateNestedManyWithoutAgentInput
-    tasks?: TaskCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskCreateNestedManyWithoutAssignedToInput
     workflows?: WorkflowCreateNestedManyWithoutAgentInput
     workflowSteps?: WorkflowStepCreateNestedManyWithoutAgentInput
   }
@@ -50606,7 +50917,7 @@ export namespace Prisma {
     messages?: MessageUncheckedCreateNestedManyWithoutAgentInput
     codeExecutions?: CodeExecutionUsageUncheckedCreateNestedManyWithoutAgentInput
     pipelines?: PipelineUncheckedCreateNestedManyWithoutAgentInput
-    tasks?: TaskUncheckedCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskUncheckedCreateNestedManyWithoutAssignedToInput
     workflows?: WorkflowUncheckedCreateNestedManyWithoutAgentInput
     workflowSteps?: WorkflowStepUncheckedCreateNestedManyWithoutAgentInput
   }
@@ -50695,7 +51006,7 @@ export namespace Prisma {
     messages?: MessageUpdateManyWithoutAgentNestedInput
     codeExecutions?: CodeExecutionUsageUpdateManyWithoutAgentNestedInput
     pipelines?: PipelineUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUpdateManyWithoutAssignedToNestedInput
     workflows?: WorkflowUpdateManyWithoutAgentNestedInput
     workflowSteps?: WorkflowStepUpdateManyWithoutAgentNestedInput
   }
@@ -50720,7 +51031,7 @@ export namespace Prisma {
     messages?: MessageUncheckedUpdateManyWithoutAgentNestedInput
     codeExecutions?: CodeExecutionUsageUncheckedUpdateManyWithoutAgentNestedInput
     pipelines?: PipelineUncheckedUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUncheckedUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUncheckedUpdateManyWithoutAssignedToNestedInput
     workflows?: WorkflowUncheckedUpdateManyWithoutAgentNestedInput
     workflowSteps?: WorkflowStepUncheckedUpdateManyWithoutAgentNestedInput
   }
@@ -51002,7 +51313,7 @@ export namespace Prisma {
     chats?: ChatCreateNestedManyWithoutAgentInput
     codeExecutions?: CodeExecutionUsageCreateNestedManyWithoutAgentInput
     pipelines?: PipelineCreateNestedManyWithoutAgentInput
-    tasks?: TaskCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskCreateNestedManyWithoutAssignedToInput
     workflows?: WorkflowCreateNestedManyWithoutAgentInput
     workflowSteps?: WorkflowStepCreateNestedManyWithoutAgentInput
   }
@@ -51027,7 +51338,7 @@ export namespace Prisma {
     chats?: ChatUncheckedCreateNestedManyWithoutAgentInput
     codeExecutions?: CodeExecutionUsageUncheckedCreateNestedManyWithoutAgentInput
     pipelines?: PipelineUncheckedCreateNestedManyWithoutAgentInput
-    tasks?: TaskUncheckedCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskUncheckedCreateNestedManyWithoutAssignedToInput
     workflows?: WorkflowUncheckedCreateNestedManyWithoutAgentInput
     workflowSteps?: WorkflowStepUncheckedCreateNestedManyWithoutAgentInput
   }
@@ -51282,7 +51593,7 @@ export namespace Prisma {
     chats?: ChatUpdateManyWithoutAgentNestedInput
     codeExecutions?: CodeExecutionUsageUpdateManyWithoutAgentNestedInput
     pipelines?: PipelineUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUpdateManyWithoutAssignedToNestedInput
     workflows?: WorkflowUpdateManyWithoutAgentNestedInput
     workflowSteps?: WorkflowStepUpdateManyWithoutAgentNestedInput
   }
@@ -51307,7 +51618,7 @@ export namespace Prisma {
     chats?: ChatUncheckedUpdateManyWithoutAgentNestedInput
     codeExecutions?: CodeExecutionUsageUncheckedUpdateManyWithoutAgentNestedInput
     pipelines?: PipelineUncheckedUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUncheckedUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUncheckedUpdateManyWithoutAssignedToNestedInput
     workflows?: WorkflowUncheckedUpdateManyWithoutAgentNestedInput
     workflowSteps?: WorkflowStepUncheckedUpdateManyWithoutAgentNestedInput
   }
@@ -51527,7 +51838,7 @@ export namespace Prisma {
     messages?: MessageCreateNestedManyWithoutAgentInput
     codeExecutions?: CodeExecutionUsageCreateNestedManyWithoutAgentInput
     pipelines?: PipelineCreateNestedManyWithoutAgentInput
-    tasks?: TaskCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskCreateNestedManyWithoutAssignedToInput
     workflowSteps?: WorkflowStepCreateNestedManyWithoutAgentInput
   }
 
@@ -51552,7 +51863,7 @@ export namespace Prisma {
     messages?: MessageUncheckedCreateNestedManyWithoutAgentInput
     codeExecutions?: CodeExecutionUsageUncheckedCreateNestedManyWithoutAgentInput
     pipelines?: PipelineUncheckedCreateNestedManyWithoutAgentInput
-    tasks?: TaskUncheckedCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskUncheckedCreateNestedManyWithoutAssignedToInput
     workflowSteps?: WorkflowStepUncheckedCreateNestedManyWithoutAgentInput
   }
 
@@ -51732,7 +52043,7 @@ export namespace Prisma {
     messages?: MessageUpdateManyWithoutAgentNestedInput
     codeExecutions?: CodeExecutionUsageUpdateManyWithoutAgentNestedInput
     pipelines?: PipelineUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUpdateManyWithoutAssignedToNestedInput
     workflowSteps?: WorkflowStepUpdateManyWithoutAgentNestedInput
   }
 
@@ -51757,7 +52068,7 @@ export namespace Prisma {
     messages?: MessageUncheckedUpdateManyWithoutAgentNestedInput
     codeExecutions?: CodeExecutionUsageUncheckedUpdateManyWithoutAgentNestedInput
     pipelines?: PipelineUncheckedUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUncheckedUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUncheckedUpdateManyWithoutAssignedToNestedInput
     workflowSteps?: WorkflowStepUncheckedUpdateManyWithoutAgentNestedInput
   }
 
@@ -51875,7 +52186,7 @@ export namespace Prisma {
     messages?: MessageCreateNestedManyWithoutAgentInput
     codeExecutions?: CodeExecutionUsageCreateNestedManyWithoutAgentInput
     pipelines?: PipelineCreateNestedManyWithoutAgentInput
-    tasks?: TaskCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskCreateNestedManyWithoutAssignedToInput
     workflows?: WorkflowCreateNestedManyWithoutAgentInput
   }
 
@@ -51900,7 +52211,7 @@ export namespace Prisma {
     messages?: MessageUncheckedCreateNestedManyWithoutAgentInput
     codeExecutions?: CodeExecutionUsageUncheckedCreateNestedManyWithoutAgentInput
     pipelines?: PipelineUncheckedCreateNestedManyWithoutAgentInput
-    tasks?: TaskUncheckedCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskUncheckedCreateNestedManyWithoutAssignedToInput
     workflows?: WorkflowUncheckedCreateNestedManyWithoutAgentInput
   }
 
@@ -51994,7 +52305,7 @@ export namespace Prisma {
     messages?: MessageUpdateManyWithoutAgentNestedInput
     codeExecutions?: CodeExecutionUsageUpdateManyWithoutAgentNestedInput
     pipelines?: PipelineUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUpdateManyWithoutAssignedToNestedInput
     workflows?: WorkflowUpdateManyWithoutAgentNestedInput
   }
 
@@ -52019,7 +52330,7 @@ export namespace Prisma {
     messages?: MessageUncheckedUpdateManyWithoutAgentNestedInput
     codeExecutions?: CodeExecutionUsageUncheckedUpdateManyWithoutAgentNestedInput
     pipelines?: PipelineUncheckedUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUncheckedUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUncheckedUpdateManyWithoutAssignedToNestedInput
     workflows?: WorkflowUncheckedUpdateManyWithoutAgentNestedInput
   }
 
@@ -52200,7 +52511,7 @@ export namespace Prisma {
     chats?: ChatCreateNestedManyWithoutAgentInput
     messages?: MessageCreateNestedManyWithoutAgentInput
     codeExecutions?: CodeExecutionUsageCreateNestedManyWithoutAgentInput
-    tasks?: TaskCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskCreateNestedManyWithoutAssignedToInput
     workflows?: WorkflowCreateNestedManyWithoutAgentInput
     workflowSteps?: WorkflowStepCreateNestedManyWithoutAgentInput
   }
@@ -52225,7 +52536,7 @@ export namespace Prisma {
     chats?: ChatUncheckedCreateNestedManyWithoutAgentInput
     messages?: MessageUncheckedCreateNestedManyWithoutAgentInput
     codeExecutions?: CodeExecutionUsageUncheckedCreateNestedManyWithoutAgentInput
-    tasks?: TaskUncheckedCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskUncheckedCreateNestedManyWithoutAssignedToInput
     workflows?: WorkflowUncheckedCreateNestedManyWithoutAgentInput
     workflowSteps?: WorkflowStepUncheckedCreateNestedManyWithoutAgentInput
   }
@@ -52237,6 +52548,8 @@ export namespace Prisma {
 
   export type TaskCreateWithoutPipelineInput = {
     id?: string
+    title?: string | null
+    description?: string | null
     type: string
     status?: $Enums.TaskStatus
     priority?: $Enums.TaskPriority
@@ -52248,13 +52561,16 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
-    agent?: AgentCreateNestedOneWithoutTasksInput
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    assignedTo?: AgentCreateNestedOneWithoutTasksAssignedInput
     user: UserCreateNestedOneWithoutTasksInput
     taskExecutions?: TaskExecutionCreateNestedManyWithoutTaskInput
   }
 
   export type TaskUncheckedCreateWithoutPipelineInput = {
     id?: string
+    title?: string | null
+    description?: string | null
     type: string
     status?: $Enums.TaskStatus
     priority?: $Enums.TaskPriority
@@ -52263,11 +52579,12 @@ export namespace Prisma {
     error?: string | null
     startTime?: Date | string | null
     endTime?: Date | string | null
-    agentId?: string | null
+    assignedToId?: string | null
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     taskExecutions?: TaskExecutionUncheckedCreateNestedManyWithoutTaskInput
   }
 
@@ -52375,7 +52692,7 @@ export namespace Prisma {
     chats?: ChatUpdateManyWithoutAgentNestedInput
     messages?: MessageUpdateManyWithoutAgentNestedInput
     codeExecutions?: CodeExecutionUsageUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUpdateManyWithoutAssignedToNestedInput
     workflows?: WorkflowUpdateManyWithoutAgentNestedInput
     workflowSteps?: WorkflowStepUpdateManyWithoutAgentNestedInput
   }
@@ -52400,7 +52717,7 @@ export namespace Prisma {
     chats?: ChatUncheckedUpdateManyWithoutAgentNestedInput
     messages?: MessageUncheckedUpdateManyWithoutAgentNestedInput
     codeExecutions?: CodeExecutionUsageUncheckedUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUncheckedUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUncheckedUpdateManyWithoutAssignedToNestedInput
     workflows?: WorkflowUncheckedUpdateManyWithoutAgentNestedInput
     workflowSteps?: WorkflowStepUncheckedUpdateManyWithoutAgentNestedInput
   }
@@ -52452,7 +52769,7 @@ export namespace Prisma {
     create: XOR<PipelineCreateWithoutTasksInput, PipelineUncheckedCreateWithoutTasksInput>
   }
 
-  export type AgentCreateWithoutTasksInput = {
+  export type AgentCreateWithoutTasksAssignedInput = {
     id?: string
     name: string
     type: $Enums.AgentType
@@ -52477,7 +52794,7 @@ export namespace Prisma {
     workflowSteps?: WorkflowStepCreateNestedManyWithoutAgentInput
   }
 
-  export type AgentUncheckedCreateWithoutTasksInput = {
+  export type AgentUncheckedCreateWithoutTasksAssignedInput = {
     id?: string
     name: string
     type: $Enums.AgentType
@@ -52502,9 +52819,9 @@ export namespace Prisma {
     workflowSteps?: WorkflowStepUncheckedCreateNestedManyWithoutAgentInput
   }
 
-  export type AgentCreateOrConnectWithoutTasksInput = {
+  export type AgentCreateOrConnectWithoutTasksAssignedInput = {
     where: AgentWhereUniqueInput
-    create: XOR<AgentCreateWithoutTasksInput, AgentUncheckedCreateWithoutTasksInput>
+    create: XOR<AgentCreateWithoutTasksAssignedInput, AgentUncheckedCreateWithoutTasksAssignedInput>
   }
 
   export type UserCreateWithoutTasksInput = {
@@ -52629,18 +52946,18 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type AgentUpsertWithoutTasksInput = {
-    update: XOR<AgentUpdateWithoutTasksInput, AgentUncheckedUpdateWithoutTasksInput>
-    create: XOR<AgentCreateWithoutTasksInput, AgentUncheckedCreateWithoutTasksInput>
+  export type AgentUpsertWithoutTasksAssignedInput = {
+    update: XOR<AgentUpdateWithoutTasksAssignedInput, AgentUncheckedUpdateWithoutTasksAssignedInput>
+    create: XOR<AgentCreateWithoutTasksAssignedInput, AgentUncheckedCreateWithoutTasksAssignedInput>
     where?: AgentWhereInput
   }
 
-  export type AgentUpdateToOneWithWhereWithoutTasksInput = {
+  export type AgentUpdateToOneWithWhereWithoutTasksAssignedInput = {
     where?: AgentWhereInput
-    data: XOR<AgentUpdateWithoutTasksInput, AgentUncheckedUpdateWithoutTasksInput>
+    data: XOR<AgentUpdateWithoutTasksAssignedInput, AgentUncheckedUpdateWithoutTasksAssignedInput>
   }
 
-  export type AgentUpdateWithoutTasksInput = {
+  export type AgentUpdateWithoutTasksAssignedInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     type?: EnumAgentTypeFieldUpdateOperationsInput | $Enums.AgentType
@@ -52665,7 +52982,7 @@ export namespace Prisma {
     workflowSteps?: WorkflowStepUpdateManyWithoutAgentNestedInput
   }
 
-  export type AgentUncheckedUpdateWithoutTasksInput = {
+  export type AgentUncheckedUpdateWithoutTasksAssignedInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     type?: EnumAgentTypeFieldUpdateOperationsInput | $Enums.AgentType
@@ -52784,6 +53101,8 @@ export namespace Prisma {
 
   export type TaskCreateWithoutTaskExecutionsInput = {
     id?: string
+    title?: string | null
+    description?: string | null
     type: string
     status?: $Enums.TaskStatus
     priority?: $Enums.TaskPriority
@@ -52795,13 +53114,16 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
-    pipeline: PipelineCreateNestedOneWithoutTasksInput
-    agent?: AgentCreateNestedOneWithoutTasksInput
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    pipeline?: PipelineCreateNestedOneWithoutTasksInput
+    assignedTo?: AgentCreateNestedOneWithoutTasksAssignedInput
     user: UserCreateNestedOneWithoutTasksInput
   }
 
   export type TaskUncheckedCreateWithoutTaskExecutionsInput = {
     id?: string
+    title?: string | null
+    description?: string | null
     type: string
     status?: $Enums.TaskStatus
     priority?: $Enums.TaskPriority
@@ -52810,12 +53132,13 @@ export namespace Prisma {
     error?: string | null
     startTime?: Date | string | null
     endTime?: Date | string | null
-    pipelineId: string
-    agentId?: string | null
+    pipelineId?: string | null
+    assignedToId?: string | null
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type TaskCreateOrConnectWithoutTaskExecutionsInput = {
@@ -52836,6 +53159,8 @@ export namespace Prisma {
 
   export type TaskUpdateWithoutTaskExecutionsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
     status?: EnumTaskStatusFieldUpdateOperationsInput | $Enums.TaskStatus
     priority?: EnumTaskPriorityFieldUpdateOperationsInput | $Enums.TaskPriority
@@ -52847,13 +53172,16 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    pipeline?: PipelineUpdateOneRequiredWithoutTasksNestedInput
-    agent?: AgentUpdateOneWithoutTasksNestedInput
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    pipeline?: PipelineUpdateOneWithoutTasksNestedInput
+    assignedTo?: AgentUpdateOneWithoutTasksAssignedNestedInput
     user?: UserUpdateOneRequiredWithoutTasksNestedInput
   }
 
   export type TaskUncheckedUpdateWithoutTaskExecutionsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
     status?: EnumTaskStatusFieldUpdateOperationsInput | $Enums.TaskStatus
     priority?: EnumTaskPriorityFieldUpdateOperationsInput | $Enums.TaskPriority
@@ -52862,12 +53190,13 @@ export namespace Prisma {
     error?: NullableStringFieldUpdateOperationsInput | string | null
     startTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    pipelineId?: StringFieldUpdateOperationsInput | string
-    agentId?: NullableStringFieldUpdateOperationsInput | string | null
+    pipelineId?: NullableStringFieldUpdateOperationsInput | string | null
+    assignedToId?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AgentCreateWithoutCodeExecutionsInput = {
@@ -52890,7 +53219,7 @@ export namespace Prisma {
     chats?: ChatCreateNestedManyWithoutAgentInput
     messages?: MessageCreateNestedManyWithoutAgentInput
     pipelines?: PipelineCreateNestedManyWithoutAgentInput
-    tasks?: TaskCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskCreateNestedManyWithoutAssignedToInput
     workflows?: WorkflowCreateNestedManyWithoutAgentInput
     workflowSteps?: WorkflowStepCreateNestedManyWithoutAgentInput
   }
@@ -52915,7 +53244,7 @@ export namespace Prisma {
     chats?: ChatUncheckedCreateNestedManyWithoutAgentInput
     messages?: MessageUncheckedCreateNestedManyWithoutAgentInput
     pipelines?: PipelineUncheckedCreateNestedManyWithoutAgentInput
-    tasks?: TaskUncheckedCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskUncheckedCreateNestedManyWithoutAssignedToInput
     workflows?: WorkflowUncheckedCreateNestedManyWithoutAgentInput
     workflowSteps?: WorkflowStepUncheckedCreateNestedManyWithoutAgentInput
   }
@@ -52956,7 +53285,7 @@ export namespace Prisma {
     chats?: ChatUpdateManyWithoutAgentNestedInput
     messages?: MessageUpdateManyWithoutAgentNestedInput
     pipelines?: PipelineUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUpdateManyWithoutAssignedToNestedInput
     workflows?: WorkflowUpdateManyWithoutAgentNestedInput
     workflowSteps?: WorkflowStepUpdateManyWithoutAgentNestedInput
   }
@@ -52981,7 +53310,7 @@ export namespace Prisma {
     chats?: ChatUncheckedUpdateManyWithoutAgentNestedInput
     messages?: MessageUncheckedUpdateManyWithoutAgentNestedInput
     pipelines?: PipelineUncheckedUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUncheckedUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUncheckedUpdateManyWithoutAssignedToNestedInput
     workflows?: WorkflowUncheckedUpdateManyWithoutAgentNestedInput
     workflowSteps?: WorkflowStepUncheckedUpdateManyWithoutAgentNestedInput
   }
@@ -53006,7 +53335,7 @@ export namespace Prisma {
     messages?: MessageCreateNestedManyWithoutAgentInput
     codeExecutions?: CodeExecutionUsageCreateNestedManyWithoutAgentInput
     pipelines?: PipelineCreateNestedManyWithoutAgentInput
-    tasks?: TaskCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskCreateNestedManyWithoutAssignedToInput
     workflows?: WorkflowCreateNestedManyWithoutAgentInput
     workflowSteps?: WorkflowStepCreateNestedManyWithoutAgentInput
   }
@@ -53031,7 +53360,7 @@ export namespace Prisma {
     messages?: MessageUncheckedCreateNestedManyWithoutAgentInput
     codeExecutions?: CodeExecutionUsageUncheckedCreateNestedManyWithoutAgentInput
     pipelines?: PipelineUncheckedCreateNestedManyWithoutAgentInput
-    tasks?: TaskUncheckedCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskUncheckedCreateNestedManyWithoutAssignedToInput
     workflows?: WorkflowUncheckedCreateNestedManyWithoutAgentInput
     workflowSteps?: WorkflowStepUncheckedCreateNestedManyWithoutAgentInput
   }
@@ -53174,7 +53503,7 @@ export namespace Prisma {
     messages?: MessageUpdateManyWithoutAgentNestedInput
     codeExecutions?: CodeExecutionUsageUpdateManyWithoutAgentNestedInput
     pipelines?: PipelineUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUpdateManyWithoutAssignedToNestedInput
     workflows?: WorkflowUpdateManyWithoutAgentNestedInput
     workflowSteps?: WorkflowStepUpdateManyWithoutAgentNestedInput
   }
@@ -53199,7 +53528,7 @@ export namespace Prisma {
     messages?: MessageUncheckedUpdateManyWithoutAgentNestedInput
     codeExecutions?: CodeExecutionUsageUncheckedUpdateManyWithoutAgentNestedInput
     pipelines?: PipelineUncheckedUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUncheckedUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUncheckedUpdateManyWithoutAssignedToNestedInput
     workflows?: WorkflowUncheckedUpdateManyWithoutAgentNestedInput
     workflowSteps?: WorkflowStepUncheckedUpdateManyWithoutAgentNestedInput
   }
@@ -53810,7 +54139,7 @@ export namespace Prisma {
     messages?: MessageCreateNestedManyWithoutAgentInput
     codeExecutions?: CodeExecutionUsageCreateNestedManyWithoutAgentInput
     pipelines?: PipelineCreateNestedManyWithoutAgentInput
-    tasks?: TaskCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskCreateNestedManyWithoutAssignedToInput
     workflows?: WorkflowCreateNestedManyWithoutAgentInput
     workflowSteps?: WorkflowStepCreateNestedManyWithoutAgentInput
   }
@@ -53835,7 +54164,7 @@ export namespace Prisma {
     messages?: MessageUncheckedCreateNestedManyWithoutAgentInput
     codeExecutions?: CodeExecutionUsageUncheckedCreateNestedManyWithoutAgentInput
     pipelines?: PipelineUncheckedCreateNestedManyWithoutAgentInput
-    tasks?: TaskUncheckedCreateNestedManyWithoutAgentInput
+    tasksAssigned?: TaskUncheckedCreateNestedManyWithoutAssignedToInput
     workflows?: WorkflowUncheckedCreateNestedManyWithoutAgentInput
     workflowSteps?: WorkflowStepUncheckedCreateNestedManyWithoutAgentInput
   }
@@ -53922,7 +54251,7 @@ export namespace Prisma {
     messages?: MessageUpdateManyWithoutAgentNestedInput
     codeExecutions?: CodeExecutionUsageUpdateManyWithoutAgentNestedInput
     pipelines?: PipelineUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUpdateManyWithoutAssignedToNestedInput
     workflows?: WorkflowUpdateManyWithoutAgentNestedInput
     workflowSteps?: WorkflowStepUpdateManyWithoutAgentNestedInput
   }
@@ -53947,7 +54276,7 @@ export namespace Prisma {
     messages?: MessageUncheckedUpdateManyWithoutAgentNestedInput
     codeExecutions?: CodeExecutionUsageUncheckedUpdateManyWithoutAgentNestedInput
     pipelines?: PipelineUncheckedUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUncheckedUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUncheckedUpdateManyWithoutAssignedToNestedInput
     workflows?: WorkflowUncheckedUpdateManyWithoutAgentNestedInput
     workflowSteps?: WorkflowStepUncheckedUpdateManyWithoutAgentNestedInput
   }
@@ -54087,6 +54416,8 @@ export namespace Prisma {
 
   export type TaskCreateManyUserInput = {
     id?: string
+    title?: string | null
+    description?: string | null
     type: string
     status?: $Enums.TaskStatus
     priority?: $Enums.TaskPriority
@@ -54095,11 +54426,12 @@ export namespace Prisma {
     error?: string | null
     startTime?: Date | string | null
     endTime?: Date | string | null
-    pipelineId: string
-    agentId?: string | null
+    pipelineId?: string | null
+    assignedToId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type WorkflowCreateManyCreatorInput = {
@@ -54194,7 +54526,7 @@ export namespace Prisma {
     messages?: MessageUpdateManyWithoutAgentNestedInput
     codeExecutions?: CodeExecutionUsageUpdateManyWithoutAgentNestedInput
     pipelines?: PipelineUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUpdateManyWithoutAssignedToNestedInput
     workflows?: WorkflowUpdateManyWithoutAgentNestedInput
     workflowSteps?: WorkflowStepUpdateManyWithoutAgentNestedInput
   }
@@ -54219,7 +54551,7 @@ export namespace Prisma {
     messages?: MessageUncheckedUpdateManyWithoutAgentNestedInput
     codeExecutions?: CodeExecutionUsageUncheckedUpdateManyWithoutAgentNestedInput
     pipelines?: PipelineUncheckedUpdateManyWithoutAgentNestedInput
-    tasks?: TaskUncheckedUpdateManyWithoutAgentNestedInput
+    tasksAssigned?: TaskUncheckedUpdateManyWithoutAssignedToNestedInput
     workflows?: WorkflowUncheckedUpdateManyWithoutAgentNestedInput
     workflowSteps?: WorkflowStepUncheckedUpdateManyWithoutAgentNestedInput
   }
@@ -54279,6 +54611,8 @@ export namespace Prisma {
 
   export type TaskUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
     status?: EnumTaskStatusFieldUpdateOperationsInput | $Enums.TaskStatus
     priority?: EnumTaskPriorityFieldUpdateOperationsInput | $Enums.TaskPriority
@@ -54290,13 +54624,16 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    pipeline?: PipelineUpdateOneRequiredWithoutTasksNestedInput
-    agent?: AgentUpdateOneWithoutTasksNestedInput
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    pipeline?: PipelineUpdateOneWithoutTasksNestedInput
+    assignedTo?: AgentUpdateOneWithoutTasksAssignedNestedInput
     taskExecutions?: TaskExecutionUpdateManyWithoutTaskNestedInput
   }
 
   export type TaskUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
     status?: EnumTaskStatusFieldUpdateOperationsInput | $Enums.TaskStatus
     priority?: EnumTaskPriorityFieldUpdateOperationsInput | $Enums.TaskPriority
@@ -54305,16 +54642,19 @@ export namespace Prisma {
     error?: NullableStringFieldUpdateOperationsInput | string | null
     startTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    pipelineId?: StringFieldUpdateOperationsInput | string
-    agentId?: NullableStringFieldUpdateOperationsInput | string | null
+    pipelineId?: NullableStringFieldUpdateOperationsInput | string | null
+    assignedToId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     taskExecutions?: TaskExecutionUncheckedUpdateManyWithoutTaskNestedInput
   }
 
   export type TaskUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
     status?: EnumTaskStatusFieldUpdateOperationsInput | $Enums.TaskStatus
     priority?: EnumTaskPriorityFieldUpdateOperationsInput | $Enums.TaskPriority
@@ -54323,11 +54663,12 @@ export namespace Prisma {
     error?: NullableStringFieldUpdateOperationsInput | string | null
     startTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    pipelineId?: StringFieldUpdateOperationsInput | string
-    agentId?: NullableStringFieldUpdateOperationsInput | string | null
+    pipelineId?: NullableStringFieldUpdateOperationsInput | string | null
+    assignedToId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type WorkflowUpdateWithoutCreatorInput = {
@@ -54613,8 +54954,10 @@ export namespace Prisma {
     deletedAt?: Date | string | null
   }
 
-  export type TaskCreateManyAgentInput = {
+  export type TaskCreateManyAssignedToInput = {
     id?: string
+    title?: string | null
+    description?: string | null
     type: string
     status?: $Enums.TaskStatus
     priority?: $Enums.TaskPriority
@@ -54623,11 +54966,12 @@ export namespace Prisma {
     error?: string | null
     startTime?: Date | string | null
     endTime?: Date | string | null
-    pipelineId: string
+    pipelineId?: string | null
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type WorkflowCreateManyAgentInput = {
@@ -54850,8 +55194,10 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type TaskUpdateWithoutAgentInput = {
+  export type TaskUpdateWithoutAssignedToInput = {
     id?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
     status?: EnumTaskStatusFieldUpdateOperationsInput | $Enums.TaskStatus
     priority?: EnumTaskPriorityFieldUpdateOperationsInput | $Enums.TaskPriority
@@ -54863,13 +55209,16 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    pipeline?: PipelineUpdateOneRequiredWithoutTasksNestedInput
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    pipeline?: PipelineUpdateOneWithoutTasksNestedInput
     user?: UserUpdateOneRequiredWithoutTasksNestedInput
     taskExecutions?: TaskExecutionUpdateManyWithoutTaskNestedInput
   }
 
-  export type TaskUncheckedUpdateWithoutAgentInput = {
+  export type TaskUncheckedUpdateWithoutAssignedToInput = {
     id?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
     status?: EnumTaskStatusFieldUpdateOperationsInput | $Enums.TaskStatus
     priority?: EnumTaskPriorityFieldUpdateOperationsInput | $Enums.TaskPriority
@@ -54878,16 +55227,19 @@ export namespace Prisma {
     error?: NullableStringFieldUpdateOperationsInput | string | null
     startTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    pipelineId?: StringFieldUpdateOperationsInput | string
+    pipelineId?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     taskExecutions?: TaskExecutionUncheckedUpdateManyWithoutTaskNestedInput
   }
 
-  export type TaskUncheckedUpdateManyWithoutAgentInput = {
+  export type TaskUncheckedUpdateManyWithoutAssignedToInput = {
     id?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
     status?: EnumTaskStatusFieldUpdateOperationsInput | $Enums.TaskStatus
     priority?: EnumTaskPriorityFieldUpdateOperationsInput | $Enums.TaskPriority
@@ -54896,11 +55248,12 @@ export namespace Prisma {
     error?: NullableStringFieldUpdateOperationsInput | string | null
     startTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    pipelineId?: StringFieldUpdateOperationsInput | string
+    pipelineId?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type WorkflowUpdateWithoutAgentInput = {
@@ -55354,6 +55707,8 @@ export namespace Prisma {
 
   export type TaskCreateManyPipelineInput = {
     id?: string
+    title?: string | null
+    description?: string | null
     type: string
     status?: $Enums.TaskStatus
     priority?: $Enums.TaskPriority
@@ -55362,15 +55717,18 @@ export namespace Prisma {
     error?: string | null
     startTime?: Date | string | null
     endTime?: Date | string | null
-    agentId?: string | null
+    assignedToId?: string | null
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type TaskUpdateWithoutPipelineInput = {
     id?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
     status?: EnumTaskStatusFieldUpdateOperationsInput | $Enums.TaskStatus
     priority?: EnumTaskPriorityFieldUpdateOperationsInput | $Enums.TaskPriority
@@ -55382,13 +55740,16 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    agent?: AgentUpdateOneWithoutTasksNestedInput
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    assignedTo?: AgentUpdateOneWithoutTasksAssignedNestedInput
     user?: UserUpdateOneRequiredWithoutTasksNestedInput
     taskExecutions?: TaskExecutionUpdateManyWithoutTaskNestedInput
   }
 
   export type TaskUncheckedUpdateWithoutPipelineInput = {
     id?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
     status?: EnumTaskStatusFieldUpdateOperationsInput | $Enums.TaskStatus
     priority?: EnumTaskPriorityFieldUpdateOperationsInput | $Enums.TaskPriority
@@ -55397,16 +55758,19 @@ export namespace Prisma {
     error?: NullableStringFieldUpdateOperationsInput | string | null
     startTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    agentId?: NullableStringFieldUpdateOperationsInput | string | null
+    assignedToId?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     taskExecutions?: TaskExecutionUncheckedUpdateManyWithoutTaskNestedInput
   }
 
   export type TaskUncheckedUpdateManyWithoutPipelineInput = {
     id?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
     status?: EnumTaskStatusFieldUpdateOperationsInput | $Enums.TaskStatus
     priority?: EnumTaskPriorityFieldUpdateOperationsInput | $Enums.TaskPriority
@@ -55415,11 +55779,12 @@ export namespace Prisma {
     error?: NullableStringFieldUpdateOperationsInput | string | null
     startTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    agentId?: NullableStringFieldUpdateOperationsInput | string | null
+    assignedToId?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type TaskExecutionCreateManyTaskInput = {
