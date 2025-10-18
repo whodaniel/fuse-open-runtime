@@ -45,10 +45,10 @@ cd "/Users/danielgoldberg/Desktop/A1-Inter-LLM-Com/The New Fuse/tnf-relay-packag
 ### Manual Install
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Build UI
-npm run build-ui
+pnpm run build-ui
 
 # Start the system
 npm start
