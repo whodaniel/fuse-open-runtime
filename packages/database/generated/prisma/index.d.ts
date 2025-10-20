@@ -10209,17 +10209,21 @@ export namespace Prisma {
   export type AgentMetadataMinAggregateOutputType = {
     id: string | null
     agentId: string | null
+    version: string | null
   }
 
   export type AgentMetadataMaxAggregateOutputType = {
     id: string | null
     agentId: string | null
+    version: string | null
   }
 
   export type AgentMetadataCountAggregateOutputType = {
     id: number
     agentId: number
     metadata: number
+    version: number
+    config: number
     _all: number
   }
 
@@ -10227,17 +10231,21 @@ export namespace Prisma {
   export type AgentMetadataMinAggregateInputType = {
     id?: true
     agentId?: true
+    version?: true
   }
 
   export type AgentMetadataMaxAggregateInputType = {
     id?: true
     agentId?: true
+    version?: true
   }
 
   export type AgentMetadataCountAggregateInputType = {
     id?: true
     agentId?: true
     metadata?: true
+    version?: true
+    config?: true
     _all?: true
   }
 
@@ -10317,6 +10325,8 @@ export namespace Prisma {
     id: string
     agentId: string
     metadata: JsonValue
+    version: string
+    config: JsonValue | null
     _count: AgentMetadataCountAggregateOutputType | null
     _min: AgentMetadataMinAggregateOutputType | null
     _max: AgentMetadataMaxAggregateOutputType | null
@@ -10340,6 +10350,8 @@ export namespace Prisma {
     id?: boolean
     agentId?: boolean
     metadata?: boolean
+    version?: boolean
+    config?: boolean
     agent?: boolean | AgentDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["agentMetadata"]>
 
@@ -10347,6 +10359,8 @@ export namespace Prisma {
     id?: boolean
     agentId?: boolean
     metadata?: boolean
+    version?: boolean
+    config?: boolean
     agent?: boolean | AgentDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["agentMetadata"]>
 
@@ -10354,6 +10368,8 @@ export namespace Prisma {
     id?: boolean
     agentId?: boolean
     metadata?: boolean
+    version?: boolean
+    config?: boolean
     agent?: boolean | AgentDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["agentMetadata"]>
 
@@ -10361,9 +10377,11 @@ export namespace Prisma {
     id?: boolean
     agentId?: boolean
     metadata?: boolean
+    version?: boolean
+    config?: boolean
   }
 
-  export type AgentMetadataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "agentId" | "metadata", ExtArgs["result"]["agentMetadata"]>
+  export type AgentMetadataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "agentId" | "metadata" | "version" | "config", ExtArgs["result"]["agentMetadata"]>
   export type AgentMetadataInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     agent?: boolean | AgentDefaultArgs<ExtArgs>
   }
@@ -10383,6 +10401,8 @@ export namespace Prisma {
       id: string
       agentId: string
       metadata: Prisma.JsonValue
+      version: string
+      config: Prisma.JsonValue | null
     }, ExtArgs["result"]["agentMetadata"]>
     composites: {}
   }
@@ -10810,6 +10830,8 @@ export namespace Prisma {
     readonly id: FieldRef<"AgentMetadata", 'String'>
     readonly agentId: FieldRef<"AgentMetadata", 'String'>
     readonly metadata: FieldRef<"AgentMetadata", 'Json'>
+    readonly version: FieldRef<"AgentMetadata", 'String'>
+    readonly config: FieldRef<"AgentMetadata", 'Json'>
   }
     
 
@@ -13533,6 +13555,8 @@ export namespace Prisma {
     updatedAt: Date | null
     isEdited: boolean | null
     isDeleted: boolean | null
+    isEphemeral: boolean | null
+    expiresAt: Date | null
   }
 
   export type MessageMaxAggregateOutputType = {
@@ -13549,6 +13573,8 @@ export namespace Prisma {
     updatedAt: Date | null
     isEdited: boolean | null
     isDeleted: boolean | null
+    isEphemeral: boolean | null
+    expiresAt: Date | null
   }
 
   export type MessageCountAggregateOutputType = {
@@ -13567,6 +13593,8 @@ export namespace Prisma {
     updatedAt: number
     isEdited: number
     isDeleted: number
+    isEphemeral: number
+    expiresAt: number
     reactions: number
     _all: number
   }
@@ -13586,6 +13614,8 @@ export namespace Prisma {
     updatedAt?: true
     isEdited?: true
     isDeleted?: true
+    isEphemeral?: true
+    expiresAt?: true
   }
 
   export type MessageMaxAggregateInputType = {
@@ -13602,6 +13632,8 @@ export namespace Prisma {
     updatedAt?: true
     isEdited?: true
     isDeleted?: true
+    isEphemeral?: true
+    expiresAt?: true
   }
 
   export type MessageCountAggregateInputType = {
@@ -13620,6 +13652,8 @@ export namespace Prisma {
     updatedAt?: true
     isEdited?: true
     isDeleted?: true
+    isEphemeral?: true
+    expiresAt?: true
     reactions?: true
     _all?: true
   }
@@ -13712,6 +13746,8 @@ export namespace Prisma {
     updatedAt: Date
     isEdited: boolean
     isDeleted: boolean
+    isEphemeral: boolean
+    expiresAt: Date | null
     reactions: JsonValue | null
     _count: MessageCountAggregateOutputType | null
     _min: MessageMinAggregateOutputType | null
@@ -13748,6 +13784,8 @@ export namespace Prisma {
     updatedAt?: boolean
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: boolean
     reactions?: boolean
     sender?: boolean | Message$senderArgs<ExtArgs>
     agent?: boolean | Message$agentArgs<ExtArgs>
@@ -13774,6 +13812,8 @@ export namespace Prisma {
     updatedAt?: boolean
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: boolean
     reactions?: boolean
     sender?: boolean | Message$senderArgs<ExtArgs>
     agent?: boolean | Message$agentArgs<ExtArgs>
@@ -13798,6 +13838,8 @@ export namespace Prisma {
     updatedAt?: boolean
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: boolean
     reactions?: boolean
     sender?: boolean | Message$senderArgs<ExtArgs>
     agent?: boolean | Message$agentArgs<ExtArgs>
@@ -13822,10 +13864,12 @@ export namespace Prisma {
     updatedAt?: boolean
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: boolean
     reactions?: boolean
   }
 
-  export type MessageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "content" | "role" | "senderId" | "senderName" | "agentId" | "chatId" | "roomId" | "parentMessageId" | "metadata" | "attachments" | "timestamp" | "updatedAt" | "isEdited" | "isDeleted" | "reactions", ExtArgs["result"]["message"]>
+  export type MessageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "content" | "role" | "senderId" | "senderName" | "agentId" | "chatId" | "roomId" | "parentMessageId" | "metadata" | "attachments" | "timestamp" | "updatedAt" | "isEdited" | "isDeleted" | "isEphemeral" | "expiresAt" | "reactions", ExtArgs["result"]["message"]>
   export type MessageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sender?: boolean | Message$senderArgs<ExtArgs>
     agent?: boolean | Message$agentArgs<ExtArgs>
@@ -13876,6 +13920,8 @@ export namespace Prisma {
       updatedAt: Date
       isEdited: boolean
       isDeleted: boolean
+      isEphemeral: boolean
+      expiresAt: Date | null
       reactions: Prisma.JsonValue | null
     }, ExtArgs["result"]["message"]>
     composites: {}
@@ -14321,6 +14367,8 @@ export namespace Prisma {
     readonly updatedAt: FieldRef<"Message", 'DateTime'>
     readonly isEdited: FieldRef<"Message", 'Boolean'>
     readonly isDeleted: FieldRef<"Message", 'Boolean'>
+    readonly isEphemeral: FieldRef<"Message", 'Boolean'>
+    readonly expiresAt: FieldRef<"Message", 'DateTime'>
     readonly reactions: FieldRef<"Message", 'Json'>
   }
     
@@ -37269,7 +37317,9 @@ export namespace Prisma {
   export const AgentMetadataScalarFieldEnum: {
     id: 'id',
     agentId: 'agentId',
-    metadata: 'metadata'
+    metadata: 'metadata',
+    version: 'version',
+    config: 'config'
   };
 
   export type AgentMetadataScalarFieldEnum = (typeof AgentMetadataScalarFieldEnum)[keyof typeof AgentMetadataScalarFieldEnum]
@@ -37322,6 +37372,8 @@ export namespace Prisma {
     updatedAt: 'updatedAt',
     isEdited: 'isEdited',
     isDeleted: 'isDeleted',
+    isEphemeral: 'isEphemeral',
+    expiresAt: 'expiresAt',
     reactions: 'reactions'
   };
 
@@ -37763,7 +37815,8 @@ export namespace Prisma {
 
   export const AgentMetadataOrderByRelevanceFieldEnum: {
     id: 'id',
-    agentId: 'agentId'
+    agentId: 'agentId',
+    version: 'version'
   };
 
   export type AgentMetadataOrderByRelevanceFieldEnum = (typeof AgentMetadataOrderByRelevanceFieldEnum)[keyof typeof AgentMetadataOrderByRelevanceFieldEnum]
@@ -38817,6 +38870,8 @@ export namespace Prisma {
     id?: StringFilter<"AgentMetadata"> | string
     agentId?: StringFilter<"AgentMetadata"> | string
     metadata?: JsonFilter<"AgentMetadata">
+    version?: StringFilter<"AgentMetadata"> | string
+    config?: JsonNullableFilter<"AgentMetadata">
     agent?: XOR<AgentScalarRelationFilter, AgentWhereInput>
   }
 
@@ -38824,6 +38879,8 @@ export namespace Prisma {
     id?: SortOrder
     agentId?: SortOrder
     metadata?: SortOrder
+    version?: SortOrder
+    config?: SortOrderInput | SortOrder
     agent?: AgentOrderByWithRelationInput
     _relevance?: AgentMetadataOrderByRelevanceInput
   }
@@ -38835,6 +38892,8 @@ export namespace Prisma {
     OR?: AgentMetadataWhereInput[]
     NOT?: AgentMetadataWhereInput | AgentMetadataWhereInput[]
     metadata?: JsonFilter<"AgentMetadata">
+    version?: StringFilter<"AgentMetadata"> | string
+    config?: JsonNullableFilter<"AgentMetadata">
     agent?: XOR<AgentScalarRelationFilter, AgentWhereInput>
   }, "id" | "agentId">
 
@@ -38842,6 +38901,8 @@ export namespace Prisma {
     id?: SortOrder
     agentId?: SortOrder
     metadata?: SortOrder
+    version?: SortOrder
+    config?: SortOrderInput | SortOrder
     _count?: AgentMetadataCountOrderByAggregateInput
     _max?: AgentMetadataMaxOrderByAggregateInput
     _min?: AgentMetadataMinOrderByAggregateInput
@@ -38854,6 +38915,8 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"AgentMetadata"> | string
     agentId?: StringWithAggregatesFilter<"AgentMetadata"> | string
     metadata?: JsonWithAggregatesFilter<"AgentMetadata">
+    version?: StringWithAggregatesFilter<"AgentMetadata"> | string
+    config?: JsonNullableWithAggregatesFilter<"AgentMetadata">
   }
 
   export type ChatWhereInput = {
@@ -39038,6 +39101,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Message"> | Date | string
     isEdited?: BoolFilter<"Message"> | boolean
     isDeleted?: BoolFilter<"Message"> | boolean
+    isEphemeral?: BoolFilter<"Message"> | boolean
+    expiresAt?: DateTimeNullableFilter<"Message"> | Date | string | null
     reactions?: JsonNullableFilter<"Message">
     sender?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
     agent?: XOR<AgentNullableScalarRelationFilter, AgentWhereInput> | null
@@ -39063,6 +39128,8 @@ export namespace Prisma {
     updatedAt?: SortOrder
     isEdited?: SortOrder
     isDeleted?: SortOrder
+    isEphemeral?: SortOrder
+    expiresAt?: SortOrderInput | SortOrder
     reactions?: SortOrderInput | SortOrder
     sender?: UserOrderByWithRelationInput
     agent?: AgentOrderByWithRelationInput
@@ -39092,6 +39159,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Message"> | Date | string
     isEdited?: BoolFilter<"Message"> | boolean
     isDeleted?: BoolFilter<"Message"> | boolean
+    isEphemeral?: BoolFilter<"Message"> | boolean
+    expiresAt?: DateTimeNullableFilter<"Message"> | Date | string | null
     reactions?: JsonNullableFilter<"Message">
     sender?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
     agent?: XOR<AgentNullableScalarRelationFilter, AgentWhereInput> | null
@@ -39117,6 +39186,8 @@ export namespace Prisma {
     updatedAt?: SortOrder
     isEdited?: SortOrder
     isDeleted?: SortOrder
+    isEphemeral?: SortOrder
+    expiresAt?: SortOrderInput | SortOrder
     reactions?: SortOrderInput | SortOrder
     _count?: MessageCountOrderByAggregateInput
     _max?: MessageMaxOrderByAggregateInput
@@ -39142,6 +39213,8 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Message"> | Date | string
     isEdited?: BoolWithAggregatesFilter<"Message"> | boolean
     isDeleted?: BoolWithAggregatesFilter<"Message"> | boolean
+    isEphemeral?: BoolWithAggregatesFilter<"Message"> | boolean
+    expiresAt?: DateTimeNullableWithAggregatesFilter<"Message"> | Date | string | null
     reactions?: JsonNullableWithAggregatesFilter<"Message">
   }
 
@@ -41374,6 +41447,8 @@ export namespace Prisma {
   export type AgentMetadataCreateInput = {
     id?: string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: string
+    config?: NullableJsonNullValueInput | InputJsonValue
     agent: AgentCreateNestedOneWithoutMetadataInput
   }
 
@@ -41381,11 +41456,15 @@ export namespace Prisma {
     id?: string
     agentId: string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: string
+    config?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AgentMetadataUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: StringFieldUpdateOperationsInput | string
+    config?: NullableJsonNullValueInput | InputJsonValue
     agent?: AgentUpdateOneRequiredWithoutMetadataNestedInput
   }
 
@@ -41393,23 +41472,31 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     agentId?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: StringFieldUpdateOperationsInput | string
+    config?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AgentMetadataCreateManyInput = {
     id?: string
     agentId: string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: string
+    config?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AgentMetadataUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: StringFieldUpdateOperationsInput | string
+    config?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AgentMetadataUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     agentId?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: StringFieldUpdateOperationsInput | string
+    config?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type ChatCreateInput = {
@@ -41604,6 +41691,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     sender?: UserCreateNestedOneWithoutMessagesInput
     agent?: AgentCreateNestedOneWithoutMessagesInput
@@ -41629,6 +41718,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     replies?: MessageUncheckedCreateNestedManyWithoutParentMessageInput
   }
@@ -41644,6 +41735,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     sender?: UserUpdateOneWithoutMessagesNestedInput
     agent?: AgentUpdateOneWithoutMessagesNestedInput
@@ -41669,6 +41762,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     replies?: MessageUncheckedUpdateManyWithoutParentMessageNestedInput
   }
@@ -41689,6 +41784,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
   }
 
@@ -41703,6 +41800,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
   }
 
@@ -41722,6 +41821,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
   }
 
@@ -44310,16 +44411,20 @@ export namespace Prisma {
     id?: SortOrder
     agentId?: SortOrder
     metadata?: SortOrder
+    version?: SortOrder
+    config?: SortOrder
   }
 
   export type AgentMetadataMaxOrderByAggregateInput = {
     id?: SortOrder
     agentId?: SortOrder
+    version?: SortOrder
   }
 
   export type AgentMetadataMinOrderByAggregateInput = {
     id?: SortOrder
     agentId?: SortOrder
+    version?: SortOrder
   }
   export type JsonWithAggregatesFilter<$PrismaModel = never> =
     | PatchUndefined<
@@ -44493,6 +44598,8 @@ export namespace Prisma {
     updatedAt?: SortOrder
     isEdited?: SortOrder
     isDeleted?: SortOrder
+    isEphemeral?: SortOrder
+    expiresAt?: SortOrder
     reactions?: SortOrder
   }
 
@@ -44510,6 +44617,8 @@ export namespace Prisma {
     updatedAt?: SortOrder
     isEdited?: SortOrder
     isDeleted?: SortOrder
+    isEphemeral?: SortOrder
+    expiresAt?: SortOrder
   }
 
   export type MessageMinOrderByAggregateInput = {
@@ -44526,6 +44635,8 @@ export namespace Prisma {
     updatedAt?: SortOrder
     isEdited?: SortOrder
     isDeleted?: SortOrder
+    isEphemeral?: SortOrder
+    expiresAt?: SortOrder
   }
 
   export type EnumMessageRoleWithAggregatesFilter<$PrismaModel = never> = {
@@ -48888,6 +48999,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     agent?: AgentCreateNestedOneWithoutMessagesInput
     chat?: ChatCreateNestedOneWithoutMessagesInput
@@ -48911,6 +49024,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     replies?: MessageUncheckedCreateNestedManyWithoutParentMessageInput
   }
@@ -49209,6 +49324,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Message"> | Date | string
     isEdited?: BoolFilter<"Message"> | boolean
     isDeleted?: BoolFilter<"Message"> | boolean
+    isEphemeral?: BoolFilter<"Message"> | boolean
+    expiresAt?: DateTimeNullableFilter<"Message"> | Date | string | null
     reactions?: JsonNullableFilter<"Message">
   }
 
@@ -49713,11 +49830,15 @@ export namespace Prisma {
   export type AgentMetadataCreateWithoutAgentInput = {
     id?: string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: string
+    config?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AgentMetadataUncheckedCreateWithoutAgentInput = {
     id?: string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: string
+    config?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AgentMetadataCreateOrConnectWithoutAgentInput = {
@@ -49832,6 +49953,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     sender?: UserCreateNestedOneWithoutMessagesInput
     chat?: ChatCreateNestedOneWithoutMessagesInput
@@ -49855,6 +49978,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     replies?: MessageUncheckedCreateNestedManyWithoutParentMessageInput
   }
@@ -50176,11 +50301,15 @@ export namespace Prisma {
   export type AgentMetadataUpdateWithoutAgentInput = {
     id?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: StringFieldUpdateOperationsInput | string
+    config?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AgentMetadataUncheckedUpdateWithoutAgentInput = {
     id?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    version?: StringFieldUpdateOperationsInput | string
+    config?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AgentNFTUpsertWithoutAgentInput = {
@@ -50614,6 +50743,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     sender?: UserCreateNestedOneWithoutMessagesInput
     agent?: AgentCreateNestedOneWithoutMessagesInput
@@ -50637,6 +50768,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     replies?: MessageUncheckedCreateNestedManyWithoutParentMessageInput
   }
@@ -50796,6 +50929,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     sender?: UserCreateNestedOneWithoutMessagesInput
     agent?: AgentCreateNestedOneWithoutMessagesInput
@@ -50819,6 +50954,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     replies?: MessageUncheckedCreateNestedManyWithoutParentMessageInput
   }
@@ -51095,6 +51232,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     sender?: UserCreateNestedOneWithoutMessagesInput
     agent?: AgentCreateNestedOneWithoutMessagesInput
@@ -51119,6 +51258,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
   }
 
@@ -51138,6 +51279,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     sender?: UserCreateNestedOneWithoutMessagesInput
     agent?: AgentCreateNestedOneWithoutMessagesInput
@@ -51161,6 +51304,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     replies?: MessageUncheckedCreateNestedManyWithoutParentMessageInput
   }
@@ -51393,6 +51538,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     sender?: UserUpdateOneWithoutMessagesNestedInput
     agent?: AgentUpdateOneWithoutMessagesNestedInput
@@ -51417,6 +51564,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
   }
 
@@ -54137,6 +54286,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
   }
 
@@ -54433,6 +54584,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     agent?: AgentUpdateOneWithoutMessagesNestedInput
     chat?: ChatUpdateOneWithoutMessagesNestedInput
@@ -54456,6 +54609,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     replies?: MessageUncheckedUpdateManyWithoutParentMessageNestedInput
   }
@@ -54475,6 +54630,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
   }
 
@@ -54565,6 +54722,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
   }
 
@@ -54694,6 +54853,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     sender?: UserUpdateOneWithoutMessagesNestedInput
     chat?: ChatUpdateOneWithoutMessagesNestedInput
@@ -54717,6 +54878,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     replies?: MessageUncheckedUpdateManyWithoutParentMessageNestedInput
   }
@@ -54736,6 +54899,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
   }
 
@@ -55020,6 +55185,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
   }
 
@@ -55034,6 +55201,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     sender?: UserUpdateOneWithoutMessagesNestedInput
     agent?: AgentUpdateOneWithoutMessagesNestedInput
@@ -55057,6 +55226,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     replies?: MessageUncheckedUpdateManyWithoutParentMessageNestedInput
   }
@@ -55076,6 +55247,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
   }
 
@@ -55094,6 +55267,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
   }
 
@@ -55108,6 +55283,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     sender?: UserUpdateOneWithoutMessagesNestedInput
     agent?: AgentUpdateOneWithoutMessagesNestedInput
@@ -55131,6 +55308,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     replies?: MessageUncheckedUpdateManyWithoutParentMessageNestedInput
   }
@@ -55150,6 +55329,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
   }
 
@@ -55168,6 +55349,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     isEdited?: boolean
     isDeleted?: boolean
+    isEphemeral?: boolean
+    expiresAt?: Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
   }
 
@@ -55182,6 +55365,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     sender?: UserUpdateOneWithoutMessagesNestedInput
     agent?: AgentUpdateOneWithoutMessagesNestedInput
@@ -55205,6 +55390,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
     replies?: MessageUncheckedUpdateManyWithoutParentMessageNestedInput
   }
@@ -55224,6 +55411,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isEdited?: BoolFieldUpdateOperationsInput | boolean
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    isEphemeral?: BoolFieldUpdateOperationsInput | boolean
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reactions?: NullableJsonNullValueInput | InputJsonValue
   }
 
