@@ -6,7 +6,7 @@ echo "🏗️ Building VSCode Extension with Bun..."
 
 cd "/Users/danielgoldberg/Desktop/A1-Inter-LLM-Com/The New Fuse/src/vscode-extension"
 
-# Install dependencies with bun
+# Install dependencies with pnpm
 echo "Installing dependencies..."
 pnpm install
 
