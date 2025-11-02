@@ -8,7 +8,7 @@ cd "/Users/danielgoldberg/Desktop/A1-Inter-LLM-Com/The New Fuse/src/vscode-exten
 
 # Install dependencies with pnpm
 echo "Installing dependencies..."
-pnpm install --frozen-lockfile
+pnpm install
 
 # Build extension
 echo "Building extension..."

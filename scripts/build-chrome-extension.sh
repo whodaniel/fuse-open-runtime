@@ -8,11 +8,10 @@ cd "/Users/danielgoldberg/Desktop/A1-Inter-LLM-Com/The New Fuse/chrome-extension
 
 # Install dependencies with pnpm
 echo "Installing dependencies..."
-pnpm install --frozen-lockfile
+pnpm install
 
 # Build extension
 echo "Building extension..."
-cd apps/chrome-extension
 pnpm run build
 
 # Package extension
