@@ -2,4 +2,4 @@
 cd /Users/danielgoldberg/Desktop/A1-Inter-LLM-Com/The New Fuse/apps/frontend
 pnpm run dev
 # or
-bun run dev
+pnpm run dev
