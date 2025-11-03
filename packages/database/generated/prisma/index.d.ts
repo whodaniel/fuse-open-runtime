@@ -153,6 +153,16 @@ export type RegisteredEntity = $Result.DefaultSelection<Prisma.$RegisteredEntity
  * 
  */
 export type LLMConfig = $Result.DefaultSelection<Prisma.$LLMConfigPayload>
+/**
+ * Model BusinessMetric
+ *
+ */
+export type BusinessMetric = $Result.DefaultSelection<Prisma.$BusinessMetricPayload>
+/**
+ * Model ErrorLog
+ *
+ */
+export type ErrorLog = $Result.DefaultSelection<Prisma.$ErrorLogPayload>
 
 /**
  * Enums
@@ -899,6 +909,26 @@ export class PrismaClient<
     * ```
     */
   get lLMConfig(): Prisma.LLMConfigDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.businessMetric`: Exposes CRUD operations for the **BusinessMetric** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BusinessMetrics
+    * const businessMetrics = await prisma.businessMetric.findMany()
+    * ```
+    */
+  get businessMetric(): Prisma.BusinessMetricDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.errorLog`: Exposes CRUD operations for the **ErrorLog** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ErrorLogs
+    * const errorLogs = await prisma.errorLog.findMany()
+    * ```
+    */
+  get errorLog(): Prisma.ErrorLogDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -1366,7 +1396,9 @@ export namespace Prisma {
     Wallet: 'Wallet',
     Transaction: 'Transaction',
     RegisteredEntity: 'RegisteredEntity',
-    LLMConfig: 'LLMConfig'
+    LLMConfig: 'LLMConfig',
+    BusinessMetric: 'BusinessMetric',
+    ErrorLog: 'ErrorLog'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1385,7 +1417,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "authSession" | "loginAttempt" | "authEvent" | "agent" | "agentMetadata" | "chat" | "chatRoom" | "message" | "chatMessage" | "workflow" | "workflowStep" | "workflowExecution" | "pipeline" | "task" | "taskExecution" | "codeExecutionUsage" | "codeExecutionSession" | "agentNFT" | "fractionalShare" | "revenueStream" | "revenueDistribution" | "marketplaceListing" | "marketplaceOffer" | "wallet" | "transaction" | "registeredEntity" | "lLMConfig"
+      modelProps: "user" | "authSession" | "loginAttempt" | "authEvent" | "agent" | "agentMetadata" | "chat" | "chatRoom" | "message" | "chatMessage" | "workflow" | "workflowStep" | "workflowExecution" | "pipeline" | "task" | "taskExecution" | "codeExecutionUsage" | "codeExecutionSession" | "agentNFT" | "fractionalShare" | "revenueStream" | "revenueDistribution" | "marketplaceListing" | "marketplaceOffer" | "wallet" | "transaction" | "registeredEntity" | "lLMConfig" | "businessMetric" | "errorLog"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -3461,6 +3493,154 @@ export namespace Prisma {
           }
         }
       }
+      BusinessMetric: {
+        payload: Prisma.$BusinessMetricPayload<ExtArgs>
+        fields: Prisma.BusinessMetricFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BusinessMetricFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessMetricPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BusinessMetricFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessMetricPayload>
+          }
+          findFirst: {
+            args: Prisma.BusinessMetricFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessMetricPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BusinessMetricFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessMetricPayload>
+          }
+          findMany: {
+            args: Prisma.BusinessMetricFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessMetricPayload>[]
+          }
+          create: {
+            args: Prisma.BusinessMetricCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessMetricPayload>
+          }
+          createMany: {
+            args: Prisma.BusinessMetricCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BusinessMetricCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessMetricPayload>[]
+          }
+          delete: {
+            args: Prisma.BusinessMetricDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessMetricPayload>
+          }
+          update: {
+            args: Prisma.BusinessMetricUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessMetricPayload>
+          }
+          deleteMany: {
+            args: Prisma.BusinessMetricDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BusinessMetricUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BusinessMetricUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessMetricPayload>[]
+          }
+          upsert: {
+            args: Prisma.BusinessMetricUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessMetricPayload>
+          }
+          aggregate: {
+            args: Prisma.BusinessMetricAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBusinessMetric>
+          }
+          groupBy: {
+            args: Prisma.BusinessMetricGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BusinessMetricGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BusinessMetricCountArgs<ExtArgs>
+            result: $Utils.Optional<BusinessMetricCountAggregateOutputType> | number
+          }
+        }
+      }
+      ErrorLog: {
+        payload: Prisma.$ErrorLogPayload<ExtArgs>
+        fields: Prisma.ErrorLogFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ErrorLogFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ErrorLogPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ErrorLogFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ErrorLogPayload>
+          }
+          findFirst: {
+            args: Prisma.ErrorLogFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ErrorLogPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ErrorLogFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ErrorLogPayload>
+          }
+          findMany: {
+            args: Prisma.ErrorLogFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ErrorLogPayload>[]
+          }
+          create: {
+            args: Prisma.ErrorLogCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ErrorLogPayload>
+          }
+          createMany: {
+            args: Prisma.ErrorLogCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ErrorLogCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ErrorLogPayload>[]
+          }
+          delete: {
+            args: Prisma.ErrorLogDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ErrorLogPayload>
+          }
+          update: {
+            args: Prisma.ErrorLogUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ErrorLogPayload>
+          }
+          deleteMany: {
+            args: Prisma.ErrorLogDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ErrorLogUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ErrorLogUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ErrorLogPayload>[]
+          }
+          upsert: {
+            args: Prisma.ErrorLogUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ErrorLogPayload>
+          }
+          aggregate: {
+            args: Prisma.ErrorLogAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateErrorLog>
+          }
+          groupBy: {
+            args: Prisma.ErrorLogGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ErrorLogGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ErrorLogCountArgs<ExtArgs>
+            result: $Utils.Optional<ErrorLogCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -3585,6 +3765,8 @@ export namespace Prisma {
     transaction?: TransactionOmit
     registeredEntity?: RegisteredEntityOmit
     lLMConfig?: LLMConfigOmit
+    businessMetric?: BusinessMetricOmit
+    errorLog?: ErrorLogOmit
   }
 
   /* Types for Logging */
@@ -37282,6 +37464,2022 @@ export namespace Prisma {
 
 
   /**
+   * Model BusinessMetric
+   */
+
+  export type AggregateBusinessMetric = {
+    _count: BusinessMetricCountAggregateOutputType | null
+    _avg: BusinessMetricAvgAggregateOutputType | null
+    _sum: BusinessMetricSumAggregateOutputType | null
+    _min: BusinessMetricMinAggregateOutputType | null
+    _max: BusinessMetricMaxAggregateOutputType | null
+  }
+
+  export type BusinessMetricAvgAggregateOutputType = {
+    value: number | null
+  }
+
+  export type BusinessMetricSumAggregateOutputType = {
+    value: number | null
+  }
+
+  export type BusinessMetricMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    value: number | null
+    createdAt: Date | null
+  }
+
+  export type BusinessMetricMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    value: number | null
+    createdAt: Date | null
+  }
+
+  export type BusinessMetricCountAggregateOutputType = {
+    id: number
+    name: number
+    value: number
+    tags: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type BusinessMetricAvgAggregateInputType = {
+    value?: true
+  }
+
+  export type BusinessMetricSumAggregateInputType = {
+    value?: true
+  }
+
+  export type BusinessMetricMinAggregateInputType = {
+    id?: true
+    name?: true
+    value?: true
+    createdAt?: true
+  }
+
+  export type BusinessMetricMaxAggregateInputType = {
+    id?: true
+    name?: true
+    value?: true
+    createdAt?: true
+  }
+
+  export type BusinessMetricCountAggregateInputType = {
+    id?: true
+    name?: true
+    value?: true
+    tags?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type BusinessMetricAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BusinessMetric to aggregate.
+     */
+    where?: BusinessMetricWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of BusinessMetrics to fetch.
+     */
+    orderBy?: BusinessMetricOrderByWithRelationInput | BusinessMetricOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: BusinessMetricWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` BusinessMetrics from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` BusinessMetrics.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned BusinessMetrics
+    **/
+    _count?: true | BusinessMetricCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to average
+    **/
+    _avg?: BusinessMetricAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: BusinessMetricSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: BusinessMetricMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: BusinessMetricMaxAggregateInputType
+  }
+
+  export type GetBusinessMetricAggregateType<T extends BusinessMetricAggregateArgs> = {
+        [P in keyof T & keyof AggregateBusinessMetric]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBusinessMetric[P]>
+      : GetScalarType<T[P], AggregateBusinessMetric[P]>
+  }
+
+
+
+
+  export type BusinessMetricGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BusinessMetricWhereInput
+    orderBy?: BusinessMetricOrderByWithAggregationInput | BusinessMetricOrderByWithAggregationInput[]
+    by: BusinessMetricScalarFieldEnum[] | BusinessMetricScalarFieldEnum
+    having?: BusinessMetricScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BusinessMetricCountAggregateInputType | true
+    _avg?: BusinessMetricAvgAggregateInputType
+    _sum?: BusinessMetricSumAggregateInputType
+    _min?: BusinessMetricMinAggregateInputType
+    _max?: BusinessMetricMaxAggregateInputType
+  }
+
+  export type BusinessMetricGroupByOutputType = {
+    id: string
+    name: string
+    value: number
+    tags: JsonValue | null
+    createdAt: Date
+    _count: BusinessMetricCountAggregateOutputType | null
+    _avg: BusinessMetricAvgAggregateOutputType | null
+    _sum: BusinessMetricSumAggregateOutputType | null
+    _min: BusinessMetricMinAggregateOutputType | null
+    _max: BusinessMetricMaxAggregateOutputType | null
+  }
+
+  type GetBusinessMetricGroupByPayload<T extends BusinessMetricGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BusinessMetricGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BusinessMetricGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BusinessMetricGroupByOutputType[P]>
+            : GetScalarType<T[P], BusinessMetricGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BusinessMetricSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    value?: boolean
+    tags?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["businessMetric"]>
+
+  export type BusinessMetricSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    value?: boolean
+    tags?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["businessMetric"]>
+
+  export type BusinessMetricSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    value?: boolean
+    tags?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["businessMetric"]>
+
+  export type BusinessMetricSelectScalar = {
+    id?: boolean
+    name?: boolean
+    value?: boolean
+    tags?: boolean
+    createdAt?: boolean
+  }
+
+  export type BusinessMetricOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "value" | "tags" | "createdAt", ExtArgs["result"]["businessMetric"]>
+
+  export type $BusinessMetricPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BusinessMetric"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      value: number
+      tags: Prisma.JsonValue | null
+      createdAt: Date
+    }, ExtArgs["result"]["businessMetric"]>
+    composites: {}
+  }
+
+  type BusinessMetricGetPayload<S extends boolean | null | undefined | BusinessMetricDefaultArgs> = $Result.GetResult<Prisma.$BusinessMetricPayload, S>
+
+  type BusinessMetricCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BusinessMetricFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BusinessMetricCountAggregateInputType | true
+    }
+
+  export interface BusinessMetricDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BusinessMetric'], meta: { name: 'BusinessMetric' } }
+    /**
+     * Find zero or one BusinessMetric that matches the filter.
+     * @param {BusinessMetricFindUniqueArgs} args - Arguments to find a BusinessMetric
+     * @example
+     * // Get one BusinessMetric
+     * const businessMetric = await prisma.businessMetric.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BusinessMetricFindUniqueArgs>(args: SelectSubset<T, BusinessMetricFindUniqueArgs<ExtArgs>>): Prisma__BusinessMetricClient<$Result.GetResult<Prisma.$BusinessMetricPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BusinessMetric that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BusinessMetricFindUniqueOrThrowArgs} args - Arguments to find a BusinessMetric
+     * @example
+     * // Get one BusinessMetric
+     * const businessMetric = await prisma.businessMetric.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BusinessMetricFindUniqueOrThrowArgs>(args: SelectSubset<T, BusinessMetricFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BusinessMetricClient<$Result.GetResult<Prisma.$BusinessMetricPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BusinessMetric that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BusinessMetricFindFirstArgs} args - Arguments to find a BusinessMetric
+     * @example
+     * // Get one BusinessMetric
+     * const businessMetric = await prisma.businessMetric.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BusinessMetricFindFirstArgs>(args?: SelectSubset<T, BusinessMetricFindFirstArgs<ExtArgs>>): Prisma__BusinessMetricClient<$Result.GetResult<Prisma.$BusinessMetricPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BusinessMetric that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BusinessMetricFindFirstOrThrowArgs} args - Arguments to find a BusinessMetric
+     * @example
+     * // Get one BusinessMetric
+     * const businessMetric = await prisma.businessMetric.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BusinessMetricFindFirstOrThrowArgs>(args?: SelectSubset<T, BusinessMetricFindFirstOrThrowArgs<ExtArgs>>): Prisma__BusinessMetricClient<$Result.GetResult<Prisma.$BusinessMetricPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BusinessMetrics that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BusinessMetricFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BusinessMetrics
+     * const businessMetrics = await prisma.businessMetric.findMany()
+     *
+     * // Get first 10 BusinessMetrics
+     * const businessMetrics = await prisma.businessMetric.findMany({ take: 10 })
+     *
+     * // Only select the `id`
+     * const businessMetricWithIdOnly = await prisma.businessMetric.findMany({ select: { id: true } })
+     *
+     */
+    findMany<T extends BusinessMetricFindManyArgs>(args?: SelectSubset<T, BusinessMetricFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BusinessMetricPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BusinessMetric.
+     * @param {BusinessMetricCreateArgs} args - Arguments to create a BusinessMetric.
+     * @example
+     * // Create one BusinessMetric
+     * const BusinessMetric = await prisma.businessMetric.create({
+     *   data: {
+     *     // ... data to create a BusinessMetric
+     *   }
+     * })
+     *
+     */
+    create<T extends BusinessMetricCreateArgs>(args: SelectSubset<T, BusinessMetricCreateArgs<ExtArgs>>): Prisma__BusinessMetricClient<$Result.GetResult<Prisma.$BusinessMetricPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BusinessMetrics.
+     * @param {BusinessMetricCreateManyArgs} args - Arguments to create many BusinessMetrics.
+     * @example
+     * // Create many BusinessMetrics
+     * const businessMetric = await prisma.businessMetric.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends BusinessMetricCreateManyArgs>(args?: SelectSubset<T, BusinessMetricCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many BusinessMetrics and returns the data saved in the database.
+     * @param {BusinessMetricCreateManyAndReturnArgs} args - Arguments to create many BusinessMetrics.
+     * @example
+     * // Create many BusinessMetrics
+     * const businessMetric = await prisma.businessMetric.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many BusinessMetrics and only return the `id`
+     * const businessMetricWithIdOnly = await prisma.businessMetric.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends BusinessMetricCreateManyAndReturnArgs>(args?: SelectSubset<T, BusinessMetricCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BusinessMetricPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a BusinessMetric.
+     * @param {BusinessMetricDeleteArgs} args - Arguments to delete one BusinessMetric.
+     * @example
+     * // Delete one BusinessMetric
+     * const BusinessMetric = await prisma.businessMetric.delete({
+     *   where: {
+     *     // ... filter to delete one BusinessMetric
+     *   }
+     * })
+     *
+     */
+    delete<T extends BusinessMetricDeleteArgs>(args: SelectSubset<T, BusinessMetricDeleteArgs<ExtArgs>>): Prisma__BusinessMetricClient<$Result.GetResult<Prisma.$BusinessMetricPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BusinessMetric.
+     * @param {BusinessMetricUpdateArgs} args - Arguments to update one BusinessMetric.
+     * @example
+     * // Update one BusinessMetric
+     * const businessMetric = await prisma.businessMetric.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends BusinessMetricUpdateArgs>(args: SelectSubset<T, BusinessMetricUpdateArgs<ExtArgs>>): Prisma__BusinessMetricClient<$Result.GetResult<Prisma.$BusinessMetricPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BusinessMetrics.
+     * @param {BusinessMetricDeleteManyArgs} args - Arguments to filter BusinessMetrics to delete.
+     * @example
+     * // Delete a few BusinessMetrics
+     * const { count } = await prisma.businessMetric.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends BusinessMetricDeleteManyArgs>(args?: SelectSubset<T, BusinessMetricDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BusinessMetrics.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BusinessMetricUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BusinessMetrics
+     * const businessMetric = await prisma.businessMetric.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends BusinessMetricUpdateManyArgs>(args: SelectSubset<T, BusinessMetricUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BusinessMetrics and returns the data updated in the database.
+     * @param {BusinessMetricUpdateManyAndReturnArgs} args - Arguments to update many BusinessMetrics.
+     * @example
+     * // Update many BusinessMetrics
+     * const businessMetric = await prisma.businessMetric.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more BusinessMetrics and only return the `id`
+     * const businessMetricWithIdOnly = await prisma.businessMetric.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends BusinessMetricUpdateManyAndReturnArgs>(args: SelectSubset<T, BusinessMetricUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BusinessMetricPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one BusinessMetric.
+     * @param {BusinessMetricUpsertArgs} args - Arguments to update or create a BusinessMetric.
+     * @example
+     * // Update or create a BusinessMetric
+     * const businessMetric = await prisma.businessMetric.upsert({
+     *   create: {
+     *     // ... data to create a BusinessMetric
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BusinessMetric we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BusinessMetricUpsertArgs>(args: SelectSubset<T, BusinessMetricUpsertArgs<ExtArgs>>): Prisma__BusinessMetricClient<$Result.GetResult<Prisma.$BusinessMetricPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BusinessMetrics.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BusinessMetricCountArgs} args - Arguments to filter BusinessMetrics to count.
+     * @example
+     * // Count the number of BusinessMetrics
+     * const count = await prisma.businessMetric.count({
+     *   where: {
+     *     // ... the filter for the BusinessMetrics we want to count
+     *   }
+     * })
+    **/
+    count<T extends BusinessMetricCountArgs>(
+      args?: Subset<T, BusinessMetricCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BusinessMetricCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BusinessMetric.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BusinessMetricAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BusinessMetricAggregateArgs>(args: Subset<T, BusinessMetricAggregateArgs>): Prisma.PrismaPromise<GetBusinessMetricAggregateType<T>>
+
+    /**
+     * Group by BusinessMetric.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BusinessMetricGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<
+      T extends BusinessMetricGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BusinessMetricGroupByArgs['orderBy'] }
+        : { orderBy?: BusinessMetricGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BusinessMetricGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBusinessMetricGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BusinessMetric model
+   */
+  readonly fields: BusinessMetricFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BusinessMetric.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BusinessMetricClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BusinessMetric model
+   */
+  interface BusinessMetricFieldRefs {
+    readonly id: FieldRef<"BusinessMetric", 'String'>
+    readonly name: FieldRef<"BusinessMetric", 'String'>
+    readonly value: FieldRef<"BusinessMetric", 'Float'>
+    readonly tags: FieldRef<"BusinessMetric", 'Json'>
+    readonly createdAt: FieldRef<"BusinessMetric", 'DateTime'>
+  }
+
+
+  // Custom InputTypes
+  /**
+   * BusinessMetric findUnique
+   */
+  export type BusinessMetricFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessMetric
+     */
+    select?: BusinessMetricSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessMetric
+     */
+    omit?: BusinessMetricOmit<ExtArgs> | null
+    /**
+     * Filter, which BusinessMetric to fetch.
+     */
+    where: BusinessMetricWhereUniqueInput
+  }
+
+  /**
+   * BusinessMetric findUniqueOrThrow
+   */
+  export type BusinessMetricFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessMetric
+     */
+    select?: BusinessMetricSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessMetric
+     */
+    omit?: BusinessMetricOmit<ExtArgs> | null
+    /**
+     * Filter, which BusinessMetric to fetch.
+     */
+    where: BusinessMetricWhereUniqueInput
+  }
+
+  /**
+   * BusinessMetric findFirst
+   */
+  export type BusinessMetricFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessMetric
+     */
+    select?: BusinessMetricSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessMetric
+     */
+    omit?: BusinessMetricOmit<ExtArgs> | null
+    /**
+     * Filter, which BusinessMetric to fetch.
+     */
+    where?: BusinessMetricWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of BusinessMetrics to fetch.
+     */
+    orderBy?: BusinessMetricOrderByWithRelationInput | BusinessMetricOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for BusinessMetrics.
+     */
+    cursor?: BusinessMetricWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` BusinessMetrics from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` BusinessMetrics.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of BusinessMetrics.
+     */
+    distinct?: BusinessMetricScalarFieldEnum | BusinessMetricScalarFieldEnum[]
+  }
+
+  /**
+   * BusinessMetric findFirstOrThrow
+   */
+  export type BusinessMetricFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessMetric
+     */
+    select?: BusinessMetricSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessMetric
+     */
+    omit?: BusinessMetricOmit<ExtArgs> | null
+    /**
+     * Filter, which BusinessMetric to fetch.
+     */
+    where?: BusinessMetricWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of BusinessMetrics to fetch.
+     */
+    orderBy?: BusinessMetricOrderByWithRelationInput | BusinessMetricOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for BusinessMetrics.
+     */
+    cursor?: BusinessMetricWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` BusinessMetrics from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` BusinessMetrics.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of BusinessMetrics.
+     */
+    distinct?: BusinessMetricScalarFieldEnum | BusinessMetricScalarFieldEnum[]
+  }
+
+  /**
+   * BusinessMetric findMany
+   */
+  export type BusinessMetricFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessMetric
+     */
+    select?: BusinessMetricSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessMetric
+     */
+    omit?: BusinessMetricOmit<ExtArgs> | null
+    /**
+     * Filter, which BusinessMetrics to fetch.
+     */
+    where?: BusinessMetricWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of BusinessMetrics to fetch.
+     */
+    orderBy?: BusinessMetricOrderByWithRelationInput | BusinessMetricOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing BusinessMetrics.
+     */
+    cursor?: BusinessMetricWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` BusinessMetrics from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` BusinessMetrics.
+     */
+    skip?: number
+    distinct?: BusinessMetricScalarFieldEnum | BusinessMetricScalarFieldEnum[]
+  }
+
+  /**
+   * BusinessMetric create
+   */
+  export type BusinessMetricCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessMetric
+     */
+    select?: BusinessMetricSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessMetric
+     */
+    omit?: BusinessMetricOmit<ExtArgs> | null
+    /**
+     * The data needed to create a BusinessMetric.
+     */
+    data: XOR<BusinessMetricCreateInput, BusinessMetricUncheckedCreateInput>
+  }
+
+  /**
+   * BusinessMetric createMany
+   */
+  export type BusinessMetricCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BusinessMetrics.
+     */
+    data: BusinessMetricCreateManyInput | BusinessMetricCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BusinessMetric createManyAndReturn
+   */
+  export type BusinessMetricCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessMetric
+     */
+    select?: BusinessMetricSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessMetric
+     */
+    omit?: BusinessMetricOmit<ExtArgs> | null
+    /**
+     * The data used to create many BusinessMetrics.
+     */
+    data: BusinessMetricCreateManyInput | BusinessMetricCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BusinessMetric update
+   */
+  export type BusinessMetricUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessMetric
+     */
+    select?: BusinessMetricSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessMetric
+     */
+    omit?: BusinessMetricOmit<ExtArgs> | null
+    /**
+     * The data needed to update a BusinessMetric.
+     */
+    data: XOR<BusinessMetricUpdateInput, BusinessMetricUncheckedUpdateInput>
+    /**
+     * Choose, which BusinessMetric to update.
+     */
+    where: BusinessMetricWhereUniqueInput
+  }
+
+  /**
+   * BusinessMetric updateMany
+   */
+  export type BusinessMetricUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BusinessMetrics.
+     */
+    data: XOR<BusinessMetricUpdateManyMutationInput, BusinessMetricUncheckedUpdateManyInput>
+    /**
+     * Filter which BusinessMetrics to update
+     */
+    where?: BusinessMetricWhereInput
+    /**
+     * Limit how many BusinessMetrics to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BusinessMetric updateManyAndReturn
+   */
+  export type BusinessMetricUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessMetric
+     */
+    select?: BusinessMetricSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessMetric
+     */
+    omit?: BusinessMetricOmit<ExtArgs> | null
+    /**
+     * The data used to update BusinessMetrics.
+     */
+    data: XOR<BusinessMetricUpdateManyMutationInput, BusinessMetricUncheckedUpdateManyInput>
+    /**
+     * Filter which BusinessMetrics to update
+     */
+    where?: BusinessMetricWhereInput
+    /**
+     * Limit how many BusinessMetrics to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BusinessMetric upsert
+   */
+  export type BusinessMetricUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessMetric
+     */
+    select?: BusinessMetricSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessMetric
+     */
+    omit?: BusinessMetricOmit<ExtArgs> | null
+    /**
+     * The filter to search for the BusinessMetric to update in case it exists.
+     */
+    where: BusinessMetricWhereUniqueInput
+    /**
+     * In case the BusinessMetric found by the `where` argument doesn't exist, create a new BusinessMetric with this data.
+     */
+    create: XOR<BusinessMetricCreateInput, BusinessMetricUncheckedCreateInput>
+    /**
+     * In case the BusinessMetric was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BusinessMetricUpdateInput, BusinessMetricUncheckedUpdateInput>
+  }
+
+  /**
+   * BusinessMetric delete
+   */
+  export type BusinessMetricDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessMetric
+     */
+    select?: BusinessMetricSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessMetric
+     */
+    omit?: BusinessMetricOmit<ExtArgs> | null
+    /**
+     * Filter which BusinessMetric to delete.
+     */
+    where: BusinessMetricWhereUniqueInput
+  }
+
+  /**
+   * BusinessMetric deleteMany
+   */
+  export type BusinessMetricDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BusinessMetrics to delete
+     */
+    where?: BusinessMetricWhereInput
+    /**
+     * Limit how many BusinessMetrics to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BusinessMetric without action
+   */
+  export type BusinessMetricDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessMetric
+     */
+    select?: BusinessMetricSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessMetric
+     */
+    omit?: BusinessMetricOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ErrorLog
+   */
+
+  export type AggregateErrorLog = {
+    _count: ErrorLogCountAggregateOutputType | null
+    _min: ErrorLogMinAggregateOutputType | null
+    _max: ErrorLogMaxAggregateOutputType | null
+  }
+
+  export type ErrorLogMinAggregateOutputType = {
+    id: string | null
+    message: string | null
+    stack: string | null
+    createdAt: Date | null
+  }
+
+  export type ErrorLogMaxAggregateOutputType = {
+    id: string | null
+    message: string | null
+    stack: string | null
+    createdAt: Date | null
+  }
+
+  export type ErrorLogCountAggregateOutputType = {
+    id: number
+    message: number
+    stack: number
+    context: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type ErrorLogMinAggregateInputType = {
+    id?: true
+    message?: true
+    stack?: true
+    createdAt?: true
+  }
+
+  export type ErrorLogMaxAggregateInputType = {
+    id?: true
+    message?: true
+    stack?: true
+    createdAt?: true
+  }
+
+  export type ErrorLogCountAggregateInputType = {
+    id?: true
+    message?: true
+    stack?: true
+    context?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type ErrorLogAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ErrorLog to aggregate.
+     */
+    where?: ErrorLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of ErrorLogs to fetch.
+     */
+    orderBy?: ErrorLogOrderByWithRelationInput | ErrorLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: ErrorLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` ErrorLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` ErrorLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned ErrorLogs
+    **/
+    _count?: true | ErrorLogCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: ErrorLogMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: ErrorLogMaxAggregateInputType
+  }
+
+  export type GetErrorLogAggregateType<T extends ErrorLogAggregateArgs> = {
+        [P in keyof T & keyof AggregateErrorLog]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateErrorLog[P]>
+      : GetScalarType<T[P], AggregateErrorLog[P]>
+  }
+
+
+
+
+  export type ErrorLogGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ErrorLogWhereInput
+    orderBy?: ErrorLogOrderByWithAggregationInput | ErrorLogOrderByWithAggregationInput[]
+    by: ErrorLogScalarFieldEnum[] | ErrorLogScalarFieldEnum
+    having?: ErrorLogScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ErrorLogCountAggregateInputType | true
+    _min?: ErrorLogMinAggregateInputType
+    _max?: ErrorLogMaxAggregateInputType
+  }
+
+  export type ErrorLogGroupByOutputType = {
+    id: string
+    message: string
+    stack: string | null
+    context: JsonValue | null
+    createdAt: Date
+    _count: ErrorLogCountAggregateOutputType | null
+    _min: ErrorLogMinAggregateOutputType | null
+    _max: ErrorLogMaxAggregateOutputType | null
+  }
+
+  type GetErrorLogGroupByPayload<T extends ErrorLogGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ErrorLogGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ErrorLogGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ErrorLogGroupByOutputType[P]>
+            : GetScalarType<T[P], ErrorLogGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ErrorLogSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    message?: boolean
+    stack?: boolean
+    context?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["errorLog"]>
+
+  export type ErrorLogSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    message?: boolean
+    stack?: boolean
+    context?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["errorLog"]>
+
+  export type ErrorLogSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    message?: boolean
+    stack?: boolean
+    context?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["errorLog"]>
+
+  export type ErrorLogSelectScalar = {
+    id?: boolean
+    message?: boolean
+    stack?: boolean
+    context?: boolean
+    createdAt?: boolean
+  }
+
+  export type ErrorLogOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "message" | "stack" | "context" | "createdAt", ExtArgs["result"]["errorLog"]>
+
+  export type $ErrorLogPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ErrorLog"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      message: string
+      stack: string | null
+      context: Prisma.JsonValue | null
+      createdAt: Date
+    }, ExtArgs["result"]["errorLog"]>
+    composites: {}
+  }
+
+  type ErrorLogGetPayload<S extends boolean | null | undefined | ErrorLogDefaultArgs> = $Result.GetResult<Prisma.$ErrorLogPayload, S>
+
+  type ErrorLogCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ErrorLogFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ErrorLogCountAggregateInputType | true
+    }
+
+  export interface ErrorLogDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ErrorLog'], meta: { name: 'ErrorLog' } }
+    /**
+     * Find zero or one ErrorLog that matches the filter.
+     * @param {ErrorLogFindUniqueArgs} args - Arguments to find a ErrorLog
+     * @example
+     * // Get one ErrorLog
+     * const errorLog = await prisma.errorLog.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ErrorLogFindUniqueArgs>(args: SelectSubset<T, ErrorLogFindUniqueArgs<ExtArgs>>): Prisma__ErrorLogClient<$Result.GetResult<Prisma.$ErrorLogPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ErrorLog that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ErrorLogFindUniqueOrThrowArgs} args - Arguments to find a ErrorLog
+     * @example
+     * // Get one ErrorLog
+     * const errorLog = await prisma.errorLog.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ErrorLogFindUniqueOrThrowArgs>(args: SelectSubset<T, ErrorLogFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ErrorLogClient<$Result.GetResult<Prisma.$ErrorLogPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ErrorLog that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ErrorLogFindFirstArgs} args - Arguments to find a ErrorLog
+     * @example
+     * // Get one ErrorLog
+     * const errorLog = await prisma.errorLog.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ErrorLogFindFirstArgs>(args?: SelectSubset<T, ErrorLogFindFirstArgs<ExtArgs>>): Prisma__ErrorLogClient<$Result.GetResult<Prisma.$ErrorLogPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ErrorLog that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ErrorLogFindFirstOrThrowArgs} args - Arguments to find a ErrorLog
+     * @example
+     * // Get one ErrorLog
+     * const errorLog = await prisma.errorLog.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ErrorLogFindFirstOrThrowArgs>(args?: SelectSubset<T, ErrorLogFindFirstOrThrowArgs<ExtArgs>>): Prisma__ErrorLogClient<$Result.GetResult<Prisma.$ErrorLogPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ErrorLogs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ErrorLogFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ErrorLogs
+     * const errorLogs = await prisma.errorLog.findMany()
+     *
+     * // Get first 10 ErrorLogs
+     * const errorLogs = await prisma.errorLog.findMany({ take: 10 })
+     *
+     * // Only select the `id`
+     * const errorLogWithIdOnly = await prisma.errorLog.findMany({ select: { id: true } })
+     *
+     */
+    findMany<T extends ErrorLogFindManyArgs>(args?: SelectSubset<T, ErrorLogFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ErrorLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ErrorLog.
+     * @param {ErrorLogCreateArgs} args - Arguments to create a ErrorLog.
+     * @example
+     * // Create one ErrorLog
+     * const ErrorLog = await prisma.errorLog.create({
+     *   data: {
+     *     // ... data to create a ErrorLog
+     *   }
+     * })
+     *
+     */
+    create<T extends ErrorLogCreateArgs>(args: SelectSubset<T, ErrorLogCreateArgs<ExtArgs>>): Prisma__ErrorLogClient<$Result.GetResult<Prisma.$ErrorLogPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ErrorLogs.
+     * @param {ErrorLogCreateManyArgs} args - Arguments to create many ErrorLogs.
+     * @example
+     * // Create many ErrorLogs
+     * const errorLog = await prisma.errorLog.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends ErrorLogCreateManyArgs>(args?: SelectSubset<T, ErrorLogCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ErrorLogs and returns the data saved in the database.
+     * @param {ErrorLogCreateManyAndReturnArgs} args - Arguments to create many ErrorLogs.
+     * @example
+     * // Create many ErrorLogs
+     * const errorLog = await prisma.errorLog.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many ErrorLogs and only return the `id`
+     * const errorLogWithIdOnly = await prisma.errorLog.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends ErrorLogCreateManyAndReturnArgs>(args?: SelectSubset<T, ErrorLogCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ErrorLogPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ErrorLog.
+     * @param {ErrorLogDeleteArgs} args - Arguments to delete one ErrorLog.
+     * @example
+     * // Delete one ErrorLog
+     * const ErrorLog = await prisma.errorLog.delete({
+     *   where: {
+     *     // ... filter to delete one ErrorLog
+     *   }
+     * })
+     *
+     */
+    delete<T extends ErrorLogDeleteArgs>(args: SelectSubset<T, ErrorLogDeleteArgs<ExtArgs>>): Prisma__ErrorLogClient<$Result.GetResult<Prisma.$ErrorLogPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ErrorLog.
+     * @param {ErrorLogUpdateArgs} args - Arguments to update one ErrorLog.
+     * @example
+     * // Update one ErrorLog
+     * const errorLog = await prisma.errorLog.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends ErrorLogUpdateArgs>(args: SelectSubset<T, ErrorLogUpdateArgs<ExtArgs>>): Prisma__ErrorLogClient<$Result.GetResult<Prisma.$ErrorLogPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ErrorLogs.
+     * @param {ErrorLogDeleteManyArgs} args - Arguments to filter ErrorLogs to delete.
+     * @example
+     * // Delete a few ErrorLogs
+     * const { count } = await prisma.errorLog.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends ErrorLogDeleteManyArgs>(args?: SelectSubset<T, ErrorLogDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ErrorLogs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ErrorLogUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ErrorLogs
+     * const errorLog = await prisma.errorLog.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends ErrorLogUpdateManyArgs>(args: SelectSubset<T, ErrorLogUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ErrorLogs and returns the data updated in the database.
+     * @param {ErrorLogUpdateManyAndReturnArgs} args - Arguments to update many ErrorLogs.
+     * @example
+     * // Update many ErrorLogs
+     * const errorLog = await prisma.errorLog.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more ErrorLogs and only return the `id`
+     * const errorLogWithIdOnly = await prisma.errorLog.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends ErrorLogUpdateManyAndReturnArgs>(args: SelectSubset<T, ErrorLogUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ErrorLogPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ErrorLog.
+     * @param {ErrorLogUpsertArgs} args - Arguments to update or create a ErrorLog.
+     * @example
+     * // Update or create a ErrorLog
+     * const errorLog = await prisma.errorLog.upsert({
+     *   create: {
+     *     // ... data to create a ErrorLog
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ErrorLog we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ErrorLogUpsertArgs>(args: SelectSubset<T, ErrorLogUpsertArgs<ExtArgs>>): Prisma__ErrorLogClient<$Result.GetResult<Prisma.$ErrorLogPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ErrorLogs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ErrorLogCountArgs} args - Arguments to filter ErrorLogs to count.
+     * @example
+     * // Count the number of ErrorLogs
+     * const count = await prisma.errorLog.count({
+     *   where: {
+     *     // ... the filter for the ErrorLogs we want to count
+     *   }
+     * })
+    **/
+    count<T extends ErrorLogCountArgs>(
+      args?: Subset<T, ErrorLogCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ErrorLogCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ErrorLog.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ErrorLogAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ErrorLogAggregateArgs>(args: Subset<T, ErrorLogAggregateArgs>): Prisma.PrismaPromise<GetErrorLogAggregateType<T>>
+
+    /**
+     * Group by ErrorLog.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ErrorLogGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<
+      T extends ErrorLogGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ErrorLogGroupByArgs['orderBy'] }
+        : { orderBy?: ErrorLogGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ErrorLogGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetErrorLogGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ErrorLog model
+   */
+  readonly fields: ErrorLogFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ErrorLog.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ErrorLogClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ErrorLog model
+   */
+  interface ErrorLogFieldRefs {
+    readonly id: FieldRef<"ErrorLog", 'String'>
+    readonly message: FieldRef<"ErrorLog", 'String'>
+    readonly stack: FieldRef<"ErrorLog", 'String'>
+    readonly context: FieldRef<"ErrorLog", 'Json'>
+    readonly createdAt: FieldRef<"ErrorLog", 'DateTime'>
+  }
+
+
+  // Custom InputTypes
+  /**
+   * ErrorLog findUnique
+   */
+  export type ErrorLogFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ErrorLog
+     */
+    select?: ErrorLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ErrorLog
+     */
+    omit?: ErrorLogOmit<ExtArgs> | null
+    /**
+     * Filter, which ErrorLog to fetch.
+     */
+    where: ErrorLogWhereUniqueInput
+  }
+
+  /**
+   * ErrorLog findUniqueOrThrow
+   */
+  export type ErrorLogFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ErrorLog
+     */
+    select?: ErrorLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ErrorLog
+     */
+    omit?: ErrorLogOmit<ExtArgs> | null
+    /**
+     * Filter, which ErrorLog to fetch.
+     */
+    where: ErrorLogWhereUniqueInput
+  }
+
+  /**
+   * ErrorLog findFirst
+   */
+  export type ErrorLogFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ErrorLog
+     */
+    select?: ErrorLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ErrorLog
+     */
+    omit?: ErrorLogOmit<ExtArgs> | null
+    /**
+     * Filter, which ErrorLog to fetch.
+     */
+    where?: ErrorLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of ErrorLogs to fetch.
+     */
+    orderBy?: ErrorLogOrderByWithRelationInput | ErrorLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for ErrorLogs.
+     */
+    cursor?: ErrorLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` ErrorLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` ErrorLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of ErrorLogs.
+     */
+    distinct?: ErrorLogScalarFieldEnum | ErrorLogScalarFieldEnum[]
+  }
+
+  /**
+   * ErrorLog findFirstOrThrow
+   */
+  export type ErrorLogFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ErrorLog
+     */
+    select?: ErrorLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ErrorLog
+     */
+    omit?: ErrorLogOmit<ExtArgs> | null
+    /**
+     * Filter, which ErrorLog to fetch.
+     */
+    where?: ErrorLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of ErrorLogs to fetch.
+     */
+    orderBy?: ErrorLogOrderByWithRelationInput | ErrorLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for ErrorLogs.
+     */
+    cursor?: ErrorLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` ErrorLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` ErrorLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of ErrorLogs.
+     */
+    distinct?: ErrorLogScalarFieldEnum | ErrorLogScalarFieldEnum[]
+  }
+
+  /**
+   * ErrorLog findMany
+   */
+  export type ErrorLogFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ErrorLog
+     */
+    select?: ErrorLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ErrorLog
+     */
+    omit?: ErrorLogOmit<ExtArgs> | null
+    /**
+     * Filter, which ErrorLogs to fetch.
+     */
+    where?: ErrorLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of ErrorLogs to fetch.
+     */
+    orderBy?: ErrorLogOrderByWithRelationInput | ErrorLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing ErrorLogs.
+     */
+    cursor?: ErrorLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` ErrorLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` ErrorLogs.
+     */
+    skip?: number
+    distinct?: ErrorLogScalarFieldEnum | ErrorLogScalarFieldEnum[]
+  }
+
+  /**
+   * ErrorLog create
+   */
+  export type ErrorLogCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ErrorLog
+     */
+    select?: ErrorLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ErrorLog
+     */
+    omit?: ErrorLogOmit<ExtArgs> | null
+    /**
+     * The data needed to create a ErrorLog.
+     */
+    data: XOR<ErrorLogCreateInput, ErrorLogUncheckedCreateInput>
+  }
+
+  /**
+   * ErrorLog createMany
+   */
+  export type ErrorLogCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ErrorLogs.
+     */
+    data: ErrorLogCreateManyInput | ErrorLogCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ErrorLog createManyAndReturn
+   */
+  export type ErrorLogCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ErrorLog
+     */
+    select?: ErrorLogSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ErrorLog
+     */
+    omit?: ErrorLogOmit<ExtArgs> | null
+    /**
+     * The data used to create many ErrorLogs.
+     */
+    data: ErrorLogCreateManyInput | ErrorLogCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ErrorLog update
+   */
+  export type ErrorLogUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ErrorLog
+     */
+    select?: ErrorLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ErrorLog
+     */
+    omit?: ErrorLogOmit<ExtArgs> | null
+    /**
+     * The data needed to update a ErrorLog.
+     */
+    data: XOR<ErrorLogUpdateInput, ErrorLogUncheckedUpdateInput>
+    /**
+     * Choose, which ErrorLog to update.
+     */
+    where: ErrorLogWhereUniqueInput
+  }
+
+  /**
+   * ErrorLog updateMany
+   */
+  export type ErrorLogUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ErrorLogs.
+     */
+    data: XOR<ErrorLogUpdateManyMutationInput, ErrorLogUncheckedUpdateManyInput>
+    /**
+     * Filter which ErrorLogs to update
+     */
+    where?: ErrorLogWhereInput
+    /**
+     * Limit how many ErrorLogs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ErrorLog updateManyAndReturn
+   */
+  export type ErrorLogUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ErrorLog
+     */
+    select?: ErrorLogSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ErrorLog
+     */
+    omit?: ErrorLogOmit<ExtArgs> | null
+    /**
+     * The data used to update ErrorLogs.
+     */
+    data: XOR<ErrorLogUpdateManyMutationInput, ErrorLogUncheckedUpdateManyInput>
+    /**
+     * Filter which ErrorLogs to update
+     */
+    where?: ErrorLogWhereInput
+    /**
+     * Limit how many ErrorLogs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ErrorLog upsert
+   */
+  export type ErrorLogUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ErrorLog
+     */
+    select?: ErrorLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ErrorLog
+     */
+    omit?: ErrorLogOmit<ExtArgs> | null
+    /**
+     * The filter to search for the ErrorLog to update in case it exists.
+     */
+    where: ErrorLogWhereUniqueInput
+    /**
+     * In case the ErrorLog found by the `where` argument doesn't exist, create a new ErrorLog with this data.
+     */
+    create: XOR<ErrorLogCreateInput, ErrorLogUncheckedCreateInput>
+    /**
+     * In case the ErrorLog was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ErrorLogUpdateInput, ErrorLogUncheckedUpdateInput>
+  }
+
+  /**
+   * ErrorLog delete
+   */
+  export type ErrorLogDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ErrorLog
+     */
+    select?: ErrorLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ErrorLog
+     */
+    omit?: ErrorLogOmit<ExtArgs> | null
+    /**
+     * Filter which ErrorLog to delete.
+     */
+    where: ErrorLogWhereUniqueInput
+  }
+
+  /**
+   * ErrorLog deleteMany
+   */
+  export type ErrorLogDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ErrorLogs to delete
+     */
+    where?: ErrorLogWhereInput
+    /**
+     * Limit how many ErrorLogs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ErrorLog without action
+   */
+  export type ErrorLogDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ErrorLog
+     */
+    select?: ErrorLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ErrorLog
+     */
+    omit?: ErrorLogOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -37771,6 +39969,28 @@ export namespace Prisma {
   export type LLMConfigScalarFieldEnum = (typeof LLMConfigScalarFieldEnum)[keyof typeof LLMConfigScalarFieldEnum]
 
 
+  export const BusinessMetricScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    value: 'value',
+    tags: 'tags',
+    createdAt: 'createdAt'
+  };
+
+  export type BusinessMetricScalarFieldEnum = (typeof BusinessMetricScalarFieldEnum)[keyof typeof BusinessMetricScalarFieldEnum]
+
+
+  export const ErrorLogScalarFieldEnum: {
+    id: 'id',
+    message: 'message',
+    stack: 'stack',
+    context: 'context',
+    createdAt: 'createdAt'
+  };
+
+  export type ErrorLogScalarFieldEnum = (typeof ErrorLogScalarFieldEnum)[keyof typeof ErrorLogScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -38117,6 +40337,23 @@ export namespace Prisma {
   };
 
   export type LLMConfigOrderByRelevanceFieldEnum = (typeof LLMConfigOrderByRelevanceFieldEnum)[keyof typeof LLMConfigOrderByRelevanceFieldEnum]
+
+
+  export const BusinessMetricOrderByRelevanceFieldEnum: {
+    id: 'id',
+    name: 'name'
+  };
+
+  export type BusinessMetricOrderByRelevanceFieldEnum = (typeof BusinessMetricOrderByRelevanceFieldEnum)[keyof typeof BusinessMetricOrderByRelevanceFieldEnum]
+
+
+  export const ErrorLogOrderByRelevanceFieldEnum: {
+    id: 'id',
+    message: 'message',
+    stack: 'stack'
+  };
+
+  export type ErrorLogOrderByRelevanceFieldEnum = (typeof ErrorLogOrderByRelevanceFieldEnum)[keyof typeof ErrorLogOrderByRelevanceFieldEnum]
 
 
   /**
@@ -41040,6 +43277,114 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableWithAggregatesFilter<"LLMConfig"> | Date | string | null
   }
 
+  export type BusinessMetricWhereInput = {
+    AND?: BusinessMetricWhereInput | BusinessMetricWhereInput[]
+    OR?: BusinessMetricWhereInput[]
+    NOT?: BusinessMetricWhereInput | BusinessMetricWhereInput[]
+    id?: StringFilter<"BusinessMetric"> | string
+    name?: StringFilter<"BusinessMetric"> | string
+    value?: FloatFilter<"BusinessMetric"> | number
+    tags?: JsonNullableFilter<"BusinessMetric">
+    createdAt?: DateTimeFilter<"BusinessMetric"> | Date | string
+  }
+
+  export type BusinessMetricOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    value?: SortOrder
+    tags?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _relevance?: BusinessMetricOrderByRelevanceInput
+  }
+
+  export type BusinessMetricWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: BusinessMetricWhereInput | BusinessMetricWhereInput[]
+    OR?: BusinessMetricWhereInput[]
+    NOT?: BusinessMetricWhereInput | BusinessMetricWhereInput[]
+    name?: StringFilter<"BusinessMetric"> | string
+    value?: FloatFilter<"BusinessMetric"> | number
+    tags?: JsonNullableFilter<"BusinessMetric">
+    createdAt?: DateTimeFilter<"BusinessMetric"> | Date | string
+  }, "id">
+
+  export type BusinessMetricOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    value?: SortOrder
+    tags?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: BusinessMetricCountOrderByAggregateInput
+    _avg?: BusinessMetricAvgOrderByAggregateInput
+    _max?: BusinessMetricMaxOrderByAggregateInput
+    _min?: BusinessMetricMinOrderByAggregateInput
+    _sum?: BusinessMetricSumOrderByAggregateInput
+  }
+
+  export type BusinessMetricScalarWhereWithAggregatesInput = {
+    AND?: BusinessMetricScalarWhereWithAggregatesInput | BusinessMetricScalarWhereWithAggregatesInput[]
+    OR?: BusinessMetricScalarWhereWithAggregatesInput[]
+    NOT?: BusinessMetricScalarWhereWithAggregatesInput | BusinessMetricScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"BusinessMetric"> | string
+    name?: StringWithAggregatesFilter<"BusinessMetric"> | string
+    value?: FloatWithAggregatesFilter<"BusinessMetric"> | number
+    tags?: JsonNullableWithAggregatesFilter<"BusinessMetric">
+    createdAt?: DateTimeWithAggregatesFilter<"BusinessMetric"> | Date | string
+  }
+
+  export type ErrorLogWhereInput = {
+    AND?: ErrorLogWhereInput | ErrorLogWhereInput[]
+    OR?: ErrorLogWhereInput[]
+    NOT?: ErrorLogWhereInput | ErrorLogWhereInput[]
+    id?: StringFilter<"ErrorLog"> | string
+    message?: StringFilter<"ErrorLog"> | string
+    stack?: StringNullableFilter<"ErrorLog"> | string | null
+    context?: JsonNullableFilter<"ErrorLog">
+    createdAt?: DateTimeFilter<"ErrorLog"> | Date | string
+  }
+
+  export type ErrorLogOrderByWithRelationInput = {
+    id?: SortOrder
+    message?: SortOrder
+    stack?: SortOrderInput | SortOrder
+    context?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _relevance?: ErrorLogOrderByRelevanceInput
+  }
+
+  export type ErrorLogWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ErrorLogWhereInput | ErrorLogWhereInput[]
+    OR?: ErrorLogWhereInput[]
+    NOT?: ErrorLogWhereInput | ErrorLogWhereInput[]
+    message?: StringFilter<"ErrorLog"> | string
+    stack?: StringNullableFilter<"ErrorLog"> | string | null
+    context?: JsonNullableFilter<"ErrorLog">
+    createdAt?: DateTimeFilter<"ErrorLog"> | Date | string
+  }, "id">
+
+  export type ErrorLogOrderByWithAggregationInput = {
+    id?: SortOrder
+    message?: SortOrder
+    stack?: SortOrderInput | SortOrder
+    context?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: ErrorLogCountOrderByAggregateInput
+    _max?: ErrorLogMaxOrderByAggregateInput
+    _min?: ErrorLogMinOrderByAggregateInput
+  }
+
+  export type ErrorLogScalarWhereWithAggregatesInput = {
+    AND?: ErrorLogScalarWhereWithAggregatesInput | ErrorLogScalarWhereWithAggregatesInput[]
+    OR?: ErrorLogScalarWhereWithAggregatesInput[]
+    NOT?: ErrorLogScalarWhereWithAggregatesInput | ErrorLogScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ErrorLog"> | string
+    message?: StringWithAggregatesFilter<"ErrorLog"> | string
+    stack?: StringNullableWithAggregatesFilter<"ErrorLog"> | string | null
+    context?: JsonNullableWithAggregatesFilter<"ErrorLog">
+    createdAt?: DateTimeWithAggregatesFilter<"ErrorLog"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     email: string
@@ -43880,6 +46225,118 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
+  export type BusinessMetricCreateInput = {
+    id?: string
+    name: string
+    value: number
+    tags?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type BusinessMetricUncheckedCreateInput = {
+    id?: string
+    name: string
+    value: number
+    tags?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type BusinessMetricUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    value?: FloatFieldUpdateOperationsInput | number
+    tags?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BusinessMetricUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    value?: FloatFieldUpdateOperationsInput | number
+    tags?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BusinessMetricCreateManyInput = {
+    id?: string
+    name: string
+    value: number
+    tags?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type BusinessMetricUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    value?: FloatFieldUpdateOperationsInput | number
+    tags?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BusinessMetricUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    value?: FloatFieldUpdateOperationsInput | number
+    tags?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ErrorLogCreateInput = {
+    id?: string
+    message: string
+    stack?: string | null
+    context?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type ErrorLogUncheckedCreateInput = {
+    id?: string
+    message: string
+    stack?: string | null
+    context?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type ErrorLogUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    stack?: NullableStringFieldUpdateOperationsInput | string | null
+    context?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ErrorLogUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    stack?: NullableStringFieldUpdateOperationsInput | string | null
+    context?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ErrorLogCreateManyInput = {
+    id?: string
+    message: string
+    stack?: string | null
+    context?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type ErrorLogUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    stack?: NullableStringFieldUpdateOperationsInput | string | null
+    context?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ErrorLogUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    stack?: NullableStringFieldUpdateOperationsInput | string | null
+    context?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -46251,6 +48708,70 @@ export namespace Prisma {
 
   export type LLMConfigSumOrderByAggregateInput = {
     priority?: SortOrder
+  }
+
+  export type BusinessMetricOrderByRelevanceInput = {
+    fields: BusinessMetricOrderByRelevanceFieldEnum | BusinessMetricOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type BusinessMetricCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    value?: SortOrder
+    tags?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BusinessMetricAvgOrderByAggregateInput = {
+    value?: SortOrder
+  }
+
+  export type BusinessMetricMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    value?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BusinessMetricMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    value?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BusinessMetricSumOrderByAggregateInput = {
+    value?: SortOrder
+  }
+
+  export type ErrorLogOrderByRelevanceInput = {
+    fields: ErrorLogOrderByRelevanceFieldEnum | ErrorLogOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type ErrorLogCountOrderByAggregateInput = {
+    id?: SortOrder
+    message?: SortOrder
+    stack?: SortOrder
+    context?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ErrorLogMaxOrderByAggregateInput = {
+    id?: SortOrder
+    message?: SortOrder
+    stack?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ErrorLogMinOrderByAggregateInput = {
+    id?: SortOrder
+    message?: SortOrder
+    stack?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type UserCreaterolesInput = {
