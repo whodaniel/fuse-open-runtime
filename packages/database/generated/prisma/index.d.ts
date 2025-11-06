@@ -46948,14 +46948,6 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type StringNullableListFilter<$PrismaModel = never> = {
-    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    has?: string | StringFieldRefInput<$PrismaModel> | null
-    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
-    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
-    isEmpty?: boolean
-  }
-
   export type AgentScalarRelationFilter = {
     is?: AgentWhereInput
     isNot?: AgentWhereInput
@@ -47101,6 +47093,14 @@ export namespace Prisma {
     in?: $Enums.MessageRole[] | ListEnumMessageRoleFieldRefInput<$PrismaModel>
     notIn?: $Enums.MessageRole[] | ListEnumMessageRoleFieldRefInput<$PrismaModel>
     not?: NestedEnumMessageRoleFilter<$PrismaModel> | $Enums.MessageRole
+  }
+
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
   }
 
   export type UserNullableScalarRelationFilter = {
@@ -49648,19 +49648,10 @@ export namespace Prisma {
     deleteMany?: WorkflowStepScalarWhereInput | WorkflowStepScalarWhereInput[]
   }
 
-  export type AgentMetadataCreateexpertiseAreasInput = {
-    set: string[]
-  }
-
   export type AgentCreateNestedOneWithoutMetadataInput = {
     create?: XOR<AgentCreateWithoutMetadataInput, AgentUncheckedCreateWithoutMetadataInput>
     connectOrCreate?: AgentCreateOrConnectWithoutMetadataInput
     connect?: AgentWhereUniqueInput
-  }
-
-  export type AgentMetadataUpdateexpertiseAreasInput = {
-    set?: string[]
-    push?: string | string[]
   }
 
   export type AgentUpdateOneRequiredWithoutMetadataNestedInput = {
