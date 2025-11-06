@@ -2774,6 +2774,9 @@ importers:
       '@prisma/client':
         specifier: 6.17.1
         version: 6.17.1(prisma@6.17.1(magicast@0.3.5)(typescript@5.9.3))(typescript@5.9.3)
+      '@the-new-fuse/core':
+        specifier: workspace:*
+        version: link:../core
       '@the-new-fuse/database':
         specifier: workspace:*
         version: link:../database

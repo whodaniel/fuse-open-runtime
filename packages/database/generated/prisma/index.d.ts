@@ -155,14 +155,24 @@ export type RegisteredEntity = $Result.DefaultSelection<Prisma.$RegisteredEntity
 export type LLMConfig = $Result.DefaultSelection<Prisma.$LLMConfigPayload>
 /**
  * Model BusinessMetric
- *
+ * 
  */
 export type BusinessMetric = $Result.DefaultSelection<Prisma.$BusinessMetricPayload>
 /**
  * Model ErrorLog
- *
+ * 
  */
 export type ErrorLog = $Result.DefaultSelection<Prisma.$ErrorLogPayload>
+/**
+ * Model SyncState
+ *
+ */
+export type SyncState = $Result.DefaultSelection<Prisma.$SyncStatePayload>
+/**
+ * Model SyncConflict
+ *
+ */
+export type SyncConflict = $Result.DefaultSelection<Prisma.$SyncConflictPayload>
 
 /**
  * Enums
@@ -517,7 +527,7 @@ export const EntityStatus: typeof $Enums.EntityStatus
  */
 export class PrismaClient<
   ClientOptions extends Prisma.PrismaClientOptions = Prisma.PrismaClientOptions,
-  const U = 'log' extends keyof ClientOptions ? ClientOptions['log'] extends Array<Prisma.LogLevel | Prisma.LogDefinition> ? Prisma.GetEvents<ClientOptions['log']> : never : never,
+  U = 'log' extends keyof ClientOptions ? ClientOptions['log'] extends Array<Prisma.LogLevel | Prisma.LogDefinition> ? Prisma.GetEvents<ClientOptions['log']> : never : never,
   ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs
 > {
   [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['other'] }
@@ -549,6 +559,13 @@ export class PrismaClient<
    * Disconnect from the database
    */
   $disconnect(): $Utils.JsPromise<void>;
+
+  /**
+   * Add a middleware
+   * @deprecated since 4.16.0. For new code, prefer client extensions instead.
+   * @see https://pris.ly/d/extensions
+   */
+  $use(cb: Prisma.Middleware): void
 
 /**
    * Executes a prepared raw query and returns the number of affected rows.
@@ -929,6 +946,26 @@ export class PrismaClient<
     * ```
     */
   get errorLog(): Prisma.ErrorLogDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.syncState`: Exposes CRUD operations for the **SyncState** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SyncStates
+    * const syncStates = await prisma.syncState.findMany()
+    * ```
+    */
+  get syncState(): Prisma.SyncStateDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.syncConflict`: Exposes CRUD operations for the **SyncConflict** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SyncConflicts
+    * const syncConflicts = await prisma.syncConflict.findMany()
+    * ```
+    */
+  get syncConflict(): Prisma.SyncConflictDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -987,8 +1024,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.17.1
-   * Query Engine version: 272a37d34178c2894197e17273bf937f25acdeac
+   * Prisma Client JS version: 6.11.0
+   * Query Engine version: 9c30299f5a0ea26a96790e13f796dc6094db3173
    */
   export type PrismaVersion = {
     client: string
@@ -1398,7 +1435,9 @@ export namespace Prisma {
     RegisteredEntity: 'RegisteredEntity',
     LLMConfig: 'LLMConfig',
     BusinessMetric: 'BusinessMetric',
-    ErrorLog: 'ErrorLog'
+    ErrorLog: 'ErrorLog',
+    SyncState: 'SyncState',
+    SyncConflict: 'SyncConflict'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1417,7 +1456,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "authSession" | "loginAttempt" | "authEvent" | "agent" | "agentMetadata" | "chat" | "chatRoom" | "message" | "chatMessage" | "workflow" | "workflowStep" | "workflowExecution" | "pipeline" | "task" | "taskExecution" | "codeExecutionUsage" | "codeExecutionSession" | "agentNFT" | "fractionalShare" | "revenueStream" | "revenueDistribution" | "marketplaceListing" | "marketplaceOffer" | "wallet" | "transaction" | "registeredEntity" | "lLMConfig" | "businessMetric" | "errorLog"
+      modelProps: "user" | "authSession" | "loginAttempt" | "authEvent" | "agent" | "agentMetadata" | "chat" | "chatRoom" | "message" | "chatMessage" | "workflow" | "workflowStep" | "workflowExecution" | "pipeline" | "task" | "taskExecution" | "codeExecutionUsage" | "codeExecutionSession" | "agentNFT" | "fractionalShare" | "revenueStream" | "revenueDistribution" | "marketplaceListing" | "marketplaceOffer" | "wallet" | "transaction" | "registeredEntity" | "lLMConfig" | "businessMetric" | "errorLog" | "syncState" | "syncConflict"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -3641,6 +3680,154 @@ export namespace Prisma {
           }
         }
       }
+      SyncState: {
+        payload: Prisma.$SyncStatePayload<ExtArgs>
+        fields: Prisma.SyncStateFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SyncStateFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncStatePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SyncStateFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncStatePayload>
+          }
+          findFirst: {
+            args: Prisma.SyncStateFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncStatePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SyncStateFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncStatePayload>
+          }
+          findMany: {
+            args: Prisma.SyncStateFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncStatePayload>[]
+          }
+          create: {
+            args: Prisma.SyncStateCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncStatePayload>
+          }
+          createMany: {
+            args: Prisma.SyncStateCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SyncStateCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncStatePayload>[]
+          }
+          delete: {
+            args: Prisma.SyncStateDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncStatePayload>
+          }
+          update: {
+            args: Prisma.SyncStateUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncStatePayload>
+          }
+          deleteMany: {
+            args: Prisma.SyncStateDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SyncStateUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SyncStateUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncStatePayload>[]
+          }
+          upsert: {
+            args: Prisma.SyncStateUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncStatePayload>
+          }
+          aggregate: {
+            args: Prisma.SyncStateAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSyncState>
+          }
+          groupBy: {
+            args: Prisma.SyncStateGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SyncStateGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SyncStateCountArgs<ExtArgs>
+            result: $Utils.Optional<SyncStateCountAggregateOutputType> | number
+          }
+        }
+      }
+      SyncConflict: {
+        payload: Prisma.$SyncConflictPayload<ExtArgs>
+        fields: Prisma.SyncConflictFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SyncConflictFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncConflictPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SyncConflictFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncConflictPayload>
+          }
+          findFirst: {
+            args: Prisma.SyncConflictFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncConflictPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SyncConflictFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncConflictPayload>
+          }
+          findMany: {
+            args: Prisma.SyncConflictFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncConflictPayload>[]
+          }
+          create: {
+            args: Prisma.SyncConflictCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncConflictPayload>
+          }
+          createMany: {
+            args: Prisma.SyncConflictCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SyncConflictCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncConflictPayload>[]
+          }
+          delete: {
+            args: Prisma.SyncConflictDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncConflictPayload>
+          }
+          update: {
+            args: Prisma.SyncConflictUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncConflictPayload>
+          }
+          deleteMany: {
+            args: Prisma.SyncConflictDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SyncConflictUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SyncConflictUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncConflictPayload>[]
+          }
+          upsert: {
+            args: Prisma.SyncConflictUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncConflictPayload>
+          }
+          aggregate: {
+            args: Prisma.SyncConflictAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSyncConflict>
+          }
+          groupBy: {
+            args: Prisma.SyncConflictGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SyncConflictGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SyncConflictCountArgs<ExtArgs>
+            result: $Utils.Optional<SyncConflictCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -3684,24 +3871,16 @@ export namespace Prisma {
     /**
      * @example
      * ```
-     * // Shorthand for `emit: 'stdout'`
+     * // Defaults to stdout
      * log: ['query', 'info', 'warn', 'error']
      * 
-     * // Emit as events only
+     * // Emit as events
      * log: [
-     *   { emit: 'event', level: 'query' },
-     *   { emit: 'event', level: 'info' },
-     *   { emit: 'event', level: 'warn' }
-     *   { emit: 'event', level: 'error' }
+     *   { emit: 'stdout', level: 'query' },
+     *   { emit: 'stdout', level: 'info' },
+     *   { emit: 'stdout', level: 'warn' }
+     *   { emit: 'stdout', level: 'error' }
      * ]
-     * 
-     * / Emit as events and log to stdout
-     * og: [
-     *  { emit: 'stdout', level: 'query' },
-     *  { emit: 'stdout', level: 'info' },
-     *  { emit: 'stdout', level: 'warn' }
-     *  { emit: 'stdout', level: 'error' }
-     * 
      * ```
      * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/logging#the-log-option).
      */
@@ -3767,6 +3946,8 @@ export namespace Prisma {
     lLMConfig?: LLMConfigOmit
     businessMetric?: BusinessMetricOmit
     errorLog?: ErrorLogOmit
+    syncState?: SyncStateOmit
+    syncConflict?: SyncConflictOmit
   }
 
   /* Types for Logging */
@@ -3776,15 +3957,10 @@ export namespace Prisma {
     emit: 'stdout' | 'event'
   }
 
-  export type CheckIsLogLevel<T> = T extends LogLevel ? T : never;
-
-  export type GetLogType<T> = CheckIsLogLevel<
-    T extends LogDefinition ? T['level'] : T
-  >;
-
-  export type GetEvents<T extends any[]> = T extends Array<LogLevel | LogDefinition>
-    ? GetLogType<T[number]>
-    : never;
+  export type GetLogType<T extends LogLevel | LogDefinition> = T extends LogDefinition ? T['emit'] extends 'event' ? T['level'] : never : never
+  export type GetEvents<T extends any> = T extends Array<LogLevel | LogDefinition> ?
+    GetLogType<T[0]> | GetLogType<T[1]> | GetLogType<T[2]> | GetLogType<T[3]>
+    : never
 
   export type QueryEvent = {
     timestamp: Date
@@ -3824,6 +4000,25 @@ export namespace Prisma {
     | 'runCommandRaw'
     | 'findRaw'
     | 'groupBy'
+
+  /**
+   * These options are being passed into the middleware as "params"
+   */
+  export type MiddlewareParams = {
+    model?: ModelName
+    action: PrismaAction
+    args: any
+    dataPath: string[]
+    runInTransaction: boolean
+  }
+
+  /**
+   * The `T` type makes sure, that the `return proceed` is not forgotten in the middleware implementation
+   */
+  export type Middleware<T = any> = (
+    params: MiddlewareParams,
+    next: (params: MiddlewareParams) => $Utils.JsPromise<T>,
+  ) => $Utils.JsPromise<T>
 
   // tested in getLogLevel.test.ts
   export function getLogLevel(log: Array<LogLevel | LogDefinition>): LogLevel | undefined;
@@ -37545,55 +37740,55 @@ export namespace Prisma {
     where?: BusinessMetricWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of BusinessMetrics to fetch.
      */
     orderBy?: BusinessMetricOrderByWithRelationInput | BusinessMetricOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the start position
      */
     cursor?: BusinessMetricWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` BusinessMetrics from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` BusinessMetrics.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Count returned BusinessMetrics
     **/
     _count?: true | BusinessMetricCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to average
     **/
     _avg?: BusinessMetricAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to sum
     **/
     _sum?: BusinessMetricSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: BusinessMetricMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the maximum value
     **/
     _max?: BusinessMetricMaxAggregateInputType
@@ -37773,13 +37968,13 @@ export namespace Prisma {
      * @example
      * // Get all BusinessMetrics
      * const businessMetrics = await prisma.businessMetric.findMany()
-     *
+     * 
      * // Get first 10 BusinessMetrics
      * const businessMetrics = await prisma.businessMetric.findMany({ take: 10 })
-     *
+     * 
      * // Only select the `id`
      * const businessMetricWithIdOnly = await prisma.businessMetric.findMany({ select: { id: true } })
-     *
+     * 
      */
     findMany<T extends BusinessMetricFindManyArgs>(args?: SelectSubset<T, BusinessMetricFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BusinessMetricPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
@@ -37793,7 +37988,7 @@ export namespace Prisma {
      *     // ... data to create a BusinessMetric
      *   }
      * })
-     *
+     * 
      */
     create<T extends BusinessMetricCreateArgs>(args: SelectSubset<T, BusinessMetricCreateArgs<ExtArgs>>): Prisma__BusinessMetricClient<$Result.GetResult<Prisma.$BusinessMetricPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -37807,7 +38002,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     *     
      */
     createMany<T extends BusinessMetricCreateManyArgs>(args?: SelectSubset<T, BusinessMetricCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -37821,7 +38016,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Create many BusinessMetrics and only return the `id`
      * const businessMetricWithIdOnly = await prisma.businessMetric.createManyAndReturn({
      *   select: { id: true },
@@ -37831,7 +38026,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     createManyAndReturn<T extends BusinessMetricCreateManyAndReturnArgs>(args?: SelectSubset<T, BusinessMetricCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BusinessMetricPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
@@ -37845,7 +38040,7 @@ export namespace Prisma {
      *     // ... filter to delete one BusinessMetric
      *   }
      * })
-     *
+     * 
      */
     delete<T extends BusinessMetricDeleteArgs>(args: SelectSubset<T, BusinessMetricDeleteArgs<ExtArgs>>): Prisma__BusinessMetricClient<$Result.GetResult<Prisma.$BusinessMetricPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -37862,7 +38057,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     update<T extends BusinessMetricUpdateArgs>(args: SelectSubset<T, BusinessMetricUpdateArgs<ExtArgs>>): Prisma__BusinessMetricClient<$Result.GetResult<Prisma.$BusinessMetricPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -37876,7 +38071,7 @@ export namespace Prisma {
      *     // ... provide filter here
      *   }
      * })
-     *
+     * 
      */
     deleteMany<T extends BusinessMetricDeleteManyArgs>(args?: SelectSubset<T, BusinessMetricDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -37895,7 +38090,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     updateMany<T extends BusinessMetricUpdateManyArgs>(args: SelectSubset<T, BusinessMetricUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -37912,7 +38107,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Update zero or more BusinessMetrics and only return the `id`
      * const businessMetricWithIdOnly = await prisma.businessMetric.updateManyAndReturn({
      *   select: { id: true },
@@ -37925,7 +38120,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     updateManyAndReturn<T extends BusinessMetricUpdateManyAndReturnArgs>(args: SelectSubset<T, BusinessMetricUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BusinessMetricPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
@@ -38014,7 +38209,7 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     *
+     * 
     **/
     groupBy<
       T extends BusinessMetricGroupByArgs,
@@ -38123,7 +38318,7 @@ export namespace Prisma {
     readonly tags: FieldRef<"BusinessMetric", 'Json'>
     readonly createdAt: FieldRef<"BusinessMetric", 'DateTime'>
   }
-
+    
 
   // Custom InputTypes
   /**
@@ -38180,31 +38375,31 @@ export namespace Prisma {
     where?: BusinessMetricWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of BusinessMetrics to fetch.
      */
     orderBy?: BusinessMetricOrderByWithRelationInput | BusinessMetricOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for BusinessMetrics.
      */
     cursor?: BusinessMetricWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` BusinessMetrics from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` BusinessMetrics.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of BusinessMetrics.
      */
     distinct?: BusinessMetricScalarFieldEnum | BusinessMetricScalarFieldEnum[]
@@ -38228,31 +38423,31 @@ export namespace Prisma {
     where?: BusinessMetricWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of BusinessMetrics to fetch.
      */
     orderBy?: BusinessMetricOrderByWithRelationInput | BusinessMetricOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for BusinessMetrics.
      */
     cursor?: BusinessMetricWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` BusinessMetrics from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` BusinessMetrics.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of BusinessMetrics.
      */
     distinct?: BusinessMetricScalarFieldEnum | BusinessMetricScalarFieldEnum[]
@@ -38276,25 +38471,25 @@ export namespace Prisma {
     where?: BusinessMetricWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of BusinessMetrics to fetch.
      */
     orderBy?: BusinessMetricOrderByWithRelationInput | BusinessMetricOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for listing BusinessMetrics.
      */
     cursor?: BusinessMetricWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` BusinessMetrics from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` BusinessMetrics.
      */
     skip?: number
@@ -38552,43 +38747,43 @@ export namespace Prisma {
     where?: ErrorLogWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of ErrorLogs to fetch.
      */
     orderBy?: ErrorLogOrderByWithRelationInput | ErrorLogOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the start position
      */
     cursor?: ErrorLogWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` ErrorLogs from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` ErrorLogs.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Count returned ErrorLogs
     **/
     _count?: true | ErrorLogCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: ErrorLogMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the maximum value
     **/
     _max?: ErrorLogMaxAggregateInputType
@@ -38764,13 +38959,13 @@ export namespace Prisma {
      * @example
      * // Get all ErrorLogs
      * const errorLogs = await prisma.errorLog.findMany()
-     *
+     * 
      * // Get first 10 ErrorLogs
      * const errorLogs = await prisma.errorLog.findMany({ take: 10 })
-     *
+     * 
      * // Only select the `id`
      * const errorLogWithIdOnly = await prisma.errorLog.findMany({ select: { id: true } })
-     *
+     * 
      */
     findMany<T extends ErrorLogFindManyArgs>(args?: SelectSubset<T, ErrorLogFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ErrorLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
@@ -38784,7 +38979,7 @@ export namespace Prisma {
      *     // ... data to create a ErrorLog
      *   }
      * })
-     *
+     * 
      */
     create<T extends ErrorLogCreateArgs>(args: SelectSubset<T, ErrorLogCreateArgs<ExtArgs>>): Prisma__ErrorLogClient<$Result.GetResult<Prisma.$ErrorLogPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -38798,7 +38993,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     *     
      */
     createMany<T extends ErrorLogCreateManyArgs>(args?: SelectSubset<T, ErrorLogCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -38812,7 +39007,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Create many ErrorLogs and only return the `id`
      * const errorLogWithIdOnly = await prisma.errorLog.createManyAndReturn({
      *   select: { id: true },
@@ -38822,7 +39017,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     createManyAndReturn<T extends ErrorLogCreateManyAndReturnArgs>(args?: SelectSubset<T, ErrorLogCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ErrorLogPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
@@ -38836,7 +39031,7 @@ export namespace Prisma {
      *     // ... filter to delete one ErrorLog
      *   }
      * })
-     *
+     * 
      */
     delete<T extends ErrorLogDeleteArgs>(args: SelectSubset<T, ErrorLogDeleteArgs<ExtArgs>>): Prisma__ErrorLogClient<$Result.GetResult<Prisma.$ErrorLogPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -38853,7 +39048,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     update<T extends ErrorLogUpdateArgs>(args: SelectSubset<T, ErrorLogUpdateArgs<ExtArgs>>): Prisma__ErrorLogClient<$Result.GetResult<Prisma.$ErrorLogPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -38867,7 +39062,7 @@ export namespace Prisma {
      *     // ... provide filter here
      *   }
      * })
-     *
+     * 
      */
     deleteMany<T extends ErrorLogDeleteManyArgs>(args?: SelectSubset<T, ErrorLogDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -38886,7 +39081,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     updateMany<T extends ErrorLogUpdateManyArgs>(args: SelectSubset<T, ErrorLogUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -38903,7 +39098,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Update zero or more ErrorLogs and only return the `id`
      * const errorLogWithIdOnly = await prisma.errorLog.updateManyAndReturn({
      *   select: { id: true },
@@ -38916,7 +39111,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     updateManyAndReturn<T extends ErrorLogUpdateManyAndReturnArgs>(args: SelectSubset<T, ErrorLogUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ErrorLogPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
@@ -39005,7 +39200,7 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     *
+     * 
     **/
     groupBy<
       T extends ErrorLogGroupByArgs,
@@ -39114,7 +39309,7 @@ export namespace Prisma {
     readonly context: FieldRef<"ErrorLog", 'Json'>
     readonly createdAt: FieldRef<"ErrorLog", 'DateTime'>
   }
-
+    
 
   // Custom InputTypes
   /**
@@ -39171,31 +39366,31 @@ export namespace Prisma {
     where?: ErrorLogWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of ErrorLogs to fetch.
      */
     orderBy?: ErrorLogOrderByWithRelationInput | ErrorLogOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for ErrorLogs.
      */
     cursor?: ErrorLogWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` ErrorLogs from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` ErrorLogs.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of ErrorLogs.
      */
     distinct?: ErrorLogScalarFieldEnum | ErrorLogScalarFieldEnum[]
@@ -39219,31 +39414,31 @@ export namespace Prisma {
     where?: ErrorLogWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of ErrorLogs to fetch.
      */
     orderBy?: ErrorLogOrderByWithRelationInput | ErrorLogOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for ErrorLogs.
      */
     cursor?: ErrorLogWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` ErrorLogs from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` ErrorLogs.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of ErrorLogs.
      */
     distinct?: ErrorLogScalarFieldEnum | ErrorLogScalarFieldEnum[]
@@ -39267,25 +39462,25 @@ export namespace Prisma {
     where?: ErrorLogWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of ErrorLogs to fetch.
      */
     orderBy?: ErrorLogOrderByWithRelationInput | ErrorLogOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for listing ErrorLogs.
      */
     cursor?: ErrorLogWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` ErrorLogs from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` ErrorLogs.
      */
     skip?: number
@@ -39476,6 +39671,2144 @@ export namespace Prisma {
      * Omit specific fields from the ErrorLog
      */
     omit?: ErrorLogOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model SyncState
+   */
+
+  export type AggregateSyncState = {
+    _count: SyncStateCountAggregateOutputType | null
+    _avg: SyncStateAvgAggregateOutputType | null
+    _sum: SyncStateSumAggregateOutputType | null
+    _min: SyncStateMinAggregateOutputType | null
+    _max: SyncStateMaxAggregateOutputType | null
+  }
+
+  export type SyncStateAvgAggregateOutputType = {
+    version: number | null
+  }
+
+  export type SyncStateSumAggregateOutputType = {
+    version: number | null
+  }
+
+  export type SyncStateMinAggregateOutputType = {
+    id: string | null
+    resourceType: string | null
+    resourceId: string | null
+    tenantId: string | null
+    version: number | null
+    checksum: string | null
+    lastSync: Date | null
+    syncedBy: string | null
+  }
+
+  export type SyncStateMaxAggregateOutputType = {
+    id: string | null
+    resourceType: string | null
+    resourceId: string | null
+    tenantId: string | null
+    version: number | null
+    checksum: string | null
+    lastSync: Date | null
+    syncedBy: string | null
+  }
+
+  export type SyncStateCountAggregateOutputType = {
+    id: number
+    resourceType: number
+    resourceId: number
+    tenantId: number
+    version: number
+    checksum: number
+    lastSync: number
+    syncedBy: number
+    metadata: number
+    _all: number
+  }
+
+
+  export type SyncStateAvgAggregateInputType = {
+    version?: true
+  }
+
+  export type SyncStateSumAggregateInputType = {
+    version?: true
+  }
+
+  export type SyncStateMinAggregateInputType = {
+    id?: true
+    resourceType?: true
+    resourceId?: true
+    tenantId?: true
+    version?: true
+    checksum?: true
+    lastSync?: true
+    syncedBy?: true
+  }
+
+  export type SyncStateMaxAggregateInputType = {
+    id?: true
+    resourceType?: true
+    resourceId?: true
+    tenantId?: true
+    version?: true
+    checksum?: true
+    lastSync?: true
+    syncedBy?: true
+  }
+
+  export type SyncStateCountAggregateInputType = {
+    id?: true
+    resourceType?: true
+    resourceId?: true
+    tenantId?: true
+    version?: true
+    checksum?: true
+    lastSync?: true
+    syncedBy?: true
+    metadata?: true
+    _all?: true
+  }
+
+  export type SyncStateAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SyncState to aggregate.
+     */
+    where?: SyncStateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of SyncStates to fetch.
+     */
+    orderBy?: SyncStateOrderByWithRelationInput | SyncStateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: SyncStateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` SyncStates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` SyncStates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned SyncStates
+    **/
+    _count?: true | SyncStateCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to average
+    **/
+    _avg?: SyncStateAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: SyncStateSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: SyncStateMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: SyncStateMaxAggregateInputType
+  }
+
+  export type GetSyncStateAggregateType<T extends SyncStateAggregateArgs> = {
+        [P in keyof T & keyof AggregateSyncState]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSyncState[P]>
+      : GetScalarType<T[P], AggregateSyncState[P]>
+  }
+
+
+
+
+  export type SyncStateGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SyncStateWhereInput
+    orderBy?: SyncStateOrderByWithAggregationInput | SyncStateOrderByWithAggregationInput[]
+    by: SyncStateScalarFieldEnum[] | SyncStateScalarFieldEnum
+    having?: SyncStateScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SyncStateCountAggregateInputType | true
+    _avg?: SyncStateAvgAggregateInputType
+    _sum?: SyncStateSumAggregateInputType
+    _min?: SyncStateMinAggregateInputType
+    _max?: SyncStateMaxAggregateInputType
+  }
+
+  export type SyncStateGroupByOutputType = {
+    id: string
+    resourceType: string
+    resourceId: string
+    tenantId: string | null
+    version: number
+    checksum: string
+    lastSync: Date
+    syncedBy: string
+    metadata: JsonValue
+    _count: SyncStateCountAggregateOutputType | null
+    _avg: SyncStateAvgAggregateOutputType | null
+    _sum: SyncStateSumAggregateOutputType | null
+    _min: SyncStateMinAggregateOutputType | null
+    _max: SyncStateMaxAggregateOutputType | null
+  }
+
+  type GetSyncStateGroupByPayload<T extends SyncStateGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SyncStateGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SyncStateGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SyncStateGroupByOutputType[P]>
+            : GetScalarType<T[P], SyncStateGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SyncStateSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resourceType?: boolean
+    resourceId?: boolean
+    tenantId?: boolean
+    version?: boolean
+    checksum?: boolean
+    lastSync?: boolean
+    syncedBy?: boolean
+    metadata?: boolean
+  }, ExtArgs["result"]["syncState"]>
+
+  export type SyncStateSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resourceType?: boolean
+    resourceId?: boolean
+    tenantId?: boolean
+    version?: boolean
+    checksum?: boolean
+    lastSync?: boolean
+    syncedBy?: boolean
+    metadata?: boolean
+  }, ExtArgs["result"]["syncState"]>
+
+  export type SyncStateSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resourceType?: boolean
+    resourceId?: boolean
+    tenantId?: boolean
+    version?: boolean
+    checksum?: boolean
+    lastSync?: boolean
+    syncedBy?: boolean
+    metadata?: boolean
+  }, ExtArgs["result"]["syncState"]>
+
+  export type SyncStateSelectScalar = {
+    id?: boolean
+    resourceType?: boolean
+    resourceId?: boolean
+    tenantId?: boolean
+    version?: boolean
+    checksum?: boolean
+    lastSync?: boolean
+    syncedBy?: boolean
+    metadata?: boolean
+  }
+
+  export type SyncStateOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resourceType" | "resourceId" | "tenantId" | "version" | "checksum" | "lastSync" | "syncedBy" | "metadata", ExtArgs["result"]["syncState"]>
+
+  export type $SyncStatePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SyncState"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      resourceType: string
+      resourceId: string
+      tenantId: string | null
+      version: number
+      checksum: string
+      lastSync: Date
+      syncedBy: string
+      metadata: Prisma.JsonValue
+    }, ExtArgs["result"]["syncState"]>
+    composites: {}
+  }
+
+  type SyncStateGetPayload<S extends boolean | null | undefined | SyncStateDefaultArgs> = $Result.GetResult<Prisma.$SyncStatePayload, S>
+
+  type SyncStateCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SyncStateFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SyncStateCountAggregateInputType | true
+    }
+
+  export interface SyncStateDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SyncState'], meta: { name: 'SyncState' } }
+    /**
+     * Find zero or one SyncState that matches the filter.
+     * @param {SyncStateFindUniqueArgs} args - Arguments to find a SyncState
+     * @example
+     * // Get one SyncState
+     * const syncState = await prisma.syncState.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SyncStateFindUniqueArgs>(args: SelectSubset<T, SyncStateFindUniqueArgs<ExtArgs>>): Prisma__SyncStateClient<$Result.GetResult<Prisma.$SyncStatePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SyncState that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SyncStateFindUniqueOrThrowArgs} args - Arguments to find a SyncState
+     * @example
+     * // Get one SyncState
+     * const syncState = await prisma.syncState.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SyncStateFindUniqueOrThrowArgs>(args: SelectSubset<T, SyncStateFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SyncStateClient<$Result.GetResult<Prisma.$SyncStatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SyncState that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncStateFindFirstArgs} args - Arguments to find a SyncState
+     * @example
+     * // Get one SyncState
+     * const syncState = await prisma.syncState.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SyncStateFindFirstArgs>(args?: SelectSubset<T, SyncStateFindFirstArgs<ExtArgs>>): Prisma__SyncStateClient<$Result.GetResult<Prisma.$SyncStatePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SyncState that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncStateFindFirstOrThrowArgs} args - Arguments to find a SyncState
+     * @example
+     * // Get one SyncState
+     * const syncState = await prisma.syncState.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SyncStateFindFirstOrThrowArgs>(args?: SelectSubset<T, SyncStateFindFirstOrThrowArgs<ExtArgs>>): Prisma__SyncStateClient<$Result.GetResult<Prisma.$SyncStatePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SyncStates that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncStateFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SyncStates
+     * const syncStates = await prisma.syncState.findMany()
+     *
+     * // Get first 10 SyncStates
+     * const syncStates = await prisma.syncState.findMany({ take: 10 })
+     *
+     * // Only select the `id`
+     * const syncStateWithIdOnly = await prisma.syncState.findMany({ select: { id: true } })
+     *
+     */
+    findMany<T extends SyncStateFindManyArgs>(args?: SelectSubset<T, SyncStateFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SyncStatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SyncState.
+     * @param {SyncStateCreateArgs} args - Arguments to create a SyncState.
+     * @example
+     * // Create one SyncState
+     * const SyncState = await prisma.syncState.create({
+     *   data: {
+     *     // ... data to create a SyncState
+     *   }
+     * })
+     *
+     */
+    create<T extends SyncStateCreateArgs>(args: SelectSubset<T, SyncStateCreateArgs<ExtArgs>>): Prisma__SyncStateClient<$Result.GetResult<Prisma.$SyncStatePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SyncStates.
+     * @param {SyncStateCreateManyArgs} args - Arguments to create many SyncStates.
+     * @example
+     * // Create many SyncStates
+     * const syncState = await prisma.syncState.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends SyncStateCreateManyArgs>(args?: SelectSubset<T, SyncStateCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many SyncStates and returns the data saved in the database.
+     * @param {SyncStateCreateManyAndReturnArgs} args - Arguments to create many SyncStates.
+     * @example
+     * // Create many SyncStates
+     * const syncState = await prisma.syncState.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many SyncStates and only return the `id`
+     * const syncStateWithIdOnly = await prisma.syncState.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends SyncStateCreateManyAndReturnArgs>(args?: SelectSubset<T, SyncStateCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SyncStatePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a SyncState.
+     * @param {SyncStateDeleteArgs} args - Arguments to delete one SyncState.
+     * @example
+     * // Delete one SyncState
+     * const SyncState = await prisma.syncState.delete({
+     *   where: {
+     *     // ... filter to delete one SyncState
+     *   }
+     * })
+     *
+     */
+    delete<T extends SyncStateDeleteArgs>(args: SelectSubset<T, SyncStateDeleteArgs<ExtArgs>>): Prisma__SyncStateClient<$Result.GetResult<Prisma.$SyncStatePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SyncState.
+     * @param {SyncStateUpdateArgs} args - Arguments to update one SyncState.
+     * @example
+     * // Update one SyncState
+     * const syncState = await prisma.syncState.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends SyncStateUpdateArgs>(args: SelectSubset<T, SyncStateUpdateArgs<ExtArgs>>): Prisma__SyncStateClient<$Result.GetResult<Prisma.$SyncStatePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SyncStates.
+     * @param {SyncStateDeleteManyArgs} args - Arguments to filter SyncStates to delete.
+     * @example
+     * // Delete a few SyncStates
+     * const { count } = await prisma.syncState.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends SyncStateDeleteManyArgs>(args?: SelectSubset<T, SyncStateDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SyncStates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncStateUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SyncStates
+     * const syncState = await prisma.syncState.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends SyncStateUpdateManyArgs>(args: SelectSubset<T, SyncStateUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SyncStates and returns the data updated in the database.
+     * @param {SyncStateUpdateManyAndReturnArgs} args - Arguments to update many SyncStates.
+     * @example
+     * // Update many SyncStates
+     * const syncState = await prisma.syncState.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more SyncStates and only return the `id`
+     * const syncStateWithIdOnly = await prisma.syncState.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends SyncStateUpdateManyAndReturnArgs>(args: SelectSubset<T, SyncStateUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SyncStatePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one SyncState.
+     * @param {SyncStateUpsertArgs} args - Arguments to update or create a SyncState.
+     * @example
+     * // Update or create a SyncState
+     * const syncState = await prisma.syncState.upsert({
+     *   create: {
+     *     // ... data to create a SyncState
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SyncState we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SyncStateUpsertArgs>(args: SelectSubset<T, SyncStateUpsertArgs<ExtArgs>>): Prisma__SyncStateClient<$Result.GetResult<Prisma.$SyncStatePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SyncStates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncStateCountArgs} args - Arguments to filter SyncStates to count.
+     * @example
+     * // Count the number of SyncStates
+     * const count = await prisma.syncState.count({
+     *   where: {
+     *     // ... the filter for the SyncStates we want to count
+     *   }
+     * })
+    **/
+    count<T extends SyncStateCountArgs>(
+      args?: Subset<T, SyncStateCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SyncStateCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SyncState.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncStateAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SyncStateAggregateArgs>(args: Subset<T, SyncStateAggregateArgs>): Prisma.PrismaPromise<GetSyncStateAggregateType<T>>
+
+    /**
+     * Group by SyncState.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncStateGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<
+      T extends SyncStateGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SyncStateGroupByArgs['orderBy'] }
+        : { orderBy?: SyncStateGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SyncStateGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSyncStateGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SyncState model
+   */
+  readonly fields: SyncStateFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SyncState.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SyncStateClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SyncState model
+   */
+  interface SyncStateFieldRefs {
+    readonly id: FieldRef<"SyncState", 'String'>
+    readonly resourceType: FieldRef<"SyncState", 'String'>
+    readonly resourceId: FieldRef<"SyncState", 'String'>
+    readonly tenantId: FieldRef<"SyncState", 'String'>
+    readonly version: FieldRef<"SyncState", 'Int'>
+    readonly checksum: FieldRef<"SyncState", 'String'>
+    readonly lastSync: FieldRef<"SyncState", 'DateTime'>
+    readonly syncedBy: FieldRef<"SyncState", 'String'>
+    readonly metadata: FieldRef<"SyncState", 'Json'>
+  }
+
+
+  // Custom InputTypes
+  /**
+   * SyncState findUnique
+   */
+  export type SyncStateFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncState
+     */
+    select?: SyncStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncState
+     */
+    omit?: SyncStateOmit<ExtArgs> | null
+    /**
+     * Filter, which SyncState to fetch.
+     */
+    where: SyncStateWhereUniqueInput
+  }
+
+  /**
+   * SyncState findUniqueOrThrow
+   */
+  export type SyncStateFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncState
+     */
+    select?: SyncStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncState
+     */
+    omit?: SyncStateOmit<ExtArgs> | null
+    /**
+     * Filter, which SyncState to fetch.
+     */
+    where: SyncStateWhereUniqueInput
+  }
+
+  /**
+   * SyncState findFirst
+   */
+  export type SyncStateFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncState
+     */
+    select?: SyncStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncState
+     */
+    omit?: SyncStateOmit<ExtArgs> | null
+    /**
+     * Filter, which SyncState to fetch.
+     */
+    where?: SyncStateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of SyncStates to fetch.
+     */
+    orderBy?: SyncStateOrderByWithRelationInput | SyncStateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for SyncStates.
+     */
+    cursor?: SyncStateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` SyncStates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` SyncStates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of SyncStates.
+     */
+    distinct?: SyncStateScalarFieldEnum | SyncStateScalarFieldEnum[]
+  }
+
+  /**
+   * SyncState findFirstOrThrow
+   */
+  export type SyncStateFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncState
+     */
+    select?: SyncStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncState
+     */
+    omit?: SyncStateOmit<ExtArgs> | null
+    /**
+     * Filter, which SyncState to fetch.
+     */
+    where?: SyncStateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of SyncStates to fetch.
+     */
+    orderBy?: SyncStateOrderByWithRelationInput | SyncStateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for SyncStates.
+     */
+    cursor?: SyncStateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` SyncStates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` SyncStates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of SyncStates.
+     */
+    distinct?: SyncStateScalarFieldEnum | SyncStateScalarFieldEnum[]
+  }
+
+  /**
+   * SyncState findMany
+   */
+  export type SyncStateFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncState
+     */
+    select?: SyncStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncState
+     */
+    omit?: SyncStateOmit<ExtArgs> | null
+    /**
+     * Filter, which SyncStates to fetch.
+     */
+    where?: SyncStateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of SyncStates to fetch.
+     */
+    orderBy?: SyncStateOrderByWithRelationInput | SyncStateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing SyncStates.
+     */
+    cursor?: SyncStateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` SyncStates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` SyncStates.
+     */
+    skip?: number
+    distinct?: SyncStateScalarFieldEnum | SyncStateScalarFieldEnum[]
+  }
+
+  /**
+   * SyncState create
+   */
+  export type SyncStateCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncState
+     */
+    select?: SyncStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncState
+     */
+    omit?: SyncStateOmit<ExtArgs> | null
+    /**
+     * The data needed to create a SyncState.
+     */
+    data: XOR<SyncStateCreateInput, SyncStateUncheckedCreateInput>
+  }
+
+  /**
+   * SyncState createMany
+   */
+  export type SyncStateCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SyncStates.
+     */
+    data: SyncStateCreateManyInput | SyncStateCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SyncState createManyAndReturn
+   */
+  export type SyncStateCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncState
+     */
+    select?: SyncStateSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncState
+     */
+    omit?: SyncStateOmit<ExtArgs> | null
+    /**
+     * The data used to create many SyncStates.
+     */
+    data: SyncStateCreateManyInput | SyncStateCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SyncState update
+   */
+  export type SyncStateUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncState
+     */
+    select?: SyncStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncState
+     */
+    omit?: SyncStateOmit<ExtArgs> | null
+    /**
+     * The data needed to update a SyncState.
+     */
+    data: XOR<SyncStateUpdateInput, SyncStateUncheckedUpdateInput>
+    /**
+     * Choose, which SyncState to update.
+     */
+    where: SyncStateWhereUniqueInput
+  }
+
+  /**
+   * SyncState updateMany
+   */
+  export type SyncStateUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SyncStates.
+     */
+    data: XOR<SyncStateUpdateManyMutationInput, SyncStateUncheckedUpdateManyInput>
+    /**
+     * Filter which SyncStates to update
+     */
+    where?: SyncStateWhereInput
+    /**
+     * Limit how many SyncStates to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SyncState updateManyAndReturn
+   */
+  export type SyncStateUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncState
+     */
+    select?: SyncStateSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncState
+     */
+    omit?: SyncStateOmit<ExtArgs> | null
+    /**
+     * The data used to update SyncStates.
+     */
+    data: XOR<SyncStateUpdateManyMutationInput, SyncStateUncheckedUpdateManyInput>
+    /**
+     * Filter which SyncStates to update
+     */
+    where?: SyncStateWhereInput
+    /**
+     * Limit how many SyncStates to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SyncState upsert
+   */
+  export type SyncStateUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncState
+     */
+    select?: SyncStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncState
+     */
+    omit?: SyncStateOmit<ExtArgs> | null
+    /**
+     * The filter to search for the SyncState to update in case it exists.
+     */
+    where: SyncStateWhereUniqueInput
+    /**
+     * In case the SyncState found by the `where` argument doesn't exist, create a new SyncState with this data.
+     */
+    create: XOR<SyncStateCreateInput, SyncStateUncheckedCreateInput>
+    /**
+     * In case the SyncState was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SyncStateUpdateInput, SyncStateUncheckedUpdateInput>
+  }
+
+  /**
+   * SyncState delete
+   */
+  export type SyncStateDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncState
+     */
+    select?: SyncStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncState
+     */
+    omit?: SyncStateOmit<ExtArgs> | null
+    /**
+     * Filter which SyncState to delete.
+     */
+    where: SyncStateWhereUniqueInput
+  }
+
+  /**
+   * SyncState deleteMany
+   */
+  export type SyncStateDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SyncStates to delete
+     */
+    where?: SyncStateWhereInput
+    /**
+     * Limit how many SyncStates to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SyncState without action
+   */
+  export type SyncStateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncState
+     */
+    select?: SyncStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncState
+     */
+    omit?: SyncStateOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model SyncConflict
+   */
+
+  export type AggregateSyncConflict = {
+    _count: SyncConflictCountAggregateOutputType | null
+    _min: SyncConflictMinAggregateOutputType | null
+    _max: SyncConflictMaxAggregateOutputType | null
+  }
+
+  export type SyncConflictMinAggregateOutputType = {
+    id: string | null
+    resourceType: string | null
+    resourceId: string | null
+    tenantId: string | null
+    conflictType: string | null
+    createdAt: Date | null
+    resolvedAt: Date | null
+    resolvedBy: string | null
+  }
+
+  export type SyncConflictMaxAggregateOutputType = {
+    id: string | null
+    resourceType: string | null
+    resourceId: string | null
+    tenantId: string | null
+    conflictType: string | null
+    createdAt: Date | null
+    resolvedAt: Date | null
+    resolvedBy: string | null
+  }
+
+  export type SyncConflictCountAggregateOutputType = {
+    id: number
+    resourceType: number
+    resourceId: number
+    tenantId: number
+    conflictType: number
+    localVersion: number
+    remoteVersion: number
+    createdAt: number
+    resolvedAt: number
+    resolvedBy: number
+    resolution: number
+    _all: number
+  }
+
+
+  export type SyncConflictMinAggregateInputType = {
+    id?: true
+    resourceType?: true
+    resourceId?: true
+    tenantId?: true
+    conflictType?: true
+    createdAt?: true
+    resolvedAt?: true
+    resolvedBy?: true
+  }
+
+  export type SyncConflictMaxAggregateInputType = {
+    id?: true
+    resourceType?: true
+    resourceId?: true
+    tenantId?: true
+    conflictType?: true
+    createdAt?: true
+    resolvedAt?: true
+    resolvedBy?: true
+  }
+
+  export type SyncConflictCountAggregateInputType = {
+    id?: true
+    resourceType?: true
+    resourceId?: true
+    tenantId?: true
+    conflictType?: true
+    localVersion?: true
+    remoteVersion?: true
+    createdAt?: true
+    resolvedAt?: true
+    resolvedBy?: true
+    resolution?: true
+    _all?: true
+  }
+
+  export type SyncConflictAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SyncConflict to aggregate.
+     */
+    where?: SyncConflictWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of SyncConflicts to fetch.
+     */
+    orderBy?: SyncConflictOrderByWithRelationInput | SyncConflictOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: SyncConflictWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` SyncConflicts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` SyncConflicts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned SyncConflicts
+    **/
+    _count?: true | SyncConflictCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: SyncConflictMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: SyncConflictMaxAggregateInputType
+  }
+
+  export type GetSyncConflictAggregateType<T extends SyncConflictAggregateArgs> = {
+        [P in keyof T & keyof AggregateSyncConflict]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSyncConflict[P]>
+      : GetScalarType<T[P], AggregateSyncConflict[P]>
+  }
+
+
+
+
+  export type SyncConflictGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SyncConflictWhereInput
+    orderBy?: SyncConflictOrderByWithAggregationInput | SyncConflictOrderByWithAggregationInput[]
+    by: SyncConflictScalarFieldEnum[] | SyncConflictScalarFieldEnum
+    having?: SyncConflictScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SyncConflictCountAggregateInputType | true
+    _min?: SyncConflictMinAggregateInputType
+    _max?: SyncConflictMaxAggregateInputType
+  }
+
+  export type SyncConflictGroupByOutputType = {
+    id: string
+    resourceType: string
+    resourceId: string
+    tenantId: string | null
+    conflictType: string
+    localVersion: JsonValue
+    remoteVersion: JsonValue
+    createdAt: Date
+    resolvedAt: Date | null
+    resolvedBy: string | null
+    resolution: JsonValue | null
+    _count: SyncConflictCountAggregateOutputType | null
+    _min: SyncConflictMinAggregateOutputType | null
+    _max: SyncConflictMaxAggregateOutputType | null
+  }
+
+  type GetSyncConflictGroupByPayload<T extends SyncConflictGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SyncConflictGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SyncConflictGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SyncConflictGroupByOutputType[P]>
+            : GetScalarType<T[P], SyncConflictGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SyncConflictSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resourceType?: boolean
+    resourceId?: boolean
+    tenantId?: boolean
+    conflictType?: boolean
+    localVersion?: boolean
+    remoteVersion?: boolean
+    createdAt?: boolean
+    resolvedAt?: boolean
+    resolvedBy?: boolean
+    resolution?: boolean
+  }, ExtArgs["result"]["syncConflict"]>
+
+  export type SyncConflictSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resourceType?: boolean
+    resourceId?: boolean
+    tenantId?: boolean
+    conflictType?: boolean
+    localVersion?: boolean
+    remoteVersion?: boolean
+    createdAt?: boolean
+    resolvedAt?: boolean
+    resolvedBy?: boolean
+    resolution?: boolean
+  }, ExtArgs["result"]["syncConflict"]>
+
+  export type SyncConflictSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resourceType?: boolean
+    resourceId?: boolean
+    tenantId?: boolean
+    conflictType?: boolean
+    localVersion?: boolean
+    remoteVersion?: boolean
+    createdAt?: boolean
+    resolvedAt?: boolean
+    resolvedBy?: boolean
+    resolution?: boolean
+  }, ExtArgs["result"]["syncConflict"]>
+
+  export type SyncConflictSelectScalar = {
+    id?: boolean
+    resourceType?: boolean
+    resourceId?: boolean
+    tenantId?: boolean
+    conflictType?: boolean
+    localVersion?: boolean
+    remoteVersion?: boolean
+    createdAt?: boolean
+    resolvedAt?: boolean
+    resolvedBy?: boolean
+    resolution?: boolean
+  }
+
+  export type SyncConflictOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resourceType" | "resourceId" | "tenantId" | "conflictType" | "localVersion" | "remoteVersion" | "createdAt" | "resolvedAt" | "resolvedBy" | "resolution", ExtArgs["result"]["syncConflict"]>
+
+  export type $SyncConflictPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SyncConflict"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      resourceType: string
+      resourceId: string
+      tenantId: string | null
+      conflictType: string
+      localVersion: Prisma.JsonValue
+      remoteVersion: Prisma.JsonValue
+      createdAt: Date
+      resolvedAt: Date | null
+      resolvedBy: string | null
+      resolution: Prisma.JsonValue | null
+    }, ExtArgs["result"]["syncConflict"]>
+    composites: {}
+  }
+
+  type SyncConflictGetPayload<S extends boolean | null | undefined | SyncConflictDefaultArgs> = $Result.GetResult<Prisma.$SyncConflictPayload, S>
+
+  type SyncConflictCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SyncConflictFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SyncConflictCountAggregateInputType | true
+    }
+
+  export interface SyncConflictDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SyncConflict'], meta: { name: 'SyncConflict' } }
+    /**
+     * Find zero or one SyncConflict that matches the filter.
+     * @param {SyncConflictFindUniqueArgs} args - Arguments to find a SyncConflict
+     * @example
+     * // Get one SyncConflict
+     * const syncConflict = await prisma.syncConflict.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SyncConflictFindUniqueArgs>(args: SelectSubset<T, SyncConflictFindUniqueArgs<ExtArgs>>): Prisma__SyncConflictClient<$Result.GetResult<Prisma.$SyncConflictPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SyncConflict that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SyncConflictFindUniqueOrThrowArgs} args - Arguments to find a SyncConflict
+     * @example
+     * // Get one SyncConflict
+     * const syncConflict = await prisma.syncConflict.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SyncConflictFindUniqueOrThrowArgs>(args: SelectSubset<T, SyncConflictFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SyncConflictClient<$Result.GetResult<Prisma.$SyncConflictPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SyncConflict that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncConflictFindFirstArgs} args - Arguments to find a SyncConflict
+     * @example
+     * // Get one SyncConflict
+     * const syncConflict = await prisma.syncConflict.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SyncConflictFindFirstArgs>(args?: SelectSubset<T, SyncConflictFindFirstArgs<ExtArgs>>): Prisma__SyncConflictClient<$Result.GetResult<Prisma.$SyncConflictPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SyncConflict that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncConflictFindFirstOrThrowArgs} args - Arguments to find a SyncConflict
+     * @example
+     * // Get one SyncConflict
+     * const syncConflict = await prisma.syncConflict.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SyncConflictFindFirstOrThrowArgs>(args?: SelectSubset<T, SyncConflictFindFirstOrThrowArgs<ExtArgs>>): Prisma__SyncConflictClient<$Result.GetResult<Prisma.$SyncConflictPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SyncConflicts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncConflictFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SyncConflicts
+     * const syncConflicts = await prisma.syncConflict.findMany()
+     *
+     * // Get first 10 SyncConflicts
+     * const syncConflicts = await prisma.syncConflict.findMany({ take: 10 })
+     *
+     * // Only select the `id`
+     * const syncConflictWithIdOnly = await prisma.syncConflict.findMany({ select: { id: true } })
+     *
+     */
+    findMany<T extends SyncConflictFindManyArgs>(args?: SelectSubset<T, SyncConflictFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SyncConflictPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SyncConflict.
+     * @param {SyncConflictCreateArgs} args - Arguments to create a SyncConflict.
+     * @example
+     * // Create one SyncConflict
+     * const SyncConflict = await prisma.syncConflict.create({
+     *   data: {
+     *     // ... data to create a SyncConflict
+     *   }
+     * })
+     *
+     */
+    create<T extends SyncConflictCreateArgs>(args: SelectSubset<T, SyncConflictCreateArgs<ExtArgs>>): Prisma__SyncConflictClient<$Result.GetResult<Prisma.$SyncConflictPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SyncConflicts.
+     * @param {SyncConflictCreateManyArgs} args - Arguments to create many SyncConflicts.
+     * @example
+     * // Create many SyncConflicts
+     * const syncConflict = await prisma.syncConflict.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends SyncConflictCreateManyArgs>(args?: SelectSubset<T, SyncConflictCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many SyncConflicts and returns the data saved in the database.
+     * @param {SyncConflictCreateManyAndReturnArgs} args - Arguments to create many SyncConflicts.
+     * @example
+     * // Create many SyncConflicts
+     * const syncConflict = await prisma.syncConflict.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many SyncConflicts and only return the `id`
+     * const syncConflictWithIdOnly = await prisma.syncConflict.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends SyncConflictCreateManyAndReturnArgs>(args?: SelectSubset<T, SyncConflictCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SyncConflictPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a SyncConflict.
+     * @param {SyncConflictDeleteArgs} args - Arguments to delete one SyncConflict.
+     * @example
+     * // Delete one SyncConflict
+     * const SyncConflict = await prisma.syncConflict.delete({
+     *   where: {
+     *     // ... filter to delete one SyncConflict
+     *   }
+     * })
+     *
+     */
+    delete<T extends SyncConflictDeleteArgs>(args: SelectSubset<T, SyncConflictDeleteArgs<ExtArgs>>): Prisma__SyncConflictClient<$Result.GetResult<Prisma.$SyncConflictPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SyncConflict.
+     * @param {SyncConflictUpdateArgs} args - Arguments to update one SyncConflict.
+     * @example
+     * // Update one SyncConflict
+     * const syncConflict = await prisma.syncConflict.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends SyncConflictUpdateArgs>(args: SelectSubset<T, SyncConflictUpdateArgs<ExtArgs>>): Prisma__SyncConflictClient<$Result.GetResult<Prisma.$SyncConflictPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SyncConflicts.
+     * @param {SyncConflictDeleteManyArgs} args - Arguments to filter SyncConflicts to delete.
+     * @example
+     * // Delete a few SyncConflicts
+     * const { count } = await prisma.syncConflict.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends SyncConflictDeleteManyArgs>(args?: SelectSubset<T, SyncConflictDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SyncConflicts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncConflictUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SyncConflicts
+     * const syncConflict = await prisma.syncConflict.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends SyncConflictUpdateManyArgs>(args: SelectSubset<T, SyncConflictUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SyncConflicts and returns the data updated in the database.
+     * @param {SyncConflictUpdateManyAndReturnArgs} args - Arguments to update many SyncConflicts.
+     * @example
+     * // Update many SyncConflicts
+     * const syncConflict = await prisma.syncConflict.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more SyncConflicts and only return the `id`
+     * const syncConflictWithIdOnly = await prisma.syncConflict.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends SyncConflictUpdateManyAndReturnArgs>(args: SelectSubset<T, SyncConflictUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SyncConflictPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one SyncConflict.
+     * @param {SyncConflictUpsertArgs} args - Arguments to update or create a SyncConflict.
+     * @example
+     * // Update or create a SyncConflict
+     * const syncConflict = await prisma.syncConflict.upsert({
+     *   create: {
+     *     // ... data to create a SyncConflict
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SyncConflict we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SyncConflictUpsertArgs>(args: SelectSubset<T, SyncConflictUpsertArgs<ExtArgs>>): Prisma__SyncConflictClient<$Result.GetResult<Prisma.$SyncConflictPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SyncConflicts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncConflictCountArgs} args - Arguments to filter SyncConflicts to count.
+     * @example
+     * // Count the number of SyncConflicts
+     * const count = await prisma.syncConflict.count({
+     *   where: {
+     *     // ... the filter for the SyncConflicts we want to count
+     *   }
+     * })
+    **/
+    count<T extends SyncConflictCountArgs>(
+      args?: Subset<T, SyncConflictCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SyncConflictCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SyncConflict.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncConflictAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SyncConflictAggregateArgs>(args: Subset<T, SyncConflictAggregateArgs>): Prisma.PrismaPromise<GetSyncConflictAggregateType<T>>
+
+    /**
+     * Group by SyncConflict.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncConflictGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<
+      T extends SyncConflictGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SyncConflictGroupByArgs['orderBy'] }
+        : { orderBy?: SyncConflictGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SyncConflictGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSyncConflictGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SyncConflict model
+   */
+  readonly fields: SyncConflictFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SyncConflict.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SyncConflictClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SyncConflict model
+   */
+  interface SyncConflictFieldRefs {
+    readonly id: FieldRef<"SyncConflict", 'String'>
+    readonly resourceType: FieldRef<"SyncConflict", 'String'>
+    readonly resourceId: FieldRef<"SyncConflict", 'String'>
+    readonly tenantId: FieldRef<"SyncConflict", 'String'>
+    readonly conflictType: FieldRef<"SyncConflict", 'String'>
+    readonly localVersion: FieldRef<"SyncConflict", 'Json'>
+    readonly remoteVersion: FieldRef<"SyncConflict", 'Json'>
+    readonly createdAt: FieldRef<"SyncConflict", 'DateTime'>
+    readonly resolvedAt: FieldRef<"SyncConflict", 'DateTime'>
+    readonly resolvedBy: FieldRef<"SyncConflict", 'String'>
+    readonly resolution: FieldRef<"SyncConflict", 'Json'>
+  }
+
+
+  // Custom InputTypes
+  /**
+   * SyncConflict findUnique
+   */
+  export type SyncConflictFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncConflict
+     */
+    select?: SyncConflictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncConflict
+     */
+    omit?: SyncConflictOmit<ExtArgs> | null
+    /**
+     * Filter, which SyncConflict to fetch.
+     */
+    where: SyncConflictWhereUniqueInput
+  }
+
+  /**
+   * SyncConflict findUniqueOrThrow
+   */
+  export type SyncConflictFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncConflict
+     */
+    select?: SyncConflictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncConflict
+     */
+    omit?: SyncConflictOmit<ExtArgs> | null
+    /**
+     * Filter, which SyncConflict to fetch.
+     */
+    where: SyncConflictWhereUniqueInput
+  }
+
+  /**
+   * SyncConflict findFirst
+   */
+  export type SyncConflictFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncConflict
+     */
+    select?: SyncConflictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncConflict
+     */
+    omit?: SyncConflictOmit<ExtArgs> | null
+    /**
+     * Filter, which SyncConflict to fetch.
+     */
+    where?: SyncConflictWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of SyncConflicts to fetch.
+     */
+    orderBy?: SyncConflictOrderByWithRelationInput | SyncConflictOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for SyncConflicts.
+     */
+    cursor?: SyncConflictWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` SyncConflicts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` SyncConflicts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of SyncConflicts.
+     */
+    distinct?: SyncConflictScalarFieldEnum | SyncConflictScalarFieldEnum[]
+  }
+
+  /**
+   * SyncConflict findFirstOrThrow
+   */
+  export type SyncConflictFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncConflict
+     */
+    select?: SyncConflictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncConflict
+     */
+    omit?: SyncConflictOmit<ExtArgs> | null
+    /**
+     * Filter, which SyncConflict to fetch.
+     */
+    where?: SyncConflictWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of SyncConflicts to fetch.
+     */
+    orderBy?: SyncConflictOrderByWithRelationInput | SyncConflictOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for SyncConflicts.
+     */
+    cursor?: SyncConflictWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` SyncConflicts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` SyncConflicts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of SyncConflicts.
+     */
+    distinct?: SyncConflictScalarFieldEnum | SyncConflictScalarFieldEnum[]
+  }
+
+  /**
+   * SyncConflict findMany
+   */
+  export type SyncConflictFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncConflict
+     */
+    select?: SyncConflictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncConflict
+     */
+    omit?: SyncConflictOmit<ExtArgs> | null
+    /**
+     * Filter, which SyncConflicts to fetch.
+     */
+    where?: SyncConflictWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of SyncConflicts to fetch.
+     */
+    orderBy?: SyncConflictOrderByWithRelationInput | SyncConflictOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing SyncConflicts.
+     */
+    cursor?: SyncConflictWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` SyncConflicts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` SyncConflicts.
+     */
+    skip?: number
+    distinct?: SyncConflictScalarFieldEnum | SyncConflictScalarFieldEnum[]
+  }
+
+  /**
+   * SyncConflict create
+   */
+  export type SyncConflictCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncConflict
+     */
+    select?: SyncConflictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncConflict
+     */
+    omit?: SyncConflictOmit<ExtArgs> | null
+    /**
+     * The data needed to create a SyncConflict.
+     */
+    data: XOR<SyncConflictCreateInput, SyncConflictUncheckedCreateInput>
+  }
+
+  /**
+   * SyncConflict createMany
+   */
+  export type SyncConflictCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SyncConflicts.
+     */
+    data: SyncConflictCreateManyInput | SyncConflictCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SyncConflict createManyAndReturn
+   */
+  export type SyncConflictCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncConflict
+     */
+    select?: SyncConflictSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncConflict
+     */
+    omit?: SyncConflictOmit<ExtArgs> | null
+    /**
+     * The data used to create many SyncConflicts.
+     */
+    data: SyncConflictCreateManyInput | SyncConflictCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SyncConflict update
+   */
+  export type SyncConflictUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncConflict
+     */
+    select?: SyncConflictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncConflict
+     */
+    omit?: SyncConflictOmit<ExtArgs> | null
+    /**
+     * The data needed to update a SyncConflict.
+     */
+    data: XOR<SyncConflictUpdateInput, SyncConflictUncheckedUpdateInput>
+    /**
+     * Choose, which SyncConflict to update.
+     */
+    where: SyncConflictWhereUniqueInput
+  }
+
+  /**
+   * SyncConflict updateMany
+   */
+  export type SyncConflictUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SyncConflicts.
+     */
+    data: XOR<SyncConflictUpdateManyMutationInput, SyncConflictUncheckedUpdateManyInput>
+    /**
+     * Filter which SyncConflicts to update
+     */
+    where?: SyncConflictWhereInput
+    /**
+     * Limit how many SyncConflicts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SyncConflict updateManyAndReturn
+   */
+  export type SyncConflictUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncConflict
+     */
+    select?: SyncConflictSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncConflict
+     */
+    omit?: SyncConflictOmit<ExtArgs> | null
+    /**
+     * The data used to update SyncConflicts.
+     */
+    data: XOR<SyncConflictUpdateManyMutationInput, SyncConflictUncheckedUpdateManyInput>
+    /**
+     * Filter which SyncConflicts to update
+     */
+    where?: SyncConflictWhereInput
+    /**
+     * Limit how many SyncConflicts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SyncConflict upsert
+   */
+  export type SyncConflictUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncConflict
+     */
+    select?: SyncConflictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncConflict
+     */
+    omit?: SyncConflictOmit<ExtArgs> | null
+    /**
+     * The filter to search for the SyncConflict to update in case it exists.
+     */
+    where: SyncConflictWhereUniqueInput
+    /**
+     * In case the SyncConflict found by the `where` argument doesn't exist, create a new SyncConflict with this data.
+     */
+    create: XOR<SyncConflictCreateInput, SyncConflictUncheckedCreateInput>
+    /**
+     * In case the SyncConflict was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SyncConflictUpdateInput, SyncConflictUncheckedUpdateInput>
+  }
+
+  /**
+   * SyncConflict delete
+   */
+  export type SyncConflictDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncConflict
+     */
+    select?: SyncConflictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncConflict
+     */
+    omit?: SyncConflictOmit<ExtArgs> | null
+    /**
+     * Filter which SyncConflict to delete.
+     */
+    where: SyncConflictWhereUniqueInput
+  }
+
+  /**
+   * SyncConflict deleteMany
+   */
+  export type SyncConflictDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SyncConflicts to delete
+     */
+    where?: SyncConflictWhereInput
+    /**
+     * Limit how many SyncConflicts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SyncConflict without action
+   */
+  export type SyncConflictDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncConflict
+     */
+    select?: SyncConflictSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncConflict
+     */
+    omit?: SyncConflictOmit<ExtArgs> | null
   }
 
 
@@ -39991,6 +42324,38 @@ export namespace Prisma {
   export type ErrorLogScalarFieldEnum = (typeof ErrorLogScalarFieldEnum)[keyof typeof ErrorLogScalarFieldEnum]
 
 
+  export const SyncStateScalarFieldEnum: {
+    id: 'id',
+    resourceType: 'resourceType',
+    resourceId: 'resourceId',
+    tenantId: 'tenantId',
+    version: 'version',
+    checksum: 'checksum',
+    lastSync: 'lastSync',
+    syncedBy: 'syncedBy',
+    metadata: 'metadata'
+  };
+
+  export type SyncStateScalarFieldEnum = (typeof SyncStateScalarFieldEnum)[keyof typeof SyncStateScalarFieldEnum]
+
+
+  export const SyncConflictScalarFieldEnum: {
+    id: 'id',
+    resourceType: 'resourceType',
+    resourceId: 'resourceId',
+    tenantId: 'tenantId',
+    conflictType: 'conflictType',
+    localVersion: 'localVersion',
+    remoteVersion: 'remoteVersion',
+    createdAt: 'createdAt',
+    resolvedAt: 'resolvedAt',
+    resolvedBy: 'resolvedBy',
+    resolution: 'resolution'
+  };
+
+  export type SyncConflictScalarFieldEnum = (typeof SyncConflictScalarFieldEnum)[keyof typeof SyncConflictScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -40354,6 +42719,30 @@ export namespace Prisma {
   };
 
   export type ErrorLogOrderByRelevanceFieldEnum = (typeof ErrorLogOrderByRelevanceFieldEnum)[keyof typeof ErrorLogOrderByRelevanceFieldEnum]
+
+
+  export const SyncStateOrderByRelevanceFieldEnum: {
+    id: 'id',
+    resourceType: 'resourceType',
+    resourceId: 'resourceId',
+    tenantId: 'tenantId',
+    checksum: 'checksum',
+    syncedBy: 'syncedBy'
+  };
+
+  export type SyncStateOrderByRelevanceFieldEnum = (typeof SyncStateOrderByRelevanceFieldEnum)[keyof typeof SyncStateOrderByRelevanceFieldEnum]
+
+
+  export const SyncConflictOrderByRelevanceFieldEnum: {
+    id: 'id',
+    resourceType: 'resourceType',
+    resourceId: 'resourceId',
+    tenantId: 'tenantId',
+    conflictType: 'conflictType',
+    resolvedBy: 'resolvedBy'
+  };
+
+  export type SyncConflictOrderByRelevanceFieldEnum = (typeof SyncConflictOrderByRelevanceFieldEnum)[keyof typeof SyncConflictOrderByRelevanceFieldEnum]
 
 
   /**
@@ -43385,6 +45774,165 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"ErrorLog"> | Date | string
   }
 
+  export type SyncStateWhereInput = {
+    AND?: SyncStateWhereInput | SyncStateWhereInput[]
+    OR?: SyncStateWhereInput[]
+    NOT?: SyncStateWhereInput | SyncStateWhereInput[]
+    id?: StringFilter<"SyncState"> | string
+    resourceType?: StringFilter<"SyncState"> | string
+    resourceId?: StringFilter<"SyncState"> | string
+    tenantId?: StringNullableFilter<"SyncState"> | string | null
+    version?: IntFilter<"SyncState"> | number
+    checksum?: StringFilter<"SyncState"> | string
+    lastSync?: DateTimeFilter<"SyncState"> | Date | string
+    syncedBy?: StringFilter<"SyncState"> | string
+    metadata?: JsonFilter<"SyncState">
+  }
+
+  export type SyncStateOrderByWithRelationInput = {
+    id?: SortOrder
+    resourceType?: SortOrder
+    resourceId?: SortOrder
+    tenantId?: SortOrderInput | SortOrder
+    version?: SortOrder
+    checksum?: SortOrder
+    lastSync?: SortOrder
+    syncedBy?: SortOrder
+    metadata?: SortOrder
+    _relevance?: SyncStateOrderByRelevanceInput
+  }
+
+  export type SyncStateWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    resourceType_resourceId_tenantId?: SyncStateResourceTypeResourceIdTenantIdCompoundUniqueInput
+    AND?: SyncStateWhereInput | SyncStateWhereInput[]
+    OR?: SyncStateWhereInput[]
+    NOT?: SyncStateWhereInput | SyncStateWhereInput[]
+    resourceType?: StringFilter<"SyncState"> | string
+    resourceId?: StringFilter<"SyncState"> | string
+    tenantId?: StringNullableFilter<"SyncState"> | string | null
+    version?: IntFilter<"SyncState"> | number
+    checksum?: StringFilter<"SyncState"> | string
+    lastSync?: DateTimeFilter<"SyncState"> | Date | string
+    syncedBy?: StringFilter<"SyncState"> | string
+    metadata?: JsonFilter<"SyncState">
+  }, "id" | "resourceType_resourceId_tenantId">
+
+  export type SyncStateOrderByWithAggregationInput = {
+    id?: SortOrder
+    resourceType?: SortOrder
+    resourceId?: SortOrder
+    tenantId?: SortOrderInput | SortOrder
+    version?: SortOrder
+    checksum?: SortOrder
+    lastSync?: SortOrder
+    syncedBy?: SortOrder
+    metadata?: SortOrder
+    _count?: SyncStateCountOrderByAggregateInput
+    _avg?: SyncStateAvgOrderByAggregateInput
+    _max?: SyncStateMaxOrderByAggregateInput
+    _min?: SyncStateMinOrderByAggregateInput
+    _sum?: SyncStateSumOrderByAggregateInput
+  }
+
+  export type SyncStateScalarWhereWithAggregatesInput = {
+    AND?: SyncStateScalarWhereWithAggregatesInput | SyncStateScalarWhereWithAggregatesInput[]
+    OR?: SyncStateScalarWhereWithAggregatesInput[]
+    NOT?: SyncStateScalarWhereWithAggregatesInput | SyncStateScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"SyncState"> | string
+    resourceType?: StringWithAggregatesFilter<"SyncState"> | string
+    resourceId?: StringWithAggregatesFilter<"SyncState"> | string
+    tenantId?: StringNullableWithAggregatesFilter<"SyncState"> | string | null
+    version?: IntWithAggregatesFilter<"SyncState"> | number
+    checksum?: StringWithAggregatesFilter<"SyncState"> | string
+    lastSync?: DateTimeWithAggregatesFilter<"SyncState"> | Date | string
+    syncedBy?: StringWithAggregatesFilter<"SyncState"> | string
+    metadata?: JsonWithAggregatesFilter<"SyncState">
+  }
+
+  export type SyncConflictWhereInput = {
+    AND?: SyncConflictWhereInput | SyncConflictWhereInput[]
+    OR?: SyncConflictWhereInput[]
+    NOT?: SyncConflictWhereInput | SyncConflictWhereInput[]
+    id?: StringFilter<"SyncConflict"> | string
+    resourceType?: StringFilter<"SyncConflict"> | string
+    resourceId?: StringFilter<"SyncConflict"> | string
+    tenantId?: StringNullableFilter<"SyncConflict"> | string | null
+    conflictType?: StringFilter<"SyncConflict"> | string
+    localVersion?: JsonFilter<"SyncConflict">
+    remoteVersion?: JsonFilter<"SyncConflict">
+    createdAt?: DateTimeFilter<"SyncConflict"> | Date | string
+    resolvedAt?: DateTimeNullableFilter<"SyncConflict"> | Date | string | null
+    resolvedBy?: StringNullableFilter<"SyncConflict"> | string | null
+    resolution?: JsonNullableFilter<"SyncConflict">
+  }
+
+  export type SyncConflictOrderByWithRelationInput = {
+    id?: SortOrder
+    resourceType?: SortOrder
+    resourceId?: SortOrder
+    tenantId?: SortOrderInput | SortOrder
+    conflictType?: SortOrder
+    localVersion?: SortOrder
+    remoteVersion?: SortOrder
+    createdAt?: SortOrder
+    resolvedAt?: SortOrderInput | SortOrder
+    resolvedBy?: SortOrderInput | SortOrder
+    resolution?: SortOrderInput | SortOrder
+    _relevance?: SyncConflictOrderByRelevanceInput
+  }
+
+  export type SyncConflictWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SyncConflictWhereInput | SyncConflictWhereInput[]
+    OR?: SyncConflictWhereInput[]
+    NOT?: SyncConflictWhereInput | SyncConflictWhereInput[]
+    resourceType?: StringFilter<"SyncConflict"> | string
+    resourceId?: StringFilter<"SyncConflict"> | string
+    tenantId?: StringNullableFilter<"SyncConflict"> | string | null
+    conflictType?: StringFilter<"SyncConflict"> | string
+    localVersion?: JsonFilter<"SyncConflict">
+    remoteVersion?: JsonFilter<"SyncConflict">
+    createdAt?: DateTimeFilter<"SyncConflict"> | Date | string
+    resolvedAt?: DateTimeNullableFilter<"SyncConflict"> | Date | string | null
+    resolvedBy?: StringNullableFilter<"SyncConflict"> | string | null
+    resolution?: JsonNullableFilter<"SyncConflict">
+  }, "id">
+
+  export type SyncConflictOrderByWithAggregationInput = {
+    id?: SortOrder
+    resourceType?: SortOrder
+    resourceId?: SortOrder
+    tenantId?: SortOrderInput | SortOrder
+    conflictType?: SortOrder
+    localVersion?: SortOrder
+    remoteVersion?: SortOrder
+    createdAt?: SortOrder
+    resolvedAt?: SortOrderInput | SortOrder
+    resolvedBy?: SortOrderInput | SortOrder
+    resolution?: SortOrderInput | SortOrder
+    _count?: SyncConflictCountOrderByAggregateInput
+    _max?: SyncConflictMaxOrderByAggregateInput
+    _min?: SyncConflictMinOrderByAggregateInput
+  }
+
+  export type SyncConflictScalarWhereWithAggregatesInput = {
+    AND?: SyncConflictScalarWhereWithAggregatesInput | SyncConflictScalarWhereWithAggregatesInput[]
+    OR?: SyncConflictScalarWhereWithAggregatesInput[]
+    NOT?: SyncConflictScalarWhereWithAggregatesInput | SyncConflictScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"SyncConflict"> | string
+    resourceType?: StringWithAggregatesFilter<"SyncConflict"> | string
+    resourceId?: StringWithAggregatesFilter<"SyncConflict"> | string
+    tenantId?: StringNullableWithAggregatesFilter<"SyncConflict"> | string | null
+    conflictType?: StringWithAggregatesFilter<"SyncConflict"> | string
+    localVersion?: JsonWithAggregatesFilter<"SyncConflict">
+    remoteVersion?: JsonWithAggregatesFilter<"SyncConflict">
+    createdAt?: DateTimeWithAggregatesFilter<"SyncConflict"> | Date | string
+    resolvedAt?: DateTimeNullableWithAggregatesFilter<"SyncConflict"> | Date | string | null
+    resolvedBy?: StringNullableWithAggregatesFilter<"SyncConflict"> | string | null
+    resolution?: JsonNullableWithAggregatesFilter<"SyncConflict">
+  }
+
   export type UserCreateInput = {
     id?: string
     email: string
@@ -46337,6 +48885,188 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type SyncStateCreateInput = {
+    id?: string
+    resourceType: string
+    resourceId: string
+    tenantId?: string | null
+    version: number
+    checksum: string
+    lastSync: Date | string
+    syncedBy: string
+    metadata: JsonNullValueInput | InputJsonValue
+  }
+
+  export type SyncStateUncheckedCreateInput = {
+    id?: string
+    resourceType: string
+    resourceId: string
+    tenantId?: string | null
+    version: number
+    checksum: string
+    lastSync: Date | string
+    syncedBy: string
+    metadata: JsonNullValueInput | InputJsonValue
+  }
+
+  export type SyncStateUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resourceType?: StringFieldUpdateOperationsInput | string
+    resourceId?: StringFieldUpdateOperationsInput | string
+    tenantId?: NullableStringFieldUpdateOperationsInput | string | null
+    version?: IntFieldUpdateOperationsInput | number
+    checksum?: StringFieldUpdateOperationsInput | string
+    lastSync?: DateTimeFieldUpdateOperationsInput | Date | string
+    syncedBy?: StringFieldUpdateOperationsInput | string
+    metadata?: JsonNullValueInput | InputJsonValue
+  }
+
+  export type SyncStateUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resourceType?: StringFieldUpdateOperationsInput | string
+    resourceId?: StringFieldUpdateOperationsInput | string
+    tenantId?: NullableStringFieldUpdateOperationsInput | string | null
+    version?: IntFieldUpdateOperationsInput | number
+    checksum?: StringFieldUpdateOperationsInput | string
+    lastSync?: DateTimeFieldUpdateOperationsInput | Date | string
+    syncedBy?: StringFieldUpdateOperationsInput | string
+    metadata?: JsonNullValueInput | InputJsonValue
+  }
+
+  export type SyncStateCreateManyInput = {
+    id?: string
+    resourceType: string
+    resourceId: string
+    tenantId?: string | null
+    version: number
+    checksum: string
+    lastSync: Date | string
+    syncedBy: string
+    metadata: JsonNullValueInput | InputJsonValue
+  }
+
+  export type SyncStateUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resourceType?: StringFieldUpdateOperationsInput | string
+    resourceId?: StringFieldUpdateOperationsInput | string
+    tenantId?: NullableStringFieldUpdateOperationsInput | string | null
+    version?: IntFieldUpdateOperationsInput | number
+    checksum?: StringFieldUpdateOperationsInput | string
+    lastSync?: DateTimeFieldUpdateOperationsInput | Date | string
+    syncedBy?: StringFieldUpdateOperationsInput | string
+    metadata?: JsonNullValueInput | InputJsonValue
+  }
+
+  export type SyncStateUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resourceType?: StringFieldUpdateOperationsInput | string
+    resourceId?: StringFieldUpdateOperationsInput | string
+    tenantId?: NullableStringFieldUpdateOperationsInput | string | null
+    version?: IntFieldUpdateOperationsInput | number
+    checksum?: StringFieldUpdateOperationsInput | string
+    lastSync?: DateTimeFieldUpdateOperationsInput | Date | string
+    syncedBy?: StringFieldUpdateOperationsInput | string
+    metadata?: JsonNullValueInput | InputJsonValue
+  }
+
+  export type SyncConflictCreateInput = {
+    id?: string
+    resourceType: string
+    resourceId: string
+    tenantId?: string | null
+    conflictType: string
+    localVersion: JsonNullValueInput | InputJsonValue
+    remoteVersion: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    resolvedAt?: Date | string | null
+    resolvedBy?: string | null
+    resolution?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type SyncConflictUncheckedCreateInput = {
+    id?: string
+    resourceType: string
+    resourceId: string
+    tenantId?: string | null
+    conflictType: string
+    localVersion: JsonNullValueInput | InputJsonValue
+    remoteVersion: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    resolvedAt?: Date | string | null
+    resolvedBy?: string | null
+    resolution?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type SyncConflictUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resourceType?: StringFieldUpdateOperationsInput | string
+    resourceId?: StringFieldUpdateOperationsInput | string
+    tenantId?: NullableStringFieldUpdateOperationsInput | string | null
+    conflictType?: StringFieldUpdateOperationsInput | string
+    localVersion?: JsonNullValueInput | InputJsonValue
+    remoteVersion?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    resolvedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resolvedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    resolution?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type SyncConflictUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resourceType?: StringFieldUpdateOperationsInput | string
+    resourceId?: StringFieldUpdateOperationsInput | string
+    tenantId?: NullableStringFieldUpdateOperationsInput | string | null
+    conflictType?: StringFieldUpdateOperationsInput | string
+    localVersion?: JsonNullValueInput | InputJsonValue
+    remoteVersion?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    resolvedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resolvedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    resolution?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type SyncConflictCreateManyInput = {
+    id?: string
+    resourceType: string
+    resourceId: string
+    tenantId?: string | null
+    conflictType: string
+    localVersion: JsonNullValueInput | InputJsonValue
+    remoteVersion: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    resolvedAt?: Date | string | null
+    resolvedBy?: string | null
+    resolution?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type SyncConflictUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resourceType?: StringFieldUpdateOperationsInput | string
+    resourceId?: StringFieldUpdateOperationsInput | string
+    tenantId?: NullableStringFieldUpdateOperationsInput | string | null
+    conflictType?: StringFieldUpdateOperationsInput | string
+    localVersion?: JsonNullValueInput | InputJsonValue
+    remoteVersion?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    resolvedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resolvedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    resolution?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type SyncConflictUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resourceType?: StringFieldUpdateOperationsInput | string
+    resourceId?: StringFieldUpdateOperationsInput | string
+    tenantId?: NullableStringFieldUpdateOperationsInput | string | null
+    conflictType?: StringFieldUpdateOperationsInput | string
+    localVersion?: JsonNullValueInput | InputJsonValue
+    remoteVersion?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    resolvedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resolvedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    resolution?: NullableJsonNullValueInput | InputJsonValue
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -48772,6 +51502,102 @@ export namespace Prisma {
     message?: SortOrder
     stack?: SortOrder
     createdAt?: SortOrder
+  }
+
+  export type SyncStateOrderByRelevanceInput = {
+    fields: SyncStateOrderByRelevanceFieldEnum | SyncStateOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type SyncStateResourceTypeResourceIdTenantIdCompoundUniqueInput = {
+    resourceType: string
+    resourceId: string
+    tenantId: string
+  }
+
+  export type SyncStateCountOrderByAggregateInput = {
+    id?: SortOrder
+    resourceType?: SortOrder
+    resourceId?: SortOrder
+    tenantId?: SortOrder
+    version?: SortOrder
+    checksum?: SortOrder
+    lastSync?: SortOrder
+    syncedBy?: SortOrder
+    metadata?: SortOrder
+  }
+
+  export type SyncStateAvgOrderByAggregateInput = {
+    version?: SortOrder
+  }
+
+  export type SyncStateMaxOrderByAggregateInput = {
+    id?: SortOrder
+    resourceType?: SortOrder
+    resourceId?: SortOrder
+    tenantId?: SortOrder
+    version?: SortOrder
+    checksum?: SortOrder
+    lastSync?: SortOrder
+    syncedBy?: SortOrder
+  }
+
+  export type SyncStateMinOrderByAggregateInput = {
+    id?: SortOrder
+    resourceType?: SortOrder
+    resourceId?: SortOrder
+    tenantId?: SortOrder
+    version?: SortOrder
+    checksum?: SortOrder
+    lastSync?: SortOrder
+    syncedBy?: SortOrder
+  }
+
+  export type SyncStateSumOrderByAggregateInput = {
+    version?: SortOrder
+  }
+
+  export type SyncConflictOrderByRelevanceInput = {
+    fields: SyncConflictOrderByRelevanceFieldEnum | SyncConflictOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type SyncConflictCountOrderByAggregateInput = {
+    id?: SortOrder
+    resourceType?: SortOrder
+    resourceId?: SortOrder
+    tenantId?: SortOrder
+    conflictType?: SortOrder
+    localVersion?: SortOrder
+    remoteVersion?: SortOrder
+    createdAt?: SortOrder
+    resolvedAt?: SortOrder
+    resolvedBy?: SortOrder
+    resolution?: SortOrder
+  }
+
+  export type SyncConflictMaxOrderByAggregateInput = {
+    id?: SortOrder
+    resourceType?: SortOrder
+    resourceId?: SortOrder
+    tenantId?: SortOrder
+    conflictType?: SortOrder
+    createdAt?: SortOrder
+    resolvedAt?: SortOrder
+    resolvedBy?: SortOrder
+  }
+
+  export type SyncConflictMinOrderByAggregateInput = {
+    id?: SortOrder
+    resourceType?: SortOrder
+    resourceId?: SortOrder
+    tenantId?: SortOrder
+    conflictType?: SortOrder
+    createdAt?: SortOrder
+    resolvedAt?: SortOrder
+    resolvedBy?: SortOrder
   }
 
   export type UserCreaterolesInput = {
