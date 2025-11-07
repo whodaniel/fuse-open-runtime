@@ -165,12 +165,12 @@ export type BusinessMetric = $Result.DefaultSelection<Prisma.$BusinessMetricPayl
 export type ErrorLog = $Result.DefaultSelection<Prisma.$ErrorLogPayload>
 /**
  * Model SyncState
- *
+ * 
  */
 export type SyncState = $Result.DefaultSelection<Prisma.$SyncStatePayload>
 /**
  * Model SyncConflict
- *
+ * 
  */
 export type SyncConflict = $Result.DefaultSelection<Prisma.$SyncConflictPayload>
 
@@ -39767,55 +39767,55 @@ export namespace Prisma {
     where?: SyncStateWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of SyncStates to fetch.
      */
     orderBy?: SyncStateOrderByWithRelationInput | SyncStateOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the start position
      */
     cursor?: SyncStateWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` SyncStates from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` SyncStates.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Count returned SyncStates
     **/
     _count?: true | SyncStateCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to average
     **/
     _avg?: SyncStateAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to sum
     **/
     _sum?: SyncStateSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: SyncStateMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the maximum value
     **/
     _max?: SyncStateMaxAggregateInputType
@@ -40019,13 +40019,13 @@ export namespace Prisma {
      * @example
      * // Get all SyncStates
      * const syncStates = await prisma.syncState.findMany()
-     *
+     * 
      * // Get first 10 SyncStates
      * const syncStates = await prisma.syncState.findMany({ take: 10 })
-     *
+     * 
      * // Only select the `id`
      * const syncStateWithIdOnly = await prisma.syncState.findMany({ select: { id: true } })
-     *
+     * 
      */
     findMany<T extends SyncStateFindManyArgs>(args?: SelectSubset<T, SyncStateFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SyncStatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
@@ -40039,7 +40039,7 @@ export namespace Prisma {
      *     // ... data to create a SyncState
      *   }
      * })
-     *
+     * 
      */
     create<T extends SyncStateCreateArgs>(args: SelectSubset<T, SyncStateCreateArgs<ExtArgs>>): Prisma__SyncStateClient<$Result.GetResult<Prisma.$SyncStatePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -40053,7 +40053,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     *     
      */
     createMany<T extends SyncStateCreateManyArgs>(args?: SelectSubset<T, SyncStateCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -40067,7 +40067,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Create many SyncStates and only return the `id`
      * const syncStateWithIdOnly = await prisma.syncState.createManyAndReturn({
      *   select: { id: true },
@@ -40077,7 +40077,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     createManyAndReturn<T extends SyncStateCreateManyAndReturnArgs>(args?: SelectSubset<T, SyncStateCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SyncStatePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
@@ -40091,7 +40091,7 @@ export namespace Prisma {
      *     // ... filter to delete one SyncState
      *   }
      * })
-     *
+     * 
      */
     delete<T extends SyncStateDeleteArgs>(args: SelectSubset<T, SyncStateDeleteArgs<ExtArgs>>): Prisma__SyncStateClient<$Result.GetResult<Prisma.$SyncStatePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -40108,7 +40108,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     update<T extends SyncStateUpdateArgs>(args: SelectSubset<T, SyncStateUpdateArgs<ExtArgs>>): Prisma__SyncStateClient<$Result.GetResult<Prisma.$SyncStatePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -40122,7 +40122,7 @@ export namespace Prisma {
      *     // ... provide filter here
      *   }
      * })
-     *
+     * 
      */
     deleteMany<T extends SyncStateDeleteManyArgs>(args?: SelectSubset<T, SyncStateDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -40141,7 +40141,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     updateMany<T extends SyncStateUpdateManyArgs>(args: SelectSubset<T, SyncStateUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -40158,7 +40158,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Update zero or more SyncStates and only return the `id`
      * const syncStateWithIdOnly = await prisma.syncState.updateManyAndReturn({
      *   select: { id: true },
@@ -40171,7 +40171,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     updateManyAndReturn<T extends SyncStateUpdateManyAndReturnArgs>(args: SelectSubset<T, SyncStateUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SyncStatePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
@@ -40260,7 +40260,7 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     *
+     * 
     **/
     groupBy<
       T extends SyncStateGroupByArgs,
@@ -40373,7 +40373,7 @@ export namespace Prisma {
     readonly syncedBy: FieldRef<"SyncState", 'String'>
     readonly metadata: FieldRef<"SyncState", 'Json'>
   }
-
+    
 
   // Custom InputTypes
   /**
@@ -40430,31 +40430,31 @@ export namespace Prisma {
     where?: SyncStateWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of SyncStates to fetch.
      */
     orderBy?: SyncStateOrderByWithRelationInput | SyncStateOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for SyncStates.
      */
     cursor?: SyncStateWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` SyncStates from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` SyncStates.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of SyncStates.
      */
     distinct?: SyncStateScalarFieldEnum | SyncStateScalarFieldEnum[]
@@ -40478,31 +40478,31 @@ export namespace Prisma {
     where?: SyncStateWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of SyncStates to fetch.
      */
     orderBy?: SyncStateOrderByWithRelationInput | SyncStateOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for SyncStates.
      */
     cursor?: SyncStateWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` SyncStates from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` SyncStates.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of SyncStates.
      */
     distinct?: SyncStateScalarFieldEnum | SyncStateScalarFieldEnum[]
@@ -40526,25 +40526,25 @@ export namespace Prisma {
     where?: SyncStateWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of SyncStates to fetch.
      */
     orderBy?: SyncStateOrderByWithRelationInput | SyncStateOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for listing SyncStates.
      */
     cursor?: SyncStateWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` SyncStates from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` SyncStates.
      */
     skip?: number
@@ -40830,43 +40830,43 @@ export namespace Prisma {
     where?: SyncConflictWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of SyncConflicts to fetch.
      */
     orderBy?: SyncConflictOrderByWithRelationInput | SyncConflictOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the start position
      */
     cursor?: SyncConflictWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` SyncConflicts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` SyncConflicts.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Count returned SyncConflicts
     **/
     _count?: true | SyncConflictCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: SyncConflictMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the maximum value
     **/
     _max?: SyncConflictMaxAggregateInputType
@@ -41078,13 +41078,13 @@ export namespace Prisma {
      * @example
      * // Get all SyncConflicts
      * const syncConflicts = await prisma.syncConflict.findMany()
-     *
+     * 
      * // Get first 10 SyncConflicts
      * const syncConflicts = await prisma.syncConflict.findMany({ take: 10 })
-     *
+     * 
      * // Only select the `id`
      * const syncConflictWithIdOnly = await prisma.syncConflict.findMany({ select: { id: true } })
-     *
+     * 
      */
     findMany<T extends SyncConflictFindManyArgs>(args?: SelectSubset<T, SyncConflictFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SyncConflictPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
@@ -41098,7 +41098,7 @@ export namespace Prisma {
      *     // ... data to create a SyncConflict
      *   }
      * })
-     *
+     * 
      */
     create<T extends SyncConflictCreateArgs>(args: SelectSubset<T, SyncConflictCreateArgs<ExtArgs>>): Prisma__SyncConflictClient<$Result.GetResult<Prisma.$SyncConflictPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -41112,7 +41112,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     *     
      */
     createMany<T extends SyncConflictCreateManyArgs>(args?: SelectSubset<T, SyncConflictCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -41126,7 +41126,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Create many SyncConflicts and only return the `id`
      * const syncConflictWithIdOnly = await prisma.syncConflict.createManyAndReturn({
      *   select: { id: true },
@@ -41136,7 +41136,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     createManyAndReturn<T extends SyncConflictCreateManyAndReturnArgs>(args?: SelectSubset<T, SyncConflictCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SyncConflictPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
@@ -41150,7 +41150,7 @@ export namespace Prisma {
      *     // ... filter to delete one SyncConflict
      *   }
      * })
-     *
+     * 
      */
     delete<T extends SyncConflictDeleteArgs>(args: SelectSubset<T, SyncConflictDeleteArgs<ExtArgs>>): Prisma__SyncConflictClient<$Result.GetResult<Prisma.$SyncConflictPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -41167,7 +41167,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     update<T extends SyncConflictUpdateArgs>(args: SelectSubset<T, SyncConflictUpdateArgs<ExtArgs>>): Prisma__SyncConflictClient<$Result.GetResult<Prisma.$SyncConflictPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -41181,7 +41181,7 @@ export namespace Prisma {
      *     // ... provide filter here
      *   }
      * })
-     *
+     * 
      */
     deleteMany<T extends SyncConflictDeleteManyArgs>(args?: SelectSubset<T, SyncConflictDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -41200,7 +41200,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     updateMany<T extends SyncConflictUpdateManyArgs>(args: SelectSubset<T, SyncConflictUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -41217,7 +41217,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Update zero or more SyncConflicts and only return the `id`
      * const syncConflictWithIdOnly = await prisma.syncConflict.updateManyAndReturn({
      *   select: { id: true },
@@ -41230,7 +41230,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     updateManyAndReturn<T extends SyncConflictUpdateManyAndReturnArgs>(args: SelectSubset<T, SyncConflictUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SyncConflictPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
@@ -41319,7 +41319,7 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     *
+     * 
     **/
     groupBy<
       T extends SyncConflictGroupByArgs,
@@ -41434,7 +41434,7 @@ export namespace Prisma {
     readonly resolvedBy: FieldRef<"SyncConflict", 'String'>
     readonly resolution: FieldRef<"SyncConflict", 'Json'>
   }
-
+    
 
   // Custom InputTypes
   /**
@@ -41491,31 +41491,31 @@ export namespace Prisma {
     where?: SyncConflictWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of SyncConflicts to fetch.
      */
     orderBy?: SyncConflictOrderByWithRelationInput | SyncConflictOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for SyncConflicts.
      */
     cursor?: SyncConflictWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` SyncConflicts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` SyncConflicts.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of SyncConflicts.
      */
     distinct?: SyncConflictScalarFieldEnum | SyncConflictScalarFieldEnum[]
@@ -41539,31 +41539,31 @@ export namespace Prisma {
     where?: SyncConflictWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of SyncConflicts to fetch.
      */
     orderBy?: SyncConflictOrderByWithRelationInput | SyncConflictOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for SyncConflicts.
      */
     cursor?: SyncConflictWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` SyncConflicts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` SyncConflicts.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of SyncConflicts.
      */
     distinct?: SyncConflictScalarFieldEnum | SyncConflictScalarFieldEnum[]
@@ -41587,25 +41587,25 @@ export namespace Prisma {
     where?: SyncConflictWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of SyncConflicts to fetch.
      */
     orderBy?: SyncConflictOrderByWithRelationInput | SyncConflictOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for listing SyncConflicts.
      */
     cursor?: SyncConflictWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` SyncConflicts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` SyncConflicts.
      */
     skip?: number
