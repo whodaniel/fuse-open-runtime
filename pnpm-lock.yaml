@@ -2710,6 +2710,9 @@ importers:
       '@the-new-fuse/infrastructure':
         specifier: workspace:*
         version: link:../infrastructure
+      '@the-new-fuse/prompt-templating':
+        specifier: workspace:*
+        version: link:../prompt-templating
       '@tnf/core-error-handling':
         specifier: workspace:*
         version: link:../core-error-handling
