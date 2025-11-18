@@ -10,7 +10,7 @@ const fs = require('fs').promises;
 
 class TNFQuickDemo {
     constructor() {
-        this.workspaceDir = '/Users/danielgoldberg/Desktop/A1-Inter-LLM-Com/The New Fuse';
+        this.workspaceDir = '.';
     }
 
     showDemo() {

@@ -18,7 +18,7 @@ echo "The New Fuse - Final Deployment"
 echo "========================================="
 echo ""
 
-cd /Users/danielgoldberg/Desktop/A1-Inter-LLM-Com/The-New-Fuse
+cd .
 
 # Deploy API
 echo -e "${YELLOW}[1/4] Deploying API service...${NC}"
