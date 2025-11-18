@@ -24,7 +24,7 @@ fi
 echo "✅ Railway CLI ready"
 echo ""
 
-ROOT_DIR="/Users/danielgoldberg/Desktop/A1-Inter-LLM-Com/The-New-Fuse"
+ROOT_DIR="."
 
 # Service paths in deployment order
 declare -a SERVICE_PATHS=(
