@@ -265,9 +265,6 @@ importers:
       '@the-new-fuse/api-types':
         specifier: workspace:*
         version: link:../../packages/api-types
-      '@the-new-fuse/core':
-        specifier: workspace:*
-        version: link:../../packages/core
       '@the-new-fuse/database':
         specifier: workspace:*
         version: link:../../packages/database
@@ -859,9 +856,6 @@ importers:
       '@the-new-fuse/a2a-react':
         specifier: workspace:*
         version: link:../../packages/a2a-react
-      '@the-new-fuse/core':
-        specifier: workspace:*
-        version: link:../../packages/core
       '@the-new-fuse/feature-suggestions':
         specifier: workspace:*
         version: link:../../packages/feature-suggestions
