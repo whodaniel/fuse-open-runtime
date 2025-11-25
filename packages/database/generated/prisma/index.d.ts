@@ -527,7 +527,7 @@ export const EntityStatus: typeof $Enums.EntityStatus
  */
 export class PrismaClient<
   ClientOptions extends Prisma.PrismaClientOptions = Prisma.PrismaClientOptions,
-  U = 'log' extends keyof ClientOptions ? ClientOptions['log'] extends Array<Prisma.LogLevel | Prisma.LogDefinition> ? Prisma.GetEvents<ClientOptions['log']> : never : never,
+  const U = 'log' extends keyof ClientOptions ? ClientOptions['log'] extends Array<Prisma.LogLevel | Prisma.LogDefinition> ? Prisma.GetEvents<ClientOptions['log']> : never : never,
   ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs
 > {
   [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['other'] }
@@ -559,13 +559,6 @@ export class PrismaClient<
    * Disconnect from the database
    */
   $disconnect(): $Utils.JsPromise<void>;
-
-  /**
-   * Add a middleware
-   * @deprecated since 4.16.0. For new code, prefer client extensions instead.
-   * @see https://pris.ly/d/extensions
-   */
-  $use(cb: Prisma.Middleware): void
 
 /**
    * Executes a prepared raw query and returns the number of affected rows.
@@ -1013,8 +1006,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.11.0
-   * Query Engine version: 9c30299f5a0ea26a96790e13f796dc6094db3173
+   * Prisma Client JS version: 6.17.1
+   * Query Engine version: 272a37d34178c2894197e17273bf937f25acdeac
    */
   export type PrismaVersion = {
     client: string
@@ -3860,16 +3853,24 @@ export namespace Prisma {
     /**
      * @example
      * ```
-     * // Defaults to stdout
+     * // Shorthand for `emit: 'stdout'`
      * log: ['query', 'info', 'warn', 'error']
      * 
-     * // Emit as events
+     * // Emit as events only
      * log: [
-     *   { emit: 'stdout', level: 'query' },
-     *   { emit: 'stdout', level: 'info' },
-     *   { emit: 'stdout', level: 'warn' }
-     *   { emit: 'stdout', level: 'error' }
+     *   { emit: 'event', level: 'query' },
+     *   { emit: 'event', level: 'info' },
+     *   { emit: 'event', level: 'warn' }
+     *   { emit: 'event', level: 'error' }
      * ]
+     * 
+     * / Emit as events and log to stdout
+     * og: [
+     *  { emit: 'stdout', level: 'query' },
+     *  { emit: 'stdout', level: 'info' },
+     *  { emit: 'stdout', level: 'warn' }
+     *  { emit: 'stdout', level: 'error' }
+     * 
      * ```
      * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/logging#the-log-option).
      */
@@ -3884,6 +3885,10 @@ export namespace Prisma {
       timeout?: number
       isolationLevel?: Prisma.TransactionIsolationLevel
     }
+    /**
+     * Instance of a Driver Adapter, e.g., like one provided by `@prisma/adapter-planetscale`
+     */
+    adapter?: runtime.SqlDriverAdapterFactory | null
     /**
      * Global configuration for omitting model fields by default.
      * 
@@ -3942,10 +3947,15 @@ export namespace Prisma {
     emit: 'stdout' | 'event'
   }
 
-  export type GetLogType<T extends LogLevel | LogDefinition> = T extends LogDefinition ? T['emit'] extends 'event' ? T['level'] : never : never
-  export type GetEvents<T extends any> = T extends Array<LogLevel | LogDefinition> ?
-    GetLogType<T[0]> | GetLogType<T[1]> | GetLogType<T[2]> | GetLogType<T[3]>
-    : never
+  export type CheckIsLogLevel<T> = T extends LogLevel ? T : never;
+
+  export type GetLogType<T> = CheckIsLogLevel<
+    T extends LogDefinition ? T['level'] : T
+  >;
+
+  export type GetEvents<T extends any[]> = T extends Array<LogLevel | LogDefinition>
+    ? GetLogType<T[number]>
+    : never;
 
   export type QueryEvent = {
     timestamp: Date
@@ -3985,25 +3995,6 @@ export namespace Prisma {
     | 'runCommandRaw'
     | 'findRaw'
     | 'groupBy'
-
-  /**
-   * These options are being passed into the middleware as "params"
-   */
-  export type MiddlewareParams = {
-    model?: ModelName
-    action: PrismaAction
-    args: any
-    dataPath: string[]
-    runInTransaction: boolean
-  }
-
-  /**
-   * The `T` type makes sure, that the `return proceed` is not forgotten in the middleware implementation
-   */
-  export type Middleware<T = any> = (
-    params: MiddlewareParams,
-    next: (params: MiddlewareParams) => $Utils.JsPromise<T>,
-  ) => $Utils.JsPromise<T>
 
   // tested in getLogLevel.test.ts
   export function getLogLevel(log: Array<LogLevel | LogDefinition>): LogLevel | undefined;
@@ -42389,347 +42380,6 @@ export namespace Prisma {
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
-  export const UserOrderByRelevanceFieldEnum: {
-    id: 'id',
-    email: 'email',
-    username: 'username',
-    name: 'name',
-    hashedPassword: 'hashedPassword',
-    refreshToken: 'refreshToken'
-  };
-
-  export type UserOrderByRelevanceFieldEnum = (typeof UserOrderByRelevanceFieldEnum)[keyof typeof UserOrderByRelevanceFieldEnum]
-
-
-  export const AuthSessionOrderByRelevanceFieldEnum: {
-    id: 'id',
-    userId: 'userId',
-    token: 'token'
-  };
-
-  export type AuthSessionOrderByRelevanceFieldEnum = (typeof AuthSessionOrderByRelevanceFieldEnum)[keyof typeof AuthSessionOrderByRelevanceFieldEnum]
-
-
-  export const LoginAttemptOrderByRelevanceFieldEnum: {
-    id: 'id',
-    userId: 'userId',
-    ipAddress: 'ipAddress'
-  };
-
-  export type LoginAttemptOrderByRelevanceFieldEnum = (typeof LoginAttemptOrderByRelevanceFieldEnum)[keyof typeof LoginAttemptOrderByRelevanceFieldEnum]
-
-
-  export const AuthEventOrderByRelevanceFieldEnum: {
-    id: 'id',
-    userId: 'userId',
-    type: 'type'
-  };
-
-  export type AuthEventOrderByRelevanceFieldEnum = (typeof AuthEventOrderByRelevanceFieldEnum)[keyof typeof AuthEventOrderByRelevanceFieldEnum]
-
-
-  export const AgentOrderByRelevanceFieldEnum: {
-    id: 'id',
-    name: 'name',
-    description: 'description',
-    systemPrompt: 'systemPrompt',
-    provider: 'provider',
-    userId: 'userId'
-  };
-
-  export type AgentOrderByRelevanceFieldEnum = (typeof AgentOrderByRelevanceFieldEnum)[keyof typeof AgentOrderByRelevanceFieldEnum]
-
-
-  export const AgentMetadataOrderByRelevanceFieldEnum: {
-    id: 'id',
-    agentId: 'agentId',
-    version: 'version'
-  };
-
-  export type AgentMetadataOrderByRelevanceFieldEnum = (typeof AgentMetadataOrderByRelevanceFieldEnum)[keyof typeof AgentMetadataOrderByRelevanceFieldEnum]
-
-
-  export const ChatOrderByRelevanceFieldEnum: {
-    id: 'id',
-    title: 'title',
-    agentId: 'agentId',
-    userId: 'userId'
-  };
-
-  export type ChatOrderByRelevanceFieldEnum = (typeof ChatOrderByRelevanceFieldEnum)[keyof typeof ChatOrderByRelevanceFieldEnum]
-
-
-  export const ChatRoomOrderByRelevanceFieldEnum: {
-    id: 'id',
-    name: 'name',
-    description: 'description',
-    ownerId: 'ownerId'
-  };
-
-  export type ChatRoomOrderByRelevanceFieldEnum = (typeof ChatRoomOrderByRelevanceFieldEnum)[keyof typeof ChatRoomOrderByRelevanceFieldEnum]
-
-
-  export const MessageOrderByRelevanceFieldEnum: {
-    id: 'id',
-    content: 'content',
-    senderId: 'senderId',
-    senderName: 'senderName',
-    agentId: 'agentId',
-    chatId: 'chatId',
-    roomId: 'roomId',
-    parentMessageId: 'parentMessageId',
-    attachments: 'attachments'
-  };
-
-  export type MessageOrderByRelevanceFieldEnum = (typeof MessageOrderByRelevanceFieldEnum)[keyof typeof MessageOrderByRelevanceFieldEnum]
-
-
-  export const ChatMessageOrderByRelevanceFieldEnum: {
-    id: 'id',
-    userId: 'userId',
-    content: 'content'
-  };
-
-  export type ChatMessageOrderByRelevanceFieldEnum = (typeof ChatMessageOrderByRelevanceFieldEnum)[keyof typeof ChatMessageOrderByRelevanceFieldEnum]
-
-
-  export const WorkflowOrderByRelevanceFieldEnum: {
-    id: 'id',
-    name: 'name',
-    description: 'description',
-    creatorId: 'creatorId',
-    agentId: 'agentId'
-  };
-
-  export type WorkflowOrderByRelevanceFieldEnum = (typeof WorkflowOrderByRelevanceFieldEnum)[keyof typeof WorkflowOrderByRelevanceFieldEnum]
-
-
-  export const WorkflowStepOrderByRelevanceFieldEnum: {
-    id: 'id',
-    name: 'name',
-    type: 'type',
-    workflowId: 'workflowId',
-    agentId: 'agentId',
-    nextSteps: 'nextSteps'
-  };
-
-  export type WorkflowStepOrderByRelevanceFieldEnum = (typeof WorkflowStepOrderByRelevanceFieldEnum)[keyof typeof WorkflowStepOrderByRelevanceFieldEnum]
-
-
-  export const WorkflowExecutionOrderByRelevanceFieldEnum: {
-    id: 'id',
-    workflowId: 'workflowId',
-    error: 'error'
-  };
-
-  export type WorkflowExecutionOrderByRelevanceFieldEnum = (typeof WorkflowExecutionOrderByRelevanceFieldEnum)[keyof typeof WorkflowExecutionOrderByRelevanceFieldEnum]
-
-
-  export const PipelineOrderByRelevanceFieldEnum: {
-    id: 'id',
-    name: 'name',
-    description: 'description',
-    userId: 'userId',
-    agentId: 'agentId'
-  };
-
-  export type PipelineOrderByRelevanceFieldEnum = (typeof PipelineOrderByRelevanceFieldEnum)[keyof typeof PipelineOrderByRelevanceFieldEnum]
-
-
-  export const TaskOrderByRelevanceFieldEnum: {
-    id: 'id',
-    title: 'title',
-    description: 'description',
-    type: 'type',
-    error: 'error',
-    pipelineId: 'pipelineId',
-    assignedToId: 'assignedToId',
-    userId: 'userId'
-  };
-
-  export type TaskOrderByRelevanceFieldEnum = (typeof TaskOrderByRelevanceFieldEnum)[keyof typeof TaskOrderByRelevanceFieldEnum]
-
-
-  export const TaskExecutionOrderByRelevanceFieldEnum: {
-    id: 'id',
-    taskId: 'taskId',
-    status: 'status',
-    error: 'error'
-  };
-
-  export type TaskExecutionOrderByRelevanceFieldEnum = (typeof TaskExecutionOrderByRelevanceFieldEnum)[keyof typeof TaskExecutionOrderByRelevanceFieldEnum]
-
-
-  export const CodeExecutionUsageOrderByRelevanceFieldEnum: {
-    id: 'id',
-    agentId: 'agentId',
-    clientId: 'clientId',
-    executionId: 'executionId',
-    code: 'code',
-    environment: 'environment'
-  };
-
-  export type CodeExecutionUsageOrderByRelevanceFieldEnum = (typeof CodeExecutionUsageOrderByRelevanceFieldEnum)[keyof typeof CodeExecutionUsageOrderByRelevanceFieldEnum]
-
-
-  export const CodeExecutionSessionOrderByRelevanceFieldEnum: {
-    id: 'id',
-    name: 'name',
-    description: 'description',
-    ownerId: 'ownerId',
-    collaborators: 'collaborators'
-  };
-
-  export type CodeExecutionSessionOrderByRelevanceFieldEnum = (typeof CodeExecutionSessionOrderByRelevanceFieldEnum)[keyof typeof CodeExecutionSessionOrderByRelevanceFieldEnum]
-
-
-  export const AgentNFTOrderByRelevanceFieldEnum: {
-    id: 'id',
-    agentId: 'agentId',
-    contractAddress: 'contractAddress',
-    smartAccountAddress: 'smartAccountAddress',
-    metadataUri: 'metadataUri'
-  };
-
-  export type AgentNFTOrderByRelevanceFieldEnum = (typeof AgentNFTOrderByRelevanceFieldEnum)[keyof typeof AgentNFTOrderByRelevanceFieldEnum]
-
-
-  export const FractionalShareOrderByRelevanceFieldEnum: {
-    id: 'id',
-    agentNFTId: 'agentNFTId',
-    ownerAddress: 'ownerAddress'
-  };
-
-  export type FractionalShareOrderByRelevanceFieldEnum = (typeof FractionalShareOrderByRelevanceFieldEnum)[keyof typeof FractionalShareOrderByRelevanceFieldEnum]
-
-
-  export const RevenueStreamOrderByRelevanceFieldEnum: {
-    id: 'id',
-    agentNFTId: 'agentNFTId',
-    streamName: 'streamName',
-    description: 'description',
-    tokenAddress: 'tokenAddress'
-  };
-
-  export type RevenueStreamOrderByRelevanceFieldEnum = (typeof RevenueStreamOrderByRelevanceFieldEnum)[keyof typeof RevenueStreamOrderByRelevanceFieldEnum]
-
-
-  export const RevenueDistributionOrderByRelevanceFieldEnum: {
-    id: 'id',
-    revenueStreamId: 'revenueStreamId',
-    txHash: 'txHash'
-  };
-
-  export type RevenueDistributionOrderByRelevanceFieldEnum = (typeof RevenueDistributionOrderByRelevanceFieldEnum)[keyof typeof RevenueDistributionOrderByRelevanceFieldEnum]
-
-
-  export const MarketplaceListingOrderByRelevanceFieldEnum: {
-    id: 'id',
-    agentNFTId: 'agentNFTId',
-    seller: 'seller'
-  };
-
-  export type MarketplaceListingOrderByRelevanceFieldEnum = (typeof MarketplaceListingOrderByRelevanceFieldEnum)[keyof typeof MarketplaceListingOrderByRelevanceFieldEnum]
-
-
-  export const MarketplaceOfferOrderByRelevanceFieldEnum: {
-    id: 'id',
-    listingId: 'listingId',
-    buyer: 'buyer'
-  };
-
-  export type MarketplaceOfferOrderByRelevanceFieldEnum = (typeof MarketplaceOfferOrderByRelevanceFieldEnum)[keyof typeof MarketplaceOfferOrderByRelevanceFieldEnum]
-
-
-  export const WalletOrderByRelevanceFieldEnum: {
-    id: 'id',
-    address: 'address',
-    agentId: 'agentId'
-  };
-
-  export type WalletOrderByRelevanceFieldEnum = (typeof WalletOrderByRelevanceFieldEnum)[keyof typeof WalletOrderByRelevanceFieldEnum]
-
-
-  export const TransactionOrderByRelevanceFieldEnum: {
-    id: 'id',
-    hash: 'hash',
-    walletId: 'walletId',
-    fromAddress: 'fromAddress',
-    toAddress: 'toAddress',
-    blockHash: 'blockHash'
-  };
-
-  export type TransactionOrderByRelevanceFieldEnum = (typeof TransactionOrderByRelevanceFieldEnum)[keyof typeof TransactionOrderByRelevanceFieldEnum]
-
-
-  export const RegisteredEntityOrderByRelevanceFieldEnum: {
-    id: 'id',
-    name: 'name',
-    description: 'description',
-    version: 'version',
-    namespace: 'namespace',
-    tags: 'tags',
-    capabilities: 'capabilities',
-    dependencies: 'dependencies',
-    ownerId: 'ownerId'
-  };
-
-  export type RegisteredEntityOrderByRelevanceFieldEnum = (typeof RegisteredEntityOrderByRelevanceFieldEnum)[keyof typeof RegisteredEntityOrderByRelevanceFieldEnum]
-
-
-  export const LLMConfigOrderByRelevanceFieldEnum: {
-    id: 'id',
-    name: 'name',
-    provider: 'provider',
-    modelName: 'modelName',
-    apiKey: 'apiKey',
-    apiEndpoint: 'apiEndpoint'
-  };
-
-  export type LLMConfigOrderByRelevanceFieldEnum = (typeof LLMConfigOrderByRelevanceFieldEnum)[keyof typeof LLMConfigOrderByRelevanceFieldEnum]
-
-
-  export const BusinessMetricOrderByRelevanceFieldEnum: {
-    id: 'id',
-    name: 'name'
-  };
-
-  export type BusinessMetricOrderByRelevanceFieldEnum = (typeof BusinessMetricOrderByRelevanceFieldEnum)[keyof typeof BusinessMetricOrderByRelevanceFieldEnum]
-
-
-  export const ErrorLogOrderByRelevanceFieldEnum: {
-    id: 'id',
-    message: 'message',
-    stack: 'stack'
-  };
-
-  export type ErrorLogOrderByRelevanceFieldEnum = (typeof ErrorLogOrderByRelevanceFieldEnum)[keyof typeof ErrorLogOrderByRelevanceFieldEnum]
-
-
-  export const SyncStateOrderByRelevanceFieldEnum: {
-    id: 'id',
-    resourceType: 'resourceType',
-    resourceId: 'resourceId',
-    tenantId: 'tenantId',
-    checksum: 'checksum',
-    syncedBy: 'syncedBy'
-  };
-
-  export type SyncStateOrderByRelevanceFieldEnum = (typeof SyncStateOrderByRelevanceFieldEnum)[keyof typeof SyncStateOrderByRelevanceFieldEnum]
-
-
-  export const SyncConflictOrderByRelevanceFieldEnum: {
-    id: 'id',
-    resourceType: 'resourceType',
-    resourceId: 'resourceId',
-    tenantId: 'tenantId',
-    conflictType: 'conflictType',
-    resolvedBy: 'resolvedBy'
-  };
-
-  export type SyncConflictOrderByRelevanceFieldEnum = (typeof SyncConflictOrderByRelevanceFieldEnum)[keyof typeof SyncConflictOrderByRelevanceFieldEnum]
-
-
   /**
    * Field references
    */
@@ -43164,7 +42814,6 @@ export namespace Prisma {
     authSessions?: AuthSessionOrderByRelationAggregateInput
     loginAttempts?: LoginAttemptOrderByRelationAggregateInput
     authEvents?: AuthEventOrderByRelationAggregateInput
-    _relevance?: UserOrderByRelevanceInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -43258,7 +42907,6 @@ export namespace Prisma {
     expiresAt?: SortOrder
     createdAt?: SortOrder
     user?: UserOrderByWithRelationInput
-    _relevance?: AuthSessionOrderByRelevanceInput
   }
 
   export type AuthSessionWhereUniqueInput = Prisma.AtLeast<{
@@ -43314,7 +42962,6 @@ export namespace Prisma {
     successful?: SortOrder
     createdAt?: SortOrder
     user?: UserOrderByWithRelationInput
-    _relevance?: LoginAttemptOrderByRelevanceInput
   }
 
   export type LoginAttemptWhereUniqueInput = Prisma.AtLeast<{
@@ -43370,7 +43017,6 @@ export namespace Prisma {
     details?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     user?: UserOrderByWithRelationInput
-    _relevance?: AuthEventOrderByRelevanceInput
   }
 
   export type AuthEventWhereUniqueInput = Prisma.AtLeast<{
@@ -43462,7 +43108,6 @@ export namespace Prisma {
     tasksAssigned?: TaskOrderByRelationAggregateInput
     workflows?: WorkflowOrderByRelationAggregateInput
     workflowSteps?: WorkflowStepOrderByRelationAggregateInput
-    _relevance?: AgentOrderByRelevanceInput
   }
 
   export type AgentWhereUniqueInput = Prisma.AtLeast<{
@@ -43552,7 +43197,6 @@ export namespace Prisma {
     version?: SortOrder
     config?: SortOrderInput | SortOrder
     agent?: AgentOrderByWithRelationInput
-    _relevance?: AgentMetadataOrderByRelevanceInput
   }
 
   export type AgentMetadataWhereUniqueInput = Prisma.AtLeast<{
@@ -43614,7 +43258,6 @@ export namespace Prisma {
     deletedAt?: SortOrderInput | SortOrder
     agent?: AgentOrderByWithRelationInput
     messages?: MessageOrderByRelationAggregateInput
-    _relevance?: ChatOrderByRelevanceInput
   }
 
   export type ChatWhereUniqueInput = Prisma.AtLeast<{
@@ -43693,7 +43336,6 @@ export namespace Prisma {
     deletedAt?: SortOrderInput | SortOrder
     owner?: UserOrderByWithRelationInput
     messages?: MessageOrderByRelationAggregateInput
-    _relevance?: ChatRoomOrderByRelevanceInput
   }
 
   export type ChatRoomWhereUniqueInput = Prisma.AtLeast<{
@@ -43807,7 +43449,6 @@ export namespace Prisma {
     room?: ChatRoomOrderByWithRelationInput
     parentMessage?: MessageOrderByWithRelationInput
     replies?: MessageOrderByRelationAggregateInput
-    _relevance?: MessageOrderByRelevanceInput
   }
 
   export type MessageWhereUniqueInput = Prisma.AtLeast<{
@@ -43909,7 +43550,6 @@ export namespace Prisma {
     expiresAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _relevance?: ChatMessageOrderByRelevanceInput
   }
 
   export type ChatMessageWhereUniqueInput = Prisma.AtLeast<{
@@ -44000,7 +43640,6 @@ export namespace Prisma {
     agent?: AgentOrderByWithRelationInput
     steps?: WorkflowStepOrderByRelationAggregateInput
     executions?: WorkflowExecutionOrderByRelationAggregateInput
-    _relevance?: WorkflowOrderByRelevanceInput
   }
 
   export type WorkflowWhereUniqueInput = Prisma.AtLeast<{
@@ -44121,7 +43760,6 @@ export namespace Prisma {
     statistics?: SortOrderInput | SortOrder
     workflow?: WorkflowOrderByWithRelationInput
     agent?: AgentOrderByWithRelationInput
-    _relevance?: WorkflowStepOrderByRelevanceInput
   }
 
   export type WorkflowStepWhereUniqueInput = Prisma.AtLeast<{
@@ -44219,7 +43857,6 @@ export namespace Prisma {
     startedAt?: SortOrder
     completedAt?: SortOrderInput | SortOrder
     workflow?: WorkflowOrderByWithRelationInput
-    _relevance?: WorkflowExecutionOrderByRelevanceInput
   }
 
   export type WorkflowExecutionWhereUniqueInput = Prisma.AtLeast<{
@@ -44298,7 +43935,6 @@ export namespace Prisma {
     user?: UserOrderByWithRelationInput
     agent?: AgentOrderByWithRelationInput
     tasks?: TaskOrderByRelationAggregateInput
-    _relevance?: PipelineOrderByRelevanceInput
   }
 
   export type PipelineWhereUniqueInput = Prisma.AtLeast<{
@@ -44403,7 +44039,6 @@ export namespace Prisma {
     assignedTo?: AgentOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
     taskExecutions?: TaskExecutionOrderByRelationAggregateInput
-    _relevance?: TaskOrderByRelevanceInput
   }
 
   export type TaskWhereUniqueInput = Prisma.AtLeast<{
@@ -44505,7 +44140,6 @@ export namespace Prisma {
     startedAt?: SortOrder
     completedAt?: SortOrderInput | SortOrder
     task?: TaskOrderByWithRelationInput
-    _relevance?: TaskExecutionOrderByRelevanceInput
   }
 
   export type TaskExecutionWhereUniqueInput = Prisma.AtLeast<{
@@ -44593,7 +44227,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     completedAt?: SortOrderInput | SortOrder
     agent?: AgentOrderByWithRelationInput
-    _relevance?: CodeExecutionUsageOrderByRelevanceInput
   }
 
   export type CodeExecutionUsageWhereUniqueInput = Prisma.AtLeast<{
@@ -44702,7 +44335,6 @@ export namespace Prisma {
     updatedAt?: SortOrder
     expiresAt?: SortOrderInput | SortOrder
     storageUsage?: SortOrder
-    _relevance?: CodeExecutionSessionOrderByRelevanceInput
   }
 
   export type CodeExecutionSessionWhereUniqueInput = Prisma.AtLeast<{
@@ -44796,7 +44428,6 @@ export namespace Prisma {
     fractionalShares?: FractionalShareOrderByRelationAggregateInput
     revenueStreams?: RevenueStreamOrderByRelationAggregateInput
     marketplaceListings?: MarketplaceListingOrderByRelationAggregateInput
-    _relevance?: AgentNFTOrderByRelevanceInput
   }
 
   export type AgentNFTWhereUniqueInput = Prisma.AtLeast<{
@@ -44874,7 +44505,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     agentNFT?: AgentNFTOrderByWithRelationInput
-    _relevance?: FractionalShareOrderByRelevanceInput
   }
 
   export type FractionalShareWhereUniqueInput = Prisma.AtLeast<{
@@ -44949,7 +44579,6 @@ export namespace Prisma {
     updatedAt?: SortOrder
     agentNFT?: AgentNFTOrderByWithRelationInput
     distributions?: RevenueDistributionOrderByRelationAggregateInput
-    _relevance?: RevenueStreamOrderByRelevanceInput
   }
 
   export type RevenueStreamWhereUniqueInput = Prisma.AtLeast<{
@@ -45030,7 +44659,6 @@ export namespace Prisma {
     blockNumber?: SortOrder
     createdAt?: SortOrder
     revenueStream?: RevenueStreamOrderByWithRelationInput
-    _relevance?: RevenueDistributionOrderByRelevanceInput
   }
 
   export type RevenueDistributionWhereUniqueInput = Prisma.AtLeast<{
@@ -45108,7 +44736,6 @@ export namespace Prisma {
     updatedAt?: SortOrder
     agentNFT?: AgentNFTOrderByWithRelationInput
     offers?: MarketplaceOfferOrderByRelationAggregateInput
-    _relevance?: MarketplaceListingOrderByRelevanceInput
   }
 
   export type MarketplaceListingWhereUniqueInput = Prisma.AtLeast<{
@@ -45193,7 +44820,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     listing?: MarketplaceListingOrderByWithRelationInput
-    _relevance?: MarketplaceOfferOrderByRelevanceInput
   }
 
   export type MarketplaceOfferWhereUniqueInput = Prisma.AtLeast<{
@@ -45275,7 +44901,6 @@ export namespace Prisma {
     updatedAt?: SortOrder
     agent?: AgentOrderByWithRelationInput
     transactions?: TransactionOrderByRelationAggregateInput
-    _relevance?: WalletOrderByRelevanceInput
   }
 
   export type WalletWhereUniqueInput = Prisma.AtLeast<{
@@ -45371,7 +44996,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     confirmedAt?: SortOrderInput | SortOrder
     wallet?: WalletOrderByWithRelationInput
-    _relevance?: TransactionOrderByRelevanceInput
   }
 
   export type TransactionWhereUniqueInput = Prisma.AtLeast<{
@@ -45484,7 +45108,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
-    _relevance?: RegisteredEntityOrderByRelevanceInput
   }
 
   export type RegisteredEntityWhereUniqueInput = Prisma.AtLeast<{
@@ -45589,7 +45212,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
-    _relevance?: LLMConfigOrderByRelevanceInput
   }
 
   export type LLMConfigWhereUniqueInput = Prisma.AtLeast<{
@@ -45668,7 +45290,6 @@ export namespace Prisma {
     value?: SortOrder
     tags?: SortOrderInput | SortOrder
     createdAt?: SortOrder
-    _relevance?: BusinessMetricOrderByRelevanceInput
   }
 
   export type BusinessMetricWhereUniqueInput = Prisma.AtLeast<{
@@ -45723,7 +45344,6 @@ export namespace Prisma {
     stack?: SortOrderInput | SortOrder
     context?: SortOrderInput | SortOrder
     createdAt?: SortOrder
-    _relevance?: ErrorLogOrderByRelevanceInput
   }
 
   export type ErrorLogWhereUniqueInput = Prisma.AtLeast<{
@@ -45784,7 +45404,6 @@ export namespace Prisma {
     lastSync?: SortOrder
     syncedBy?: SortOrder
     metadata?: SortOrder
-    _relevance?: SyncStateOrderByRelevanceInput
   }
 
   export type SyncStateWhereUniqueInput = Prisma.AtLeast<{
@@ -45864,7 +45483,6 @@ export namespace Prisma {
     resolvedAt?: SortOrderInput | SortOrder
     resolvedBy?: SortOrderInput | SortOrder
     resolution?: SortOrderInput | SortOrder
-    _relevance?: SyncConflictOrderByRelevanceInput
   }
 
   export type SyncConflictWhereUniqueInput = Prisma.AtLeast<{
@@ -49063,7 +48681,6 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     mode?: QueryMode
     not?: NestedStringFilter<$PrismaModel> | string
   }
@@ -49079,7 +48696,6 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     mode?: QueryMode
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
@@ -49244,12 +48860,6 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type UserOrderByRelevanceInput = {
-    fields: UserOrderByRelevanceFieldEnum | UserOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
@@ -49311,7 +48921,6 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     mode?: QueryMode
     not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
     _count?: NestedIntFilter<$PrismaModel>
@@ -49330,7 +48939,6 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     mode?: QueryMode
     not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
@@ -49415,12 +49023,6 @@ export namespace Prisma {
     isNot?: UserWhereInput
   }
 
-  export type AuthSessionOrderByRelevanceInput = {
-    fields: AuthSessionOrderByRelevanceFieldEnum | AuthSessionOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type AuthSessionCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
@@ -49445,12 +49047,6 @@ export namespace Prisma {
     createdAt?: SortOrder
   }
 
-  export type LoginAttemptOrderByRelevanceInput = {
-    fields: LoginAttemptOrderByRelevanceFieldEnum | LoginAttemptOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type LoginAttemptCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
@@ -49473,12 +49069,6 @@ export namespace Prisma {
     ipAddress?: SortOrder
     successful?: SortOrder
     createdAt?: SortOrder
-  }
-
-  export type AuthEventOrderByRelevanceInput = {
-    fields: AuthEventOrderByRelevanceFieldEnum | AuthEventOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
   }
 
   export type AuthEventCountOrderByAggregateInput = {
@@ -49568,12 +49158,6 @@ export namespace Prisma {
 
   export type WorkflowStepOrderByRelationAggregateInput = {
     _count?: SortOrder
-  }
-
-  export type AgentOrderByRelevanceInput = {
-    fields: AgentOrderByRelevanceFieldEnum | AgentOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
   }
 
   export type AgentCountOrderByAggregateInput = {
@@ -49668,12 +49252,6 @@ export namespace Prisma {
     isNot?: AgentWhereInput
   }
 
-  export type AgentMetadataOrderByRelevanceInput = {
-    fields: AgentMetadataOrderByRelevanceFieldEnum | AgentMetadataOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type AgentMetadataCountOrderByAggregateInput = {
     id?: SortOrder
     agentId?: SortOrder
@@ -49720,12 +49298,6 @@ export namespace Prisma {
     _max?: NestedJsonFilter<$PrismaModel>
   }
 
-  export type ChatOrderByRelevanceInput = {
-    fields: ChatOrderByRelevanceFieldEnum | ChatOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type ChatCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
@@ -49754,12 +49326,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
-  }
-
-  export type ChatRoomOrderByRelevanceInput = {
-    fields: ChatRoomOrderByRelevanceFieldEnum | ChatRoomOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
   }
 
   export type ChatRoomCountOrderByAggregateInput = {
@@ -49843,12 +49409,6 @@ export namespace Prisma {
     isNot?: MessageWhereInput | null
   }
 
-  export type MessageOrderByRelevanceInput = {
-    fields: MessageOrderByRelevanceFieldEnum | MessageOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type MessageCountOrderByAggregateInput = {
     id?: SortOrder
     content?: SortOrder
@@ -49916,12 +49476,6 @@ export namespace Prisma {
     _max?: NestedEnumMessageRoleFilter<$PrismaModel>
   }
 
-  export type ChatMessageOrderByRelevanceInput = {
-    fields: ChatMessageOrderByRelevanceFieldEnum | ChatMessageOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type ChatMessageCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
@@ -49978,12 +49532,6 @@ export namespace Prisma {
 
   export type WorkflowExecutionOrderByRelationAggregateInput = {
     _count?: SortOrder
-  }
-
-  export type WorkflowOrderByRelevanceInput = {
-    fields: WorkflowOrderByRelevanceFieldEnum | WorkflowOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
   }
 
   export type WorkflowCountOrderByAggregateInput = {
@@ -50075,12 +49623,6 @@ export namespace Prisma {
     isNot?: WorkflowWhereInput | null
   }
 
-  export type WorkflowStepOrderByRelevanceInput = {
-    fields: WorkflowStepOrderByRelevanceFieldEnum | WorkflowStepOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type WorkflowStepCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -50146,12 +49688,6 @@ export namespace Prisma {
     isNot?: WorkflowWhereInput
   }
 
-  export type WorkflowExecutionOrderByRelevanceInput = {
-    fields: WorkflowExecutionOrderByRelevanceFieldEnum | WorkflowExecutionOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type WorkflowExecutionCountOrderByAggregateInput = {
     id?: SortOrder
     workflowId?: SortOrder
@@ -50196,12 +49732,6 @@ export namespace Prisma {
     in?: $Enums.PipelineStatus[] | ListEnumPipelineStatusFieldRefInput<$PrismaModel>
     notIn?: $Enums.PipelineStatus[] | ListEnumPipelineStatusFieldRefInput<$PrismaModel>
     not?: NestedEnumPipelineStatusFilter<$PrismaModel> | $Enums.PipelineStatus
-  }
-
-  export type PipelineOrderByRelevanceInput = {
-    fields: PipelineOrderByRelevanceFieldEnum | PipelineOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
   }
 
   export type PipelineCountOrderByAggregateInput = {
@@ -50278,12 +49808,6 @@ export namespace Prisma {
 
   export type TaskExecutionOrderByRelationAggregateInput = {
     _count?: SortOrder
-  }
-
-  export type TaskOrderByRelevanceInput = {
-    fields: TaskOrderByRelevanceFieldEnum | TaskOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
   }
 
   export type TaskCountOrderByAggregateInput = {
@@ -50368,12 +49892,6 @@ export namespace Prisma {
     isNot?: TaskWhereInput
   }
 
-  export type TaskExecutionOrderByRelevanceInput = {
-    fields: TaskExecutionOrderByRelevanceFieldEnum | TaskExecutionOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type TaskExecutionCountOrderByAggregateInput = {
     id?: SortOrder
     taskId?: SortOrder
@@ -50432,12 +49950,6 @@ export namespace Prisma {
     in?: $Enums.CodeExecutionStatus[] | ListEnumCodeExecutionStatusFieldRefInput<$PrismaModel>
     notIn?: $Enums.CodeExecutionStatus[] | ListEnumCodeExecutionStatusFieldRefInput<$PrismaModel>
     not?: NestedEnumCodeExecutionStatusFilter<$PrismaModel> | $Enums.CodeExecutionStatus
-  }
-
-  export type CodeExecutionUsageOrderByRelevanceInput = {
-    fields: CodeExecutionUsageOrderByRelevanceFieldEnum | CodeExecutionUsageOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
   }
 
   export type CodeExecutionUsageCountOrderByAggregateInput = {
@@ -50557,12 +50069,6 @@ export namespace Prisma {
     _max?: NestedEnumCodeExecutionStatusFilter<$PrismaModel>
   }
 
-  export type CodeExecutionSessionOrderByRelevanceInput = {
-    fields: CodeExecutionSessionOrderByRelevanceFieldEnum | CodeExecutionSessionOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type CodeExecutionSessionCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -50640,12 +50146,6 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type AgentNFTOrderByRelevanceInput = {
-    fields: AgentNFTOrderByRelevanceFieldEnum | AgentNFTOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type AgentNFTCountOrderByAggregateInput = {
     id?: SortOrder
     agentId?: SortOrder
@@ -50711,12 +50211,6 @@ export namespace Prisma {
     isNot?: AgentNFTWhereInput
   }
 
-  export type FractionalShareOrderByRelevanceInput = {
-    fields: FractionalShareOrderByRelevanceFieldEnum | FractionalShareOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type FractionalShareCountOrderByAggregateInput = {
     id?: SortOrder
     agentNFTId?: SortOrder
@@ -50778,12 +50272,6 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type RevenueStreamOrderByRelevanceInput = {
-    fields: RevenueStreamOrderByRelevanceFieldEnum | RevenueStreamOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type RevenueStreamCountOrderByAggregateInput = {
     id?: SortOrder
     agentNFTId?: SortOrder
@@ -50843,12 +50331,6 @@ export namespace Prisma {
     isNot?: RevenueStreamWhereInput
   }
 
-  export type RevenueDistributionOrderByRelevanceInput = {
-    fields: RevenueDistributionOrderByRelevanceFieldEnum | RevenueDistributionOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type RevenueDistributionCountOrderByAggregateInput = {
     id?: SortOrder
     revenueStreamId?: SortOrder
@@ -50902,12 +50384,6 @@ export namespace Prisma {
 
   export type MarketplaceOfferOrderByRelationAggregateInput = {
     _count?: SortOrder
-  }
-
-  export type MarketplaceListingOrderByRelevanceInput = {
-    fields: MarketplaceListingOrderByRelevanceFieldEnum | MarketplaceListingOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
   }
 
   export type MarketplaceListingCountOrderByAggregateInput = {
@@ -50988,12 +50464,6 @@ export namespace Prisma {
     isNot?: MarketplaceListingWhereInput
   }
 
-  export type MarketplaceOfferOrderByRelevanceInput = {
-    fields: MarketplaceOfferOrderByRelevanceFieldEnum | MarketplaceOfferOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type MarketplaceOfferCountOrderByAggregateInput = {
     id?: SortOrder
     listingId?: SortOrder
@@ -51065,12 +50535,6 @@ export namespace Prisma {
 
   export type TransactionOrderByRelationAggregateInput = {
     _count?: SortOrder
-  }
-
-  export type WalletOrderByRelevanceInput = {
-    fields: WalletOrderByRelevanceFieldEnum | WalletOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
   }
 
   export type WalletCountOrderByAggregateInput = {
@@ -51160,12 +50624,6 @@ export namespace Prisma {
   export type WalletScalarRelationFilter = {
     is?: WalletWhereInput
     isNot?: WalletWhereInput
-  }
-
-  export type TransactionOrderByRelevanceInput = {
-    fields: TransactionOrderByRelevanceFieldEnum | TransactionOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
   }
 
   export type TransactionCountOrderByAggregateInput = {
@@ -51289,12 +50747,6 @@ export namespace Prisma {
     not?: NestedEnumEntityStatusFilter<$PrismaModel> | $Enums.EntityStatus
   }
 
-  export type RegisteredEntityOrderByRelevanceInput = {
-    fields: RegisteredEntityOrderByRelevanceFieldEnum | RegisteredEntityOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type RegisteredEntityCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -51365,12 +50817,6 @@ export namespace Prisma {
     _max?: NestedEnumEntityStatusFilter<$PrismaModel>
   }
 
-  export type LLMConfigOrderByRelevanceInput = {
-    fields: LLMConfigOrderByRelevanceFieldEnum | LLMConfigOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type LLMConfigCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -51425,12 +50871,6 @@ export namespace Prisma {
     priority?: SortOrder
   }
 
-  export type BusinessMetricOrderByRelevanceInput = {
-    fields: BusinessMetricOrderByRelevanceFieldEnum | BusinessMetricOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type BusinessMetricCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -51461,12 +50901,6 @@ export namespace Prisma {
     value?: SortOrder
   }
 
-  export type ErrorLogOrderByRelevanceInput = {
-    fields: ErrorLogOrderByRelevanceFieldEnum | ErrorLogOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type ErrorLogCountOrderByAggregateInput = {
     id?: SortOrder
     message?: SortOrder
@@ -51487,12 +50921,6 @@ export namespace Prisma {
     message?: SortOrder
     stack?: SortOrder
     createdAt?: SortOrder
-  }
-
-  export type SyncStateOrderByRelevanceInput = {
-    fields: SyncStateOrderByRelevanceFieldEnum | SyncStateOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
   }
 
   export type SyncStateResourceTypeResourceIdTenantIdCompoundUniqueInput = {
@@ -51541,12 +50969,6 @@ export namespace Prisma {
 
   export type SyncStateSumOrderByAggregateInput = {
     version?: SortOrder
-  }
-
-  export type SyncConflictOrderByRelevanceInput = {
-    fields: SyncConflictOrderByRelevanceFieldEnum | SyncConflictOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
   }
 
   export type SyncConflictCountOrderByAggregateInput = {
@@ -53584,7 +53006,6 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
@@ -53599,7 +53020,6 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
@@ -53648,7 +53068,6 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
@@ -53677,7 +53096,6 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
