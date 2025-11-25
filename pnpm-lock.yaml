@@ -572,8 +572,8 @@ importers:
         specifier: ^4.0.2
         version: 4.1.2(@nestjs/common@11.1.9(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.8)
       '@prisma/client':
-        specifier: 7.0.1
-        version: 7.0.1(prisma@6.17.1(magicast@0.3.5)(typescript@5.9.3))(typescript@5.9.3)
+        specifier: 6.17.1
+        version: 6.17.1(prisma@6.17.1(magicast@0.3.5)(typescript@5.9.3))(typescript@5.9.3)
       '@the-new-fuse/database':
         specifier: workspace:*
         version: link:../../packages/database
@@ -23460,7 +23460,8 @@ snapshots:
     transitivePeerDependencies:
       - pg-native
 
-  '@prisma/client-runtime-utils@7.0.1': {}
+  '@prisma/client-runtime-utils@7.0.1':
+    optional: true
 
   '@prisma/client@6.11.0(prisma@6.11.0(typescript@5.9.3))(typescript@5.9.3)':
     optionalDependencies:
@@ -23480,13 +23481,6 @@ snapshots:
   '@prisma/client@6.17.1(prisma@7.0.0(@types/react@19.2.2)(magicast@0.3.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(typescript@5.9.3)':
     optionalDependencies:
       prisma: 7.0.0(@types/react@19.2.2)(magicast@0.3.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3)
-      typescript: 5.9.3
-
-  '@prisma/client@7.0.1(prisma@6.17.1(magicast@0.3.5)(typescript@5.9.3))(typescript@5.9.3)':
-    dependencies:
-      '@prisma/client-runtime-utils': 7.0.1
-    optionalDependencies:
-      prisma: 6.17.1(magicast@0.3.5)(typescript@5.9.3)
       typescript: 5.9.3
 
   '@prisma/client@7.0.1(prisma@7.0.0(@types/react@19.2.2)(magicast@0.3.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(typescript@5.9.3)':
