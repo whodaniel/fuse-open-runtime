@@ -269,6 +269,9 @@ importers:
       '@the-new-fuse/database':
         specifier: workspace:*
         version: link:../../packages/database
+      '@the-new-fuse/n8n-workflows':
+        specifier: workspace:*
+        version: link:../../packages/n8n-workflows
       '@the-new-fuse/port-management':
         specifier: workspace:*
         version: link:../../packages/port-management
