@@ -5735,6 +5735,7 @@ packages:
   '@metamask/delegation-toolkit@0.11.0':
     resolution: {integrity: sha512-KQybftUahuPPjN842ejmVaJWg2rzHpSpvd+b6qtiOBypzJs7cgw1/f8QalHLugS1eyicEYLXwvRxjjufiG4wbg==}
     engines: {node: ^18.18 || >=20}
+    deprecated: Renamed to @metamask/smart-accounts-kit
     peerDependencies:
       viem: '>=2.18.2 <3.0.0'
 
