@@ -4,6 +4,20 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+importers:
+
+  .:
+    dependencies:
+      '@chakra-ui/icons':
+        specifier: ^2.2.4
+        version: 2.2.4(@chakra-ui/react@3.30.0)(react@19.2.1)
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.24.0
+        version: 1.24.2(zod@3.25.76)
+      '@nestjs/common':
+        specifier: ^11.1.9
+        version: 11.1.9(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@nestjs/config':
         specifier: ^3.1.1
         version: 3.3.0(@nestjs/common@11.1.9)(rxjs@7.8.2)
       '@nestjs/core':
