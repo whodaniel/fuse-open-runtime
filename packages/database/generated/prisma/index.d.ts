@@ -36378,6 +36378,9 @@ export namespace Prisma {
       namespace: string | null
       tags: string[]
       capabilities: string[]
+      /**
+       * @see RegisteredEntity
+       */
       dependencies: string[]
       isPublic: boolean
       ownerId: string | null
