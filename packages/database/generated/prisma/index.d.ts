@@ -79,6 +79,11 @@ export type WorkflowStep = $Result.DefaultSelection<Prisma.$WorkflowStepPayload>
  */
 export type WorkflowExecution = $Result.DefaultSelection<Prisma.$WorkflowExecutionPayload>
 /**
+ * Model WorkflowTemplate
+ * 
+ */
+export type WorkflowTemplate = $Result.DefaultSelection<Prisma.$WorkflowTemplatePayload>
+/**
  * Model Pipeline
  * 
  */
@@ -178,6 +183,21 @@ export type AgentDirectoryEntry = $Result.DefaultSelection<Prisma.$AgentDirector
  * 
  */
 export type AgentPromptVersion = $Result.DefaultSelection<Prisma.$AgentPromptVersionPayload>
+/**
+ * Model PromptTemplate
+ * 
+ */
+export type PromptTemplate = $Result.DefaultSelection<Prisma.$PromptTemplatePayload>
+/**
+ * Model PromptVersion
+ * 
+ */
+export type PromptVersion = $Result.DefaultSelection<Prisma.$PromptVersionPayload>
+/**
+ * Model PromptSnippet
+ * 
+ */
+export type PromptSnippet = $Result.DefaultSelection<Prisma.$PromptSnippetPayload>
 /**
  * Model ValidationDataset
  * 
@@ -879,6 +899,16 @@ export class PrismaClient<
   get workflowExecution(): Prisma.WorkflowExecutionDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.workflowTemplate`: Exposes CRUD operations for the **WorkflowTemplate** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more WorkflowTemplates
+    * const workflowTemplates = await prisma.workflowTemplate.findMany()
+    * ```
+    */
+  get workflowTemplate(): Prisma.WorkflowTemplateDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.pipeline`: Exposes CRUD operations for the **Pipeline** model.
     * Example usage:
     * ```ts
@@ -1077,6 +1107,36 @@ export class PrismaClient<
     * ```
     */
   get agentPromptVersion(): Prisma.AgentPromptVersionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.promptTemplate`: Exposes CRUD operations for the **PromptTemplate** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PromptTemplates
+    * const promptTemplates = await prisma.promptTemplate.findMany()
+    * ```
+    */
+  get promptTemplate(): Prisma.PromptTemplateDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.promptVersion`: Exposes CRUD operations for the **PromptVersion** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PromptVersions
+    * const promptVersions = await prisma.promptVersion.findMany()
+    * ```
+    */
+  get promptVersion(): Prisma.PromptVersionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.promptSnippet`: Exposes CRUD operations for the **PromptSnippet** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PromptSnippets
+    * const promptSnippets = await prisma.promptSnippet.findMany()
+    * ```
+    */
+  get promptSnippet(): Prisma.PromptSnippetDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.validationDataset`: Exposes CRUD operations for the **ValidationDataset** model.
@@ -1574,6 +1634,7 @@ export namespace Prisma {
     Workflow: 'Workflow',
     WorkflowStep: 'WorkflowStep',
     WorkflowExecution: 'WorkflowExecution',
+    WorkflowTemplate: 'WorkflowTemplate',
     Pipeline: 'Pipeline',
     Task: 'Task',
     TaskExecution: 'TaskExecution',
@@ -1594,6 +1655,9 @@ export namespace Prisma {
     AgentOnboardingEvent: 'AgentOnboardingEvent',
     AgentDirectoryEntry: 'AgentDirectoryEntry',
     AgentPromptVersion: 'AgentPromptVersion',
+    PromptTemplate: 'PromptTemplate',
+    PromptVersion: 'PromptVersion',
+    PromptSnippet: 'PromptSnippet',
     ValidationDataset: 'ValidationDataset',
     BusinessMetric: 'BusinessMetric',
     ErrorLog: 'ErrorLog',
@@ -1614,7 +1678,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "authSession" | "loginAttempt" | "authEvent" | "agent" | "agentMetadata" | "chat" | "chatRoom" | "message" | "chatMessage" | "workflow" | "workflowStep" | "workflowExecution" | "pipeline" | "task" | "taskExecution" | "codeExecutionUsage" | "codeExecutionSession" | "agentNFT" | "fractionalShare" | "revenueStream" | "revenueDistribution" | "marketplaceListing" | "marketplaceOffer" | "wallet" | "transaction" | "registeredEntity" | "lLMConfig" | "agentRegistration" | "agentCapabilityRegistry" | "agentOnboardingEvent" | "agentDirectoryEntry" | "agentPromptVersion" | "validationDataset" | "businessMetric" | "errorLog" | "syncState" | "syncConflict"
+      modelProps: "user" | "authSession" | "loginAttempt" | "authEvent" | "agent" | "agentMetadata" | "chat" | "chatRoom" | "message" | "chatMessage" | "workflow" | "workflowStep" | "workflowExecution" | "workflowTemplate" | "pipeline" | "task" | "taskExecution" | "codeExecutionUsage" | "codeExecutionSession" | "agentNFT" | "fractionalShare" | "revenueStream" | "revenueDistribution" | "marketplaceListing" | "marketplaceOffer" | "wallet" | "transaction" | "registeredEntity" | "lLMConfig" | "agentRegistration" | "agentCapabilityRegistry" | "agentOnboardingEvent" | "agentDirectoryEntry" | "agentPromptVersion" | "promptTemplate" | "promptVersion" | "promptSnippet" | "validationDataset" | "businessMetric" | "errorLog" | "syncState" | "syncConflict"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2577,6 +2641,80 @@ export namespace Prisma {
           count: {
             args: Prisma.WorkflowExecutionCountArgs<ExtArgs>
             result: $Utils.Optional<WorkflowExecutionCountAggregateOutputType> | number
+          }
+        }
+      }
+      WorkflowTemplate: {
+        payload: Prisma.$WorkflowTemplatePayload<ExtArgs>
+        fields: Prisma.WorkflowTemplateFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.WorkflowTemplateFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkflowTemplatePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.WorkflowTemplateFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkflowTemplatePayload>
+          }
+          findFirst: {
+            args: Prisma.WorkflowTemplateFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkflowTemplatePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.WorkflowTemplateFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkflowTemplatePayload>
+          }
+          findMany: {
+            args: Prisma.WorkflowTemplateFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkflowTemplatePayload>[]
+          }
+          create: {
+            args: Prisma.WorkflowTemplateCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkflowTemplatePayload>
+          }
+          createMany: {
+            args: Prisma.WorkflowTemplateCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.WorkflowTemplateCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkflowTemplatePayload>[]
+          }
+          delete: {
+            args: Prisma.WorkflowTemplateDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkflowTemplatePayload>
+          }
+          update: {
+            args: Prisma.WorkflowTemplateUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkflowTemplatePayload>
+          }
+          deleteMany: {
+            args: Prisma.WorkflowTemplateDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.WorkflowTemplateUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.WorkflowTemplateUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkflowTemplatePayload>[]
+          }
+          upsert: {
+            args: Prisma.WorkflowTemplateUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkflowTemplatePayload>
+          }
+          aggregate: {
+            args: Prisma.WorkflowTemplateAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateWorkflowTemplate>
+          }
+          groupBy: {
+            args: Prisma.WorkflowTemplateGroupByArgs<ExtArgs>
+            result: $Utils.Optional<WorkflowTemplateGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.WorkflowTemplateCountArgs<ExtArgs>
+            result: $Utils.Optional<WorkflowTemplateCountAggregateOutputType> | number
           }
         }
       }
@@ -4060,6 +4198,228 @@ export namespace Prisma {
           }
         }
       }
+      PromptTemplate: {
+        payload: Prisma.$PromptTemplatePayload<ExtArgs>
+        fields: Prisma.PromptTemplateFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PromptTemplateFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptTemplatePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PromptTemplateFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptTemplatePayload>
+          }
+          findFirst: {
+            args: Prisma.PromptTemplateFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptTemplatePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PromptTemplateFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptTemplatePayload>
+          }
+          findMany: {
+            args: Prisma.PromptTemplateFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptTemplatePayload>[]
+          }
+          create: {
+            args: Prisma.PromptTemplateCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptTemplatePayload>
+          }
+          createMany: {
+            args: Prisma.PromptTemplateCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PromptTemplateCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptTemplatePayload>[]
+          }
+          delete: {
+            args: Prisma.PromptTemplateDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptTemplatePayload>
+          }
+          update: {
+            args: Prisma.PromptTemplateUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptTemplatePayload>
+          }
+          deleteMany: {
+            args: Prisma.PromptTemplateDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PromptTemplateUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PromptTemplateUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptTemplatePayload>[]
+          }
+          upsert: {
+            args: Prisma.PromptTemplateUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptTemplatePayload>
+          }
+          aggregate: {
+            args: Prisma.PromptTemplateAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePromptTemplate>
+          }
+          groupBy: {
+            args: Prisma.PromptTemplateGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PromptTemplateGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PromptTemplateCountArgs<ExtArgs>
+            result: $Utils.Optional<PromptTemplateCountAggregateOutputType> | number
+          }
+        }
+      }
+      PromptVersion: {
+        payload: Prisma.$PromptVersionPayload<ExtArgs>
+        fields: Prisma.PromptVersionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PromptVersionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptVersionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PromptVersionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptVersionPayload>
+          }
+          findFirst: {
+            args: Prisma.PromptVersionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptVersionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PromptVersionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptVersionPayload>
+          }
+          findMany: {
+            args: Prisma.PromptVersionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptVersionPayload>[]
+          }
+          create: {
+            args: Prisma.PromptVersionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptVersionPayload>
+          }
+          createMany: {
+            args: Prisma.PromptVersionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PromptVersionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptVersionPayload>[]
+          }
+          delete: {
+            args: Prisma.PromptVersionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptVersionPayload>
+          }
+          update: {
+            args: Prisma.PromptVersionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptVersionPayload>
+          }
+          deleteMany: {
+            args: Prisma.PromptVersionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PromptVersionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PromptVersionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptVersionPayload>[]
+          }
+          upsert: {
+            args: Prisma.PromptVersionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptVersionPayload>
+          }
+          aggregate: {
+            args: Prisma.PromptVersionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePromptVersion>
+          }
+          groupBy: {
+            args: Prisma.PromptVersionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PromptVersionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PromptVersionCountArgs<ExtArgs>
+            result: $Utils.Optional<PromptVersionCountAggregateOutputType> | number
+          }
+        }
+      }
+      PromptSnippet: {
+        payload: Prisma.$PromptSnippetPayload<ExtArgs>
+        fields: Prisma.PromptSnippetFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PromptSnippetFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptSnippetPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PromptSnippetFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptSnippetPayload>
+          }
+          findFirst: {
+            args: Prisma.PromptSnippetFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptSnippetPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PromptSnippetFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptSnippetPayload>
+          }
+          findMany: {
+            args: Prisma.PromptSnippetFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptSnippetPayload>[]
+          }
+          create: {
+            args: Prisma.PromptSnippetCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptSnippetPayload>
+          }
+          createMany: {
+            args: Prisma.PromptSnippetCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PromptSnippetCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptSnippetPayload>[]
+          }
+          delete: {
+            args: Prisma.PromptSnippetDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptSnippetPayload>
+          }
+          update: {
+            args: Prisma.PromptSnippetUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptSnippetPayload>
+          }
+          deleteMany: {
+            args: Prisma.PromptSnippetDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PromptSnippetUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PromptSnippetUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptSnippetPayload>[]
+          }
+          upsert: {
+            args: Prisma.PromptSnippetUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptSnippetPayload>
+          }
+          aggregate: {
+            args: Prisma.PromptSnippetAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePromptSnippet>
+          }
+          groupBy: {
+            args: Prisma.PromptSnippetGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PromptSnippetGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PromptSnippetCountArgs<ExtArgs>
+            result: $Utils.Optional<PromptSnippetCountAggregateOutputType> | number
+          }
+        }
+      }
       ValidationDataset: {
         payload: Prisma.$ValidationDatasetPayload<ExtArgs>
         fields: Prisma.ValidationDatasetFieldRefs
@@ -4551,6 +4911,7 @@ export namespace Prisma {
     workflow?: WorkflowOmit
     workflowStep?: WorkflowStepOmit
     workflowExecution?: WorkflowExecutionOmit
+    workflowTemplate?: WorkflowTemplateOmit
     pipeline?: PipelineOmit
     task?: TaskOmit
     taskExecution?: TaskExecutionOmit
@@ -4571,6 +4932,9 @@ export namespace Prisma {
     agentOnboardingEvent?: AgentOnboardingEventOmit
     agentDirectoryEntry?: AgentDirectoryEntryOmit
     agentPromptVersion?: AgentPromptVersionOmit
+    promptTemplate?: PromptTemplateOmit
+    promptVersion?: PromptVersionOmit
+    promptSnippet?: PromptSnippetOmit
     validationDataset?: ValidationDatasetOmit
     businessMetric?: BusinessMetricOmit
     errorLog?: ErrorLogOmit
@@ -4664,6 +5028,7 @@ export namespace Prisma {
     messages: number
     authSessions: number
     loginAttempts: number
+    workflowTemplates: number
     authEvents: number
   }
 
@@ -4676,6 +5041,7 @@ export namespace Prisma {
     messages?: boolean | UserCountOutputTypeCountMessagesArgs
     authSessions?: boolean | UserCountOutputTypeCountAuthSessionsArgs
     loginAttempts?: boolean | UserCountOutputTypeCountLoginAttemptsArgs
+    workflowTemplates?: boolean | UserCountOutputTypeCountWorkflowTemplatesArgs
     authEvents?: boolean | UserCountOutputTypeCountAuthEventsArgs
   }
 
@@ -4744,6 +5110,13 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountLoginAttemptsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: LoginAttemptWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountWorkflowTemplatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WorkflowTemplateWhereInput
   }
 
   /**
@@ -5235,6 +5608,37 @@ export namespace Prisma {
 
 
   /**
+   * Count Type PromptTemplateCountOutputType
+   */
+
+  export type PromptTemplateCountOutputType = {
+    versions: number
+  }
+
+  export type PromptTemplateCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    versions?: boolean | PromptTemplateCountOutputTypeCountVersionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * PromptTemplateCountOutputType without action
+   */
+  export type PromptTemplateCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptTemplateCountOutputType
+     */
+    select?: PromptTemplateCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * PromptTemplateCountOutputType without action
+   */
+  export type PromptTemplateCountOutputTypeCountVersionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PromptVersionWhereInput
+  }
+
+
+  /**
    * Models
    */
 
@@ -5482,6 +5886,7 @@ export namespace Prisma {
     messages?: boolean | User$messagesArgs<ExtArgs>
     authSessions?: boolean | User$authSessionsArgs<ExtArgs>
     loginAttempts?: boolean | User$loginAttemptsArgs<ExtArgs>
+    workflowTemplates?: boolean | User$workflowTemplatesArgs<ExtArgs>
     authEvents?: boolean | User$authEventsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
@@ -5550,6 +5955,7 @@ export namespace Prisma {
     messages?: boolean | User$messagesArgs<ExtArgs>
     authSessions?: boolean | User$authSessionsArgs<ExtArgs>
     loginAttempts?: boolean | User$loginAttemptsArgs<ExtArgs>
+    workflowTemplates?: boolean | User$workflowTemplatesArgs<ExtArgs>
     authEvents?: boolean | User$authEventsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -5567,6 +5973,7 @@ export namespace Prisma {
       messages: Prisma.$MessagePayload<ExtArgs>[]
       authSessions: Prisma.$AuthSessionPayload<ExtArgs>[]
       loginAttempts: Prisma.$LoginAttemptPayload<ExtArgs>[]
+      workflowTemplates: Prisma.$WorkflowTemplatePayload<ExtArgs>[]
       authEvents: Prisma.$AuthEventPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -5987,6 +6394,7 @@ export namespace Prisma {
     messages<T extends User$messagesArgs<ExtArgs> = {}>(args?: Subset<T, User$messagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     authSessions<T extends User$authSessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$authSessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AuthSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     loginAttempts<T extends User$loginAttemptsArgs<ExtArgs> = {}>(args?: Subset<T, User$loginAttemptsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LoginAttemptPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    workflowTemplates<T extends User$workflowTemplatesArgs<ExtArgs> = {}>(args?: Subset<T, User$workflowTemplatesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WorkflowTemplatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     authEvents<T extends User$authEventsArgs<ExtArgs> = {}>(args?: Subset<T, User$authEventsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AuthEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -6609,6 +7017,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: LoginAttemptScalarFieldEnum | LoginAttemptScalarFieldEnum[]
+  }
+
+  /**
+   * User.workflowTemplates
+   */
+  export type User$workflowTemplatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkflowTemplate
+     */
+    select?: WorkflowTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkflowTemplate
+     */
+    omit?: WorkflowTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkflowTemplateInclude<ExtArgs> | null
+    where?: WorkflowTemplateWhereInput
+    orderBy?: WorkflowTemplateOrderByWithRelationInput | WorkflowTemplateOrderByWithRelationInput[]
+    cursor?: WorkflowTemplateWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: WorkflowTemplateScalarFieldEnum | WorkflowTemplateScalarFieldEnum[]
   }
 
   /**
@@ -20727,6 +21159,1187 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: WorkflowExecutionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model WorkflowTemplate
+   */
+
+  export type AggregateWorkflowTemplate = {
+    _count: WorkflowTemplateCountAggregateOutputType | null
+    _avg: WorkflowTemplateAvgAggregateOutputType | null
+    _sum: WorkflowTemplateSumAggregateOutputType | null
+    _min: WorkflowTemplateMinAggregateOutputType | null
+    _max: WorkflowTemplateMaxAggregateOutputType | null
+  }
+
+  export type WorkflowTemplateAvgAggregateOutputType = {
+    usageCount: number | null
+  }
+
+  export type WorkflowTemplateSumAggregateOutputType = {
+    usageCount: number | null
+  }
+
+  export type WorkflowTemplateMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    category: string | null
+    isPublic: boolean | null
+    creatorId: string | null
+    usageCount: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type WorkflowTemplateMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    category: string | null
+    isPublic: boolean | null
+    creatorId: string | null
+    usageCount: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type WorkflowTemplateCountAggregateOutputType = {
+    id: number
+    name: number
+    description: number
+    category: number
+    definition: number
+    isPublic: number
+    creatorId: number
+    metadata: number
+    usageCount: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type WorkflowTemplateAvgAggregateInputType = {
+    usageCount?: true
+  }
+
+  export type WorkflowTemplateSumAggregateInputType = {
+    usageCount?: true
+  }
+
+  export type WorkflowTemplateMinAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    category?: true
+    isPublic?: true
+    creatorId?: true
+    usageCount?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type WorkflowTemplateMaxAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    category?: true
+    isPublic?: true
+    creatorId?: true
+    usageCount?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type WorkflowTemplateCountAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    category?: true
+    definition?: true
+    isPublic?: true
+    creatorId?: true
+    metadata?: true
+    usageCount?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type WorkflowTemplateAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which WorkflowTemplate to aggregate.
+     */
+    where?: WorkflowTemplateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WorkflowTemplates to fetch.
+     */
+    orderBy?: WorkflowTemplateOrderByWithRelationInput | WorkflowTemplateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: WorkflowTemplateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WorkflowTemplates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WorkflowTemplates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned WorkflowTemplates
+    **/
+    _count?: true | WorkflowTemplateCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: WorkflowTemplateAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: WorkflowTemplateSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: WorkflowTemplateMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: WorkflowTemplateMaxAggregateInputType
+  }
+
+  export type GetWorkflowTemplateAggregateType<T extends WorkflowTemplateAggregateArgs> = {
+        [P in keyof T & keyof AggregateWorkflowTemplate]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateWorkflowTemplate[P]>
+      : GetScalarType<T[P], AggregateWorkflowTemplate[P]>
+  }
+
+
+
+
+  export type WorkflowTemplateGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WorkflowTemplateWhereInput
+    orderBy?: WorkflowTemplateOrderByWithAggregationInput | WorkflowTemplateOrderByWithAggregationInput[]
+    by: WorkflowTemplateScalarFieldEnum[] | WorkflowTemplateScalarFieldEnum
+    having?: WorkflowTemplateScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: WorkflowTemplateCountAggregateInputType | true
+    _avg?: WorkflowTemplateAvgAggregateInputType
+    _sum?: WorkflowTemplateSumAggregateInputType
+    _min?: WorkflowTemplateMinAggregateInputType
+    _max?: WorkflowTemplateMaxAggregateInputType
+  }
+
+  export type WorkflowTemplateGroupByOutputType = {
+    id: string
+    name: string
+    description: string | null
+    category: string
+    definition: JsonValue
+    isPublic: boolean
+    creatorId: string | null
+    metadata: JsonValue | null
+    usageCount: number
+    createdAt: Date
+    updatedAt: Date
+    _count: WorkflowTemplateCountAggregateOutputType | null
+    _avg: WorkflowTemplateAvgAggregateOutputType | null
+    _sum: WorkflowTemplateSumAggregateOutputType | null
+    _min: WorkflowTemplateMinAggregateOutputType | null
+    _max: WorkflowTemplateMaxAggregateOutputType | null
+  }
+
+  type GetWorkflowTemplateGroupByPayload<T extends WorkflowTemplateGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<WorkflowTemplateGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof WorkflowTemplateGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], WorkflowTemplateGroupByOutputType[P]>
+            : GetScalarType<T[P], WorkflowTemplateGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type WorkflowTemplateSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    category?: boolean
+    definition?: boolean
+    isPublic?: boolean
+    creatorId?: boolean
+    metadata?: boolean
+    usageCount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    creator?: boolean | WorkflowTemplate$creatorArgs<ExtArgs>
+  }, ExtArgs["result"]["workflowTemplate"]>
+
+  export type WorkflowTemplateSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    category?: boolean
+    definition?: boolean
+    isPublic?: boolean
+    creatorId?: boolean
+    metadata?: boolean
+    usageCount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    creator?: boolean | WorkflowTemplate$creatorArgs<ExtArgs>
+  }, ExtArgs["result"]["workflowTemplate"]>
+
+  export type WorkflowTemplateSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    category?: boolean
+    definition?: boolean
+    isPublic?: boolean
+    creatorId?: boolean
+    metadata?: boolean
+    usageCount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    creator?: boolean | WorkflowTemplate$creatorArgs<ExtArgs>
+  }, ExtArgs["result"]["workflowTemplate"]>
+
+  export type WorkflowTemplateSelectScalar = {
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    category?: boolean
+    definition?: boolean
+    isPublic?: boolean
+    creatorId?: boolean
+    metadata?: boolean
+    usageCount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type WorkflowTemplateOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "category" | "definition" | "isPublic" | "creatorId" | "metadata" | "usageCount" | "createdAt" | "updatedAt", ExtArgs["result"]["workflowTemplate"]>
+  export type WorkflowTemplateInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    creator?: boolean | WorkflowTemplate$creatorArgs<ExtArgs>
+  }
+  export type WorkflowTemplateIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    creator?: boolean | WorkflowTemplate$creatorArgs<ExtArgs>
+  }
+  export type WorkflowTemplateIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    creator?: boolean | WorkflowTemplate$creatorArgs<ExtArgs>
+  }
+
+  export type $WorkflowTemplatePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "WorkflowTemplate"
+    objects: {
+      creator: Prisma.$UserPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      description: string | null
+      category: string
+      definition: Prisma.JsonValue
+      isPublic: boolean
+      creatorId: string | null
+      metadata: Prisma.JsonValue | null
+      usageCount: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["workflowTemplate"]>
+    composites: {}
+  }
+
+  type WorkflowTemplateGetPayload<S extends boolean | null | undefined | WorkflowTemplateDefaultArgs> = $Result.GetResult<Prisma.$WorkflowTemplatePayload, S>
+
+  type WorkflowTemplateCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<WorkflowTemplateFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: WorkflowTemplateCountAggregateInputType | true
+    }
+
+  export interface WorkflowTemplateDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['WorkflowTemplate'], meta: { name: 'WorkflowTemplate' } }
+    /**
+     * Find zero or one WorkflowTemplate that matches the filter.
+     * @param {WorkflowTemplateFindUniqueArgs} args - Arguments to find a WorkflowTemplate
+     * @example
+     * // Get one WorkflowTemplate
+     * const workflowTemplate = await prisma.workflowTemplate.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends WorkflowTemplateFindUniqueArgs>(args: SelectSubset<T, WorkflowTemplateFindUniqueArgs<ExtArgs>>): Prisma__WorkflowTemplateClient<$Result.GetResult<Prisma.$WorkflowTemplatePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one WorkflowTemplate that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {WorkflowTemplateFindUniqueOrThrowArgs} args - Arguments to find a WorkflowTemplate
+     * @example
+     * // Get one WorkflowTemplate
+     * const workflowTemplate = await prisma.workflowTemplate.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends WorkflowTemplateFindUniqueOrThrowArgs>(args: SelectSubset<T, WorkflowTemplateFindUniqueOrThrowArgs<ExtArgs>>): Prisma__WorkflowTemplateClient<$Result.GetResult<Prisma.$WorkflowTemplatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first WorkflowTemplate that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkflowTemplateFindFirstArgs} args - Arguments to find a WorkflowTemplate
+     * @example
+     * // Get one WorkflowTemplate
+     * const workflowTemplate = await prisma.workflowTemplate.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends WorkflowTemplateFindFirstArgs>(args?: SelectSubset<T, WorkflowTemplateFindFirstArgs<ExtArgs>>): Prisma__WorkflowTemplateClient<$Result.GetResult<Prisma.$WorkflowTemplatePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first WorkflowTemplate that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkflowTemplateFindFirstOrThrowArgs} args - Arguments to find a WorkflowTemplate
+     * @example
+     * // Get one WorkflowTemplate
+     * const workflowTemplate = await prisma.workflowTemplate.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends WorkflowTemplateFindFirstOrThrowArgs>(args?: SelectSubset<T, WorkflowTemplateFindFirstOrThrowArgs<ExtArgs>>): Prisma__WorkflowTemplateClient<$Result.GetResult<Prisma.$WorkflowTemplatePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more WorkflowTemplates that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkflowTemplateFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all WorkflowTemplates
+     * const workflowTemplates = await prisma.workflowTemplate.findMany()
+     * 
+     * // Get first 10 WorkflowTemplates
+     * const workflowTemplates = await prisma.workflowTemplate.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const workflowTemplateWithIdOnly = await prisma.workflowTemplate.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends WorkflowTemplateFindManyArgs>(args?: SelectSubset<T, WorkflowTemplateFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WorkflowTemplatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a WorkflowTemplate.
+     * @param {WorkflowTemplateCreateArgs} args - Arguments to create a WorkflowTemplate.
+     * @example
+     * // Create one WorkflowTemplate
+     * const WorkflowTemplate = await prisma.workflowTemplate.create({
+     *   data: {
+     *     // ... data to create a WorkflowTemplate
+     *   }
+     * })
+     * 
+     */
+    create<T extends WorkflowTemplateCreateArgs>(args: SelectSubset<T, WorkflowTemplateCreateArgs<ExtArgs>>): Prisma__WorkflowTemplateClient<$Result.GetResult<Prisma.$WorkflowTemplatePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many WorkflowTemplates.
+     * @param {WorkflowTemplateCreateManyArgs} args - Arguments to create many WorkflowTemplates.
+     * @example
+     * // Create many WorkflowTemplates
+     * const workflowTemplate = await prisma.workflowTemplate.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends WorkflowTemplateCreateManyArgs>(args?: SelectSubset<T, WorkflowTemplateCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many WorkflowTemplates and returns the data saved in the database.
+     * @param {WorkflowTemplateCreateManyAndReturnArgs} args - Arguments to create many WorkflowTemplates.
+     * @example
+     * // Create many WorkflowTemplates
+     * const workflowTemplate = await prisma.workflowTemplate.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many WorkflowTemplates and only return the `id`
+     * const workflowTemplateWithIdOnly = await prisma.workflowTemplate.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends WorkflowTemplateCreateManyAndReturnArgs>(args?: SelectSubset<T, WorkflowTemplateCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WorkflowTemplatePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a WorkflowTemplate.
+     * @param {WorkflowTemplateDeleteArgs} args - Arguments to delete one WorkflowTemplate.
+     * @example
+     * // Delete one WorkflowTemplate
+     * const WorkflowTemplate = await prisma.workflowTemplate.delete({
+     *   where: {
+     *     // ... filter to delete one WorkflowTemplate
+     *   }
+     * })
+     * 
+     */
+    delete<T extends WorkflowTemplateDeleteArgs>(args: SelectSubset<T, WorkflowTemplateDeleteArgs<ExtArgs>>): Prisma__WorkflowTemplateClient<$Result.GetResult<Prisma.$WorkflowTemplatePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one WorkflowTemplate.
+     * @param {WorkflowTemplateUpdateArgs} args - Arguments to update one WorkflowTemplate.
+     * @example
+     * // Update one WorkflowTemplate
+     * const workflowTemplate = await prisma.workflowTemplate.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends WorkflowTemplateUpdateArgs>(args: SelectSubset<T, WorkflowTemplateUpdateArgs<ExtArgs>>): Prisma__WorkflowTemplateClient<$Result.GetResult<Prisma.$WorkflowTemplatePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more WorkflowTemplates.
+     * @param {WorkflowTemplateDeleteManyArgs} args - Arguments to filter WorkflowTemplates to delete.
+     * @example
+     * // Delete a few WorkflowTemplates
+     * const { count } = await prisma.workflowTemplate.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends WorkflowTemplateDeleteManyArgs>(args?: SelectSubset<T, WorkflowTemplateDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more WorkflowTemplates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkflowTemplateUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many WorkflowTemplates
+     * const workflowTemplate = await prisma.workflowTemplate.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends WorkflowTemplateUpdateManyArgs>(args: SelectSubset<T, WorkflowTemplateUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more WorkflowTemplates and returns the data updated in the database.
+     * @param {WorkflowTemplateUpdateManyAndReturnArgs} args - Arguments to update many WorkflowTemplates.
+     * @example
+     * // Update many WorkflowTemplates
+     * const workflowTemplate = await prisma.workflowTemplate.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more WorkflowTemplates and only return the `id`
+     * const workflowTemplateWithIdOnly = await prisma.workflowTemplate.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends WorkflowTemplateUpdateManyAndReturnArgs>(args: SelectSubset<T, WorkflowTemplateUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WorkflowTemplatePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one WorkflowTemplate.
+     * @param {WorkflowTemplateUpsertArgs} args - Arguments to update or create a WorkflowTemplate.
+     * @example
+     * // Update or create a WorkflowTemplate
+     * const workflowTemplate = await prisma.workflowTemplate.upsert({
+     *   create: {
+     *     // ... data to create a WorkflowTemplate
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the WorkflowTemplate we want to update
+     *   }
+     * })
+     */
+    upsert<T extends WorkflowTemplateUpsertArgs>(args: SelectSubset<T, WorkflowTemplateUpsertArgs<ExtArgs>>): Prisma__WorkflowTemplateClient<$Result.GetResult<Prisma.$WorkflowTemplatePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of WorkflowTemplates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkflowTemplateCountArgs} args - Arguments to filter WorkflowTemplates to count.
+     * @example
+     * // Count the number of WorkflowTemplates
+     * const count = await prisma.workflowTemplate.count({
+     *   where: {
+     *     // ... the filter for the WorkflowTemplates we want to count
+     *   }
+     * })
+    **/
+    count<T extends WorkflowTemplateCountArgs>(
+      args?: Subset<T, WorkflowTemplateCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], WorkflowTemplateCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a WorkflowTemplate.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkflowTemplateAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends WorkflowTemplateAggregateArgs>(args: Subset<T, WorkflowTemplateAggregateArgs>): Prisma.PrismaPromise<GetWorkflowTemplateAggregateType<T>>
+
+    /**
+     * Group by WorkflowTemplate.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkflowTemplateGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends WorkflowTemplateGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: WorkflowTemplateGroupByArgs['orderBy'] }
+        : { orderBy?: WorkflowTemplateGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, WorkflowTemplateGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetWorkflowTemplateGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the WorkflowTemplate model
+   */
+  readonly fields: WorkflowTemplateFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for WorkflowTemplate.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__WorkflowTemplateClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    creator<T extends WorkflowTemplate$creatorArgs<ExtArgs> = {}>(args?: Subset<T, WorkflowTemplate$creatorArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the WorkflowTemplate model
+   */
+  interface WorkflowTemplateFieldRefs {
+    readonly id: FieldRef<"WorkflowTemplate", 'String'>
+    readonly name: FieldRef<"WorkflowTemplate", 'String'>
+    readonly description: FieldRef<"WorkflowTemplate", 'String'>
+    readonly category: FieldRef<"WorkflowTemplate", 'String'>
+    readonly definition: FieldRef<"WorkflowTemplate", 'Json'>
+    readonly isPublic: FieldRef<"WorkflowTemplate", 'Boolean'>
+    readonly creatorId: FieldRef<"WorkflowTemplate", 'String'>
+    readonly metadata: FieldRef<"WorkflowTemplate", 'Json'>
+    readonly usageCount: FieldRef<"WorkflowTemplate", 'Int'>
+    readonly createdAt: FieldRef<"WorkflowTemplate", 'DateTime'>
+    readonly updatedAt: FieldRef<"WorkflowTemplate", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * WorkflowTemplate findUnique
+   */
+  export type WorkflowTemplateFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkflowTemplate
+     */
+    select?: WorkflowTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkflowTemplate
+     */
+    omit?: WorkflowTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkflowTemplateInclude<ExtArgs> | null
+    /**
+     * Filter, which WorkflowTemplate to fetch.
+     */
+    where: WorkflowTemplateWhereUniqueInput
+  }
+
+  /**
+   * WorkflowTemplate findUniqueOrThrow
+   */
+  export type WorkflowTemplateFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkflowTemplate
+     */
+    select?: WorkflowTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkflowTemplate
+     */
+    omit?: WorkflowTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkflowTemplateInclude<ExtArgs> | null
+    /**
+     * Filter, which WorkflowTemplate to fetch.
+     */
+    where: WorkflowTemplateWhereUniqueInput
+  }
+
+  /**
+   * WorkflowTemplate findFirst
+   */
+  export type WorkflowTemplateFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkflowTemplate
+     */
+    select?: WorkflowTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkflowTemplate
+     */
+    omit?: WorkflowTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkflowTemplateInclude<ExtArgs> | null
+    /**
+     * Filter, which WorkflowTemplate to fetch.
+     */
+    where?: WorkflowTemplateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WorkflowTemplates to fetch.
+     */
+    orderBy?: WorkflowTemplateOrderByWithRelationInput | WorkflowTemplateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for WorkflowTemplates.
+     */
+    cursor?: WorkflowTemplateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WorkflowTemplates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WorkflowTemplates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of WorkflowTemplates.
+     */
+    distinct?: WorkflowTemplateScalarFieldEnum | WorkflowTemplateScalarFieldEnum[]
+  }
+
+  /**
+   * WorkflowTemplate findFirstOrThrow
+   */
+  export type WorkflowTemplateFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkflowTemplate
+     */
+    select?: WorkflowTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkflowTemplate
+     */
+    omit?: WorkflowTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkflowTemplateInclude<ExtArgs> | null
+    /**
+     * Filter, which WorkflowTemplate to fetch.
+     */
+    where?: WorkflowTemplateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WorkflowTemplates to fetch.
+     */
+    orderBy?: WorkflowTemplateOrderByWithRelationInput | WorkflowTemplateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for WorkflowTemplates.
+     */
+    cursor?: WorkflowTemplateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WorkflowTemplates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WorkflowTemplates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of WorkflowTemplates.
+     */
+    distinct?: WorkflowTemplateScalarFieldEnum | WorkflowTemplateScalarFieldEnum[]
+  }
+
+  /**
+   * WorkflowTemplate findMany
+   */
+  export type WorkflowTemplateFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkflowTemplate
+     */
+    select?: WorkflowTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkflowTemplate
+     */
+    omit?: WorkflowTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkflowTemplateInclude<ExtArgs> | null
+    /**
+     * Filter, which WorkflowTemplates to fetch.
+     */
+    where?: WorkflowTemplateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WorkflowTemplates to fetch.
+     */
+    orderBy?: WorkflowTemplateOrderByWithRelationInput | WorkflowTemplateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing WorkflowTemplates.
+     */
+    cursor?: WorkflowTemplateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WorkflowTemplates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WorkflowTemplates.
+     */
+    skip?: number
+    distinct?: WorkflowTemplateScalarFieldEnum | WorkflowTemplateScalarFieldEnum[]
+  }
+
+  /**
+   * WorkflowTemplate create
+   */
+  export type WorkflowTemplateCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkflowTemplate
+     */
+    select?: WorkflowTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkflowTemplate
+     */
+    omit?: WorkflowTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkflowTemplateInclude<ExtArgs> | null
+    /**
+     * The data needed to create a WorkflowTemplate.
+     */
+    data: XOR<WorkflowTemplateCreateInput, WorkflowTemplateUncheckedCreateInput>
+  }
+
+  /**
+   * WorkflowTemplate createMany
+   */
+  export type WorkflowTemplateCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many WorkflowTemplates.
+     */
+    data: WorkflowTemplateCreateManyInput | WorkflowTemplateCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * WorkflowTemplate createManyAndReturn
+   */
+  export type WorkflowTemplateCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkflowTemplate
+     */
+    select?: WorkflowTemplateSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkflowTemplate
+     */
+    omit?: WorkflowTemplateOmit<ExtArgs> | null
+    /**
+     * The data used to create many WorkflowTemplates.
+     */
+    data: WorkflowTemplateCreateManyInput | WorkflowTemplateCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkflowTemplateIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * WorkflowTemplate update
+   */
+  export type WorkflowTemplateUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkflowTemplate
+     */
+    select?: WorkflowTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkflowTemplate
+     */
+    omit?: WorkflowTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkflowTemplateInclude<ExtArgs> | null
+    /**
+     * The data needed to update a WorkflowTemplate.
+     */
+    data: XOR<WorkflowTemplateUpdateInput, WorkflowTemplateUncheckedUpdateInput>
+    /**
+     * Choose, which WorkflowTemplate to update.
+     */
+    where: WorkflowTemplateWhereUniqueInput
+  }
+
+  /**
+   * WorkflowTemplate updateMany
+   */
+  export type WorkflowTemplateUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update WorkflowTemplates.
+     */
+    data: XOR<WorkflowTemplateUpdateManyMutationInput, WorkflowTemplateUncheckedUpdateManyInput>
+    /**
+     * Filter which WorkflowTemplates to update
+     */
+    where?: WorkflowTemplateWhereInput
+    /**
+     * Limit how many WorkflowTemplates to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * WorkflowTemplate updateManyAndReturn
+   */
+  export type WorkflowTemplateUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkflowTemplate
+     */
+    select?: WorkflowTemplateSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkflowTemplate
+     */
+    omit?: WorkflowTemplateOmit<ExtArgs> | null
+    /**
+     * The data used to update WorkflowTemplates.
+     */
+    data: XOR<WorkflowTemplateUpdateManyMutationInput, WorkflowTemplateUncheckedUpdateManyInput>
+    /**
+     * Filter which WorkflowTemplates to update
+     */
+    where?: WorkflowTemplateWhereInput
+    /**
+     * Limit how many WorkflowTemplates to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkflowTemplateIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * WorkflowTemplate upsert
+   */
+  export type WorkflowTemplateUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkflowTemplate
+     */
+    select?: WorkflowTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkflowTemplate
+     */
+    omit?: WorkflowTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkflowTemplateInclude<ExtArgs> | null
+    /**
+     * The filter to search for the WorkflowTemplate to update in case it exists.
+     */
+    where: WorkflowTemplateWhereUniqueInput
+    /**
+     * In case the WorkflowTemplate found by the `where` argument doesn't exist, create a new WorkflowTemplate with this data.
+     */
+    create: XOR<WorkflowTemplateCreateInput, WorkflowTemplateUncheckedCreateInput>
+    /**
+     * In case the WorkflowTemplate was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<WorkflowTemplateUpdateInput, WorkflowTemplateUncheckedUpdateInput>
+  }
+
+  /**
+   * WorkflowTemplate delete
+   */
+  export type WorkflowTemplateDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkflowTemplate
+     */
+    select?: WorkflowTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkflowTemplate
+     */
+    omit?: WorkflowTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkflowTemplateInclude<ExtArgs> | null
+    /**
+     * Filter which WorkflowTemplate to delete.
+     */
+    where: WorkflowTemplateWhereUniqueInput
+  }
+
+  /**
+   * WorkflowTemplate deleteMany
+   */
+  export type WorkflowTemplateDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which WorkflowTemplates to delete
+     */
+    where?: WorkflowTemplateWhereInput
+    /**
+     * Limit how many WorkflowTemplates to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * WorkflowTemplate.creator
+   */
+  export type WorkflowTemplate$creatorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
+   * WorkflowTemplate without action
+   */
+  export type WorkflowTemplateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkflowTemplate
+     */
+    select?: WorkflowTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkflowTemplate
+     */
+    omit?: WorkflowTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkflowTemplateInclude<ExtArgs> | null
   }
 
 
@@ -44168,6 +45781,3385 @@ export namespace Prisma {
 
 
   /**
+   * Model PromptTemplate
+   */
+
+  export type AggregatePromptTemplate = {
+    _count: PromptTemplateCountAggregateOutputType | null
+    _min: PromptTemplateMinAggregateOutputType | null
+    _max: PromptTemplateMaxAggregateOutputType | null
+  }
+
+  export type PromptTemplateMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    currentVersionId: string | null
+    isPublic: boolean | null
+    category: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PromptTemplateMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    currentVersionId: string | null
+    isPublic: boolean | null
+    category: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PromptTemplateCountAggregateOutputType = {
+    id: number
+    name: number
+    description: number
+    currentVersionId: number
+    isPublic: number
+    category: number
+    tags: number
+    analytics: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type PromptTemplateMinAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    currentVersionId?: true
+    isPublic?: true
+    category?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PromptTemplateMaxAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    currentVersionId?: true
+    isPublic?: true
+    category?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PromptTemplateCountAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    currentVersionId?: true
+    isPublic?: true
+    category?: true
+    tags?: true
+    analytics?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type PromptTemplateAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PromptTemplate to aggregate.
+     */
+    where?: PromptTemplateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PromptTemplates to fetch.
+     */
+    orderBy?: PromptTemplateOrderByWithRelationInput | PromptTemplateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PromptTemplateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PromptTemplates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PromptTemplates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PromptTemplates
+    **/
+    _count?: true | PromptTemplateCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PromptTemplateMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PromptTemplateMaxAggregateInputType
+  }
+
+  export type GetPromptTemplateAggregateType<T extends PromptTemplateAggregateArgs> = {
+        [P in keyof T & keyof AggregatePromptTemplate]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePromptTemplate[P]>
+      : GetScalarType<T[P], AggregatePromptTemplate[P]>
+  }
+
+
+
+
+  export type PromptTemplateGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PromptTemplateWhereInput
+    orderBy?: PromptTemplateOrderByWithAggregationInput | PromptTemplateOrderByWithAggregationInput[]
+    by: PromptTemplateScalarFieldEnum[] | PromptTemplateScalarFieldEnum
+    having?: PromptTemplateScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PromptTemplateCountAggregateInputType | true
+    _min?: PromptTemplateMinAggregateInputType
+    _max?: PromptTemplateMaxAggregateInputType
+  }
+
+  export type PromptTemplateGroupByOutputType = {
+    id: string
+    name: string
+    description: string | null
+    currentVersionId: string | null
+    isPublic: boolean
+    category: string | null
+    tags: string[]
+    analytics: JsonValue | null
+    createdAt: Date
+    updatedAt: Date
+    _count: PromptTemplateCountAggregateOutputType | null
+    _min: PromptTemplateMinAggregateOutputType | null
+    _max: PromptTemplateMaxAggregateOutputType | null
+  }
+
+  type GetPromptTemplateGroupByPayload<T extends PromptTemplateGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PromptTemplateGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PromptTemplateGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PromptTemplateGroupByOutputType[P]>
+            : GetScalarType<T[P], PromptTemplateGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PromptTemplateSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    currentVersionId?: boolean
+    isPublic?: boolean
+    category?: boolean
+    tags?: boolean
+    analytics?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    versions?: boolean | PromptTemplate$versionsArgs<ExtArgs>
+    _count?: boolean | PromptTemplateCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["promptTemplate"]>
+
+  export type PromptTemplateSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    currentVersionId?: boolean
+    isPublic?: boolean
+    category?: boolean
+    tags?: boolean
+    analytics?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["promptTemplate"]>
+
+  export type PromptTemplateSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    currentVersionId?: boolean
+    isPublic?: boolean
+    category?: boolean
+    tags?: boolean
+    analytics?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["promptTemplate"]>
+
+  export type PromptTemplateSelectScalar = {
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    currentVersionId?: boolean
+    isPublic?: boolean
+    category?: boolean
+    tags?: boolean
+    analytics?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type PromptTemplateOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "currentVersionId" | "isPublic" | "category" | "tags" | "analytics" | "createdAt" | "updatedAt", ExtArgs["result"]["promptTemplate"]>
+  export type PromptTemplateInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    versions?: boolean | PromptTemplate$versionsArgs<ExtArgs>
+    _count?: boolean | PromptTemplateCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type PromptTemplateIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type PromptTemplateIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $PromptTemplatePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PromptTemplate"
+    objects: {
+      versions: Prisma.$PromptVersionPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      description: string | null
+      currentVersionId: string | null
+      isPublic: boolean
+      category: string | null
+      tags: string[]
+      analytics: Prisma.JsonValue | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["promptTemplate"]>
+    composites: {}
+  }
+
+  type PromptTemplateGetPayload<S extends boolean | null | undefined | PromptTemplateDefaultArgs> = $Result.GetResult<Prisma.$PromptTemplatePayload, S>
+
+  type PromptTemplateCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PromptTemplateFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PromptTemplateCountAggregateInputType | true
+    }
+
+  export interface PromptTemplateDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PromptTemplate'], meta: { name: 'PromptTemplate' } }
+    /**
+     * Find zero or one PromptTemplate that matches the filter.
+     * @param {PromptTemplateFindUniqueArgs} args - Arguments to find a PromptTemplate
+     * @example
+     * // Get one PromptTemplate
+     * const promptTemplate = await prisma.promptTemplate.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PromptTemplateFindUniqueArgs>(args: SelectSubset<T, PromptTemplateFindUniqueArgs<ExtArgs>>): Prisma__PromptTemplateClient<$Result.GetResult<Prisma.$PromptTemplatePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one PromptTemplate that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PromptTemplateFindUniqueOrThrowArgs} args - Arguments to find a PromptTemplate
+     * @example
+     * // Get one PromptTemplate
+     * const promptTemplate = await prisma.promptTemplate.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PromptTemplateFindUniqueOrThrowArgs>(args: SelectSubset<T, PromptTemplateFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PromptTemplateClient<$Result.GetResult<Prisma.$PromptTemplatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PromptTemplate that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptTemplateFindFirstArgs} args - Arguments to find a PromptTemplate
+     * @example
+     * // Get one PromptTemplate
+     * const promptTemplate = await prisma.promptTemplate.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PromptTemplateFindFirstArgs>(args?: SelectSubset<T, PromptTemplateFindFirstArgs<ExtArgs>>): Prisma__PromptTemplateClient<$Result.GetResult<Prisma.$PromptTemplatePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PromptTemplate that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptTemplateFindFirstOrThrowArgs} args - Arguments to find a PromptTemplate
+     * @example
+     * // Get one PromptTemplate
+     * const promptTemplate = await prisma.promptTemplate.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PromptTemplateFindFirstOrThrowArgs>(args?: SelectSubset<T, PromptTemplateFindFirstOrThrowArgs<ExtArgs>>): Prisma__PromptTemplateClient<$Result.GetResult<Prisma.$PromptTemplatePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more PromptTemplates that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptTemplateFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PromptTemplates
+     * const promptTemplates = await prisma.promptTemplate.findMany()
+     * 
+     * // Get first 10 PromptTemplates
+     * const promptTemplates = await prisma.promptTemplate.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const promptTemplateWithIdOnly = await prisma.promptTemplate.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PromptTemplateFindManyArgs>(args?: SelectSubset<T, PromptTemplateFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PromptTemplatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a PromptTemplate.
+     * @param {PromptTemplateCreateArgs} args - Arguments to create a PromptTemplate.
+     * @example
+     * // Create one PromptTemplate
+     * const PromptTemplate = await prisma.promptTemplate.create({
+     *   data: {
+     *     // ... data to create a PromptTemplate
+     *   }
+     * })
+     * 
+     */
+    create<T extends PromptTemplateCreateArgs>(args: SelectSubset<T, PromptTemplateCreateArgs<ExtArgs>>): Prisma__PromptTemplateClient<$Result.GetResult<Prisma.$PromptTemplatePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many PromptTemplates.
+     * @param {PromptTemplateCreateManyArgs} args - Arguments to create many PromptTemplates.
+     * @example
+     * // Create many PromptTemplates
+     * const promptTemplate = await prisma.promptTemplate.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PromptTemplateCreateManyArgs>(args?: SelectSubset<T, PromptTemplateCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PromptTemplates and returns the data saved in the database.
+     * @param {PromptTemplateCreateManyAndReturnArgs} args - Arguments to create many PromptTemplates.
+     * @example
+     * // Create many PromptTemplates
+     * const promptTemplate = await prisma.promptTemplate.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PromptTemplates and only return the `id`
+     * const promptTemplateWithIdOnly = await prisma.promptTemplate.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PromptTemplateCreateManyAndReturnArgs>(args?: SelectSubset<T, PromptTemplateCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PromptTemplatePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a PromptTemplate.
+     * @param {PromptTemplateDeleteArgs} args - Arguments to delete one PromptTemplate.
+     * @example
+     * // Delete one PromptTemplate
+     * const PromptTemplate = await prisma.promptTemplate.delete({
+     *   where: {
+     *     // ... filter to delete one PromptTemplate
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PromptTemplateDeleteArgs>(args: SelectSubset<T, PromptTemplateDeleteArgs<ExtArgs>>): Prisma__PromptTemplateClient<$Result.GetResult<Prisma.$PromptTemplatePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one PromptTemplate.
+     * @param {PromptTemplateUpdateArgs} args - Arguments to update one PromptTemplate.
+     * @example
+     * // Update one PromptTemplate
+     * const promptTemplate = await prisma.promptTemplate.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PromptTemplateUpdateArgs>(args: SelectSubset<T, PromptTemplateUpdateArgs<ExtArgs>>): Prisma__PromptTemplateClient<$Result.GetResult<Prisma.$PromptTemplatePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more PromptTemplates.
+     * @param {PromptTemplateDeleteManyArgs} args - Arguments to filter PromptTemplates to delete.
+     * @example
+     * // Delete a few PromptTemplates
+     * const { count } = await prisma.promptTemplate.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PromptTemplateDeleteManyArgs>(args?: SelectSubset<T, PromptTemplateDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PromptTemplates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptTemplateUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PromptTemplates
+     * const promptTemplate = await prisma.promptTemplate.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PromptTemplateUpdateManyArgs>(args: SelectSubset<T, PromptTemplateUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PromptTemplates and returns the data updated in the database.
+     * @param {PromptTemplateUpdateManyAndReturnArgs} args - Arguments to update many PromptTemplates.
+     * @example
+     * // Update many PromptTemplates
+     * const promptTemplate = await prisma.promptTemplate.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PromptTemplates and only return the `id`
+     * const promptTemplateWithIdOnly = await prisma.promptTemplate.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PromptTemplateUpdateManyAndReturnArgs>(args: SelectSubset<T, PromptTemplateUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PromptTemplatePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one PromptTemplate.
+     * @param {PromptTemplateUpsertArgs} args - Arguments to update or create a PromptTemplate.
+     * @example
+     * // Update or create a PromptTemplate
+     * const promptTemplate = await prisma.promptTemplate.upsert({
+     *   create: {
+     *     // ... data to create a PromptTemplate
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PromptTemplate we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PromptTemplateUpsertArgs>(args: SelectSubset<T, PromptTemplateUpsertArgs<ExtArgs>>): Prisma__PromptTemplateClient<$Result.GetResult<Prisma.$PromptTemplatePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of PromptTemplates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptTemplateCountArgs} args - Arguments to filter PromptTemplates to count.
+     * @example
+     * // Count the number of PromptTemplates
+     * const count = await prisma.promptTemplate.count({
+     *   where: {
+     *     // ... the filter for the PromptTemplates we want to count
+     *   }
+     * })
+    **/
+    count<T extends PromptTemplateCountArgs>(
+      args?: Subset<T, PromptTemplateCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PromptTemplateCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PromptTemplate.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptTemplateAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PromptTemplateAggregateArgs>(args: Subset<T, PromptTemplateAggregateArgs>): Prisma.PrismaPromise<GetPromptTemplateAggregateType<T>>
+
+    /**
+     * Group by PromptTemplate.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptTemplateGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PromptTemplateGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PromptTemplateGroupByArgs['orderBy'] }
+        : { orderBy?: PromptTemplateGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PromptTemplateGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPromptTemplateGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PromptTemplate model
+   */
+  readonly fields: PromptTemplateFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PromptTemplate.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PromptTemplateClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    versions<T extends PromptTemplate$versionsArgs<ExtArgs> = {}>(args?: Subset<T, PromptTemplate$versionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PromptVersionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PromptTemplate model
+   */
+  interface PromptTemplateFieldRefs {
+    readonly id: FieldRef<"PromptTemplate", 'String'>
+    readonly name: FieldRef<"PromptTemplate", 'String'>
+    readonly description: FieldRef<"PromptTemplate", 'String'>
+    readonly currentVersionId: FieldRef<"PromptTemplate", 'String'>
+    readonly isPublic: FieldRef<"PromptTemplate", 'Boolean'>
+    readonly category: FieldRef<"PromptTemplate", 'String'>
+    readonly tags: FieldRef<"PromptTemplate", 'String[]'>
+    readonly analytics: FieldRef<"PromptTemplate", 'Json'>
+    readonly createdAt: FieldRef<"PromptTemplate", 'DateTime'>
+    readonly updatedAt: FieldRef<"PromptTemplate", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PromptTemplate findUnique
+   */
+  export type PromptTemplateFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptTemplate
+     */
+    select?: PromptTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptTemplate
+     */
+    omit?: PromptTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptTemplateInclude<ExtArgs> | null
+    /**
+     * Filter, which PromptTemplate to fetch.
+     */
+    where: PromptTemplateWhereUniqueInput
+  }
+
+  /**
+   * PromptTemplate findUniqueOrThrow
+   */
+  export type PromptTemplateFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptTemplate
+     */
+    select?: PromptTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptTemplate
+     */
+    omit?: PromptTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptTemplateInclude<ExtArgs> | null
+    /**
+     * Filter, which PromptTemplate to fetch.
+     */
+    where: PromptTemplateWhereUniqueInput
+  }
+
+  /**
+   * PromptTemplate findFirst
+   */
+  export type PromptTemplateFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptTemplate
+     */
+    select?: PromptTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptTemplate
+     */
+    omit?: PromptTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptTemplateInclude<ExtArgs> | null
+    /**
+     * Filter, which PromptTemplate to fetch.
+     */
+    where?: PromptTemplateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PromptTemplates to fetch.
+     */
+    orderBy?: PromptTemplateOrderByWithRelationInput | PromptTemplateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PromptTemplates.
+     */
+    cursor?: PromptTemplateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PromptTemplates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PromptTemplates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PromptTemplates.
+     */
+    distinct?: PromptTemplateScalarFieldEnum | PromptTemplateScalarFieldEnum[]
+  }
+
+  /**
+   * PromptTemplate findFirstOrThrow
+   */
+  export type PromptTemplateFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptTemplate
+     */
+    select?: PromptTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptTemplate
+     */
+    omit?: PromptTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptTemplateInclude<ExtArgs> | null
+    /**
+     * Filter, which PromptTemplate to fetch.
+     */
+    where?: PromptTemplateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PromptTemplates to fetch.
+     */
+    orderBy?: PromptTemplateOrderByWithRelationInput | PromptTemplateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PromptTemplates.
+     */
+    cursor?: PromptTemplateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PromptTemplates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PromptTemplates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PromptTemplates.
+     */
+    distinct?: PromptTemplateScalarFieldEnum | PromptTemplateScalarFieldEnum[]
+  }
+
+  /**
+   * PromptTemplate findMany
+   */
+  export type PromptTemplateFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptTemplate
+     */
+    select?: PromptTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptTemplate
+     */
+    omit?: PromptTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptTemplateInclude<ExtArgs> | null
+    /**
+     * Filter, which PromptTemplates to fetch.
+     */
+    where?: PromptTemplateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PromptTemplates to fetch.
+     */
+    orderBy?: PromptTemplateOrderByWithRelationInput | PromptTemplateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PromptTemplates.
+     */
+    cursor?: PromptTemplateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PromptTemplates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PromptTemplates.
+     */
+    skip?: number
+    distinct?: PromptTemplateScalarFieldEnum | PromptTemplateScalarFieldEnum[]
+  }
+
+  /**
+   * PromptTemplate create
+   */
+  export type PromptTemplateCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptTemplate
+     */
+    select?: PromptTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptTemplate
+     */
+    omit?: PromptTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptTemplateInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PromptTemplate.
+     */
+    data: XOR<PromptTemplateCreateInput, PromptTemplateUncheckedCreateInput>
+  }
+
+  /**
+   * PromptTemplate createMany
+   */
+  export type PromptTemplateCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PromptTemplates.
+     */
+    data: PromptTemplateCreateManyInput | PromptTemplateCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PromptTemplate createManyAndReturn
+   */
+  export type PromptTemplateCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptTemplate
+     */
+    select?: PromptTemplateSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptTemplate
+     */
+    omit?: PromptTemplateOmit<ExtArgs> | null
+    /**
+     * The data used to create many PromptTemplates.
+     */
+    data: PromptTemplateCreateManyInput | PromptTemplateCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PromptTemplate update
+   */
+  export type PromptTemplateUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptTemplate
+     */
+    select?: PromptTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptTemplate
+     */
+    omit?: PromptTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptTemplateInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PromptTemplate.
+     */
+    data: XOR<PromptTemplateUpdateInput, PromptTemplateUncheckedUpdateInput>
+    /**
+     * Choose, which PromptTemplate to update.
+     */
+    where: PromptTemplateWhereUniqueInput
+  }
+
+  /**
+   * PromptTemplate updateMany
+   */
+  export type PromptTemplateUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PromptTemplates.
+     */
+    data: XOR<PromptTemplateUpdateManyMutationInput, PromptTemplateUncheckedUpdateManyInput>
+    /**
+     * Filter which PromptTemplates to update
+     */
+    where?: PromptTemplateWhereInput
+    /**
+     * Limit how many PromptTemplates to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PromptTemplate updateManyAndReturn
+   */
+  export type PromptTemplateUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptTemplate
+     */
+    select?: PromptTemplateSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptTemplate
+     */
+    omit?: PromptTemplateOmit<ExtArgs> | null
+    /**
+     * The data used to update PromptTemplates.
+     */
+    data: XOR<PromptTemplateUpdateManyMutationInput, PromptTemplateUncheckedUpdateManyInput>
+    /**
+     * Filter which PromptTemplates to update
+     */
+    where?: PromptTemplateWhereInput
+    /**
+     * Limit how many PromptTemplates to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PromptTemplate upsert
+   */
+  export type PromptTemplateUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptTemplate
+     */
+    select?: PromptTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptTemplate
+     */
+    omit?: PromptTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptTemplateInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PromptTemplate to update in case it exists.
+     */
+    where: PromptTemplateWhereUniqueInput
+    /**
+     * In case the PromptTemplate found by the `where` argument doesn't exist, create a new PromptTemplate with this data.
+     */
+    create: XOR<PromptTemplateCreateInput, PromptTemplateUncheckedCreateInput>
+    /**
+     * In case the PromptTemplate was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PromptTemplateUpdateInput, PromptTemplateUncheckedUpdateInput>
+  }
+
+  /**
+   * PromptTemplate delete
+   */
+  export type PromptTemplateDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptTemplate
+     */
+    select?: PromptTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptTemplate
+     */
+    omit?: PromptTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptTemplateInclude<ExtArgs> | null
+    /**
+     * Filter which PromptTemplate to delete.
+     */
+    where: PromptTemplateWhereUniqueInput
+  }
+
+  /**
+   * PromptTemplate deleteMany
+   */
+  export type PromptTemplateDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PromptTemplates to delete
+     */
+    where?: PromptTemplateWhereInput
+    /**
+     * Limit how many PromptTemplates to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PromptTemplate.versions
+   */
+  export type PromptTemplate$versionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptVersion
+     */
+    select?: PromptVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptVersion
+     */
+    omit?: PromptVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptVersionInclude<ExtArgs> | null
+    where?: PromptVersionWhereInput
+    orderBy?: PromptVersionOrderByWithRelationInput | PromptVersionOrderByWithRelationInput[]
+    cursor?: PromptVersionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PromptVersionScalarFieldEnum | PromptVersionScalarFieldEnum[]
+  }
+
+  /**
+   * PromptTemplate without action
+   */
+  export type PromptTemplateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptTemplate
+     */
+    select?: PromptTemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptTemplate
+     */
+    omit?: PromptTemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptTemplateInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PromptVersion
+   */
+
+  export type AggregatePromptVersion = {
+    _count: PromptVersionCountAggregateOutputType | null
+    _avg: PromptVersionAvgAggregateOutputType | null
+    _sum: PromptVersionSumAggregateOutputType | null
+    _min: PromptVersionMinAggregateOutputType | null
+    _max: PromptVersionMaxAggregateOutputType | null
+  }
+
+  export type PromptVersionAvgAggregateOutputType = {
+    version: number | null
+  }
+
+  export type PromptVersionSumAggregateOutputType = {
+    version: number | null
+  }
+
+  export type PromptVersionMinAggregateOutputType = {
+    id: string | null
+    templateId: string | null
+    version: number | null
+    label: string | null
+    content: string | null
+    changelog: string | null
+    isActive: boolean | null
+    createdAt: Date | null
+  }
+
+  export type PromptVersionMaxAggregateOutputType = {
+    id: string | null
+    templateId: string | null
+    version: number | null
+    label: string | null
+    content: string | null
+    changelog: string | null
+    isActive: boolean | null
+    createdAt: Date | null
+  }
+
+  export type PromptVersionCountAggregateOutputType = {
+    id: number
+    templateId: number
+    version: number
+    label: number
+    content: number
+    variables: number
+    metrics: number
+    changelog: number
+    isActive: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type PromptVersionAvgAggregateInputType = {
+    version?: true
+  }
+
+  export type PromptVersionSumAggregateInputType = {
+    version?: true
+  }
+
+  export type PromptVersionMinAggregateInputType = {
+    id?: true
+    templateId?: true
+    version?: true
+    label?: true
+    content?: true
+    changelog?: true
+    isActive?: true
+    createdAt?: true
+  }
+
+  export type PromptVersionMaxAggregateInputType = {
+    id?: true
+    templateId?: true
+    version?: true
+    label?: true
+    content?: true
+    changelog?: true
+    isActive?: true
+    createdAt?: true
+  }
+
+  export type PromptVersionCountAggregateInputType = {
+    id?: true
+    templateId?: true
+    version?: true
+    label?: true
+    content?: true
+    variables?: true
+    metrics?: true
+    changelog?: true
+    isActive?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type PromptVersionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PromptVersion to aggregate.
+     */
+    where?: PromptVersionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PromptVersions to fetch.
+     */
+    orderBy?: PromptVersionOrderByWithRelationInput | PromptVersionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PromptVersionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PromptVersions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PromptVersions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PromptVersions
+    **/
+    _count?: true | PromptVersionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PromptVersionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PromptVersionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PromptVersionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PromptVersionMaxAggregateInputType
+  }
+
+  export type GetPromptVersionAggregateType<T extends PromptVersionAggregateArgs> = {
+        [P in keyof T & keyof AggregatePromptVersion]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePromptVersion[P]>
+      : GetScalarType<T[P], AggregatePromptVersion[P]>
+  }
+
+
+
+
+  export type PromptVersionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PromptVersionWhereInput
+    orderBy?: PromptVersionOrderByWithAggregationInput | PromptVersionOrderByWithAggregationInput[]
+    by: PromptVersionScalarFieldEnum[] | PromptVersionScalarFieldEnum
+    having?: PromptVersionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PromptVersionCountAggregateInputType | true
+    _avg?: PromptVersionAvgAggregateInputType
+    _sum?: PromptVersionSumAggregateInputType
+    _min?: PromptVersionMinAggregateInputType
+    _max?: PromptVersionMaxAggregateInputType
+  }
+
+  export type PromptVersionGroupByOutputType = {
+    id: string
+    templateId: string
+    version: number
+    label: string | null
+    content: string
+    variables: JsonValue | null
+    metrics: JsonValue | null
+    changelog: string | null
+    isActive: boolean
+    createdAt: Date
+    _count: PromptVersionCountAggregateOutputType | null
+    _avg: PromptVersionAvgAggregateOutputType | null
+    _sum: PromptVersionSumAggregateOutputType | null
+    _min: PromptVersionMinAggregateOutputType | null
+    _max: PromptVersionMaxAggregateOutputType | null
+  }
+
+  type GetPromptVersionGroupByPayload<T extends PromptVersionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PromptVersionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PromptVersionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PromptVersionGroupByOutputType[P]>
+            : GetScalarType<T[P], PromptVersionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PromptVersionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    templateId?: boolean
+    version?: boolean
+    label?: boolean
+    content?: boolean
+    variables?: boolean
+    metrics?: boolean
+    changelog?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    template?: boolean | PromptTemplateDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["promptVersion"]>
+
+  export type PromptVersionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    templateId?: boolean
+    version?: boolean
+    label?: boolean
+    content?: boolean
+    variables?: boolean
+    metrics?: boolean
+    changelog?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    template?: boolean | PromptTemplateDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["promptVersion"]>
+
+  export type PromptVersionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    templateId?: boolean
+    version?: boolean
+    label?: boolean
+    content?: boolean
+    variables?: boolean
+    metrics?: boolean
+    changelog?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    template?: boolean | PromptTemplateDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["promptVersion"]>
+
+  export type PromptVersionSelectScalar = {
+    id?: boolean
+    templateId?: boolean
+    version?: boolean
+    label?: boolean
+    content?: boolean
+    variables?: boolean
+    metrics?: boolean
+    changelog?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+  }
+
+  export type PromptVersionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "templateId" | "version" | "label" | "content" | "variables" | "metrics" | "changelog" | "isActive" | "createdAt", ExtArgs["result"]["promptVersion"]>
+  export type PromptVersionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    template?: boolean | PromptTemplateDefaultArgs<ExtArgs>
+  }
+  export type PromptVersionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    template?: boolean | PromptTemplateDefaultArgs<ExtArgs>
+  }
+  export type PromptVersionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    template?: boolean | PromptTemplateDefaultArgs<ExtArgs>
+  }
+
+  export type $PromptVersionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PromptVersion"
+    objects: {
+      template: Prisma.$PromptTemplatePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      templateId: string
+      version: number
+      label: string | null
+      content: string
+      variables: Prisma.JsonValue | null
+      metrics: Prisma.JsonValue | null
+      changelog: string | null
+      isActive: boolean
+      createdAt: Date
+    }, ExtArgs["result"]["promptVersion"]>
+    composites: {}
+  }
+
+  type PromptVersionGetPayload<S extends boolean | null | undefined | PromptVersionDefaultArgs> = $Result.GetResult<Prisma.$PromptVersionPayload, S>
+
+  type PromptVersionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PromptVersionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PromptVersionCountAggregateInputType | true
+    }
+
+  export interface PromptVersionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PromptVersion'], meta: { name: 'PromptVersion' } }
+    /**
+     * Find zero or one PromptVersion that matches the filter.
+     * @param {PromptVersionFindUniqueArgs} args - Arguments to find a PromptVersion
+     * @example
+     * // Get one PromptVersion
+     * const promptVersion = await prisma.promptVersion.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PromptVersionFindUniqueArgs>(args: SelectSubset<T, PromptVersionFindUniqueArgs<ExtArgs>>): Prisma__PromptVersionClient<$Result.GetResult<Prisma.$PromptVersionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one PromptVersion that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PromptVersionFindUniqueOrThrowArgs} args - Arguments to find a PromptVersion
+     * @example
+     * // Get one PromptVersion
+     * const promptVersion = await prisma.promptVersion.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PromptVersionFindUniqueOrThrowArgs>(args: SelectSubset<T, PromptVersionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PromptVersionClient<$Result.GetResult<Prisma.$PromptVersionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PromptVersion that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptVersionFindFirstArgs} args - Arguments to find a PromptVersion
+     * @example
+     * // Get one PromptVersion
+     * const promptVersion = await prisma.promptVersion.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PromptVersionFindFirstArgs>(args?: SelectSubset<T, PromptVersionFindFirstArgs<ExtArgs>>): Prisma__PromptVersionClient<$Result.GetResult<Prisma.$PromptVersionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PromptVersion that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptVersionFindFirstOrThrowArgs} args - Arguments to find a PromptVersion
+     * @example
+     * // Get one PromptVersion
+     * const promptVersion = await prisma.promptVersion.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PromptVersionFindFirstOrThrowArgs>(args?: SelectSubset<T, PromptVersionFindFirstOrThrowArgs<ExtArgs>>): Prisma__PromptVersionClient<$Result.GetResult<Prisma.$PromptVersionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more PromptVersions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptVersionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PromptVersions
+     * const promptVersions = await prisma.promptVersion.findMany()
+     * 
+     * // Get first 10 PromptVersions
+     * const promptVersions = await prisma.promptVersion.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const promptVersionWithIdOnly = await prisma.promptVersion.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PromptVersionFindManyArgs>(args?: SelectSubset<T, PromptVersionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PromptVersionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a PromptVersion.
+     * @param {PromptVersionCreateArgs} args - Arguments to create a PromptVersion.
+     * @example
+     * // Create one PromptVersion
+     * const PromptVersion = await prisma.promptVersion.create({
+     *   data: {
+     *     // ... data to create a PromptVersion
+     *   }
+     * })
+     * 
+     */
+    create<T extends PromptVersionCreateArgs>(args: SelectSubset<T, PromptVersionCreateArgs<ExtArgs>>): Prisma__PromptVersionClient<$Result.GetResult<Prisma.$PromptVersionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many PromptVersions.
+     * @param {PromptVersionCreateManyArgs} args - Arguments to create many PromptVersions.
+     * @example
+     * // Create many PromptVersions
+     * const promptVersion = await prisma.promptVersion.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PromptVersionCreateManyArgs>(args?: SelectSubset<T, PromptVersionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PromptVersions and returns the data saved in the database.
+     * @param {PromptVersionCreateManyAndReturnArgs} args - Arguments to create many PromptVersions.
+     * @example
+     * // Create many PromptVersions
+     * const promptVersion = await prisma.promptVersion.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PromptVersions and only return the `id`
+     * const promptVersionWithIdOnly = await prisma.promptVersion.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PromptVersionCreateManyAndReturnArgs>(args?: SelectSubset<T, PromptVersionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PromptVersionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a PromptVersion.
+     * @param {PromptVersionDeleteArgs} args - Arguments to delete one PromptVersion.
+     * @example
+     * // Delete one PromptVersion
+     * const PromptVersion = await prisma.promptVersion.delete({
+     *   where: {
+     *     // ... filter to delete one PromptVersion
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PromptVersionDeleteArgs>(args: SelectSubset<T, PromptVersionDeleteArgs<ExtArgs>>): Prisma__PromptVersionClient<$Result.GetResult<Prisma.$PromptVersionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one PromptVersion.
+     * @param {PromptVersionUpdateArgs} args - Arguments to update one PromptVersion.
+     * @example
+     * // Update one PromptVersion
+     * const promptVersion = await prisma.promptVersion.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PromptVersionUpdateArgs>(args: SelectSubset<T, PromptVersionUpdateArgs<ExtArgs>>): Prisma__PromptVersionClient<$Result.GetResult<Prisma.$PromptVersionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more PromptVersions.
+     * @param {PromptVersionDeleteManyArgs} args - Arguments to filter PromptVersions to delete.
+     * @example
+     * // Delete a few PromptVersions
+     * const { count } = await prisma.promptVersion.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PromptVersionDeleteManyArgs>(args?: SelectSubset<T, PromptVersionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PromptVersions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptVersionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PromptVersions
+     * const promptVersion = await prisma.promptVersion.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PromptVersionUpdateManyArgs>(args: SelectSubset<T, PromptVersionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PromptVersions and returns the data updated in the database.
+     * @param {PromptVersionUpdateManyAndReturnArgs} args - Arguments to update many PromptVersions.
+     * @example
+     * // Update many PromptVersions
+     * const promptVersion = await prisma.promptVersion.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PromptVersions and only return the `id`
+     * const promptVersionWithIdOnly = await prisma.promptVersion.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PromptVersionUpdateManyAndReturnArgs>(args: SelectSubset<T, PromptVersionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PromptVersionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one PromptVersion.
+     * @param {PromptVersionUpsertArgs} args - Arguments to update or create a PromptVersion.
+     * @example
+     * // Update or create a PromptVersion
+     * const promptVersion = await prisma.promptVersion.upsert({
+     *   create: {
+     *     // ... data to create a PromptVersion
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PromptVersion we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PromptVersionUpsertArgs>(args: SelectSubset<T, PromptVersionUpsertArgs<ExtArgs>>): Prisma__PromptVersionClient<$Result.GetResult<Prisma.$PromptVersionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of PromptVersions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptVersionCountArgs} args - Arguments to filter PromptVersions to count.
+     * @example
+     * // Count the number of PromptVersions
+     * const count = await prisma.promptVersion.count({
+     *   where: {
+     *     // ... the filter for the PromptVersions we want to count
+     *   }
+     * })
+    **/
+    count<T extends PromptVersionCountArgs>(
+      args?: Subset<T, PromptVersionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PromptVersionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PromptVersion.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptVersionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PromptVersionAggregateArgs>(args: Subset<T, PromptVersionAggregateArgs>): Prisma.PrismaPromise<GetPromptVersionAggregateType<T>>
+
+    /**
+     * Group by PromptVersion.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptVersionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PromptVersionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PromptVersionGroupByArgs['orderBy'] }
+        : { orderBy?: PromptVersionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PromptVersionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPromptVersionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PromptVersion model
+   */
+  readonly fields: PromptVersionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PromptVersion.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PromptVersionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    template<T extends PromptTemplateDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PromptTemplateDefaultArgs<ExtArgs>>): Prisma__PromptTemplateClient<$Result.GetResult<Prisma.$PromptTemplatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PromptVersion model
+   */
+  interface PromptVersionFieldRefs {
+    readonly id: FieldRef<"PromptVersion", 'String'>
+    readonly templateId: FieldRef<"PromptVersion", 'String'>
+    readonly version: FieldRef<"PromptVersion", 'Int'>
+    readonly label: FieldRef<"PromptVersion", 'String'>
+    readonly content: FieldRef<"PromptVersion", 'String'>
+    readonly variables: FieldRef<"PromptVersion", 'Json'>
+    readonly metrics: FieldRef<"PromptVersion", 'Json'>
+    readonly changelog: FieldRef<"PromptVersion", 'String'>
+    readonly isActive: FieldRef<"PromptVersion", 'Boolean'>
+    readonly createdAt: FieldRef<"PromptVersion", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PromptVersion findUnique
+   */
+  export type PromptVersionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptVersion
+     */
+    select?: PromptVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptVersion
+     */
+    omit?: PromptVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptVersionInclude<ExtArgs> | null
+    /**
+     * Filter, which PromptVersion to fetch.
+     */
+    where: PromptVersionWhereUniqueInput
+  }
+
+  /**
+   * PromptVersion findUniqueOrThrow
+   */
+  export type PromptVersionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptVersion
+     */
+    select?: PromptVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptVersion
+     */
+    omit?: PromptVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptVersionInclude<ExtArgs> | null
+    /**
+     * Filter, which PromptVersion to fetch.
+     */
+    where: PromptVersionWhereUniqueInput
+  }
+
+  /**
+   * PromptVersion findFirst
+   */
+  export type PromptVersionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptVersion
+     */
+    select?: PromptVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptVersion
+     */
+    omit?: PromptVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptVersionInclude<ExtArgs> | null
+    /**
+     * Filter, which PromptVersion to fetch.
+     */
+    where?: PromptVersionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PromptVersions to fetch.
+     */
+    orderBy?: PromptVersionOrderByWithRelationInput | PromptVersionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PromptVersions.
+     */
+    cursor?: PromptVersionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PromptVersions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PromptVersions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PromptVersions.
+     */
+    distinct?: PromptVersionScalarFieldEnum | PromptVersionScalarFieldEnum[]
+  }
+
+  /**
+   * PromptVersion findFirstOrThrow
+   */
+  export type PromptVersionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptVersion
+     */
+    select?: PromptVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptVersion
+     */
+    omit?: PromptVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptVersionInclude<ExtArgs> | null
+    /**
+     * Filter, which PromptVersion to fetch.
+     */
+    where?: PromptVersionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PromptVersions to fetch.
+     */
+    orderBy?: PromptVersionOrderByWithRelationInput | PromptVersionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PromptVersions.
+     */
+    cursor?: PromptVersionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PromptVersions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PromptVersions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PromptVersions.
+     */
+    distinct?: PromptVersionScalarFieldEnum | PromptVersionScalarFieldEnum[]
+  }
+
+  /**
+   * PromptVersion findMany
+   */
+  export type PromptVersionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptVersion
+     */
+    select?: PromptVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptVersion
+     */
+    omit?: PromptVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptVersionInclude<ExtArgs> | null
+    /**
+     * Filter, which PromptVersions to fetch.
+     */
+    where?: PromptVersionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PromptVersions to fetch.
+     */
+    orderBy?: PromptVersionOrderByWithRelationInput | PromptVersionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PromptVersions.
+     */
+    cursor?: PromptVersionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PromptVersions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PromptVersions.
+     */
+    skip?: number
+    distinct?: PromptVersionScalarFieldEnum | PromptVersionScalarFieldEnum[]
+  }
+
+  /**
+   * PromptVersion create
+   */
+  export type PromptVersionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptVersion
+     */
+    select?: PromptVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptVersion
+     */
+    omit?: PromptVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptVersionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PromptVersion.
+     */
+    data: XOR<PromptVersionCreateInput, PromptVersionUncheckedCreateInput>
+  }
+
+  /**
+   * PromptVersion createMany
+   */
+  export type PromptVersionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PromptVersions.
+     */
+    data: PromptVersionCreateManyInput | PromptVersionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PromptVersion createManyAndReturn
+   */
+  export type PromptVersionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptVersion
+     */
+    select?: PromptVersionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptVersion
+     */
+    omit?: PromptVersionOmit<ExtArgs> | null
+    /**
+     * The data used to create many PromptVersions.
+     */
+    data: PromptVersionCreateManyInput | PromptVersionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptVersionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PromptVersion update
+   */
+  export type PromptVersionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptVersion
+     */
+    select?: PromptVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptVersion
+     */
+    omit?: PromptVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptVersionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PromptVersion.
+     */
+    data: XOR<PromptVersionUpdateInput, PromptVersionUncheckedUpdateInput>
+    /**
+     * Choose, which PromptVersion to update.
+     */
+    where: PromptVersionWhereUniqueInput
+  }
+
+  /**
+   * PromptVersion updateMany
+   */
+  export type PromptVersionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PromptVersions.
+     */
+    data: XOR<PromptVersionUpdateManyMutationInput, PromptVersionUncheckedUpdateManyInput>
+    /**
+     * Filter which PromptVersions to update
+     */
+    where?: PromptVersionWhereInput
+    /**
+     * Limit how many PromptVersions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PromptVersion updateManyAndReturn
+   */
+  export type PromptVersionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptVersion
+     */
+    select?: PromptVersionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptVersion
+     */
+    omit?: PromptVersionOmit<ExtArgs> | null
+    /**
+     * The data used to update PromptVersions.
+     */
+    data: XOR<PromptVersionUpdateManyMutationInput, PromptVersionUncheckedUpdateManyInput>
+    /**
+     * Filter which PromptVersions to update
+     */
+    where?: PromptVersionWhereInput
+    /**
+     * Limit how many PromptVersions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptVersionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PromptVersion upsert
+   */
+  export type PromptVersionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptVersion
+     */
+    select?: PromptVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptVersion
+     */
+    omit?: PromptVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptVersionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PromptVersion to update in case it exists.
+     */
+    where: PromptVersionWhereUniqueInput
+    /**
+     * In case the PromptVersion found by the `where` argument doesn't exist, create a new PromptVersion with this data.
+     */
+    create: XOR<PromptVersionCreateInput, PromptVersionUncheckedCreateInput>
+    /**
+     * In case the PromptVersion was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PromptVersionUpdateInput, PromptVersionUncheckedUpdateInput>
+  }
+
+  /**
+   * PromptVersion delete
+   */
+  export type PromptVersionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptVersion
+     */
+    select?: PromptVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptVersion
+     */
+    omit?: PromptVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptVersionInclude<ExtArgs> | null
+    /**
+     * Filter which PromptVersion to delete.
+     */
+    where: PromptVersionWhereUniqueInput
+  }
+
+  /**
+   * PromptVersion deleteMany
+   */
+  export type PromptVersionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PromptVersions to delete
+     */
+    where?: PromptVersionWhereInput
+    /**
+     * Limit how many PromptVersions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PromptVersion without action
+   */
+  export type PromptVersionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptVersion
+     */
+    select?: PromptVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptVersion
+     */
+    omit?: PromptVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PromptVersionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PromptSnippet
+   */
+
+  export type AggregatePromptSnippet = {
+    _count: PromptSnippetCountAggregateOutputType | null
+    _avg: PromptSnippetAvgAggregateOutputType | null
+    _sum: PromptSnippetSumAggregateOutputType | null
+    _min: PromptSnippetMinAggregateOutputType | null
+    _max: PromptSnippetMaxAggregateOutputType | null
+  }
+
+  export type PromptSnippetAvgAggregateOutputType = {
+    usageCount: number | null
+  }
+
+  export type PromptSnippetSumAggregateOutputType = {
+    usageCount: number | null
+  }
+
+  export type PromptSnippetMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    content: string | null
+    type: string | null
+    category: string | null
+    usageCount: number | null
+    description: string | null
+    isStarred: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PromptSnippetMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    content: string | null
+    type: string | null
+    category: string | null
+    usageCount: number | null
+    description: string | null
+    isStarred: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PromptSnippetCountAggregateOutputType = {
+    id: number
+    name: number
+    content: number
+    type: number
+    category: number
+    tags: number
+    usageCount: number
+    description: number
+    isStarred: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type PromptSnippetAvgAggregateInputType = {
+    usageCount?: true
+  }
+
+  export type PromptSnippetSumAggregateInputType = {
+    usageCount?: true
+  }
+
+  export type PromptSnippetMinAggregateInputType = {
+    id?: true
+    name?: true
+    content?: true
+    type?: true
+    category?: true
+    usageCount?: true
+    description?: true
+    isStarred?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PromptSnippetMaxAggregateInputType = {
+    id?: true
+    name?: true
+    content?: true
+    type?: true
+    category?: true
+    usageCount?: true
+    description?: true
+    isStarred?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PromptSnippetCountAggregateInputType = {
+    id?: true
+    name?: true
+    content?: true
+    type?: true
+    category?: true
+    tags?: true
+    usageCount?: true
+    description?: true
+    isStarred?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type PromptSnippetAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PromptSnippet to aggregate.
+     */
+    where?: PromptSnippetWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PromptSnippets to fetch.
+     */
+    orderBy?: PromptSnippetOrderByWithRelationInput | PromptSnippetOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PromptSnippetWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PromptSnippets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PromptSnippets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PromptSnippets
+    **/
+    _count?: true | PromptSnippetCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PromptSnippetAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PromptSnippetSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PromptSnippetMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PromptSnippetMaxAggregateInputType
+  }
+
+  export type GetPromptSnippetAggregateType<T extends PromptSnippetAggregateArgs> = {
+        [P in keyof T & keyof AggregatePromptSnippet]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePromptSnippet[P]>
+      : GetScalarType<T[P], AggregatePromptSnippet[P]>
+  }
+
+
+
+
+  export type PromptSnippetGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PromptSnippetWhereInput
+    orderBy?: PromptSnippetOrderByWithAggregationInput | PromptSnippetOrderByWithAggregationInput[]
+    by: PromptSnippetScalarFieldEnum[] | PromptSnippetScalarFieldEnum
+    having?: PromptSnippetScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PromptSnippetCountAggregateInputType | true
+    _avg?: PromptSnippetAvgAggregateInputType
+    _sum?: PromptSnippetSumAggregateInputType
+    _min?: PromptSnippetMinAggregateInputType
+    _max?: PromptSnippetMaxAggregateInputType
+  }
+
+  export type PromptSnippetGroupByOutputType = {
+    id: string
+    name: string
+    content: string
+    type: string
+    category: string | null
+    tags: string[]
+    usageCount: number
+    description: string | null
+    isStarred: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: PromptSnippetCountAggregateOutputType | null
+    _avg: PromptSnippetAvgAggregateOutputType | null
+    _sum: PromptSnippetSumAggregateOutputType | null
+    _min: PromptSnippetMinAggregateOutputType | null
+    _max: PromptSnippetMaxAggregateOutputType | null
+  }
+
+  type GetPromptSnippetGroupByPayload<T extends PromptSnippetGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PromptSnippetGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PromptSnippetGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PromptSnippetGroupByOutputType[P]>
+            : GetScalarType<T[P], PromptSnippetGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PromptSnippetSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    content?: boolean
+    type?: boolean
+    category?: boolean
+    tags?: boolean
+    usageCount?: boolean
+    description?: boolean
+    isStarred?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["promptSnippet"]>
+
+  export type PromptSnippetSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    content?: boolean
+    type?: boolean
+    category?: boolean
+    tags?: boolean
+    usageCount?: boolean
+    description?: boolean
+    isStarred?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["promptSnippet"]>
+
+  export type PromptSnippetSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    content?: boolean
+    type?: boolean
+    category?: boolean
+    tags?: boolean
+    usageCount?: boolean
+    description?: boolean
+    isStarred?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["promptSnippet"]>
+
+  export type PromptSnippetSelectScalar = {
+    id?: boolean
+    name?: boolean
+    content?: boolean
+    type?: boolean
+    category?: boolean
+    tags?: boolean
+    usageCount?: boolean
+    description?: boolean
+    isStarred?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type PromptSnippetOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "content" | "type" | "category" | "tags" | "usageCount" | "description" | "isStarred" | "createdAt" | "updatedAt", ExtArgs["result"]["promptSnippet"]>
+
+  export type $PromptSnippetPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PromptSnippet"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      content: string
+      type: string
+      category: string | null
+      tags: string[]
+      usageCount: number
+      description: string | null
+      isStarred: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["promptSnippet"]>
+    composites: {}
+  }
+
+  type PromptSnippetGetPayload<S extends boolean | null | undefined | PromptSnippetDefaultArgs> = $Result.GetResult<Prisma.$PromptSnippetPayload, S>
+
+  type PromptSnippetCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PromptSnippetFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PromptSnippetCountAggregateInputType | true
+    }
+
+  export interface PromptSnippetDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PromptSnippet'], meta: { name: 'PromptSnippet' } }
+    /**
+     * Find zero or one PromptSnippet that matches the filter.
+     * @param {PromptSnippetFindUniqueArgs} args - Arguments to find a PromptSnippet
+     * @example
+     * // Get one PromptSnippet
+     * const promptSnippet = await prisma.promptSnippet.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PromptSnippetFindUniqueArgs>(args: SelectSubset<T, PromptSnippetFindUniqueArgs<ExtArgs>>): Prisma__PromptSnippetClient<$Result.GetResult<Prisma.$PromptSnippetPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one PromptSnippet that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PromptSnippetFindUniqueOrThrowArgs} args - Arguments to find a PromptSnippet
+     * @example
+     * // Get one PromptSnippet
+     * const promptSnippet = await prisma.promptSnippet.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PromptSnippetFindUniqueOrThrowArgs>(args: SelectSubset<T, PromptSnippetFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PromptSnippetClient<$Result.GetResult<Prisma.$PromptSnippetPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PromptSnippet that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptSnippetFindFirstArgs} args - Arguments to find a PromptSnippet
+     * @example
+     * // Get one PromptSnippet
+     * const promptSnippet = await prisma.promptSnippet.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PromptSnippetFindFirstArgs>(args?: SelectSubset<T, PromptSnippetFindFirstArgs<ExtArgs>>): Prisma__PromptSnippetClient<$Result.GetResult<Prisma.$PromptSnippetPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PromptSnippet that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptSnippetFindFirstOrThrowArgs} args - Arguments to find a PromptSnippet
+     * @example
+     * // Get one PromptSnippet
+     * const promptSnippet = await prisma.promptSnippet.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PromptSnippetFindFirstOrThrowArgs>(args?: SelectSubset<T, PromptSnippetFindFirstOrThrowArgs<ExtArgs>>): Prisma__PromptSnippetClient<$Result.GetResult<Prisma.$PromptSnippetPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more PromptSnippets that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptSnippetFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PromptSnippets
+     * const promptSnippets = await prisma.promptSnippet.findMany()
+     * 
+     * // Get first 10 PromptSnippets
+     * const promptSnippets = await prisma.promptSnippet.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const promptSnippetWithIdOnly = await prisma.promptSnippet.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PromptSnippetFindManyArgs>(args?: SelectSubset<T, PromptSnippetFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PromptSnippetPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a PromptSnippet.
+     * @param {PromptSnippetCreateArgs} args - Arguments to create a PromptSnippet.
+     * @example
+     * // Create one PromptSnippet
+     * const PromptSnippet = await prisma.promptSnippet.create({
+     *   data: {
+     *     // ... data to create a PromptSnippet
+     *   }
+     * })
+     * 
+     */
+    create<T extends PromptSnippetCreateArgs>(args: SelectSubset<T, PromptSnippetCreateArgs<ExtArgs>>): Prisma__PromptSnippetClient<$Result.GetResult<Prisma.$PromptSnippetPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many PromptSnippets.
+     * @param {PromptSnippetCreateManyArgs} args - Arguments to create many PromptSnippets.
+     * @example
+     * // Create many PromptSnippets
+     * const promptSnippet = await prisma.promptSnippet.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PromptSnippetCreateManyArgs>(args?: SelectSubset<T, PromptSnippetCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PromptSnippets and returns the data saved in the database.
+     * @param {PromptSnippetCreateManyAndReturnArgs} args - Arguments to create many PromptSnippets.
+     * @example
+     * // Create many PromptSnippets
+     * const promptSnippet = await prisma.promptSnippet.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PromptSnippets and only return the `id`
+     * const promptSnippetWithIdOnly = await prisma.promptSnippet.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PromptSnippetCreateManyAndReturnArgs>(args?: SelectSubset<T, PromptSnippetCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PromptSnippetPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a PromptSnippet.
+     * @param {PromptSnippetDeleteArgs} args - Arguments to delete one PromptSnippet.
+     * @example
+     * // Delete one PromptSnippet
+     * const PromptSnippet = await prisma.promptSnippet.delete({
+     *   where: {
+     *     // ... filter to delete one PromptSnippet
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PromptSnippetDeleteArgs>(args: SelectSubset<T, PromptSnippetDeleteArgs<ExtArgs>>): Prisma__PromptSnippetClient<$Result.GetResult<Prisma.$PromptSnippetPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one PromptSnippet.
+     * @param {PromptSnippetUpdateArgs} args - Arguments to update one PromptSnippet.
+     * @example
+     * // Update one PromptSnippet
+     * const promptSnippet = await prisma.promptSnippet.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PromptSnippetUpdateArgs>(args: SelectSubset<T, PromptSnippetUpdateArgs<ExtArgs>>): Prisma__PromptSnippetClient<$Result.GetResult<Prisma.$PromptSnippetPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more PromptSnippets.
+     * @param {PromptSnippetDeleteManyArgs} args - Arguments to filter PromptSnippets to delete.
+     * @example
+     * // Delete a few PromptSnippets
+     * const { count } = await prisma.promptSnippet.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PromptSnippetDeleteManyArgs>(args?: SelectSubset<T, PromptSnippetDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PromptSnippets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptSnippetUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PromptSnippets
+     * const promptSnippet = await prisma.promptSnippet.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PromptSnippetUpdateManyArgs>(args: SelectSubset<T, PromptSnippetUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PromptSnippets and returns the data updated in the database.
+     * @param {PromptSnippetUpdateManyAndReturnArgs} args - Arguments to update many PromptSnippets.
+     * @example
+     * // Update many PromptSnippets
+     * const promptSnippet = await prisma.promptSnippet.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PromptSnippets and only return the `id`
+     * const promptSnippetWithIdOnly = await prisma.promptSnippet.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PromptSnippetUpdateManyAndReturnArgs>(args: SelectSubset<T, PromptSnippetUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PromptSnippetPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one PromptSnippet.
+     * @param {PromptSnippetUpsertArgs} args - Arguments to update or create a PromptSnippet.
+     * @example
+     * // Update or create a PromptSnippet
+     * const promptSnippet = await prisma.promptSnippet.upsert({
+     *   create: {
+     *     // ... data to create a PromptSnippet
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PromptSnippet we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PromptSnippetUpsertArgs>(args: SelectSubset<T, PromptSnippetUpsertArgs<ExtArgs>>): Prisma__PromptSnippetClient<$Result.GetResult<Prisma.$PromptSnippetPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of PromptSnippets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptSnippetCountArgs} args - Arguments to filter PromptSnippets to count.
+     * @example
+     * // Count the number of PromptSnippets
+     * const count = await prisma.promptSnippet.count({
+     *   where: {
+     *     // ... the filter for the PromptSnippets we want to count
+     *   }
+     * })
+    **/
+    count<T extends PromptSnippetCountArgs>(
+      args?: Subset<T, PromptSnippetCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PromptSnippetCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PromptSnippet.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptSnippetAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PromptSnippetAggregateArgs>(args: Subset<T, PromptSnippetAggregateArgs>): Prisma.PrismaPromise<GetPromptSnippetAggregateType<T>>
+
+    /**
+     * Group by PromptSnippet.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PromptSnippetGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PromptSnippetGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PromptSnippetGroupByArgs['orderBy'] }
+        : { orderBy?: PromptSnippetGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PromptSnippetGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPromptSnippetGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PromptSnippet model
+   */
+  readonly fields: PromptSnippetFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PromptSnippet.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PromptSnippetClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PromptSnippet model
+   */
+  interface PromptSnippetFieldRefs {
+    readonly id: FieldRef<"PromptSnippet", 'String'>
+    readonly name: FieldRef<"PromptSnippet", 'String'>
+    readonly content: FieldRef<"PromptSnippet", 'String'>
+    readonly type: FieldRef<"PromptSnippet", 'String'>
+    readonly category: FieldRef<"PromptSnippet", 'String'>
+    readonly tags: FieldRef<"PromptSnippet", 'String[]'>
+    readonly usageCount: FieldRef<"PromptSnippet", 'Int'>
+    readonly description: FieldRef<"PromptSnippet", 'String'>
+    readonly isStarred: FieldRef<"PromptSnippet", 'Boolean'>
+    readonly createdAt: FieldRef<"PromptSnippet", 'DateTime'>
+    readonly updatedAt: FieldRef<"PromptSnippet", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PromptSnippet findUnique
+   */
+  export type PromptSnippetFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptSnippet
+     */
+    select?: PromptSnippetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptSnippet
+     */
+    omit?: PromptSnippetOmit<ExtArgs> | null
+    /**
+     * Filter, which PromptSnippet to fetch.
+     */
+    where: PromptSnippetWhereUniqueInput
+  }
+
+  /**
+   * PromptSnippet findUniqueOrThrow
+   */
+  export type PromptSnippetFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptSnippet
+     */
+    select?: PromptSnippetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptSnippet
+     */
+    omit?: PromptSnippetOmit<ExtArgs> | null
+    /**
+     * Filter, which PromptSnippet to fetch.
+     */
+    where: PromptSnippetWhereUniqueInput
+  }
+
+  /**
+   * PromptSnippet findFirst
+   */
+  export type PromptSnippetFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptSnippet
+     */
+    select?: PromptSnippetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptSnippet
+     */
+    omit?: PromptSnippetOmit<ExtArgs> | null
+    /**
+     * Filter, which PromptSnippet to fetch.
+     */
+    where?: PromptSnippetWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PromptSnippets to fetch.
+     */
+    orderBy?: PromptSnippetOrderByWithRelationInput | PromptSnippetOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PromptSnippets.
+     */
+    cursor?: PromptSnippetWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PromptSnippets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PromptSnippets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PromptSnippets.
+     */
+    distinct?: PromptSnippetScalarFieldEnum | PromptSnippetScalarFieldEnum[]
+  }
+
+  /**
+   * PromptSnippet findFirstOrThrow
+   */
+  export type PromptSnippetFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptSnippet
+     */
+    select?: PromptSnippetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptSnippet
+     */
+    omit?: PromptSnippetOmit<ExtArgs> | null
+    /**
+     * Filter, which PromptSnippet to fetch.
+     */
+    where?: PromptSnippetWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PromptSnippets to fetch.
+     */
+    orderBy?: PromptSnippetOrderByWithRelationInput | PromptSnippetOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PromptSnippets.
+     */
+    cursor?: PromptSnippetWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PromptSnippets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PromptSnippets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PromptSnippets.
+     */
+    distinct?: PromptSnippetScalarFieldEnum | PromptSnippetScalarFieldEnum[]
+  }
+
+  /**
+   * PromptSnippet findMany
+   */
+  export type PromptSnippetFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptSnippet
+     */
+    select?: PromptSnippetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptSnippet
+     */
+    omit?: PromptSnippetOmit<ExtArgs> | null
+    /**
+     * Filter, which PromptSnippets to fetch.
+     */
+    where?: PromptSnippetWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PromptSnippets to fetch.
+     */
+    orderBy?: PromptSnippetOrderByWithRelationInput | PromptSnippetOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PromptSnippets.
+     */
+    cursor?: PromptSnippetWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PromptSnippets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PromptSnippets.
+     */
+    skip?: number
+    distinct?: PromptSnippetScalarFieldEnum | PromptSnippetScalarFieldEnum[]
+  }
+
+  /**
+   * PromptSnippet create
+   */
+  export type PromptSnippetCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptSnippet
+     */
+    select?: PromptSnippetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptSnippet
+     */
+    omit?: PromptSnippetOmit<ExtArgs> | null
+    /**
+     * The data needed to create a PromptSnippet.
+     */
+    data: XOR<PromptSnippetCreateInput, PromptSnippetUncheckedCreateInput>
+  }
+
+  /**
+   * PromptSnippet createMany
+   */
+  export type PromptSnippetCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PromptSnippets.
+     */
+    data: PromptSnippetCreateManyInput | PromptSnippetCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PromptSnippet createManyAndReturn
+   */
+  export type PromptSnippetCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptSnippet
+     */
+    select?: PromptSnippetSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptSnippet
+     */
+    omit?: PromptSnippetOmit<ExtArgs> | null
+    /**
+     * The data used to create many PromptSnippets.
+     */
+    data: PromptSnippetCreateManyInput | PromptSnippetCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PromptSnippet update
+   */
+  export type PromptSnippetUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptSnippet
+     */
+    select?: PromptSnippetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptSnippet
+     */
+    omit?: PromptSnippetOmit<ExtArgs> | null
+    /**
+     * The data needed to update a PromptSnippet.
+     */
+    data: XOR<PromptSnippetUpdateInput, PromptSnippetUncheckedUpdateInput>
+    /**
+     * Choose, which PromptSnippet to update.
+     */
+    where: PromptSnippetWhereUniqueInput
+  }
+
+  /**
+   * PromptSnippet updateMany
+   */
+  export type PromptSnippetUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PromptSnippets.
+     */
+    data: XOR<PromptSnippetUpdateManyMutationInput, PromptSnippetUncheckedUpdateManyInput>
+    /**
+     * Filter which PromptSnippets to update
+     */
+    where?: PromptSnippetWhereInput
+    /**
+     * Limit how many PromptSnippets to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PromptSnippet updateManyAndReturn
+   */
+  export type PromptSnippetUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptSnippet
+     */
+    select?: PromptSnippetSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptSnippet
+     */
+    omit?: PromptSnippetOmit<ExtArgs> | null
+    /**
+     * The data used to update PromptSnippets.
+     */
+    data: XOR<PromptSnippetUpdateManyMutationInput, PromptSnippetUncheckedUpdateManyInput>
+    /**
+     * Filter which PromptSnippets to update
+     */
+    where?: PromptSnippetWhereInput
+    /**
+     * Limit how many PromptSnippets to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PromptSnippet upsert
+   */
+  export type PromptSnippetUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptSnippet
+     */
+    select?: PromptSnippetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptSnippet
+     */
+    omit?: PromptSnippetOmit<ExtArgs> | null
+    /**
+     * The filter to search for the PromptSnippet to update in case it exists.
+     */
+    where: PromptSnippetWhereUniqueInput
+    /**
+     * In case the PromptSnippet found by the `where` argument doesn't exist, create a new PromptSnippet with this data.
+     */
+    create: XOR<PromptSnippetCreateInput, PromptSnippetUncheckedCreateInput>
+    /**
+     * In case the PromptSnippet was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PromptSnippetUpdateInput, PromptSnippetUncheckedUpdateInput>
+  }
+
+  /**
+   * PromptSnippet delete
+   */
+  export type PromptSnippetDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptSnippet
+     */
+    select?: PromptSnippetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptSnippet
+     */
+    omit?: PromptSnippetOmit<ExtArgs> | null
+    /**
+     * Filter which PromptSnippet to delete.
+     */
+    where: PromptSnippetWhereUniqueInput
+  }
+
+  /**
+   * PromptSnippet deleteMany
+   */
+  export type PromptSnippetDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PromptSnippets to delete
+     */
+    where?: PromptSnippetWhereInput
+    /**
+     * Limit how many PromptSnippets to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PromptSnippet without action
+   */
+  export type PromptSnippetDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PromptSnippet
+     */
+    select?: PromptSnippetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PromptSnippet
+     */
+    omit?: PromptSnippetOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Model ValidationDataset
    */
 
@@ -49550,6 +54542,23 @@ export namespace Prisma {
   export type WorkflowExecutionScalarFieldEnum = (typeof WorkflowExecutionScalarFieldEnum)[keyof typeof WorkflowExecutionScalarFieldEnum]
 
 
+  export const WorkflowTemplateScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    description: 'description',
+    category: 'category',
+    definition: 'definition',
+    isPublic: 'isPublic',
+    creatorId: 'creatorId',
+    metadata: 'metadata',
+    usageCount: 'usageCount',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type WorkflowTemplateScalarFieldEnum = (typeof WorkflowTemplateScalarFieldEnum)[keyof typeof WorkflowTemplateScalarFieldEnum]
+
+
   export const PipelineScalarFieldEnum: {
     id: 'id',
     name: 'name',
@@ -49893,6 +54902,55 @@ export namespace Prisma {
   };
 
   export type AgentPromptVersionScalarFieldEnum = (typeof AgentPromptVersionScalarFieldEnum)[keyof typeof AgentPromptVersionScalarFieldEnum]
+
+
+  export const PromptTemplateScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    description: 'description',
+    currentVersionId: 'currentVersionId',
+    isPublic: 'isPublic',
+    category: 'category',
+    tags: 'tags',
+    analytics: 'analytics',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type PromptTemplateScalarFieldEnum = (typeof PromptTemplateScalarFieldEnum)[keyof typeof PromptTemplateScalarFieldEnum]
+
+
+  export const PromptVersionScalarFieldEnum: {
+    id: 'id',
+    templateId: 'templateId',
+    version: 'version',
+    label: 'label',
+    content: 'content',
+    variables: 'variables',
+    metrics: 'metrics',
+    changelog: 'changelog',
+    isActive: 'isActive',
+    createdAt: 'createdAt'
+  };
+
+  export type PromptVersionScalarFieldEnum = (typeof PromptVersionScalarFieldEnum)[keyof typeof PromptVersionScalarFieldEnum]
+
+
+  export const PromptSnippetScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    content: 'content',
+    type: 'type',
+    category: 'category',
+    tags: 'tags',
+    usageCount: 'usageCount',
+    description: 'description',
+    isStarred: 'isStarred',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type PromptSnippetScalarFieldEnum = (typeof PromptSnippetScalarFieldEnum)[keyof typeof PromptSnippetScalarFieldEnum]
 
 
   export const ValidationDatasetScalarFieldEnum: {
@@ -50415,6 +55473,7 @@ export namespace Prisma {
     messages?: MessageListRelationFilter
     authSessions?: AuthSessionListRelationFilter
     loginAttempts?: LoginAttemptListRelationFilter
+    workflowTemplates?: WorkflowTemplateListRelationFilter
     authEvents?: AuthEventListRelationFilter
   }
 
@@ -50442,6 +55501,7 @@ export namespace Prisma {
     messages?: MessageOrderByRelationAggregateInput
     authSessions?: AuthSessionOrderByRelationAggregateInput
     loginAttempts?: LoginAttemptOrderByRelationAggregateInput
+    workflowTemplates?: WorkflowTemplateOrderByRelationAggregateInput
     authEvents?: AuthEventOrderByRelationAggregateInput
   }
 
@@ -50472,6 +55532,7 @@ export namespace Prisma {
     messages?: MessageListRelationFilter
     authSessions?: AuthSessionListRelationFilter
     loginAttempts?: LoginAttemptListRelationFilter
+    workflowTemplates?: WorkflowTemplateListRelationFilter
     authEvents?: AuthEventListRelationFilter
   }, "id" | "email" | "username">
 
@@ -51538,6 +56599,93 @@ export namespace Prisma {
     error?: StringNullableWithAggregatesFilter<"WorkflowExecution"> | string | null
     startedAt?: DateTimeWithAggregatesFilter<"WorkflowExecution"> | Date | string
     completedAt?: DateTimeNullableWithAggregatesFilter<"WorkflowExecution"> | Date | string | null
+  }
+
+  export type WorkflowTemplateWhereInput = {
+    AND?: WorkflowTemplateWhereInput | WorkflowTemplateWhereInput[]
+    OR?: WorkflowTemplateWhereInput[]
+    NOT?: WorkflowTemplateWhereInput | WorkflowTemplateWhereInput[]
+    id?: StringFilter<"WorkflowTemplate"> | string
+    name?: StringFilter<"WorkflowTemplate"> | string
+    description?: StringNullableFilter<"WorkflowTemplate"> | string | null
+    category?: StringFilter<"WorkflowTemplate"> | string
+    definition?: JsonFilter<"WorkflowTemplate">
+    isPublic?: BoolFilter<"WorkflowTemplate"> | boolean
+    creatorId?: StringNullableFilter<"WorkflowTemplate"> | string | null
+    metadata?: JsonNullableFilter<"WorkflowTemplate">
+    usageCount?: IntFilter<"WorkflowTemplate"> | number
+    createdAt?: DateTimeFilter<"WorkflowTemplate"> | Date | string
+    updatedAt?: DateTimeFilter<"WorkflowTemplate"> | Date | string
+    creator?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+  }
+
+  export type WorkflowTemplateOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    category?: SortOrder
+    definition?: SortOrder
+    isPublic?: SortOrder
+    creatorId?: SortOrderInput | SortOrder
+    metadata?: SortOrderInput | SortOrder
+    usageCount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    creator?: UserOrderByWithRelationInput
+  }
+
+  export type WorkflowTemplateWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: WorkflowTemplateWhereInput | WorkflowTemplateWhereInput[]
+    OR?: WorkflowTemplateWhereInput[]
+    NOT?: WorkflowTemplateWhereInput | WorkflowTemplateWhereInput[]
+    name?: StringFilter<"WorkflowTemplate"> | string
+    description?: StringNullableFilter<"WorkflowTemplate"> | string | null
+    category?: StringFilter<"WorkflowTemplate"> | string
+    definition?: JsonFilter<"WorkflowTemplate">
+    isPublic?: BoolFilter<"WorkflowTemplate"> | boolean
+    creatorId?: StringNullableFilter<"WorkflowTemplate"> | string | null
+    metadata?: JsonNullableFilter<"WorkflowTemplate">
+    usageCount?: IntFilter<"WorkflowTemplate"> | number
+    createdAt?: DateTimeFilter<"WorkflowTemplate"> | Date | string
+    updatedAt?: DateTimeFilter<"WorkflowTemplate"> | Date | string
+    creator?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+  }, "id">
+
+  export type WorkflowTemplateOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    category?: SortOrder
+    definition?: SortOrder
+    isPublic?: SortOrder
+    creatorId?: SortOrderInput | SortOrder
+    metadata?: SortOrderInput | SortOrder
+    usageCount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: WorkflowTemplateCountOrderByAggregateInput
+    _avg?: WorkflowTemplateAvgOrderByAggregateInput
+    _max?: WorkflowTemplateMaxOrderByAggregateInput
+    _min?: WorkflowTemplateMinOrderByAggregateInput
+    _sum?: WorkflowTemplateSumOrderByAggregateInput
+  }
+
+  export type WorkflowTemplateScalarWhereWithAggregatesInput = {
+    AND?: WorkflowTemplateScalarWhereWithAggregatesInput | WorkflowTemplateScalarWhereWithAggregatesInput[]
+    OR?: WorkflowTemplateScalarWhereWithAggregatesInput[]
+    NOT?: WorkflowTemplateScalarWhereWithAggregatesInput | WorkflowTemplateScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"WorkflowTemplate"> | string
+    name?: StringWithAggregatesFilter<"WorkflowTemplate"> | string
+    description?: StringNullableWithAggregatesFilter<"WorkflowTemplate"> | string | null
+    category?: StringWithAggregatesFilter<"WorkflowTemplate"> | string
+    definition?: JsonWithAggregatesFilter<"WorkflowTemplate">
+    isPublic?: BoolWithAggregatesFilter<"WorkflowTemplate"> | boolean
+    creatorId?: StringNullableWithAggregatesFilter<"WorkflowTemplate"> | string | null
+    metadata?: JsonNullableWithAggregatesFilter<"WorkflowTemplate">
+    usageCount?: IntWithAggregatesFilter<"WorkflowTemplate"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"WorkflowTemplate"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"WorkflowTemplate"> | Date | string
   }
 
   export type PipelineWhereInput = {
@@ -53323,6 +58471,252 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"AgentPromptVersion"> | Date | string
   }
 
+  export type PromptTemplateWhereInput = {
+    AND?: PromptTemplateWhereInput | PromptTemplateWhereInput[]
+    OR?: PromptTemplateWhereInput[]
+    NOT?: PromptTemplateWhereInput | PromptTemplateWhereInput[]
+    id?: StringFilter<"PromptTemplate"> | string
+    name?: StringFilter<"PromptTemplate"> | string
+    description?: StringNullableFilter<"PromptTemplate"> | string | null
+    currentVersionId?: StringNullableFilter<"PromptTemplate"> | string | null
+    isPublic?: BoolFilter<"PromptTemplate"> | boolean
+    category?: StringNullableFilter<"PromptTemplate"> | string | null
+    tags?: StringNullableListFilter<"PromptTemplate">
+    analytics?: JsonNullableFilter<"PromptTemplate">
+    createdAt?: DateTimeFilter<"PromptTemplate"> | Date | string
+    updatedAt?: DateTimeFilter<"PromptTemplate"> | Date | string
+    versions?: PromptVersionListRelationFilter
+  }
+
+  export type PromptTemplateOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    currentVersionId?: SortOrderInput | SortOrder
+    isPublic?: SortOrder
+    category?: SortOrderInput | SortOrder
+    tags?: SortOrder
+    analytics?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    versions?: PromptVersionOrderByRelationAggregateInput
+  }
+
+  export type PromptTemplateWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: PromptTemplateWhereInput | PromptTemplateWhereInput[]
+    OR?: PromptTemplateWhereInput[]
+    NOT?: PromptTemplateWhereInput | PromptTemplateWhereInput[]
+    name?: StringFilter<"PromptTemplate"> | string
+    description?: StringNullableFilter<"PromptTemplate"> | string | null
+    currentVersionId?: StringNullableFilter<"PromptTemplate"> | string | null
+    isPublic?: BoolFilter<"PromptTemplate"> | boolean
+    category?: StringNullableFilter<"PromptTemplate"> | string | null
+    tags?: StringNullableListFilter<"PromptTemplate">
+    analytics?: JsonNullableFilter<"PromptTemplate">
+    createdAt?: DateTimeFilter<"PromptTemplate"> | Date | string
+    updatedAt?: DateTimeFilter<"PromptTemplate"> | Date | string
+    versions?: PromptVersionListRelationFilter
+  }, "id">
+
+  export type PromptTemplateOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    currentVersionId?: SortOrderInput | SortOrder
+    isPublic?: SortOrder
+    category?: SortOrderInput | SortOrder
+    tags?: SortOrder
+    analytics?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: PromptTemplateCountOrderByAggregateInput
+    _max?: PromptTemplateMaxOrderByAggregateInput
+    _min?: PromptTemplateMinOrderByAggregateInput
+  }
+
+  export type PromptTemplateScalarWhereWithAggregatesInput = {
+    AND?: PromptTemplateScalarWhereWithAggregatesInput | PromptTemplateScalarWhereWithAggregatesInput[]
+    OR?: PromptTemplateScalarWhereWithAggregatesInput[]
+    NOT?: PromptTemplateScalarWhereWithAggregatesInput | PromptTemplateScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PromptTemplate"> | string
+    name?: StringWithAggregatesFilter<"PromptTemplate"> | string
+    description?: StringNullableWithAggregatesFilter<"PromptTemplate"> | string | null
+    currentVersionId?: StringNullableWithAggregatesFilter<"PromptTemplate"> | string | null
+    isPublic?: BoolWithAggregatesFilter<"PromptTemplate"> | boolean
+    category?: StringNullableWithAggregatesFilter<"PromptTemplate"> | string | null
+    tags?: StringNullableListFilter<"PromptTemplate">
+    analytics?: JsonNullableWithAggregatesFilter<"PromptTemplate">
+    createdAt?: DateTimeWithAggregatesFilter<"PromptTemplate"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"PromptTemplate"> | Date | string
+  }
+
+  export type PromptVersionWhereInput = {
+    AND?: PromptVersionWhereInput | PromptVersionWhereInput[]
+    OR?: PromptVersionWhereInput[]
+    NOT?: PromptVersionWhereInput | PromptVersionWhereInput[]
+    id?: StringFilter<"PromptVersion"> | string
+    templateId?: StringFilter<"PromptVersion"> | string
+    version?: IntFilter<"PromptVersion"> | number
+    label?: StringNullableFilter<"PromptVersion"> | string | null
+    content?: StringFilter<"PromptVersion"> | string
+    variables?: JsonNullableFilter<"PromptVersion">
+    metrics?: JsonNullableFilter<"PromptVersion">
+    changelog?: StringNullableFilter<"PromptVersion"> | string | null
+    isActive?: BoolFilter<"PromptVersion"> | boolean
+    createdAt?: DateTimeFilter<"PromptVersion"> | Date | string
+    template?: XOR<PromptTemplateScalarRelationFilter, PromptTemplateWhereInput>
+  }
+
+  export type PromptVersionOrderByWithRelationInput = {
+    id?: SortOrder
+    templateId?: SortOrder
+    version?: SortOrder
+    label?: SortOrderInput | SortOrder
+    content?: SortOrder
+    variables?: SortOrderInput | SortOrder
+    metrics?: SortOrderInput | SortOrder
+    changelog?: SortOrderInput | SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    template?: PromptTemplateOrderByWithRelationInput
+  }
+
+  export type PromptVersionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: PromptVersionWhereInput | PromptVersionWhereInput[]
+    OR?: PromptVersionWhereInput[]
+    NOT?: PromptVersionWhereInput | PromptVersionWhereInput[]
+    templateId?: StringFilter<"PromptVersion"> | string
+    version?: IntFilter<"PromptVersion"> | number
+    label?: StringNullableFilter<"PromptVersion"> | string | null
+    content?: StringFilter<"PromptVersion"> | string
+    variables?: JsonNullableFilter<"PromptVersion">
+    metrics?: JsonNullableFilter<"PromptVersion">
+    changelog?: StringNullableFilter<"PromptVersion"> | string | null
+    isActive?: BoolFilter<"PromptVersion"> | boolean
+    createdAt?: DateTimeFilter<"PromptVersion"> | Date | string
+    template?: XOR<PromptTemplateScalarRelationFilter, PromptTemplateWhereInput>
+  }, "id">
+
+  export type PromptVersionOrderByWithAggregationInput = {
+    id?: SortOrder
+    templateId?: SortOrder
+    version?: SortOrder
+    label?: SortOrderInput | SortOrder
+    content?: SortOrder
+    variables?: SortOrderInput | SortOrder
+    metrics?: SortOrderInput | SortOrder
+    changelog?: SortOrderInput | SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    _count?: PromptVersionCountOrderByAggregateInput
+    _avg?: PromptVersionAvgOrderByAggregateInput
+    _max?: PromptVersionMaxOrderByAggregateInput
+    _min?: PromptVersionMinOrderByAggregateInput
+    _sum?: PromptVersionSumOrderByAggregateInput
+  }
+
+  export type PromptVersionScalarWhereWithAggregatesInput = {
+    AND?: PromptVersionScalarWhereWithAggregatesInput | PromptVersionScalarWhereWithAggregatesInput[]
+    OR?: PromptVersionScalarWhereWithAggregatesInput[]
+    NOT?: PromptVersionScalarWhereWithAggregatesInput | PromptVersionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PromptVersion"> | string
+    templateId?: StringWithAggregatesFilter<"PromptVersion"> | string
+    version?: IntWithAggregatesFilter<"PromptVersion"> | number
+    label?: StringNullableWithAggregatesFilter<"PromptVersion"> | string | null
+    content?: StringWithAggregatesFilter<"PromptVersion"> | string
+    variables?: JsonNullableWithAggregatesFilter<"PromptVersion">
+    metrics?: JsonNullableWithAggregatesFilter<"PromptVersion">
+    changelog?: StringNullableWithAggregatesFilter<"PromptVersion"> | string | null
+    isActive?: BoolWithAggregatesFilter<"PromptVersion"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"PromptVersion"> | Date | string
+  }
+
+  export type PromptSnippetWhereInput = {
+    AND?: PromptSnippetWhereInput | PromptSnippetWhereInput[]
+    OR?: PromptSnippetWhereInput[]
+    NOT?: PromptSnippetWhereInput | PromptSnippetWhereInput[]
+    id?: StringFilter<"PromptSnippet"> | string
+    name?: StringFilter<"PromptSnippet"> | string
+    content?: StringFilter<"PromptSnippet"> | string
+    type?: StringFilter<"PromptSnippet"> | string
+    category?: StringNullableFilter<"PromptSnippet"> | string | null
+    tags?: StringNullableListFilter<"PromptSnippet">
+    usageCount?: IntFilter<"PromptSnippet"> | number
+    description?: StringNullableFilter<"PromptSnippet"> | string | null
+    isStarred?: BoolFilter<"PromptSnippet"> | boolean
+    createdAt?: DateTimeFilter<"PromptSnippet"> | Date | string
+    updatedAt?: DateTimeFilter<"PromptSnippet"> | Date | string
+  }
+
+  export type PromptSnippetOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    content?: SortOrder
+    type?: SortOrder
+    category?: SortOrderInput | SortOrder
+    tags?: SortOrder
+    usageCount?: SortOrder
+    description?: SortOrderInput | SortOrder
+    isStarred?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PromptSnippetWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: PromptSnippetWhereInput | PromptSnippetWhereInput[]
+    OR?: PromptSnippetWhereInput[]
+    NOT?: PromptSnippetWhereInput | PromptSnippetWhereInput[]
+    name?: StringFilter<"PromptSnippet"> | string
+    content?: StringFilter<"PromptSnippet"> | string
+    type?: StringFilter<"PromptSnippet"> | string
+    category?: StringNullableFilter<"PromptSnippet"> | string | null
+    tags?: StringNullableListFilter<"PromptSnippet">
+    usageCount?: IntFilter<"PromptSnippet"> | number
+    description?: StringNullableFilter<"PromptSnippet"> | string | null
+    isStarred?: BoolFilter<"PromptSnippet"> | boolean
+    createdAt?: DateTimeFilter<"PromptSnippet"> | Date | string
+    updatedAt?: DateTimeFilter<"PromptSnippet"> | Date | string
+  }, "id">
+
+  export type PromptSnippetOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    content?: SortOrder
+    type?: SortOrder
+    category?: SortOrderInput | SortOrder
+    tags?: SortOrder
+    usageCount?: SortOrder
+    description?: SortOrderInput | SortOrder
+    isStarred?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: PromptSnippetCountOrderByAggregateInput
+    _avg?: PromptSnippetAvgOrderByAggregateInput
+    _max?: PromptSnippetMaxOrderByAggregateInput
+    _min?: PromptSnippetMinOrderByAggregateInput
+    _sum?: PromptSnippetSumOrderByAggregateInput
+  }
+
+  export type PromptSnippetScalarWhereWithAggregatesInput = {
+    AND?: PromptSnippetScalarWhereWithAggregatesInput | PromptSnippetScalarWhereWithAggregatesInput[]
+    OR?: PromptSnippetScalarWhereWithAggregatesInput[]
+    NOT?: PromptSnippetScalarWhereWithAggregatesInput | PromptSnippetScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PromptSnippet"> | string
+    name?: StringWithAggregatesFilter<"PromptSnippet"> | string
+    content?: StringWithAggregatesFilter<"PromptSnippet"> | string
+    type?: StringWithAggregatesFilter<"PromptSnippet"> | string
+    category?: StringNullableWithAggregatesFilter<"PromptSnippet"> | string | null
+    tags?: StringNullableListFilter<"PromptSnippet">
+    usageCount?: IntWithAggregatesFilter<"PromptSnippet"> | number
+    description?: StringNullableWithAggregatesFilter<"PromptSnippet"> | string | null
+    isStarred?: BoolWithAggregatesFilter<"PromptSnippet"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"PromptSnippet"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"PromptSnippet"> | Date | string
+  }
+
   export type ValidationDatasetWhereInput = {
     AND?: ValidationDatasetWhereInput | ValidationDatasetWhereInput[]
     OR?: ValidationDatasetWhereInput[]
@@ -53667,6 +59061,7 @@ export namespace Prisma {
     messages?: MessageCreateNestedManyWithoutSenderInput
     authSessions?: AuthSessionCreateNestedManyWithoutUserInput
     loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventCreateNestedManyWithoutUserInput
   }
 
@@ -53694,6 +59089,7 @@ export namespace Prisma {
     messages?: MessageUncheckedCreateNestedManyWithoutSenderInput
     authSessions?: AuthSessionUncheckedCreateNestedManyWithoutUserInput
     loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -53721,6 +59117,7 @@ export namespace Prisma {
     messages?: MessageUpdateManyWithoutSenderNestedInput
     authSessions?: AuthSessionUpdateManyWithoutUserNestedInput
     loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUpdateManyWithoutUserNestedInput
   }
 
@@ -53748,6 +59145,7 @@ export namespace Prisma {
     messages?: MessageUncheckedUpdateManyWithoutSenderNestedInput
     authSessions?: AuthSessionUncheckedUpdateManyWithoutUserNestedInput
     loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -54936,6 +60334,103 @@ export namespace Prisma {
     error?: NullableStringFieldUpdateOperationsInput | string | null
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type WorkflowTemplateCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    category?: string
+    definition: JsonNullValueInput | InputJsonValue
+    isPublic?: boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    usageCount?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    creator?: UserCreateNestedOneWithoutWorkflowTemplatesInput
+  }
+
+  export type WorkflowTemplateUncheckedCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    category?: string
+    definition: JsonNullValueInput | InputJsonValue
+    isPublic?: boolean
+    creatorId?: string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    usageCount?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WorkflowTemplateUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    definition?: JsonNullValueInput | InputJsonValue
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    usageCount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    creator?: UserUpdateOneWithoutWorkflowTemplatesNestedInput
+  }
+
+  export type WorkflowTemplateUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    definition?: JsonNullValueInput | InputJsonValue
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    creatorId?: NullableStringFieldUpdateOperationsInput | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    usageCount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WorkflowTemplateCreateManyInput = {
+    id?: string
+    name: string
+    description?: string | null
+    category?: string
+    definition: JsonNullValueInput | InputJsonValue
+    isPublic?: boolean
+    creatorId?: string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    usageCount?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WorkflowTemplateUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    definition?: JsonNullValueInput | InputJsonValue
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    usageCount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WorkflowTemplateUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    definition?: JsonNullValueInput | InputJsonValue
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    creatorId?: NullableStringFieldUpdateOperationsInput | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    usageCount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PipelineCreateInput = {
@@ -56953,6 +62448,289 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type PromptTemplateCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    currentVersionId?: string | null
+    isPublic?: boolean
+    category?: string | null
+    tags?: PromptTemplateCreatetagsInput | string[]
+    analytics?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    versions?: PromptVersionCreateNestedManyWithoutTemplateInput
+  }
+
+  export type PromptTemplateUncheckedCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    currentVersionId?: string | null
+    isPublic?: boolean
+    category?: string | null
+    tags?: PromptTemplateCreatetagsInput | string[]
+    analytics?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    versions?: PromptVersionUncheckedCreateNestedManyWithoutTemplateInput
+  }
+
+  export type PromptTemplateUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    currentVersionId?: NullableStringFieldUpdateOperationsInput | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: PromptTemplateUpdatetagsInput | string[]
+    analytics?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    versions?: PromptVersionUpdateManyWithoutTemplateNestedInput
+  }
+
+  export type PromptTemplateUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    currentVersionId?: NullableStringFieldUpdateOperationsInput | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: PromptTemplateUpdatetagsInput | string[]
+    analytics?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    versions?: PromptVersionUncheckedUpdateManyWithoutTemplateNestedInput
+  }
+
+  export type PromptTemplateCreateManyInput = {
+    id?: string
+    name: string
+    description?: string | null
+    currentVersionId?: string | null
+    isPublic?: boolean
+    category?: string | null
+    tags?: PromptTemplateCreatetagsInput | string[]
+    analytics?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PromptTemplateUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    currentVersionId?: NullableStringFieldUpdateOperationsInput | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: PromptTemplateUpdatetagsInput | string[]
+    analytics?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PromptTemplateUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    currentVersionId?: NullableStringFieldUpdateOperationsInput | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: PromptTemplateUpdatetagsInput | string[]
+    analytics?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PromptVersionCreateInput = {
+    id?: string
+    version: number
+    label?: string | null
+    content: string
+    variables?: NullableJsonNullValueInput | InputJsonValue
+    metrics?: NullableJsonNullValueInput | InputJsonValue
+    changelog?: string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    template: PromptTemplateCreateNestedOneWithoutVersionsInput
+  }
+
+  export type PromptVersionUncheckedCreateInput = {
+    id?: string
+    templateId: string
+    version: number
+    label?: string | null
+    content: string
+    variables?: NullableJsonNullValueInput | InputJsonValue
+    metrics?: NullableJsonNullValueInput | InputJsonValue
+    changelog?: string | null
+    isActive?: boolean
+    createdAt?: Date | string
+  }
+
+  export type PromptVersionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    version?: IntFieldUpdateOperationsInput | number
+    label?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    variables?: NullableJsonNullValueInput | InputJsonValue
+    metrics?: NullableJsonNullValueInput | InputJsonValue
+    changelog?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    template?: PromptTemplateUpdateOneRequiredWithoutVersionsNestedInput
+  }
+
+  export type PromptVersionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    templateId?: StringFieldUpdateOperationsInput | string
+    version?: IntFieldUpdateOperationsInput | number
+    label?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    variables?: NullableJsonNullValueInput | InputJsonValue
+    metrics?: NullableJsonNullValueInput | InputJsonValue
+    changelog?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PromptVersionCreateManyInput = {
+    id?: string
+    templateId: string
+    version: number
+    label?: string | null
+    content: string
+    variables?: NullableJsonNullValueInput | InputJsonValue
+    metrics?: NullableJsonNullValueInput | InputJsonValue
+    changelog?: string | null
+    isActive?: boolean
+    createdAt?: Date | string
+  }
+
+  export type PromptVersionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    version?: IntFieldUpdateOperationsInput | number
+    label?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    variables?: NullableJsonNullValueInput | InputJsonValue
+    metrics?: NullableJsonNullValueInput | InputJsonValue
+    changelog?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PromptVersionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    templateId?: StringFieldUpdateOperationsInput | string
+    version?: IntFieldUpdateOperationsInput | number
+    label?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    variables?: NullableJsonNullValueInput | InputJsonValue
+    metrics?: NullableJsonNullValueInput | InputJsonValue
+    changelog?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PromptSnippetCreateInput = {
+    id?: string
+    name: string
+    content: string
+    type: string
+    category?: string | null
+    tags?: PromptSnippetCreatetagsInput | string[]
+    usageCount?: number
+    description?: string | null
+    isStarred?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PromptSnippetUncheckedCreateInput = {
+    id?: string
+    name: string
+    content: string
+    type: string
+    category?: string | null
+    tags?: PromptSnippetCreatetagsInput | string[]
+    usageCount?: number
+    description?: string | null
+    isStarred?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PromptSnippetUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: PromptSnippetUpdatetagsInput | string[]
+    usageCount?: IntFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isStarred?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PromptSnippetUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: PromptSnippetUpdatetagsInput | string[]
+    usageCount?: IntFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isStarred?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PromptSnippetCreateManyInput = {
+    id?: string
+    name: string
+    content: string
+    type: string
+    category?: string | null
+    tags?: PromptSnippetCreatetagsInput | string[]
+    usageCount?: number
+    description?: string | null
+    isStarred?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PromptSnippetUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: PromptSnippetUpdatetagsInput | string[]
+    usageCount?: IntFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isStarred?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PromptSnippetUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: PromptSnippetUpdatetagsInput | string[]
+    usageCount?: IntFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isStarred?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type ValidationDatasetCreateInput = {
     id?: string
     name: string
@@ -57453,6 +63231,12 @@ export namespace Prisma {
     none?: LoginAttemptWhereInput
   }
 
+  export type WorkflowTemplateListRelationFilter = {
+    every?: WorkflowTemplateWhereInput
+    some?: WorkflowTemplateWhereInput
+    none?: WorkflowTemplateWhereInput
+  }
+
   export type AuthEventListRelationFilter = {
     every?: AuthEventWhereInput
     some?: AuthEventWhereInput
@@ -57493,6 +63277,10 @@ export namespace Prisma {
   }
 
   export type LoginAttemptOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type WorkflowTemplateOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -58390,6 +64178,52 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumWorkflowExecutionStatusFilter<$PrismaModel>
     _max?: NestedEnumWorkflowExecutionStatusFilter<$PrismaModel>
+  }
+
+  export type WorkflowTemplateCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    definition?: SortOrder
+    isPublic?: SortOrder
+    creatorId?: SortOrder
+    metadata?: SortOrder
+    usageCount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type WorkflowTemplateAvgOrderByAggregateInput = {
+    usageCount?: SortOrder
+  }
+
+  export type WorkflowTemplateMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    isPublic?: SortOrder
+    creatorId?: SortOrder
+    usageCount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type WorkflowTemplateMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    isPublic?: SortOrder
+    creatorId?: SortOrder
+    usageCount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type WorkflowTemplateSumOrderByAggregateInput = {
+    usageCount?: SortOrder
   }
 
   export type EnumPipelineStatusFilter<$PrismaModel = never> = {
@@ -59770,6 +65604,147 @@ export namespace Prisma {
     versionNumber?: SortOrder
   }
 
+  export type PromptVersionListRelationFilter = {
+    every?: PromptVersionWhereInput
+    some?: PromptVersionWhereInput
+    none?: PromptVersionWhereInput
+  }
+
+  export type PromptVersionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PromptTemplateCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    currentVersionId?: SortOrder
+    isPublic?: SortOrder
+    category?: SortOrder
+    tags?: SortOrder
+    analytics?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PromptTemplateMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    currentVersionId?: SortOrder
+    isPublic?: SortOrder
+    category?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PromptTemplateMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    currentVersionId?: SortOrder
+    isPublic?: SortOrder
+    category?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PromptTemplateScalarRelationFilter = {
+    is?: PromptTemplateWhereInput
+    isNot?: PromptTemplateWhereInput
+  }
+
+  export type PromptVersionCountOrderByAggregateInput = {
+    id?: SortOrder
+    templateId?: SortOrder
+    version?: SortOrder
+    label?: SortOrder
+    content?: SortOrder
+    variables?: SortOrder
+    metrics?: SortOrder
+    changelog?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type PromptVersionAvgOrderByAggregateInput = {
+    version?: SortOrder
+  }
+
+  export type PromptVersionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    templateId?: SortOrder
+    version?: SortOrder
+    label?: SortOrder
+    content?: SortOrder
+    changelog?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type PromptVersionMinOrderByAggregateInput = {
+    id?: SortOrder
+    templateId?: SortOrder
+    version?: SortOrder
+    label?: SortOrder
+    content?: SortOrder
+    changelog?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type PromptVersionSumOrderByAggregateInput = {
+    version?: SortOrder
+  }
+
+  export type PromptSnippetCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    content?: SortOrder
+    type?: SortOrder
+    category?: SortOrder
+    tags?: SortOrder
+    usageCount?: SortOrder
+    description?: SortOrder
+    isStarred?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PromptSnippetAvgOrderByAggregateInput = {
+    usageCount?: SortOrder
+  }
+
+  export type PromptSnippetMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    content?: SortOrder
+    type?: SortOrder
+    category?: SortOrder
+    usageCount?: SortOrder
+    description?: SortOrder
+    isStarred?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PromptSnippetMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    content?: SortOrder
+    type?: SortOrder
+    category?: SortOrder
+    usageCount?: SortOrder
+    description?: SortOrder
+    isStarred?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PromptSnippetSumOrderByAggregateInput = {
+    usageCount?: SortOrder
+  }
+
   export type ValidationDatasetCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -59991,6 +65966,13 @@ export namespace Prisma {
     connect?: LoginAttemptWhereUniqueInput | LoginAttemptWhereUniqueInput[]
   }
 
+  export type WorkflowTemplateCreateNestedManyWithoutCreatorInput = {
+    create?: XOR<WorkflowTemplateCreateWithoutCreatorInput, WorkflowTemplateUncheckedCreateWithoutCreatorInput> | WorkflowTemplateCreateWithoutCreatorInput[] | WorkflowTemplateUncheckedCreateWithoutCreatorInput[]
+    connectOrCreate?: WorkflowTemplateCreateOrConnectWithoutCreatorInput | WorkflowTemplateCreateOrConnectWithoutCreatorInput[]
+    createMany?: WorkflowTemplateCreateManyCreatorInputEnvelope
+    connect?: WorkflowTemplateWhereUniqueInput | WorkflowTemplateWhereUniqueInput[]
+  }
+
   export type AuthEventCreateNestedManyWithoutUserInput = {
     create?: XOR<AuthEventCreateWithoutUserInput, AuthEventUncheckedCreateWithoutUserInput> | AuthEventCreateWithoutUserInput[] | AuthEventUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AuthEventCreateOrConnectWithoutUserInput | AuthEventCreateOrConnectWithoutUserInput[]
@@ -60052,6 +66034,13 @@ export namespace Prisma {
     connectOrCreate?: LoginAttemptCreateOrConnectWithoutUserInput | LoginAttemptCreateOrConnectWithoutUserInput[]
     createMany?: LoginAttemptCreateManyUserInputEnvelope
     connect?: LoginAttemptWhereUniqueInput | LoginAttemptWhereUniqueInput[]
+  }
+
+  export type WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput = {
+    create?: XOR<WorkflowTemplateCreateWithoutCreatorInput, WorkflowTemplateUncheckedCreateWithoutCreatorInput> | WorkflowTemplateCreateWithoutCreatorInput[] | WorkflowTemplateUncheckedCreateWithoutCreatorInput[]
+    connectOrCreate?: WorkflowTemplateCreateOrConnectWithoutCreatorInput | WorkflowTemplateCreateOrConnectWithoutCreatorInput[]
+    createMany?: WorkflowTemplateCreateManyCreatorInputEnvelope
+    connect?: WorkflowTemplateWhereUniqueInput | WorkflowTemplateWhereUniqueInput[]
   }
 
   export type AuthEventUncheckedCreateNestedManyWithoutUserInput = {
@@ -60202,6 +66191,20 @@ export namespace Prisma {
     deleteMany?: LoginAttemptScalarWhereInput | LoginAttemptScalarWhereInput[]
   }
 
+  export type WorkflowTemplateUpdateManyWithoutCreatorNestedInput = {
+    create?: XOR<WorkflowTemplateCreateWithoutCreatorInput, WorkflowTemplateUncheckedCreateWithoutCreatorInput> | WorkflowTemplateCreateWithoutCreatorInput[] | WorkflowTemplateUncheckedCreateWithoutCreatorInput[]
+    connectOrCreate?: WorkflowTemplateCreateOrConnectWithoutCreatorInput | WorkflowTemplateCreateOrConnectWithoutCreatorInput[]
+    upsert?: WorkflowTemplateUpsertWithWhereUniqueWithoutCreatorInput | WorkflowTemplateUpsertWithWhereUniqueWithoutCreatorInput[]
+    createMany?: WorkflowTemplateCreateManyCreatorInputEnvelope
+    set?: WorkflowTemplateWhereUniqueInput | WorkflowTemplateWhereUniqueInput[]
+    disconnect?: WorkflowTemplateWhereUniqueInput | WorkflowTemplateWhereUniqueInput[]
+    delete?: WorkflowTemplateWhereUniqueInput | WorkflowTemplateWhereUniqueInput[]
+    connect?: WorkflowTemplateWhereUniqueInput | WorkflowTemplateWhereUniqueInput[]
+    update?: WorkflowTemplateUpdateWithWhereUniqueWithoutCreatorInput | WorkflowTemplateUpdateWithWhereUniqueWithoutCreatorInput[]
+    updateMany?: WorkflowTemplateUpdateManyWithWhereWithoutCreatorInput | WorkflowTemplateUpdateManyWithWhereWithoutCreatorInput[]
+    deleteMany?: WorkflowTemplateScalarWhereInput | WorkflowTemplateScalarWhereInput[]
+  }
+
   export type AuthEventUpdateManyWithoutUserNestedInput = {
     create?: XOR<AuthEventCreateWithoutUserInput, AuthEventUncheckedCreateWithoutUserInput> | AuthEventCreateWithoutUserInput[] | AuthEventUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AuthEventCreateOrConnectWithoutUserInput | AuthEventCreateOrConnectWithoutUserInput[]
@@ -60326,6 +66329,20 @@ export namespace Prisma {
     update?: LoginAttemptUpdateWithWhereUniqueWithoutUserInput | LoginAttemptUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: LoginAttemptUpdateManyWithWhereWithoutUserInput | LoginAttemptUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: LoginAttemptScalarWhereInput | LoginAttemptScalarWhereInput[]
+  }
+
+  export type WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput = {
+    create?: XOR<WorkflowTemplateCreateWithoutCreatorInput, WorkflowTemplateUncheckedCreateWithoutCreatorInput> | WorkflowTemplateCreateWithoutCreatorInput[] | WorkflowTemplateUncheckedCreateWithoutCreatorInput[]
+    connectOrCreate?: WorkflowTemplateCreateOrConnectWithoutCreatorInput | WorkflowTemplateCreateOrConnectWithoutCreatorInput[]
+    upsert?: WorkflowTemplateUpsertWithWhereUniqueWithoutCreatorInput | WorkflowTemplateUpsertWithWhereUniqueWithoutCreatorInput[]
+    createMany?: WorkflowTemplateCreateManyCreatorInputEnvelope
+    set?: WorkflowTemplateWhereUniqueInput | WorkflowTemplateWhereUniqueInput[]
+    disconnect?: WorkflowTemplateWhereUniqueInput | WorkflowTemplateWhereUniqueInput[]
+    delete?: WorkflowTemplateWhereUniqueInput | WorkflowTemplateWhereUniqueInput[]
+    connect?: WorkflowTemplateWhereUniqueInput | WorkflowTemplateWhereUniqueInput[]
+    update?: WorkflowTemplateUpdateWithWhereUniqueWithoutCreatorInput | WorkflowTemplateUpdateWithWhereUniqueWithoutCreatorInput[]
+    updateMany?: WorkflowTemplateUpdateManyWithWhereWithoutCreatorInput | WorkflowTemplateUpdateManyWithWhereWithoutCreatorInput[]
+    deleteMany?: WorkflowTemplateScalarWhereInput | WorkflowTemplateScalarWhereInput[]
   }
 
   export type AuthEventUncheckedUpdateManyWithoutUserNestedInput = {
@@ -61369,6 +67386,22 @@ export namespace Prisma {
     update?: XOR<XOR<WorkflowUpdateToOneWithWhereWithoutExecutionsInput, WorkflowUpdateWithoutExecutionsInput>, WorkflowUncheckedUpdateWithoutExecutionsInput>
   }
 
+  export type UserCreateNestedOneWithoutWorkflowTemplatesInput = {
+    create?: XOR<UserCreateWithoutWorkflowTemplatesInput, UserUncheckedCreateWithoutWorkflowTemplatesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutWorkflowTemplatesInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneWithoutWorkflowTemplatesNestedInput = {
+    create?: XOR<UserCreateWithoutWorkflowTemplatesInput, UserUncheckedCreateWithoutWorkflowTemplatesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutWorkflowTemplatesInput
+    upsert?: UserUpsertWithoutWorkflowTemplatesInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutWorkflowTemplatesInput, UserUpdateWithoutWorkflowTemplatesInput>, UserUncheckedUpdateWithoutWorkflowTemplatesInput>
+  }
+
   export type UserCreateNestedOneWithoutPipelinesInput = {
     create?: XOR<UserCreateWithoutPipelinesInput, UserUncheckedCreateWithoutPipelinesInput>
     connectOrCreate?: UserCreateOrConnectWithoutPipelinesInput
@@ -62196,6 +68229,80 @@ export namespace Prisma {
     upsert?: AgentUpsertWithoutPromptVersionsInput
     connect?: AgentWhereUniqueInput
     update?: XOR<XOR<AgentUpdateToOneWithWhereWithoutPromptVersionsInput, AgentUpdateWithoutPromptVersionsInput>, AgentUncheckedUpdateWithoutPromptVersionsInput>
+  }
+
+  export type PromptTemplateCreatetagsInput = {
+    set: string[]
+  }
+
+  export type PromptVersionCreateNestedManyWithoutTemplateInput = {
+    create?: XOR<PromptVersionCreateWithoutTemplateInput, PromptVersionUncheckedCreateWithoutTemplateInput> | PromptVersionCreateWithoutTemplateInput[] | PromptVersionUncheckedCreateWithoutTemplateInput[]
+    connectOrCreate?: PromptVersionCreateOrConnectWithoutTemplateInput | PromptVersionCreateOrConnectWithoutTemplateInput[]
+    createMany?: PromptVersionCreateManyTemplateInputEnvelope
+    connect?: PromptVersionWhereUniqueInput | PromptVersionWhereUniqueInput[]
+  }
+
+  export type PromptVersionUncheckedCreateNestedManyWithoutTemplateInput = {
+    create?: XOR<PromptVersionCreateWithoutTemplateInput, PromptVersionUncheckedCreateWithoutTemplateInput> | PromptVersionCreateWithoutTemplateInput[] | PromptVersionUncheckedCreateWithoutTemplateInput[]
+    connectOrCreate?: PromptVersionCreateOrConnectWithoutTemplateInput | PromptVersionCreateOrConnectWithoutTemplateInput[]
+    createMany?: PromptVersionCreateManyTemplateInputEnvelope
+    connect?: PromptVersionWhereUniqueInput | PromptVersionWhereUniqueInput[]
+  }
+
+  export type PromptTemplateUpdatetagsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type PromptVersionUpdateManyWithoutTemplateNestedInput = {
+    create?: XOR<PromptVersionCreateWithoutTemplateInput, PromptVersionUncheckedCreateWithoutTemplateInput> | PromptVersionCreateWithoutTemplateInput[] | PromptVersionUncheckedCreateWithoutTemplateInput[]
+    connectOrCreate?: PromptVersionCreateOrConnectWithoutTemplateInput | PromptVersionCreateOrConnectWithoutTemplateInput[]
+    upsert?: PromptVersionUpsertWithWhereUniqueWithoutTemplateInput | PromptVersionUpsertWithWhereUniqueWithoutTemplateInput[]
+    createMany?: PromptVersionCreateManyTemplateInputEnvelope
+    set?: PromptVersionWhereUniqueInput | PromptVersionWhereUniqueInput[]
+    disconnect?: PromptVersionWhereUniqueInput | PromptVersionWhereUniqueInput[]
+    delete?: PromptVersionWhereUniqueInput | PromptVersionWhereUniqueInput[]
+    connect?: PromptVersionWhereUniqueInput | PromptVersionWhereUniqueInput[]
+    update?: PromptVersionUpdateWithWhereUniqueWithoutTemplateInput | PromptVersionUpdateWithWhereUniqueWithoutTemplateInput[]
+    updateMany?: PromptVersionUpdateManyWithWhereWithoutTemplateInput | PromptVersionUpdateManyWithWhereWithoutTemplateInput[]
+    deleteMany?: PromptVersionScalarWhereInput | PromptVersionScalarWhereInput[]
+  }
+
+  export type PromptVersionUncheckedUpdateManyWithoutTemplateNestedInput = {
+    create?: XOR<PromptVersionCreateWithoutTemplateInput, PromptVersionUncheckedCreateWithoutTemplateInput> | PromptVersionCreateWithoutTemplateInput[] | PromptVersionUncheckedCreateWithoutTemplateInput[]
+    connectOrCreate?: PromptVersionCreateOrConnectWithoutTemplateInput | PromptVersionCreateOrConnectWithoutTemplateInput[]
+    upsert?: PromptVersionUpsertWithWhereUniqueWithoutTemplateInput | PromptVersionUpsertWithWhereUniqueWithoutTemplateInput[]
+    createMany?: PromptVersionCreateManyTemplateInputEnvelope
+    set?: PromptVersionWhereUniqueInput | PromptVersionWhereUniqueInput[]
+    disconnect?: PromptVersionWhereUniqueInput | PromptVersionWhereUniqueInput[]
+    delete?: PromptVersionWhereUniqueInput | PromptVersionWhereUniqueInput[]
+    connect?: PromptVersionWhereUniqueInput | PromptVersionWhereUniqueInput[]
+    update?: PromptVersionUpdateWithWhereUniqueWithoutTemplateInput | PromptVersionUpdateWithWhereUniqueWithoutTemplateInput[]
+    updateMany?: PromptVersionUpdateManyWithWhereWithoutTemplateInput | PromptVersionUpdateManyWithWhereWithoutTemplateInput[]
+    deleteMany?: PromptVersionScalarWhereInput | PromptVersionScalarWhereInput[]
+  }
+
+  export type PromptTemplateCreateNestedOneWithoutVersionsInput = {
+    create?: XOR<PromptTemplateCreateWithoutVersionsInput, PromptTemplateUncheckedCreateWithoutVersionsInput>
+    connectOrCreate?: PromptTemplateCreateOrConnectWithoutVersionsInput
+    connect?: PromptTemplateWhereUniqueInput
+  }
+
+  export type PromptTemplateUpdateOneRequiredWithoutVersionsNestedInput = {
+    create?: XOR<PromptTemplateCreateWithoutVersionsInput, PromptTemplateUncheckedCreateWithoutVersionsInput>
+    connectOrCreate?: PromptTemplateCreateOrConnectWithoutVersionsInput
+    upsert?: PromptTemplateUpsertWithoutVersionsInput
+    connect?: PromptTemplateWhereUniqueInput
+    update?: XOR<XOR<PromptTemplateUpdateToOneWithWhereWithoutVersionsInput, PromptTemplateUpdateWithoutVersionsInput>, PromptTemplateUncheckedUpdateWithoutVersionsInput>
+  }
+
+  export type PromptSnippetCreatetagsInput = {
+    set: string[]
+  }
+
+  export type PromptSnippetUpdatetagsInput = {
+    set?: string[]
+    push?: string | string[]
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -63157,6 +69264,42 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type WorkflowTemplateCreateWithoutCreatorInput = {
+    id?: string
+    name: string
+    description?: string | null
+    category?: string
+    definition: JsonNullValueInput | InputJsonValue
+    isPublic?: boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    usageCount?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WorkflowTemplateUncheckedCreateWithoutCreatorInput = {
+    id?: string
+    name: string
+    description?: string | null
+    category?: string
+    definition: JsonNullValueInput | InputJsonValue
+    isPublic?: boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    usageCount?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WorkflowTemplateCreateOrConnectWithoutCreatorInput = {
+    where: WorkflowTemplateWhereUniqueInput
+    create: XOR<WorkflowTemplateCreateWithoutCreatorInput, WorkflowTemplateUncheckedCreateWithoutCreatorInput>
+  }
+
+  export type WorkflowTemplateCreateManyCreatorInputEnvelope = {
+    data: WorkflowTemplateCreateManyCreatorInput | WorkflowTemplateCreateManyCreatorInput[]
+    skipDuplicates?: boolean
+  }
+
   export type AuthEventCreateWithoutUserInput = {
     id?: string
     type: string
@@ -63455,6 +69598,39 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"LoginAttempt"> | Date | string
   }
 
+  export type WorkflowTemplateUpsertWithWhereUniqueWithoutCreatorInput = {
+    where: WorkflowTemplateWhereUniqueInput
+    update: XOR<WorkflowTemplateUpdateWithoutCreatorInput, WorkflowTemplateUncheckedUpdateWithoutCreatorInput>
+    create: XOR<WorkflowTemplateCreateWithoutCreatorInput, WorkflowTemplateUncheckedCreateWithoutCreatorInput>
+  }
+
+  export type WorkflowTemplateUpdateWithWhereUniqueWithoutCreatorInput = {
+    where: WorkflowTemplateWhereUniqueInput
+    data: XOR<WorkflowTemplateUpdateWithoutCreatorInput, WorkflowTemplateUncheckedUpdateWithoutCreatorInput>
+  }
+
+  export type WorkflowTemplateUpdateManyWithWhereWithoutCreatorInput = {
+    where: WorkflowTemplateScalarWhereInput
+    data: XOR<WorkflowTemplateUpdateManyMutationInput, WorkflowTemplateUncheckedUpdateManyWithoutCreatorInput>
+  }
+
+  export type WorkflowTemplateScalarWhereInput = {
+    AND?: WorkflowTemplateScalarWhereInput | WorkflowTemplateScalarWhereInput[]
+    OR?: WorkflowTemplateScalarWhereInput[]
+    NOT?: WorkflowTemplateScalarWhereInput | WorkflowTemplateScalarWhereInput[]
+    id?: StringFilter<"WorkflowTemplate"> | string
+    name?: StringFilter<"WorkflowTemplate"> | string
+    description?: StringNullableFilter<"WorkflowTemplate"> | string | null
+    category?: StringFilter<"WorkflowTemplate"> | string
+    definition?: JsonFilter<"WorkflowTemplate">
+    isPublic?: BoolFilter<"WorkflowTemplate"> | boolean
+    creatorId?: StringNullableFilter<"WorkflowTemplate"> | string | null
+    metadata?: JsonNullableFilter<"WorkflowTemplate">
+    usageCount?: IntFilter<"WorkflowTemplate"> | number
+    createdAt?: DateTimeFilter<"WorkflowTemplate"> | Date | string
+    updatedAt?: DateTimeFilter<"WorkflowTemplate"> | Date | string
+  }
+
   export type AuthEventUpsertWithWhereUniqueWithoutUserInput = {
     where: AuthEventWhereUniqueInput
     update: XOR<AuthEventUpdateWithoutUserInput, AuthEventUncheckedUpdateWithoutUserInput>
@@ -63505,6 +69681,7 @@ export namespace Prisma {
     chatRooms?: ChatRoomCreateNestedManyWithoutOwnerInput
     messages?: MessageCreateNestedManyWithoutSenderInput
     loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventCreateNestedManyWithoutUserInput
   }
 
@@ -63531,6 +69708,7 @@ export namespace Prisma {
     chatRooms?: ChatRoomUncheckedCreateNestedManyWithoutOwnerInput
     messages?: MessageUncheckedCreateNestedManyWithoutSenderInput
     loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -63573,6 +69751,7 @@ export namespace Prisma {
     chatRooms?: ChatRoomUpdateManyWithoutOwnerNestedInput
     messages?: MessageUpdateManyWithoutSenderNestedInput
     loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUpdateManyWithoutUserNestedInput
   }
 
@@ -63599,6 +69778,7 @@ export namespace Prisma {
     chatRooms?: ChatRoomUncheckedUpdateManyWithoutOwnerNestedInput
     messages?: MessageUncheckedUpdateManyWithoutSenderNestedInput
     loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -63625,6 +69805,7 @@ export namespace Prisma {
     chatRooms?: ChatRoomCreateNestedManyWithoutOwnerInput
     messages?: MessageCreateNestedManyWithoutSenderInput
     authSessions?: AuthSessionCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventCreateNestedManyWithoutUserInput
   }
 
@@ -63651,6 +69832,7 @@ export namespace Prisma {
     chatRooms?: ChatRoomUncheckedCreateNestedManyWithoutOwnerInput
     messages?: MessageUncheckedCreateNestedManyWithoutSenderInput
     authSessions?: AuthSessionUncheckedCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -63693,6 +69875,7 @@ export namespace Prisma {
     chatRooms?: ChatRoomUpdateManyWithoutOwnerNestedInput
     messages?: MessageUpdateManyWithoutSenderNestedInput
     authSessions?: AuthSessionUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUpdateManyWithoutUserNestedInput
   }
 
@@ -63719,6 +69902,7 @@ export namespace Prisma {
     chatRooms?: ChatRoomUncheckedUpdateManyWithoutOwnerNestedInput
     messages?: MessageUncheckedUpdateManyWithoutSenderNestedInput
     authSessions?: AuthSessionUncheckedUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -63746,6 +69930,7 @@ export namespace Prisma {
     messages?: MessageCreateNestedManyWithoutSenderInput
     authSessions?: AuthSessionCreateNestedManyWithoutUserInput
     loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
   }
 
   export type UserUncheckedCreateWithoutAuthEventsInput = {
@@ -63772,6 +69957,7 @@ export namespace Prisma {
     messages?: MessageUncheckedCreateNestedManyWithoutSenderInput
     authSessions?: AuthSessionUncheckedCreateNestedManyWithoutUserInput
     loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
   }
 
   export type UserCreateOrConnectWithoutAuthEventsInput = {
@@ -63814,6 +70000,7 @@ export namespace Prisma {
     messages?: MessageUpdateManyWithoutSenderNestedInput
     authSessions?: AuthSessionUpdateManyWithoutUserNestedInput
     loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAuthEventsInput = {
@@ -63840,6 +70027,7 @@ export namespace Prisma {
     messages?: MessageUncheckedUpdateManyWithoutSenderNestedInput
     authSessions?: AuthSessionUncheckedUpdateManyWithoutUserNestedInput
     loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
   }
 
   export type UserCreateWithoutAgentsInput = {
@@ -63865,6 +70053,7 @@ export namespace Prisma {
     messages?: MessageCreateNestedManyWithoutSenderInput
     authSessions?: AuthSessionCreateNestedManyWithoutUserInput
     loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventCreateNestedManyWithoutUserInput
   }
 
@@ -63891,6 +70080,7 @@ export namespace Prisma {
     messages?: MessageUncheckedCreateNestedManyWithoutSenderInput
     authSessions?: AuthSessionUncheckedCreateNestedManyWithoutUserInput
     loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -64445,6 +70635,7 @@ export namespace Prisma {
     messages?: MessageUpdateManyWithoutSenderNestedInput
     authSessions?: AuthSessionUpdateManyWithoutUserNestedInput
     loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUpdateManyWithoutUserNestedInput
   }
 
@@ -64471,6 +70662,7 @@ export namespace Prisma {
     messages?: MessageUncheckedUpdateManyWithoutSenderNestedInput
     authSessions?: AuthSessionUncheckedUpdateManyWithoutUserNestedInput
     loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -65201,6 +71393,7 @@ export namespace Prisma {
     messages?: MessageCreateNestedManyWithoutSenderInput
     authSessions?: AuthSessionCreateNestedManyWithoutUserInput
     loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventCreateNestedManyWithoutUserInput
   }
 
@@ -65227,6 +71420,7 @@ export namespace Prisma {
     messages?: MessageUncheckedCreateNestedManyWithoutSenderInput
     authSessions?: AuthSessionUncheckedCreateNestedManyWithoutUserInput
     loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -65321,6 +71515,7 @@ export namespace Prisma {
     messages?: MessageUpdateManyWithoutSenderNestedInput
     authSessions?: AuthSessionUpdateManyWithoutUserNestedInput
     loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUpdateManyWithoutUserNestedInput
   }
 
@@ -65347,6 +71542,7 @@ export namespace Prisma {
     messages?: MessageUncheckedUpdateManyWithoutSenderNestedInput
     authSessions?: AuthSessionUncheckedUpdateManyWithoutUserNestedInput
     loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -65389,6 +71585,7 @@ export namespace Prisma {
     chatRooms?: ChatRoomCreateNestedManyWithoutOwnerInput
     authSessions?: AuthSessionCreateNestedManyWithoutUserInput
     loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventCreateNestedManyWithoutUserInput
   }
 
@@ -65415,6 +71612,7 @@ export namespace Prisma {
     chatRooms?: ChatRoomUncheckedCreateNestedManyWithoutOwnerInput
     authSessions?: AuthSessionUncheckedCreateNestedManyWithoutUserInput
     loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -65677,6 +71875,7 @@ export namespace Prisma {
     chatRooms?: ChatRoomUpdateManyWithoutOwnerNestedInput
     authSessions?: AuthSessionUpdateManyWithoutUserNestedInput
     loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUpdateManyWithoutUserNestedInput
   }
 
@@ -65703,6 +71902,7 @@ export namespace Prisma {
     chatRooms?: ChatRoomUncheckedUpdateManyWithoutOwnerNestedInput
     authSessions?: AuthSessionUncheckedUpdateManyWithoutUserNestedInput
     loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -65937,6 +72137,7 @@ export namespace Prisma {
     messages?: MessageCreateNestedManyWithoutSenderInput
     authSessions?: AuthSessionCreateNestedManyWithoutUserInput
     loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventCreateNestedManyWithoutUserInput
   }
 
@@ -65963,6 +72164,7 @@ export namespace Prisma {
     messages?: MessageUncheckedCreateNestedManyWithoutSenderInput
     authSessions?: AuthSessionUncheckedCreateNestedManyWithoutUserInput
     loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -66142,6 +72344,7 @@ export namespace Prisma {
     messages?: MessageUpdateManyWithoutSenderNestedInput
     authSessions?: AuthSessionUpdateManyWithoutUserNestedInput
     loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUpdateManyWithoutUserNestedInput
   }
 
@@ -66168,6 +72371,7 @@ export namespace Prisma {
     messages?: MessageUncheckedUpdateManyWithoutSenderNestedInput
     authSessions?: AuthSessionUncheckedUpdateManyWithoutUserNestedInput
     loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -66612,6 +72816,130 @@ export namespace Prisma {
     steps?: WorkflowStepUncheckedUpdateManyWithoutWorkflowNestedInput
   }
 
+  export type UserCreateWithoutWorkflowTemplatesInput = {
+    id?: string
+    email: string
+    username?: string | null
+    name?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    hashedPassword: string
+    role?: $Enums.UserRole
+    roles?: UserCreaterolesInput | $Enums.UserRole[]
+    isActive?: boolean
+    lastLogin?: Date | string | null
+    preferences?: NullableJsonNullValueInput | InputJsonValue
+    refreshToken?: string | null
+    deletedAt?: Date | string | null
+    emailVerified?: boolean
+    agents?: AgentCreateNestedManyWithoutUserInput
+    pipelines?: PipelineCreateNestedManyWithoutUserInput
+    tasks?: TaskCreateNestedManyWithoutUserInput
+    workflows?: WorkflowCreateNestedManyWithoutCreatorInput
+    chatRooms?: ChatRoomCreateNestedManyWithoutOwnerInput
+    messages?: MessageCreateNestedManyWithoutSenderInput
+    authSessions?: AuthSessionCreateNestedManyWithoutUserInput
+    loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
+    authEvents?: AuthEventCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutWorkflowTemplatesInput = {
+    id?: string
+    email: string
+    username?: string | null
+    name?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    hashedPassword: string
+    role?: $Enums.UserRole
+    roles?: UserCreaterolesInput | $Enums.UserRole[]
+    isActive?: boolean
+    lastLogin?: Date | string | null
+    preferences?: NullableJsonNullValueInput | InputJsonValue
+    refreshToken?: string | null
+    deletedAt?: Date | string | null
+    emailVerified?: boolean
+    agents?: AgentUncheckedCreateNestedManyWithoutUserInput
+    pipelines?: PipelineUncheckedCreateNestedManyWithoutUserInput
+    tasks?: TaskUncheckedCreateNestedManyWithoutUserInput
+    workflows?: WorkflowUncheckedCreateNestedManyWithoutCreatorInput
+    chatRooms?: ChatRoomUncheckedCreateNestedManyWithoutOwnerInput
+    messages?: MessageUncheckedCreateNestedManyWithoutSenderInput
+    authSessions?: AuthSessionUncheckedCreateNestedManyWithoutUserInput
+    loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
+    authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutWorkflowTemplatesInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutWorkflowTemplatesInput, UserUncheckedCreateWithoutWorkflowTemplatesInput>
+  }
+
+  export type UserUpsertWithoutWorkflowTemplatesInput = {
+    update: XOR<UserUpdateWithoutWorkflowTemplatesInput, UserUncheckedUpdateWithoutWorkflowTemplatesInput>
+    create: XOR<UserCreateWithoutWorkflowTemplatesInput, UserUncheckedCreateWithoutWorkflowTemplatesInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutWorkflowTemplatesInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutWorkflowTemplatesInput, UserUncheckedUpdateWithoutWorkflowTemplatesInput>
+  }
+
+  export type UserUpdateWithoutWorkflowTemplatesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    username?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    hashedPassword?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    roles?: UserUpdaterolesInput | $Enums.UserRole[]
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    preferences?: NullableJsonNullValueInput | InputJsonValue
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    agents?: AgentUpdateManyWithoutUserNestedInput
+    pipelines?: PipelineUpdateManyWithoutUserNestedInput
+    tasks?: TaskUpdateManyWithoutUserNestedInput
+    workflows?: WorkflowUpdateManyWithoutCreatorNestedInput
+    chatRooms?: ChatRoomUpdateManyWithoutOwnerNestedInput
+    messages?: MessageUpdateManyWithoutSenderNestedInput
+    authSessions?: AuthSessionUpdateManyWithoutUserNestedInput
+    loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
+    authEvents?: AuthEventUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutWorkflowTemplatesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    username?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    hashedPassword?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    roles?: UserUpdaterolesInput | $Enums.UserRole[]
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    preferences?: NullableJsonNullValueInput | InputJsonValue
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    agents?: AgentUncheckedUpdateManyWithoutUserNestedInput
+    pipelines?: PipelineUncheckedUpdateManyWithoutUserNestedInput
+    tasks?: TaskUncheckedUpdateManyWithoutUserNestedInput
+    workflows?: WorkflowUncheckedUpdateManyWithoutCreatorNestedInput
+    chatRooms?: ChatRoomUncheckedUpdateManyWithoutOwnerNestedInput
+    messages?: MessageUncheckedUpdateManyWithoutSenderNestedInput
+    authSessions?: AuthSessionUncheckedUpdateManyWithoutUserNestedInput
+    loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
+    authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
+  }
+
   export type UserCreateWithoutPipelinesInput = {
     id?: string
     email: string
@@ -66635,6 +72963,7 @@ export namespace Prisma {
     messages?: MessageCreateNestedManyWithoutSenderInput
     authSessions?: AuthSessionCreateNestedManyWithoutUserInput
     loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventCreateNestedManyWithoutUserInput
   }
 
@@ -66661,6 +72990,7 @@ export namespace Prisma {
     messages?: MessageUncheckedCreateNestedManyWithoutSenderInput
     authSessions?: AuthSessionUncheckedCreateNestedManyWithoutUserInput
     loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -66816,6 +73146,7 @@ export namespace Prisma {
     messages?: MessageUpdateManyWithoutSenderNestedInput
     authSessions?: AuthSessionUpdateManyWithoutUserNestedInput
     loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUpdateManyWithoutUserNestedInput
   }
 
@@ -66842,6 +73173,7 @@ export namespace Prisma {
     messages?: MessageUncheckedUpdateManyWithoutSenderNestedInput
     authSessions?: AuthSessionUncheckedUpdateManyWithoutUserNestedInput
     loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -67043,6 +73375,7 @@ export namespace Prisma {
     messages?: MessageCreateNestedManyWithoutSenderInput
     authSessions?: AuthSessionCreateNestedManyWithoutUserInput
     loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventCreateNestedManyWithoutUserInput
   }
 
@@ -67069,6 +73402,7 @@ export namespace Prisma {
     messages?: MessageUncheckedCreateNestedManyWithoutSenderInput
     authSessions?: AuthSessionUncheckedCreateNestedManyWithoutUserInput
     loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -67243,6 +73577,7 @@ export namespace Prisma {
     messages?: MessageUpdateManyWithoutSenderNestedInput
     authSessions?: AuthSessionUpdateManyWithoutUserNestedInput
     loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUpdateManyWithoutUserNestedInput
   }
 
@@ -67269,6 +73604,7 @@ export namespace Prisma {
     messages?: MessageUncheckedUpdateManyWithoutSenderNestedInput
     authSessions?: AuthSessionUncheckedUpdateManyWithoutUserNestedInput
     loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -69297,6 +75633,140 @@ export namespace Prisma {
     directoryEntry?: AgentDirectoryEntryUncheckedUpdateOneWithoutAgentNestedInput
   }
 
+  export type PromptVersionCreateWithoutTemplateInput = {
+    id?: string
+    version: number
+    label?: string | null
+    content: string
+    variables?: NullableJsonNullValueInput | InputJsonValue
+    metrics?: NullableJsonNullValueInput | InputJsonValue
+    changelog?: string | null
+    isActive?: boolean
+    createdAt?: Date | string
+  }
+
+  export type PromptVersionUncheckedCreateWithoutTemplateInput = {
+    id?: string
+    version: number
+    label?: string | null
+    content: string
+    variables?: NullableJsonNullValueInput | InputJsonValue
+    metrics?: NullableJsonNullValueInput | InputJsonValue
+    changelog?: string | null
+    isActive?: boolean
+    createdAt?: Date | string
+  }
+
+  export type PromptVersionCreateOrConnectWithoutTemplateInput = {
+    where: PromptVersionWhereUniqueInput
+    create: XOR<PromptVersionCreateWithoutTemplateInput, PromptVersionUncheckedCreateWithoutTemplateInput>
+  }
+
+  export type PromptVersionCreateManyTemplateInputEnvelope = {
+    data: PromptVersionCreateManyTemplateInput | PromptVersionCreateManyTemplateInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PromptVersionUpsertWithWhereUniqueWithoutTemplateInput = {
+    where: PromptVersionWhereUniqueInput
+    update: XOR<PromptVersionUpdateWithoutTemplateInput, PromptVersionUncheckedUpdateWithoutTemplateInput>
+    create: XOR<PromptVersionCreateWithoutTemplateInput, PromptVersionUncheckedCreateWithoutTemplateInput>
+  }
+
+  export type PromptVersionUpdateWithWhereUniqueWithoutTemplateInput = {
+    where: PromptVersionWhereUniqueInput
+    data: XOR<PromptVersionUpdateWithoutTemplateInput, PromptVersionUncheckedUpdateWithoutTemplateInput>
+  }
+
+  export type PromptVersionUpdateManyWithWhereWithoutTemplateInput = {
+    where: PromptVersionScalarWhereInput
+    data: XOR<PromptVersionUpdateManyMutationInput, PromptVersionUncheckedUpdateManyWithoutTemplateInput>
+  }
+
+  export type PromptVersionScalarWhereInput = {
+    AND?: PromptVersionScalarWhereInput | PromptVersionScalarWhereInput[]
+    OR?: PromptVersionScalarWhereInput[]
+    NOT?: PromptVersionScalarWhereInput | PromptVersionScalarWhereInput[]
+    id?: StringFilter<"PromptVersion"> | string
+    templateId?: StringFilter<"PromptVersion"> | string
+    version?: IntFilter<"PromptVersion"> | number
+    label?: StringNullableFilter<"PromptVersion"> | string | null
+    content?: StringFilter<"PromptVersion"> | string
+    variables?: JsonNullableFilter<"PromptVersion">
+    metrics?: JsonNullableFilter<"PromptVersion">
+    changelog?: StringNullableFilter<"PromptVersion"> | string | null
+    isActive?: BoolFilter<"PromptVersion"> | boolean
+    createdAt?: DateTimeFilter<"PromptVersion"> | Date | string
+  }
+
+  export type PromptTemplateCreateWithoutVersionsInput = {
+    id?: string
+    name: string
+    description?: string | null
+    currentVersionId?: string | null
+    isPublic?: boolean
+    category?: string | null
+    tags?: PromptTemplateCreatetagsInput | string[]
+    analytics?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PromptTemplateUncheckedCreateWithoutVersionsInput = {
+    id?: string
+    name: string
+    description?: string | null
+    currentVersionId?: string | null
+    isPublic?: boolean
+    category?: string | null
+    tags?: PromptTemplateCreatetagsInput | string[]
+    analytics?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PromptTemplateCreateOrConnectWithoutVersionsInput = {
+    where: PromptTemplateWhereUniqueInput
+    create: XOR<PromptTemplateCreateWithoutVersionsInput, PromptTemplateUncheckedCreateWithoutVersionsInput>
+  }
+
+  export type PromptTemplateUpsertWithoutVersionsInput = {
+    update: XOR<PromptTemplateUpdateWithoutVersionsInput, PromptTemplateUncheckedUpdateWithoutVersionsInput>
+    create: XOR<PromptTemplateCreateWithoutVersionsInput, PromptTemplateUncheckedCreateWithoutVersionsInput>
+    where?: PromptTemplateWhereInput
+  }
+
+  export type PromptTemplateUpdateToOneWithWhereWithoutVersionsInput = {
+    where?: PromptTemplateWhereInput
+    data: XOR<PromptTemplateUpdateWithoutVersionsInput, PromptTemplateUncheckedUpdateWithoutVersionsInput>
+  }
+
+  export type PromptTemplateUpdateWithoutVersionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    currentVersionId?: NullableStringFieldUpdateOperationsInput | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: PromptTemplateUpdatetagsInput | string[]
+    analytics?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PromptTemplateUncheckedUpdateWithoutVersionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    currentVersionId?: NullableStringFieldUpdateOperationsInput | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: PromptTemplateUpdatetagsInput | string[]
+    analytics?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type AgentCreateManyUserInput = {
     id?: string
     name: string
@@ -69409,6 +75879,19 @@ export namespace Prisma {
     ipAddress: string
     successful: boolean
     createdAt?: Date | string
+  }
+
+  export type WorkflowTemplateCreateManyCreatorInput = {
+    id?: string
+    name: string
+    description?: string | null
+    category?: string
+    definition: JsonNullValueInput | InputJsonValue
+    isPublic?: boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    usageCount?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type AuthEventCreateManyUserInput = {
@@ -69796,6 +76279,45 @@ export namespace Prisma {
     ipAddress?: StringFieldUpdateOperationsInput | string
     successful?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WorkflowTemplateUpdateWithoutCreatorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    definition?: JsonNullValueInput | InputJsonValue
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    usageCount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WorkflowTemplateUncheckedUpdateWithoutCreatorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    definition?: JsonNullValueInput | InputJsonValue
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    usageCount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WorkflowTemplateUncheckedUpdateManyWithoutCreatorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    definition?: JsonNullValueInput | InputJsonValue
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    usageCount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AuthEventUpdateWithoutUserInput = {
@@ -71253,6 +77775,54 @@ export namespace Prisma {
     message?: StringFieldUpdateOperationsInput | string
     eventData?: NullableJsonNullValueInput | InputJsonValue
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PromptVersionCreateManyTemplateInput = {
+    id?: string
+    version: number
+    label?: string | null
+    content: string
+    variables?: NullableJsonNullValueInput | InputJsonValue
+    metrics?: NullableJsonNullValueInput | InputJsonValue
+    changelog?: string | null
+    isActive?: boolean
+    createdAt?: Date | string
+  }
+
+  export type PromptVersionUpdateWithoutTemplateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    version?: IntFieldUpdateOperationsInput | number
+    label?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    variables?: NullableJsonNullValueInput | InputJsonValue
+    metrics?: NullableJsonNullValueInput | InputJsonValue
+    changelog?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PromptVersionUncheckedUpdateWithoutTemplateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    version?: IntFieldUpdateOperationsInput | number
+    label?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    variables?: NullableJsonNullValueInput | InputJsonValue
+    metrics?: NullableJsonNullValueInput | InputJsonValue
+    changelog?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PromptVersionUncheckedUpdateManyWithoutTemplateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    version?: IntFieldUpdateOperationsInput | number
+    label?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    variables?: NullableJsonNullValueInput | InputJsonValue
+    metrics?: NullableJsonNullValueInput | InputJsonValue
+    changelog?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 
