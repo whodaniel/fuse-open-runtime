@@ -214,6 +214,26 @@ export type BusinessMetric = $Result.DefaultSelection<Prisma.$BusinessMetricPayl
  */
 export type ErrorLog = $Result.DefaultSelection<Prisma.$ErrorLogPayload>
 /**
+ * Model Workspace
+ * 
+ */
+export type Workspace = $Result.DefaultSelection<Prisma.$WorkspacePayload>
+/**
+ * Model Project
+ * 
+ */
+export type Project = $Result.DefaultSelection<Prisma.$ProjectPayload>
+/**
+ * Model AgentMemory
+ * 
+ */
+export type AgentMemory = $Result.DefaultSelection<Prisma.$AgentMemoryPayload>
+/**
+ * Model ResourceAllocation
+ * 
+ */
+export type ResourceAllocation = $Result.DefaultSelection<Prisma.$ResourceAllocationPayload>
+/**
  * Model SyncState
  * 
  */
@@ -1169,6 +1189,46 @@ export class PrismaClient<
   get errorLog(): Prisma.ErrorLogDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.workspace`: Exposes CRUD operations for the **Workspace** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Workspaces
+    * const workspaces = await prisma.workspace.findMany()
+    * ```
+    */
+  get workspace(): Prisma.WorkspaceDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.project`: Exposes CRUD operations for the **Project** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Projects
+    * const projects = await prisma.project.findMany()
+    * ```
+    */
+  get project(): Prisma.ProjectDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.agentMemory`: Exposes CRUD operations for the **AgentMemory** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AgentMemories
+    * const agentMemories = await prisma.agentMemory.findMany()
+    * ```
+    */
+  get agentMemory(): Prisma.AgentMemoryDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.resourceAllocation`: Exposes CRUD operations for the **ResourceAllocation** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ResourceAllocations
+    * const resourceAllocations = await prisma.resourceAllocation.findMany()
+    * ```
+    */
+  get resourceAllocation(): Prisma.ResourceAllocationDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.syncState`: Exposes CRUD operations for the **SyncState** model.
     * Example usage:
     * ```ts
@@ -1661,6 +1721,10 @@ export namespace Prisma {
     ValidationDataset: 'ValidationDataset',
     BusinessMetric: 'BusinessMetric',
     ErrorLog: 'ErrorLog',
+    Workspace: 'Workspace',
+    Project: 'Project',
+    AgentMemory: 'AgentMemory',
+    ResourceAllocation: 'ResourceAllocation',
     SyncState: 'SyncState',
     SyncConflict: 'SyncConflict'
   };
@@ -1678,7 +1742,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "authSession" | "loginAttempt" | "authEvent" | "agent" | "agentMetadata" | "chat" | "chatRoom" | "message" | "chatMessage" | "workflow" | "workflowStep" | "workflowExecution" | "workflowTemplate" | "pipeline" | "task" | "taskExecution" | "codeExecutionUsage" | "codeExecutionSession" | "agentNFT" | "fractionalShare" | "revenueStream" | "revenueDistribution" | "marketplaceListing" | "marketplaceOffer" | "wallet" | "transaction" | "registeredEntity" | "lLMConfig" | "agentRegistration" | "agentCapabilityRegistry" | "agentOnboardingEvent" | "agentDirectoryEntry" | "agentPromptVersion" | "promptTemplate" | "promptVersion" | "promptSnippet" | "validationDataset" | "businessMetric" | "errorLog" | "syncState" | "syncConflict"
+      modelProps: "user" | "authSession" | "loginAttempt" | "authEvent" | "agent" | "agentMetadata" | "chat" | "chatRoom" | "message" | "chatMessage" | "workflow" | "workflowStep" | "workflowExecution" | "workflowTemplate" | "pipeline" | "task" | "taskExecution" | "codeExecutionUsage" | "codeExecutionSession" | "agentNFT" | "fractionalShare" | "revenueStream" | "revenueDistribution" | "marketplaceListing" | "marketplaceOffer" | "wallet" | "transaction" | "registeredEntity" | "lLMConfig" | "agentRegistration" | "agentCapabilityRegistry" | "agentOnboardingEvent" | "agentDirectoryEntry" | "agentPromptVersion" | "promptTemplate" | "promptVersion" | "promptSnippet" | "validationDataset" | "businessMetric" | "errorLog" | "workspace" | "project" | "agentMemory" | "resourceAllocation" | "syncState" | "syncConflict"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -4642,6 +4706,302 @@ export namespace Prisma {
           }
         }
       }
+      Workspace: {
+        payload: Prisma.$WorkspacePayload<ExtArgs>
+        fields: Prisma.WorkspaceFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.WorkspaceFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkspacePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.WorkspaceFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkspacePayload>
+          }
+          findFirst: {
+            args: Prisma.WorkspaceFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkspacePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.WorkspaceFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkspacePayload>
+          }
+          findMany: {
+            args: Prisma.WorkspaceFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkspacePayload>[]
+          }
+          create: {
+            args: Prisma.WorkspaceCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkspacePayload>
+          }
+          createMany: {
+            args: Prisma.WorkspaceCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.WorkspaceCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkspacePayload>[]
+          }
+          delete: {
+            args: Prisma.WorkspaceDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkspacePayload>
+          }
+          update: {
+            args: Prisma.WorkspaceUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkspacePayload>
+          }
+          deleteMany: {
+            args: Prisma.WorkspaceDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.WorkspaceUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.WorkspaceUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkspacePayload>[]
+          }
+          upsert: {
+            args: Prisma.WorkspaceUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkspacePayload>
+          }
+          aggregate: {
+            args: Prisma.WorkspaceAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateWorkspace>
+          }
+          groupBy: {
+            args: Prisma.WorkspaceGroupByArgs<ExtArgs>
+            result: $Utils.Optional<WorkspaceGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.WorkspaceCountArgs<ExtArgs>
+            result: $Utils.Optional<WorkspaceCountAggregateOutputType> | number
+          }
+        }
+      }
+      Project: {
+        payload: Prisma.$ProjectPayload<ExtArgs>
+        fields: Prisma.ProjectFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProjectFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProjectFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          findFirst: {
+            args: Prisma.ProjectFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProjectFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          findMany: {
+            args: Prisma.ProjectFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>[]
+          }
+          create: {
+            args: Prisma.ProjectCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          createMany: {
+            args: Prisma.ProjectCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProjectCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>[]
+          }
+          delete: {
+            args: Prisma.ProjectDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          update: {
+            args: Prisma.ProjectUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProjectDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProjectUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProjectUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>[]
+          }
+          upsert: {
+            args: Prisma.ProjectUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          aggregate: {
+            args: Prisma.ProjectAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProject>
+          }
+          groupBy: {
+            args: Prisma.ProjectGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProjectGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProjectCountArgs<ExtArgs>
+            result: $Utils.Optional<ProjectCountAggregateOutputType> | number
+          }
+        }
+      }
+      AgentMemory: {
+        payload: Prisma.$AgentMemoryPayload<ExtArgs>
+        fields: Prisma.AgentMemoryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AgentMemoryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgentMemoryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AgentMemoryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgentMemoryPayload>
+          }
+          findFirst: {
+            args: Prisma.AgentMemoryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgentMemoryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AgentMemoryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgentMemoryPayload>
+          }
+          findMany: {
+            args: Prisma.AgentMemoryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgentMemoryPayload>[]
+          }
+          create: {
+            args: Prisma.AgentMemoryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgentMemoryPayload>
+          }
+          createMany: {
+            args: Prisma.AgentMemoryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AgentMemoryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgentMemoryPayload>[]
+          }
+          delete: {
+            args: Prisma.AgentMemoryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgentMemoryPayload>
+          }
+          update: {
+            args: Prisma.AgentMemoryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgentMemoryPayload>
+          }
+          deleteMany: {
+            args: Prisma.AgentMemoryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AgentMemoryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AgentMemoryUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgentMemoryPayload>[]
+          }
+          upsert: {
+            args: Prisma.AgentMemoryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgentMemoryPayload>
+          }
+          aggregate: {
+            args: Prisma.AgentMemoryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAgentMemory>
+          }
+          groupBy: {
+            args: Prisma.AgentMemoryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AgentMemoryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AgentMemoryCountArgs<ExtArgs>
+            result: $Utils.Optional<AgentMemoryCountAggregateOutputType> | number
+          }
+        }
+      }
+      ResourceAllocation: {
+        payload: Prisma.$ResourceAllocationPayload<ExtArgs>
+        fields: Prisma.ResourceAllocationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ResourceAllocationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResourceAllocationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ResourceAllocationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResourceAllocationPayload>
+          }
+          findFirst: {
+            args: Prisma.ResourceAllocationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResourceAllocationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ResourceAllocationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResourceAllocationPayload>
+          }
+          findMany: {
+            args: Prisma.ResourceAllocationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResourceAllocationPayload>[]
+          }
+          create: {
+            args: Prisma.ResourceAllocationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResourceAllocationPayload>
+          }
+          createMany: {
+            args: Prisma.ResourceAllocationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ResourceAllocationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResourceAllocationPayload>[]
+          }
+          delete: {
+            args: Prisma.ResourceAllocationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResourceAllocationPayload>
+          }
+          update: {
+            args: Prisma.ResourceAllocationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResourceAllocationPayload>
+          }
+          deleteMany: {
+            args: Prisma.ResourceAllocationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ResourceAllocationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ResourceAllocationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResourceAllocationPayload>[]
+          }
+          upsert: {
+            args: Prisma.ResourceAllocationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResourceAllocationPayload>
+          }
+          aggregate: {
+            args: Prisma.ResourceAllocationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateResourceAllocation>
+          }
+          groupBy: {
+            args: Prisma.ResourceAllocationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ResourceAllocationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ResourceAllocationCountArgs<ExtArgs>
+            result: $Utils.Optional<ResourceAllocationCountAggregateOutputType> | number
+          }
+        }
+      }
       SyncState: {
         payload: Prisma.$SyncStatePayload<ExtArgs>
         fields: Prisma.SyncStateFieldRefs
@@ -4938,6 +5298,10 @@ export namespace Prisma {
     validationDataset?: ValidationDatasetOmit
     businessMetric?: BusinessMetricOmit
     errorLog?: ErrorLogOmit
+    workspace?: WorkspaceOmit
+    project?: ProjectOmit
+    agentMemory?: AgentMemoryOmit
+    resourceAllocation?: ResourceAllocationOmit
     syncState?: SyncStateOmit
     syncConflict?: SyncConflictOmit
   }
@@ -5030,6 +5394,7 @@ export namespace Prisma {
     loginAttempts: number
     workflowTemplates: number
     authEvents: number
+    workspaces: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5043,6 +5408,7 @@ export namespace Prisma {
     loginAttempts?: boolean | UserCountOutputTypeCountLoginAttemptsArgs
     workflowTemplates?: boolean | UserCountOutputTypeCountWorkflowTemplatesArgs
     authEvents?: boolean | UserCountOutputTypeCountAuthEventsArgs
+    workspaces?: boolean | UserCountOutputTypeCountWorkspacesArgs
   }
 
   // Custom InputTypes
@@ -5124,6 +5490,13 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountAuthEventsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AuthEventWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountWorkspacesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WorkspaceWhereInput
   }
 
 
@@ -5639,6 +6012,86 @@ export namespace Prisma {
 
 
   /**
+   * Count Type WorkspaceCountOutputType
+   */
+
+  export type WorkspaceCountOutputType = {
+    projects: number
+  }
+
+  export type WorkspaceCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    projects?: boolean | WorkspaceCountOutputTypeCountProjectsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * WorkspaceCountOutputType without action
+   */
+  export type WorkspaceCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkspaceCountOutputType
+     */
+    select?: WorkspaceCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * WorkspaceCountOutputType without action
+   */
+  export type WorkspaceCountOutputTypeCountProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectWhereInput
+  }
+
+
+  /**
+   * Count Type ProjectCountOutputType
+   */
+
+  export type ProjectCountOutputType = {
+    workflowExecutions: number
+    agentMemories: number
+    resourceAllocations: number
+  }
+
+  export type ProjectCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    workflowExecutions?: boolean | ProjectCountOutputTypeCountWorkflowExecutionsArgs
+    agentMemories?: boolean | ProjectCountOutputTypeCountAgentMemoriesArgs
+    resourceAllocations?: boolean | ProjectCountOutputTypeCountResourceAllocationsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ProjectCountOutputType without action
+   */
+  export type ProjectCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectCountOutputType
+     */
+    select?: ProjectCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ProjectCountOutputType without action
+   */
+  export type ProjectCountOutputTypeCountWorkflowExecutionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WorkflowExecutionWhereInput
+  }
+
+  /**
+   * ProjectCountOutputType without action
+   */
+  export type ProjectCountOutputTypeCountAgentMemoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AgentMemoryWhereInput
+  }
+
+  /**
+   * ProjectCountOutputType without action
+   */
+  export type ProjectCountOutputTypeCountResourceAllocationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ResourceAllocationWhereInput
+  }
+
+
+  /**
    * Models
    */
 
@@ -5888,6 +6341,7 @@ export namespace Prisma {
     loginAttempts?: boolean | User$loginAttemptsArgs<ExtArgs>
     workflowTemplates?: boolean | User$workflowTemplatesArgs<ExtArgs>
     authEvents?: boolean | User$authEventsArgs<ExtArgs>
+    workspaces?: boolean | User$workspacesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -5957,6 +6411,7 @@ export namespace Prisma {
     loginAttempts?: boolean | User$loginAttemptsArgs<ExtArgs>
     workflowTemplates?: boolean | User$workflowTemplatesArgs<ExtArgs>
     authEvents?: boolean | User$authEventsArgs<ExtArgs>
+    workspaces?: boolean | User$workspacesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -5975,6 +6430,7 @@ export namespace Prisma {
       loginAttempts: Prisma.$LoginAttemptPayload<ExtArgs>[]
       workflowTemplates: Prisma.$WorkflowTemplatePayload<ExtArgs>[]
       authEvents: Prisma.$AuthEventPayload<ExtArgs>[]
+      workspaces: Prisma.$WorkspacePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -6396,6 +6852,7 @@ export namespace Prisma {
     loginAttempts<T extends User$loginAttemptsArgs<ExtArgs> = {}>(args?: Subset<T, User$loginAttemptsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LoginAttemptPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     workflowTemplates<T extends User$workflowTemplatesArgs<ExtArgs> = {}>(args?: Subset<T, User$workflowTemplatesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WorkflowTemplatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     authEvents<T extends User$authEventsArgs<ExtArgs> = {}>(args?: Subset<T, User$authEventsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AuthEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    workspaces<T extends User$workspacesArgs<ExtArgs> = {}>(args?: Subset<T, User$workspacesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WorkspacePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7065,6 +7522,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: AuthEventScalarFieldEnum | AuthEventScalarFieldEnum[]
+  }
+
+  /**
+   * User.workspaces
+   */
+  export type User$workspacesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Workspace
+     */
+    select?: WorkspaceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Workspace
+     */
+    omit?: WorkspaceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkspaceInclude<ExtArgs> | null
+    where?: WorkspaceWhereInput
+    orderBy?: WorkspaceOrderByWithRelationInput | WorkspaceOrderByWithRelationInput[]
+    cursor?: WorkspaceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: WorkspaceScalarFieldEnum | WorkspaceScalarFieldEnum[]
   }
 
   /**
@@ -20090,6 +20571,7 @@ export namespace Prisma {
     error: string | null
     startedAt: Date | null
     completedAt: Date | null
+    projectId: string | null
   }
 
   export type WorkflowExecutionMaxAggregateOutputType = {
@@ -20099,6 +20581,7 @@ export namespace Prisma {
     error: string | null
     startedAt: Date | null
     completedAt: Date | null
+    projectId: string | null
   }
 
   export type WorkflowExecutionCountAggregateOutputType = {
@@ -20110,6 +20593,7 @@ export namespace Prisma {
     error: number
     startedAt: number
     completedAt: number
+    projectId: number
     _all: number
   }
 
@@ -20121,6 +20605,7 @@ export namespace Prisma {
     error?: true
     startedAt?: true
     completedAt?: true
+    projectId?: true
   }
 
   export type WorkflowExecutionMaxAggregateInputType = {
@@ -20130,6 +20615,7 @@ export namespace Prisma {
     error?: true
     startedAt?: true
     completedAt?: true
+    projectId?: true
   }
 
   export type WorkflowExecutionCountAggregateInputType = {
@@ -20141,6 +20627,7 @@ export namespace Prisma {
     error?: true
     startedAt?: true
     completedAt?: true
+    projectId?: true
     _all?: true
   }
 
@@ -20225,6 +20712,7 @@ export namespace Prisma {
     error: string | null
     startedAt: Date
     completedAt: Date | null
+    projectId: string | null
     _count: WorkflowExecutionCountAggregateOutputType | null
     _min: WorkflowExecutionMinAggregateOutputType | null
     _max: WorkflowExecutionMaxAggregateOutputType | null
@@ -20253,7 +20741,9 @@ export namespace Prisma {
     error?: boolean
     startedAt?: boolean
     completedAt?: boolean
+    projectId?: boolean
     workflow?: boolean | WorkflowDefaultArgs<ExtArgs>
+    project?: boolean | WorkflowExecution$projectArgs<ExtArgs>
   }, ExtArgs["result"]["workflowExecution"]>
 
   export type WorkflowExecutionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -20265,7 +20755,9 @@ export namespace Prisma {
     error?: boolean
     startedAt?: boolean
     completedAt?: boolean
+    projectId?: boolean
     workflow?: boolean | WorkflowDefaultArgs<ExtArgs>
+    project?: boolean | WorkflowExecution$projectArgs<ExtArgs>
   }, ExtArgs["result"]["workflowExecution"]>
 
   export type WorkflowExecutionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -20277,7 +20769,9 @@ export namespace Prisma {
     error?: boolean
     startedAt?: boolean
     completedAt?: boolean
+    projectId?: boolean
     workflow?: boolean | WorkflowDefaultArgs<ExtArgs>
+    project?: boolean | WorkflowExecution$projectArgs<ExtArgs>
   }, ExtArgs["result"]["workflowExecution"]>
 
   export type WorkflowExecutionSelectScalar = {
@@ -20289,23 +20783,28 @@ export namespace Prisma {
     error?: boolean
     startedAt?: boolean
     completedAt?: boolean
+    projectId?: boolean
   }
 
-  export type WorkflowExecutionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "workflowId" | "status" | "input" | "output" | "error" | "startedAt" | "completedAt", ExtArgs["result"]["workflowExecution"]>
+  export type WorkflowExecutionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "workflowId" | "status" | "input" | "output" | "error" | "startedAt" | "completedAt" | "projectId", ExtArgs["result"]["workflowExecution"]>
   export type WorkflowExecutionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     workflow?: boolean | WorkflowDefaultArgs<ExtArgs>
+    project?: boolean | WorkflowExecution$projectArgs<ExtArgs>
   }
   export type WorkflowExecutionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     workflow?: boolean | WorkflowDefaultArgs<ExtArgs>
+    project?: boolean | WorkflowExecution$projectArgs<ExtArgs>
   }
   export type WorkflowExecutionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     workflow?: boolean | WorkflowDefaultArgs<ExtArgs>
+    project?: boolean | WorkflowExecution$projectArgs<ExtArgs>
   }
 
   export type $WorkflowExecutionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "WorkflowExecution"
     objects: {
       workflow: Prisma.$WorkflowPayload<ExtArgs>
+      project: Prisma.$ProjectPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -20316,6 +20815,7 @@ export namespace Prisma {
       error: string | null
       startedAt: Date
       completedAt: Date | null
+      projectId: string | null
     }, ExtArgs["result"]["workflowExecution"]>
     composites: {}
   }
@@ -20711,6 +21211,7 @@ export namespace Prisma {
   export interface Prisma__WorkflowExecutionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     workflow<T extends WorkflowDefaultArgs<ExtArgs> = {}>(args?: Subset<T, WorkflowDefaultArgs<ExtArgs>>): Prisma__WorkflowClient<$Result.GetResult<Prisma.$WorkflowPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    project<T extends WorkflowExecution$projectArgs<ExtArgs> = {}>(args?: Subset<T, WorkflowExecution$projectArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -20748,6 +21249,7 @@ export namespace Prisma {
     readonly error: FieldRef<"WorkflowExecution", 'String'>
     readonly startedAt: FieldRef<"WorkflowExecution", 'DateTime'>
     readonly completedAt: FieldRef<"WorkflowExecution", 'DateTime'>
+    readonly projectId: FieldRef<"WorkflowExecution", 'String'>
   }
     
 
@@ -21141,6 +21643,25 @@ export namespace Prisma {
      * Limit how many WorkflowExecutions to delete.
      */
     limit?: number
+  }
+
+  /**
+   * WorkflowExecution.project
+   */
+  export type WorkflowExecution$projectArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    where?: ProjectWhereInput
   }
 
   /**
@@ -52180,6 +52701,4411 @@ export namespace Prisma {
 
 
   /**
+   * Model Workspace
+   */
+
+  export type AggregateWorkspace = {
+    _count: WorkspaceCountAggregateOutputType | null
+    _min: WorkspaceMinAggregateOutputType | null
+    _max: WorkspaceMaxAggregateOutputType | null
+  }
+
+  export type WorkspaceMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    ownerId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type WorkspaceMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    ownerId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type WorkspaceCountAggregateOutputType = {
+    id: number
+    name: number
+    description: number
+    ownerId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type WorkspaceMinAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    ownerId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type WorkspaceMaxAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    ownerId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type WorkspaceCountAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    ownerId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type WorkspaceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Workspace to aggregate.
+     */
+    where?: WorkspaceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Workspaces to fetch.
+     */
+    orderBy?: WorkspaceOrderByWithRelationInput | WorkspaceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: WorkspaceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Workspaces from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Workspaces.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Workspaces
+    **/
+    _count?: true | WorkspaceCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: WorkspaceMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: WorkspaceMaxAggregateInputType
+  }
+
+  export type GetWorkspaceAggregateType<T extends WorkspaceAggregateArgs> = {
+        [P in keyof T & keyof AggregateWorkspace]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateWorkspace[P]>
+      : GetScalarType<T[P], AggregateWorkspace[P]>
+  }
+
+
+
+
+  export type WorkspaceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WorkspaceWhereInput
+    orderBy?: WorkspaceOrderByWithAggregationInput | WorkspaceOrderByWithAggregationInput[]
+    by: WorkspaceScalarFieldEnum[] | WorkspaceScalarFieldEnum
+    having?: WorkspaceScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: WorkspaceCountAggregateInputType | true
+    _min?: WorkspaceMinAggregateInputType
+    _max?: WorkspaceMaxAggregateInputType
+  }
+
+  export type WorkspaceGroupByOutputType = {
+    id: string
+    name: string
+    description: string | null
+    ownerId: string
+    createdAt: Date
+    updatedAt: Date
+    _count: WorkspaceCountAggregateOutputType | null
+    _min: WorkspaceMinAggregateOutputType | null
+    _max: WorkspaceMaxAggregateOutputType | null
+  }
+
+  type GetWorkspaceGroupByPayload<T extends WorkspaceGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<WorkspaceGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof WorkspaceGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], WorkspaceGroupByOutputType[P]>
+            : GetScalarType<T[P], WorkspaceGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type WorkspaceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    ownerId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    owner?: boolean | UserDefaultArgs<ExtArgs>
+    projects?: boolean | Workspace$projectsArgs<ExtArgs>
+    _count?: boolean | WorkspaceCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["workspace"]>
+
+  export type WorkspaceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    ownerId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    owner?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["workspace"]>
+
+  export type WorkspaceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    ownerId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    owner?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["workspace"]>
+
+  export type WorkspaceSelectScalar = {
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    ownerId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type WorkspaceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "ownerId" | "createdAt" | "updatedAt", ExtArgs["result"]["workspace"]>
+  export type WorkspaceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    owner?: boolean | UserDefaultArgs<ExtArgs>
+    projects?: boolean | Workspace$projectsArgs<ExtArgs>
+    _count?: boolean | WorkspaceCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type WorkspaceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    owner?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type WorkspaceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    owner?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $WorkspacePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Workspace"
+    objects: {
+      owner: Prisma.$UserPayload<ExtArgs>
+      projects: Prisma.$ProjectPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      description: string | null
+      ownerId: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["workspace"]>
+    composites: {}
+  }
+
+  type WorkspaceGetPayload<S extends boolean | null | undefined | WorkspaceDefaultArgs> = $Result.GetResult<Prisma.$WorkspacePayload, S>
+
+  type WorkspaceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<WorkspaceFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: WorkspaceCountAggregateInputType | true
+    }
+
+  export interface WorkspaceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Workspace'], meta: { name: 'Workspace' } }
+    /**
+     * Find zero or one Workspace that matches the filter.
+     * @param {WorkspaceFindUniqueArgs} args - Arguments to find a Workspace
+     * @example
+     * // Get one Workspace
+     * const workspace = await prisma.workspace.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends WorkspaceFindUniqueArgs>(args: SelectSubset<T, WorkspaceFindUniqueArgs<ExtArgs>>): Prisma__WorkspaceClient<$Result.GetResult<Prisma.$WorkspacePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Workspace that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {WorkspaceFindUniqueOrThrowArgs} args - Arguments to find a Workspace
+     * @example
+     * // Get one Workspace
+     * const workspace = await prisma.workspace.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends WorkspaceFindUniqueOrThrowArgs>(args: SelectSubset<T, WorkspaceFindUniqueOrThrowArgs<ExtArgs>>): Prisma__WorkspaceClient<$Result.GetResult<Prisma.$WorkspacePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Workspace that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkspaceFindFirstArgs} args - Arguments to find a Workspace
+     * @example
+     * // Get one Workspace
+     * const workspace = await prisma.workspace.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends WorkspaceFindFirstArgs>(args?: SelectSubset<T, WorkspaceFindFirstArgs<ExtArgs>>): Prisma__WorkspaceClient<$Result.GetResult<Prisma.$WorkspacePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Workspace that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkspaceFindFirstOrThrowArgs} args - Arguments to find a Workspace
+     * @example
+     * // Get one Workspace
+     * const workspace = await prisma.workspace.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends WorkspaceFindFirstOrThrowArgs>(args?: SelectSubset<T, WorkspaceFindFirstOrThrowArgs<ExtArgs>>): Prisma__WorkspaceClient<$Result.GetResult<Prisma.$WorkspacePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Workspaces that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkspaceFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Workspaces
+     * const workspaces = await prisma.workspace.findMany()
+     * 
+     * // Get first 10 Workspaces
+     * const workspaces = await prisma.workspace.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const workspaceWithIdOnly = await prisma.workspace.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends WorkspaceFindManyArgs>(args?: SelectSubset<T, WorkspaceFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WorkspacePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Workspace.
+     * @param {WorkspaceCreateArgs} args - Arguments to create a Workspace.
+     * @example
+     * // Create one Workspace
+     * const Workspace = await prisma.workspace.create({
+     *   data: {
+     *     // ... data to create a Workspace
+     *   }
+     * })
+     * 
+     */
+    create<T extends WorkspaceCreateArgs>(args: SelectSubset<T, WorkspaceCreateArgs<ExtArgs>>): Prisma__WorkspaceClient<$Result.GetResult<Prisma.$WorkspacePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Workspaces.
+     * @param {WorkspaceCreateManyArgs} args - Arguments to create many Workspaces.
+     * @example
+     * // Create many Workspaces
+     * const workspace = await prisma.workspace.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends WorkspaceCreateManyArgs>(args?: SelectSubset<T, WorkspaceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Workspaces and returns the data saved in the database.
+     * @param {WorkspaceCreateManyAndReturnArgs} args - Arguments to create many Workspaces.
+     * @example
+     * // Create many Workspaces
+     * const workspace = await prisma.workspace.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Workspaces and only return the `id`
+     * const workspaceWithIdOnly = await prisma.workspace.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends WorkspaceCreateManyAndReturnArgs>(args?: SelectSubset<T, WorkspaceCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WorkspacePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Workspace.
+     * @param {WorkspaceDeleteArgs} args - Arguments to delete one Workspace.
+     * @example
+     * // Delete one Workspace
+     * const Workspace = await prisma.workspace.delete({
+     *   where: {
+     *     // ... filter to delete one Workspace
+     *   }
+     * })
+     * 
+     */
+    delete<T extends WorkspaceDeleteArgs>(args: SelectSubset<T, WorkspaceDeleteArgs<ExtArgs>>): Prisma__WorkspaceClient<$Result.GetResult<Prisma.$WorkspacePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Workspace.
+     * @param {WorkspaceUpdateArgs} args - Arguments to update one Workspace.
+     * @example
+     * // Update one Workspace
+     * const workspace = await prisma.workspace.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends WorkspaceUpdateArgs>(args: SelectSubset<T, WorkspaceUpdateArgs<ExtArgs>>): Prisma__WorkspaceClient<$Result.GetResult<Prisma.$WorkspacePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Workspaces.
+     * @param {WorkspaceDeleteManyArgs} args - Arguments to filter Workspaces to delete.
+     * @example
+     * // Delete a few Workspaces
+     * const { count } = await prisma.workspace.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends WorkspaceDeleteManyArgs>(args?: SelectSubset<T, WorkspaceDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Workspaces.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkspaceUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Workspaces
+     * const workspace = await prisma.workspace.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends WorkspaceUpdateManyArgs>(args: SelectSubset<T, WorkspaceUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Workspaces and returns the data updated in the database.
+     * @param {WorkspaceUpdateManyAndReturnArgs} args - Arguments to update many Workspaces.
+     * @example
+     * // Update many Workspaces
+     * const workspace = await prisma.workspace.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Workspaces and only return the `id`
+     * const workspaceWithIdOnly = await prisma.workspace.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends WorkspaceUpdateManyAndReturnArgs>(args: SelectSubset<T, WorkspaceUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WorkspacePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Workspace.
+     * @param {WorkspaceUpsertArgs} args - Arguments to update or create a Workspace.
+     * @example
+     * // Update or create a Workspace
+     * const workspace = await prisma.workspace.upsert({
+     *   create: {
+     *     // ... data to create a Workspace
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Workspace we want to update
+     *   }
+     * })
+     */
+    upsert<T extends WorkspaceUpsertArgs>(args: SelectSubset<T, WorkspaceUpsertArgs<ExtArgs>>): Prisma__WorkspaceClient<$Result.GetResult<Prisma.$WorkspacePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Workspaces.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkspaceCountArgs} args - Arguments to filter Workspaces to count.
+     * @example
+     * // Count the number of Workspaces
+     * const count = await prisma.workspace.count({
+     *   where: {
+     *     // ... the filter for the Workspaces we want to count
+     *   }
+     * })
+    **/
+    count<T extends WorkspaceCountArgs>(
+      args?: Subset<T, WorkspaceCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], WorkspaceCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Workspace.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkspaceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends WorkspaceAggregateArgs>(args: Subset<T, WorkspaceAggregateArgs>): Prisma.PrismaPromise<GetWorkspaceAggregateType<T>>
+
+    /**
+     * Group by Workspace.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkspaceGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends WorkspaceGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: WorkspaceGroupByArgs['orderBy'] }
+        : { orderBy?: WorkspaceGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, WorkspaceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetWorkspaceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Workspace model
+   */
+  readonly fields: WorkspaceFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Workspace.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__WorkspaceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    owner<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    projects<T extends Workspace$projectsArgs<ExtArgs> = {}>(args?: Subset<T, Workspace$projectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Workspace model
+   */
+  interface WorkspaceFieldRefs {
+    readonly id: FieldRef<"Workspace", 'String'>
+    readonly name: FieldRef<"Workspace", 'String'>
+    readonly description: FieldRef<"Workspace", 'String'>
+    readonly ownerId: FieldRef<"Workspace", 'String'>
+    readonly createdAt: FieldRef<"Workspace", 'DateTime'>
+    readonly updatedAt: FieldRef<"Workspace", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Workspace findUnique
+   */
+  export type WorkspaceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Workspace
+     */
+    select?: WorkspaceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Workspace
+     */
+    omit?: WorkspaceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkspaceInclude<ExtArgs> | null
+    /**
+     * Filter, which Workspace to fetch.
+     */
+    where: WorkspaceWhereUniqueInput
+  }
+
+  /**
+   * Workspace findUniqueOrThrow
+   */
+  export type WorkspaceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Workspace
+     */
+    select?: WorkspaceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Workspace
+     */
+    omit?: WorkspaceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkspaceInclude<ExtArgs> | null
+    /**
+     * Filter, which Workspace to fetch.
+     */
+    where: WorkspaceWhereUniqueInput
+  }
+
+  /**
+   * Workspace findFirst
+   */
+  export type WorkspaceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Workspace
+     */
+    select?: WorkspaceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Workspace
+     */
+    omit?: WorkspaceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkspaceInclude<ExtArgs> | null
+    /**
+     * Filter, which Workspace to fetch.
+     */
+    where?: WorkspaceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Workspaces to fetch.
+     */
+    orderBy?: WorkspaceOrderByWithRelationInput | WorkspaceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Workspaces.
+     */
+    cursor?: WorkspaceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Workspaces from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Workspaces.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Workspaces.
+     */
+    distinct?: WorkspaceScalarFieldEnum | WorkspaceScalarFieldEnum[]
+  }
+
+  /**
+   * Workspace findFirstOrThrow
+   */
+  export type WorkspaceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Workspace
+     */
+    select?: WorkspaceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Workspace
+     */
+    omit?: WorkspaceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkspaceInclude<ExtArgs> | null
+    /**
+     * Filter, which Workspace to fetch.
+     */
+    where?: WorkspaceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Workspaces to fetch.
+     */
+    orderBy?: WorkspaceOrderByWithRelationInput | WorkspaceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Workspaces.
+     */
+    cursor?: WorkspaceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Workspaces from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Workspaces.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Workspaces.
+     */
+    distinct?: WorkspaceScalarFieldEnum | WorkspaceScalarFieldEnum[]
+  }
+
+  /**
+   * Workspace findMany
+   */
+  export type WorkspaceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Workspace
+     */
+    select?: WorkspaceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Workspace
+     */
+    omit?: WorkspaceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkspaceInclude<ExtArgs> | null
+    /**
+     * Filter, which Workspaces to fetch.
+     */
+    where?: WorkspaceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Workspaces to fetch.
+     */
+    orderBy?: WorkspaceOrderByWithRelationInput | WorkspaceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Workspaces.
+     */
+    cursor?: WorkspaceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Workspaces from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Workspaces.
+     */
+    skip?: number
+    distinct?: WorkspaceScalarFieldEnum | WorkspaceScalarFieldEnum[]
+  }
+
+  /**
+   * Workspace create
+   */
+  export type WorkspaceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Workspace
+     */
+    select?: WorkspaceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Workspace
+     */
+    omit?: WorkspaceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkspaceInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Workspace.
+     */
+    data: XOR<WorkspaceCreateInput, WorkspaceUncheckedCreateInput>
+  }
+
+  /**
+   * Workspace createMany
+   */
+  export type WorkspaceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Workspaces.
+     */
+    data: WorkspaceCreateManyInput | WorkspaceCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Workspace createManyAndReturn
+   */
+  export type WorkspaceCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Workspace
+     */
+    select?: WorkspaceSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Workspace
+     */
+    omit?: WorkspaceOmit<ExtArgs> | null
+    /**
+     * The data used to create many Workspaces.
+     */
+    data: WorkspaceCreateManyInput | WorkspaceCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkspaceIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Workspace update
+   */
+  export type WorkspaceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Workspace
+     */
+    select?: WorkspaceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Workspace
+     */
+    omit?: WorkspaceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkspaceInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Workspace.
+     */
+    data: XOR<WorkspaceUpdateInput, WorkspaceUncheckedUpdateInput>
+    /**
+     * Choose, which Workspace to update.
+     */
+    where: WorkspaceWhereUniqueInput
+  }
+
+  /**
+   * Workspace updateMany
+   */
+  export type WorkspaceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Workspaces.
+     */
+    data: XOR<WorkspaceUpdateManyMutationInput, WorkspaceUncheckedUpdateManyInput>
+    /**
+     * Filter which Workspaces to update
+     */
+    where?: WorkspaceWhereInput
+    /**
+     * Limit how many Workspaces to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Workspace updateManyAndReturn
+   */
+  export type WorkspaceUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Workspace
+     */
+    select?: WorkspaceSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Workspace
+     */
+    omit?: WorkspaceOmit<ExtArgs> | null
+    /**
+     * The data used to update Workspaces.
+     */
+    data: XOR<WorkspaceUpdateManyMutationInput, WorkspaceUncheckedUpdateManyInput>
+    /**
+     * Filter which Workspaces to update
+     */
+    where?: WorkspaceWhereInput
+    /**
+     * Limit how many Workspaces to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkspaceIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Workspace upsert
+   */
+  export type WorkspaceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Workspace
+     */
+    select?: WorkspaceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Workspace
+     */
+    omit?: WorkspaceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkspaceInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Workspace to update in case it exists.
+     */
+    where: WorkspaceWhereUniqueInput
+    /**
+     * In case the Workspace found by the `where` argument doesn't exist, create a new Workspace with this data.
+     */
+    create: XOR<WorkspaceCreateInput, WorkspaceUncheckedCreateInput>
+    /**
+     * In case the Workspace was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<WorkspaceUpdateInput, WorkspaceUncheckedUpdateInput>
+  }
+
+  /**
+   * Workspace delete
+   */
+  export type WorkspaceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Workspace
+     */
+    select?: WorkspaceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Workspace
+     */
+    omit?: WorkspaceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkspaceInclude<ExtArgs> | null
+    /**
+     * Filter which Workspace to delete.
+     */
+    where: WorkspaceWhereUniqueInput
+  }
+
+  /**
+   * Workspace deleteMany
+   */
+  export type WorkspaceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Workspaces to delete
+     */
+    where?: WorkspaceWhereInput
+    /**
+     * Limit how many Workspaces to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Workspace.projects
+   */
+  export type Workspace$projectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    where?: ProjectWhereInput
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    cursor?: ProjectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
+  }
+
+  /**
+   * Workspace without action
+   */
+  export type WorkspaceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Workspace
+     */
+    select?: WorkspaceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Workspace
+     */
+    omit?: WorkspaceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkspaceInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Project
+   */
+
+  export type AggregateProject = {
+    _count: ProjectCountAggregateOutputType | null
+    _min: ProjectMinAggregateOutputType | null
+    _max: ProjectMaxAggregateOutputType | null
+  }
+
+  export type ProjectMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    workspaceId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ProjectMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    workspaceId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ProjectCountAggregateOutputType = {
+    id: number
+    name: number
+    description: number
+    workspaceId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ProjectMinAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    workspaceId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ProjectMaxAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    workspaceId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ProjectCountAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    workspaceId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ProjectAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Project to aggregate.
+     */
+    where?: ProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Projects to fetch.
+     */
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Projects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Projects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Projects
+    **/
+    _count?: true | ProjectCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProjectMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProjectMaxAggregateInputType
+  }
+
+  export type GetProjectAggregateType<T extends ProjectAggregateArgs> = {
+        [P in keyof T & keyof AggregateProject]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProject[P]>
+      : GetScalarType<T[P], AggregateProject[P]>
+  }
+
+
+
+
+  export type ProjectGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectWhereInput
+    orderBy?: ProjectOrderByWithAggregationInput | ProjectOrderByWithAggregationInput[]
+    by: ProjectScalarFieldEnum[] | ProjectScalarFieldEnum
+    having?: ProjectScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProjectCountAggregateInputType | true
+    _min?: ProjectMinAggregateInputType
+    _max?: ProjectMaxAggregateInputType
+  }
+
+  export type ProjectGroupByOutputType = {
+    id: string
+    name: string
+    description: string | null
+    workspaceId: string
+    createdAt: Date
+    updatedAt: Date
+    _count: ProjectCountAggregateOutputType | null
+    _min: ProjectMinAggregateOutputType | null
+    _max: ProjectMaxAggregateOutputType | null
+  }
+
+  type GetProjectGroupByPayload<T extends ProjectGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProjectGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProjectGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProjectGroupByOutputType[P]>
+            : GetScalarType<T[P], ProjectGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProjectSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    workspaceId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    workspace?: boolean | WorkspaceDefaultArgs<ExtArgs>
+    workflowExecutions?: boolean | Project$workflowExecutionsArgs<ExtArgs>
+    agentMemories?: boolean | Project$agentMemoriesArgs<ExtArgs>
+    resourceAllocations?: boolean | Project$resourceAllocationsArgs<ExtArgs>
+    _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["project"]>
+
+  export type ProjectSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    workspaceId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    workspace?: boolean | WorkspaceDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["project"]>
+
+  export type ProjectSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    workspaceId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    workspace?: boolean | WorkspaceDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["project"]>
+
+  export type ProjectSelectScalar = {
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    workspaceId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "workspaceId" | "createdAt" | "updatedAt", ExtArgs["result"]["project"]>
+  export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    workspace?: boolean | WorkspaceDefaultArgs<ExtArgs>
+    workflowExecutions?: boolean | Project$workflowExecutionsArgs<ExtArgs>
+    agentMemories?: boolean | Project$agentMemoriesArgs<ExtArgs>
+    resourceAllocations?: boolean | Project$resourceAllocationsArgs<ExtArgs>
+    _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ProjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    workspace?: boolean | WorkspaceDefaultArgs<ExtArgs>
+  }
+  export type ProjectIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    workspace?: boolean | WorkspaceDefaultArgs<ExtArgs>
+  }
+
+  export type $ProjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Project"
+    objects: {
+      workspace: Prisma.$WorkspacePayload<ExtArgs>
+      workflowExecutions: Prisma.$WorkflowExecutionPayload<ExtArgs>[]
+      agentMemories: Prisma.$AgentMemoryPayload<ExtArgs>[]
+      resourceAllocations: Prisma.$ResourceAllocationPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      description: string | null
+      workspaceId: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["project"]>
+    composites: {}
+  }
+
+  type ProjectGetPayload<S extends boolean | null | undefined | ProjectDefaultArgs> = $Result.GetResult<Prisma.$ProjectPayload, S>
+
+  type ProjectCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProjectFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProjectCountAggregateInputType | true
+    }
+
+  export interface ProjectDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Project'], meta: { name: 'Project' } }
+    /**
+     * Find zero or one Project that matches the filter.
+     * @param {ProjectFindUniqueArgs} args - Arguments to find a Project
+     * @example
+     * // Get one Project
+     * const project = await prisma.project.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProjectFindUniqueArgs>(args: SelectSubset<T, ProjectFindUniqueArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Project that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProjectFindUniqueOrThrowArgs} args - Arguments to find a Project
+     * @example
+     * // Get one Project
+     * const project = await prisma.project.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProjectFindUniqueOrThrowArgs>(args: SelectSubset<T, ProjectFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Project that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectFindFirstArgs} args - Arguments to find a Project
+     * @example
+     * // Get one Project
+     * const project = await prisma.project.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProjectFindFirstArgs>(args?: SelectSubset<T, ProjectFindFirstArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Project that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectFindFirstOrThrowArgs} args - Arguments to find a Project
+     * @example
+     * // Get one Project
+     * const project = await prisma.project.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProjectFindFirstOrThrowArgs>(args?: SelectSubset<T, ProjectFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Projects that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Projects
+     * const projects = await prisma.project.findMany()
+     * 
+     * // Get first 10 Projects
+     * const projects = await prisma.project.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const projectWithIdOnly = await prisma.project.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProjectFindManyArgs>(args?: SelectSubset<T, ProjectFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Project.
+     * @param {ProjectCreateArgs} args - Arguments to create a Project.
+     * @example
+     * // Create one Project
+     * const Project = await prisma.project.create({
+     *   data: {
+     *     // ... data to create a Project
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProjectCreateArgs>(args: SelectSubset<T, ProjectCreateArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Projects.
+     * @param {ProjectCreateManyArgs} args - Arguments to create many Projects.
+     * @example
+     * // Create many Projects
+     * const project = await prisma.project.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProjectCreateManyArgs>(args?: SelectSubset<T, ProjectCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Projects and returns the data saved in the database.
+     * @param {ProjectCreateManyAndReturnArgs} args - Arguments to create many Projects.
+     * @example
+     * // Create many Projects
+     * const project = await prisma.project.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Projects and only return the `id`
+     * const projectWithIdOnly = await prisma.project.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProjectCreateManyAndReturnArgs>(args?: SelectSubset<T, ProjectCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Project.
+     * @param {ProjectDeleteArgs} args - Arguments to delete one Project.
+     * @example
+     * // Delete one Project
+     * const Project = await prisma.project.delete({
+     *   where: {
+     *     // ... filter to delete one Project
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProjectDeleteArgs>(args: SelectSubset<T, ProjectDeleteArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Project.
+     * @param {ProjectUpdateArgs} args - Arguments to update one Project.
+     * @example
+     * // Update one Project
+     * const project = await prisma.project.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProjectUpdateArgs>(args: SelectSubset<T, ProjectUpdateArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Projects.
+     * @param {ProjectDeleteManyArgs} args - Arguments to filter Projects to delete.
+     * @example
+     * // Delete a few Projects
+     * const { count } = await prisma.project.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProjectDeleteManyArgs>(args?: SelectSubset<T, ProjectDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Projects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Projects
+     * const project = await prisma.project.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProjectUpdateManyArgs>(args: SelectSubset<T, ProjectUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Projects and returns the data updated in the database.
+     * @param {ProjectUpdateManyAndReturnArgs} args - Arguments to update many Projects.
+     * @example
+     * // Update many Projects
+     * const project = await prisma.project.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Projects and only return the `id`
+     * const projectWithIdOnly = await prisma.project.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProjectUpdateManyAndReturnArgs>(args: SelectSubset<T, ProjectUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Project.
+     * @param {ProjectUpsertArgs} args - Arguments to update or create a Project.
+     * @example
+     * // Update or create a Project
+     * const project = await prisma.project.upsert({
+     *   create: {
+     *     // ... data to create a Project
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Project we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProjectUpsertArgs>(args: SelectSubset<T, ProjectUpsertArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Projects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectCountArgs} args - Arguments to filter Projects to count.
+     * @example
+     * // Count the number of Projects
+     * const count = await prisma.project.count({
+     *   where: {
+     *     // ... the filter for the Projects we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProjectCountArgs>(
+      args?: Subset<T, ProjectCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProjectCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Project.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProjectAggregateArgs>(args: Subset<T, ProjectAggregateArgs>): Prisma.PrismaPromise<GetProjectAggregateType<T>>
+
+    /**
+     * Group by Project.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProjectGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProjectGroupByArgs['orderBy'] }
+        : { orderBy?: ProjectGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProjectGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProjectGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Project model
+   */
+  readonly fields: ProjectFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Project.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    workspace<T extends WorkspaceDefaultArgs<ExtArgs> = {}>(args?: Subset<T, WorkspaceDefaultArgs<ExtArgs>>): Prisma__WorkspaceClient<$Result.GetResult<Prisma.$WorkspacePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    workflowExecutions<T extends Project$workflowExecutionsArgs<ExtArgs> = {}>(args?: Subset<T, Project$workflowExecutionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WorkflowExecutionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    agentMemories<T extends Project$agentMemoriesArgs<ExtArgs> = {}>(args?: Subset<T, Project$agentMemoriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AgentMemoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    resourceAllocations<T extends Project$resourceAllocationsArgs<ExtArgs> = {}>(args?: Subset<T, Project$resourceAllocationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ResourceAllocationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Project model
+   */
+  interface ProjectFieldRefs {
+    readonly id: FieldRef<"Project", 'String'>
+    readonly name: FieldRef<"Project", 'String'>
+    readonly description: FieldRef<"Project", 'String'>
+    readonly workspaceId: FieldRef<"Project", 'String'>
+    readonly createdAt: FieldRef<"Project", 'DateTime'>
+    readonly updatedAt: FieldRef<"Project", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Project findUnique
+   */
+  export type ProjectFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Project to fetch.
+     */
+    where: ProjectWhereUniqueInput
+  }
+
+  /**
+   * Project findUniqueOrThrow
+   */
+  export type ProjectFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Project to fetch.
+     */
+    where: ProjectWhereUniqueInput
+  }
+
+  /**
+   * Project findFirst
+   */
+  export type ProjectFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Project to fetch.
+     */
+    where?: ProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Projects to fetch.
+     */
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Projects.
+     */
+    cursor?: ProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Projects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Projects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Projects.
+     */
+    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
+  }
+
+  /**
+   * Project findFirstOrThrow
+   */
+  export type ProjectFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Project to fetch.
+     */
+    where?: ProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Projects to fetch.
+     */
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Projects.
+     */
+    cursor?: ProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Projects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Projects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Projects.
+     */
+    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
+  }
+
+  /**
+   * Project findMany
+   */
+  export type ProjectFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Projects to fetch.
+     */
+    where?: ProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Projects to fetch.
+     */
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Projects.
+     */
+    cursor?: ProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Projects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Projects.
+     */
+    skip?: number
+    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
+  }
+
+  /**
+   * Project create
+   */
+  export type ProjectCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Project.
+     */
+    data: XOR<ProjectCreateInput, ProjectUncheckedCreateInput>
+  }
+
+  /**
+   * Project createMany
+   */
+  export type ProjectCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Projects.
+     */
+    data: ProjectCreateManyInput | ProjectCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Project createManyAndReturn
+   */
+  export type ProjectCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * The data used to create many Projects.
+     */
+    data: ProjectCreateManyInput | ProjectCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Project update
+   */
+  export type ProjectUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Project.
+     */
+    data: XOR<ProjectUpdateInput, ProjectUncheckedUpdateInput>
+    /**
+     * Choose, which Project to update.
+     */
+    where: ProjectWhereUniqueInput
+  }
+
+  /**
+   * Project updateMany
+   */
+  export type ProjectUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Projects.
+     */
+    data: XOR<ProjectUpdateManyMutationInput, ProjectUncheckedUpdateManyInput>
+    /**
+     * Filter which Projects to update
+     */
+    where?: ProjectWhereInput
+    /**
+     * Limit how many Projects to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Project updateManyAndReturn
+   */
+  export type ProjectUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * The data used to update Projects.
+     */
+    data: XOR<ProjectUpdateManyMutationInput, ProjectUncheckedUpdateManyInput>
+    /**
+     * Filter which Projects to update
+     */
+    where?: ProjectWhereInput
+    /**
+     * Limit how many Projects to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Project upsert
+   */
+  export type ProjectUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Project to update in case it exists.
+     */
+    where: ProjectWhereUniqueInput
+    /**
+     * In case the Project found by the `where` argument doesn't exist, create a new Project with this data.
+     */
+    create: XOR<ProjectCreateInput, ProjectUncheckedCreateInput>
+    /**
+     * In case the Project was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProjectUpdateInput, ProjectUncheckedUpdateInput>
+  }
+
+  /**
+   * Project delete
+   */
+  export type ProjectDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter which Project to delete.
+     */
+    where: ProjectWhereUniqueInput
+  }
+
+  /**
+   * Project deleteMany
+   */
+  export type ProjectDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Projects to delete
+     */
+    where?: ProjectWhereInput
+    /**
+     * Limit how many Projects to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Project.workflowExecutions
+   */
+  export type Project$workflowExecutionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkflowExecution
+     */
+    select?: WorkflowExecutionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkflowExecution
+     */
+    omit?: WorkflowExecutionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkflowExecutionInclude<ExtArgs> | null
+    where?: WorkflowExecutionWhereInput
+    orderBy?: WorkflowExecutionOrderByWithRelationInput | WorkflowExecutionOrderByWithRelationInput[]
+    cursor?: WorkflowExecutionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: WorkflowExecutionScalarFieldEnum | WorkflowExecutionScalarFieldEnum[]
+  }
+
+  /**
+   * Project.agentMemories
+   */
+  export type Project$agentMemoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AgentMemory
+     */
+    select?: AgentMemorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AgentMemory
+     */
+    omit?: AgentMemoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgentMemoryInclude<ExtArgs> | null
+    where?: AgentMemoryWhereInput
+    orderBy?: AgentMemoryOrderByWithRelationInput | AgentMemoryOrderByWithRelationInput[]
+    cursor?: AgentMemoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AgentMemoryScalarFieldEnum | AgentMemoryScalarFieldEnum[]
+  }
+
+  /**
+   * Project.resourceAllocations
+   */
+  export type Project$resourceAllocationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ResourceAllocation
+     */
+    select?: ResourceAllocationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ResourceAllocation
+     */
+    omit?: ResourceAllocationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResourceAllocationInclude<ExtArgs> | null
+    where?: ResourceAllocationWhereInput
+    orderBy?: ResourceAllocationOrderByWithRelationInput | ResourceAllocationOrderByWithRelationInput[]
+    cursor?: ResourceAllocationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ResourceAllocationScalarFieldEnum | ResourceAllocationScalarFieldEnum[]
+  }
+
+  /**
+   * Project without action
+   */
+  export type ProjectDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model AgentMemory
+   */
+
+  export type AggregateAgentMemory = {
+    _count: AgentMemoryCountAggregateOutputType | null
+    _min: AgentMemoryMinAggregateOutputType | null
+    _max: AgentMemoryMaxAggregateOutputType | null
+  }
+
+  export type AgentMemoryMinAggregateOutputType = {
+    id: string | null
+    key: string | null
+    agentId: string | null
+    projectId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AgentMemoryMaxAggregateOutputType = {
+    id: string | null
+    key: string | null
+    agentId: string | null
+    projectId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AgentMemoryCountAggregateOutputType = {
+    id: number
+    key: number
+    value: number
+    agentId: number
+    projectId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type AgentMemoryMinAggregateInputType = {
+    id?: true
+    key?: true
+    agentId?: true
+    projectId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AgentMemoryMaxAggregateInputType = {
+    id?: true
+    key?: true
+    agentId?: true
+    projectId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AgentMemoryCountAggregateInputType = {
+    id?: true
+    key?: true
+    value?: true
+    agentId?: true
+    projectId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type AgentMemoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AgentMemory to aggregate.
+     */
+    where?: AgentMemoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AgentMemories to fetch.
+     */
+    orderBy?: AgentMemoryOrderByWithRelationInput | AgentMemoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AgentMemoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AgentMemories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AgentMemories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AgentMemories
+    **/
+    _count?: true | AgentMemoryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AgentMemoryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AgentMemoryMaxAggregateInputType
+  }
+
+  export type GetAgentMemoryAggregateType<T extends AgentMemoryAggregateArgs> = {
+        [P in keyof T & keyof AggregateAgentMemory]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAgentMemory[P]>
+      : GetScalarType<T[P], AggregateAgentMemory[P]>
+  }
+
+
+
+
+  export type AgentMemoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AgentMemoryWhereInput
+    orderBy?: AgentMemoryOrderByWithAggregationInput | AgentMemoryOrderByWithAggregationInput[]
+    by: AgentMemoryScalarFieldEnum[] | AgentMemoryScalarFieldEnum
+    having?: AgentMemoryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AgentMemoryCountAggregateInputType | true
+    _min?: AgentMemoryMinAggregateInputType
+    _max?: AgentMemoryMaxAggregateInputType
+  }
+
+  export type AgentMemoryGroupByOutputType = {
+    id: string
+    key: string
+    value: JsonValue
+    agentId: string | null
+    projectId: string
+    createdAt: Date
+    updatedAt: Date
+    _count: AgentMemoryCountAggregateOutputType | null
+    _min: AgentMemoryMinAggregateOutputType | null
+    _max: AgentMemoryMaxAggregateOutputType | null
+  }
+
+  type GetAgentMemoryGroupByPayload<T extends AgentMemoryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AgentMemoryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AgentMemoryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AgentMemoryGroupByOutputType[P]>
+            : GetScalarType<T[P], AgentMemoryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AgentMemorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    key?: boolean
+    value?: boolean
+    agentId?: boolean
+    projectId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["agentMemory"]>
+
+  export type AgentMemorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    key?: boolean
+    value?: boolean
+    agentId?: boolean
+    projectId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["agentMemory"]>
+
+  export type AgentMemorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    key?: boolean
+    value?: boolean
+    agentId?: boolean
+    projectId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["agentMemory"]>
+
+  export type AgentMemorySelectScalar = {
+    id?: boolean
+    key?: boolean
+    value?: boolean
+    agentId?: boolean
+    projectId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type AgentMemoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "key" | "value" | "agentId" | "projectId" | "createdAt" | "updatedAt", ExtArgs["result"]["agentMemory"]>
+  export type AgentMemoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+  export type AgentMemoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+  export type AgentMemoryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+
+  export type $AgentMemoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AgentMemory"
+    objects: {
+      project: Prisma.$ProjectPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      key: string
+      value: Prisma.JsonValue
+      agentId: string | null
+      projectId: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["agentMemory"]>
+    composites: {}
+  }
+
+  type AgentMemoryGetPayload<S extends boolean | null | undefined | AgentMemoryDefaultArgs> = $Result.GetResult<Prisma.$AgentMemoryPayload, S>
+
+  type AgentMemoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AgentMemoryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AgentMemoryCountAggregateInputType | true
+    }
+
+  export interface AgentMemoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AgentMemory'], meta: { name: 'AgentMemory' } }
+    /**
+     * Find zero or one AgentMemory that matches the filter.
+     * @param {AgentMemoryFindUniqueArgs} args - Arguments to find a AgentMemory
+     * @example
+     * // Get one AgentMemory
+     * const agentMemory = await prisma.agentMemory.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AgentMemoryFindUniqueArgs>(args: SelectSubset<T, AgentMemoryFindUniqueArgs<ExtArgs>>): Prisma__AgentMemoryClient<$Result.GetResult<Prisma.$AgentMemoryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AgentMemory that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AgentMemoryFindUniqueOrThrowArgs} args - Arguments to find a AgentMemory
+     * @example
+     * // Get one AgentMemory
+     * const agentMemory = await prisma.agentMemory.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AgentMemoryFindUniqueOrThrowArgs>(args: SelectSubset<T, AgentMemoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AgentMemoryClient<$Result.GetResult<Prisma.$AgentMemoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AgentMemory that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AgentMemoryFindFirstArgs} args - Arguments to find a AgentMemory
+     * @example
+     * // Get one AgentMemory
+     * const agentMemory = await prisma.agentMemory.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AgentMemoryFindFirstArgs>(args?: SelectSubset<T, AgentMemoryFindFirstArgs<ExtArgs>>): Prisma__AgentMemoryClient<$Result.GetResult<Prisma.$AgentMemoryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AgentMemory that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AgentMemoryFindFirstOrThrowArgs} args - Arguments to find a AgentMemory
+     * @example
+     * // Get one AgentMemory
+     * const agentMemory = await prisma.agentMemory.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AgentMemoryFindFirstOrThrowArgs>(args?: SelectSubset<T, AgentMemoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__AgentMemoryClient<$Result.GetResult<Prisma.$AgentMemoryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AgentMemories that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AgentMemoryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AgentMemories
+     * const agentMemories = await prisma.agentMemory.findMany()
+     * 
+     * // Get first 10 AgentMemories
+     * const agentMemories = await prisma.agentMemory.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const agentMemoryWithIdOnly = await prisma.agentMemory.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AgentMemoryFindManyArgs>(args?: SelectSubset<T, AgentMemoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AgentMemoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AgentMemory.
+     * @param {AgentMemoryCreateArgs} args - Arguments to create a AgentMemory.
+     * @example
+     * // Create one AgentMemory
+     * const AgentMemory = await prisma.agentMemory.create({
+     *   data: {
+     *     // ... data to create a AgentMemory
+     *   }
+     * })
+     * 
+     */
+    create<T extends AgentMemoryCreateArgs>(args: SelectSubset<T, AgentMemoryCreateArgs<ExtArgs>>): Prisma__AgentMemoryClient<$Result.GetResult<Prisma.$AgentMemoryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AgentMemories.
+     * @param {AgentMemoryCreateManyArgs} args - Arguments to create many AgentMemories.
+     * @example
+     * // Create many AgentMemories
+     * const agentMemory = await prisma.agentMemory.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AgentMemoryCreateManyArgs>(args?: SelectSubset<T, AgentMemoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many AgentMemories and returns the data saved in the database.
+     * @param {AgentMemoryCreateManyAndReturnArgs} args - Arguments to create many AgentMemories.
+     * @example
+     * // Create many AgentMemories
+     * const agentMemory = await prisma.agentMemory.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many AgentMemories and only return the `id`
+     * const agentMemoryWithIdOnly = await prisma.agentMemory.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AgentMemoryCreateManyAndReturnArgs>(args?: SelectSubset<T, AgentMemoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AgentMemoryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a AgentMemory.
+     * @param {AgentMemoryDeleteArgs} args - Arguments to delete one AgentMemory.
+     * @example
+     * // Delete one AgentMemory
+     * const AgentMemory = await prisma.agentMemory.delete({
+     *   where: {
+     *     // ... filter to delete one AgentMemory
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AgentMemoryDeleteArgs>(args: SelectSubset<T, AgentMemoryDeleteArgs<ExtArgs>>): Prisma__AgentMemoryClient<$Result.GetResult<Prisma.$AgentMemoryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AgentMemory.
+     * @param {AgentMemoryUpdateArgs} args - Arguments to update one AgentMemory.
+     * @example
+     * // Update one AgentMemory
+     * const agentMemory = await prisma.agentMemory.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AgentMemoryUpdateArgs>(args: SelectSubset<T, AgentMemoryUpdateArgs<ExtArgs>>): Prisma__AgentMemoryClient<$Result.GetResult<Prisma.$AgentMemoryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AgentMemories.
+     * @param {AgentMemoryDeleteManyArgs} args - Arguments to filter AgentMemories to delete.
+     * @example
+     * // Delete a few AgentMemories
+     * const { count } = await prisma.agentMemory.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AgentMemoryDeleteManyArgs>(args?: SelectSubset<T, AgentMemoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AgentMemories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AgentMemoryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AgentMemories
+     * const agentMemory = await prisma.agentMemory.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AgentMemoryUpdateManyArgs>(args: SelectSubset<T, AgentMemoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AgentMemories and returns the data updated in the database.
+     * @param {AgentMemoryUpdateManyAndReturnArgs} args - Arguments to update many AgentMemories.
+     * @example
+     * // Update many AgentMemories
+     * const agentMemory = await prisma.agentMemory.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more AgentMemories and only return the `id`
+     * const agentMemoryWithIdOnly = await prisma.agentMemory.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AgentMemoryUpdateManyAndReturnArgs>(args: SelectSubset<T, AgentMemoryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AgentMemoryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one AgentMemory.
+     * @param {AgentMemoryUpsertArgs} args - Arguments to update or create a AgentMemory.
+     * @example
+     * // Update or create a AgentMemory
+     * const agentMemory = await prisma.agentMemory.upsert({
+     *   create: {
+     *     // ... data to create a AgentMemory
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AgentMemory we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AgentMemoryUpsertArgs>(args: SelectSubset<T, AgentMemoryUpsertArgs<ExtArgs>>): Prisma__AgentMemoryClient<$Result.GetResult<Prisma.$AgentMemoryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of AgentMemories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AgentMemoryCountArgs} args - Arguments to filter AgentMemories to count.
+     * @example
+     * // Count the number of AgentMemories
+     * const count = await prisma.agentMemory.count({
+     *   where: {
+     *     // ... the filter for the AgentMemories we want to count
+     *   }
+     * })
+    **/
+    count<T extends AgentMemoryCountArgs>(
+      args?: Subset<T, AgentMemoryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AgentMemoryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AgentMemory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AgentMemoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AgentMemoryAggregateArgs>(args: Subset<T, AgentMemoryAggregateArgs>): Prisma.PrismaPromise<GetAgentMemoryAggregateType<T>>
+
+    /**
+     * Group by AgentMemory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AgentMemoryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AgentMemoryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AgentMemoryGroupByArgs['orderBy'] }
+        : { orderBy?: AgentMemoryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AgentMemoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAgentMemoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AgentMemory model
+   */
+  readonly fields: AgentMemoryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AgentMemory.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AgentMemoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AgentMemory model
+   */
+  interface AgentMemoryFieldRefs {
+    readonly id: FieldRef<"AgentMemory", 'String'>
+    readonly key: FieldRef<"AgentMemory", 'String'>
+    readonly value: FieldRef<"AgentMemory", 'Json'>
+    readonly agentId: FieldRef<"AgentMemory", 'String'>
+    readonly projectId: FieldRef<"AgentMemory", 'String'>
+    readonly createdAt: FieldRef<"AgentMemory", 'DateTime'>
+    readonly updatedAt: FieldRef<"AgentMemory", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AgentMemory findUnique
+   */
+  export type AgentMemoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AgentMemory
+     */
+    select?: AgentMemorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AgentMemory
+     */
+    omit?: AgentMemoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgentMemoryInclude<ExtArgs> | null
+    /**
+     * Filter, which AgentMemory to fetch.
+     */
+    where: AgentMemoryWhereUniqueInput
+  }
+
+  /**
+   * AgentMemory findUniqueOrThrow
+   */
+  export type AgentMemoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AgentMemory
+     */
+    select?: AgentMemorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AgentMemory
+     */
+    omit?: AgentMemoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgentMemoryInclude<ExtArgs> | null
+    /**
+     * Filter, which AgentMemory to fetch.
+     */
+    where: AgentMemoryWhereUniqueInput
+  }
+
+  /**
+   * AgentMemory findFirst
+   */
+  export type AgentMemoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AgentMemory
+     */
+    select?: AgentMemorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AgentMemory
+     */
+    omit?: AgentMemoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgentMemoryInclude<ExtArgs> | null
+    /**
+     * Filter, which AgentMemory to fetch.
+     */
+    where?: AgentMemoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AgentMemories to fetch.
+     */
+    orderBy?: AgentMemoryOrderByWithRelationInput | AgentMemoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AgentMemories.
+     */
+    cursor?: AgentMemoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AgentMemories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AgentMemories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AgentMemories.
+     */
+    distinct?: AgentMemoryScalarFieldEnum | AgentMemoryScalarFieldEnum[]
+  }
+
+  /**
+   * AgentMemory findFirstOrThrow
+   */
+  export type AgentMemoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AgentMemory
+     */
+    select?: AgentMemorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AgentMemory
+     */
+    omit?: AgentMemoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgentMemoryInclude<ExtArgs> | null
+    /**
+     * Filter, which AgentMemory to fetch.
+     */
+    where?: AgentMemoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AgentMemories to fetch.
+     */
+    orderBy?: AgentMemoryOrderByWithRelationInput | AgentMemoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AgentMemories.
+     */
+    cursor?: AgentMemoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AgentMemories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AgentMemories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AgentMemories.
+     */
+    distinct?: AgentMemoryScalarFieldEnum | AgentMemoryScalarFieldEnum[]
+  }
+
+  /**
+   * AgentMemory findMany
+   */
+  export type AgentMemoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AgentMemory
+     */
+    select?: AgentMemorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AgentMemory
+     */
+    omit?: AgentMemoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgentMemoryInclude<ExtArgs> | null
+    /**
+     * Filter, which AgentMemories to fetch.
+     */
+    where?: AgentMemoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AgentMemories to fetch.
+     */
+    orderBy?: AgentMemoryOrderByWithRelationInput | AgentMemoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AgentMemories.
+     */
+    cursor?: AgentMemoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AgentMemories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AgentMemories.
+     */
+    skip?: number
+    distinct?: AgentMemoryScalarFieldEnum | AgentMemoryScalarFieldEnum[]
+  }
+
+  /**
+   * AgentMemory create
+   */
+  export type AgentMemoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AgentMemory
+     */
+    select?: AgentMemorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AgentMemory
+     */
+    omit?: AgentMemoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgentMemoryInclude<ExtArgs> | null
+    /**
+     * The data needed to create a AgentMemory.
+     */
+    data: XOR<AgentMemoryCreateInput, AgentMemoryUncheckedCreateInput>
+  }
+
+  /**
+   * AgentMemory createMany
+   */
+  export type AgentMemoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AgentMemories.
+     */
+    data: AgentMemoryCreateManyInput | AgentMemoryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * AgentMemory createManyAndReturn
+   */
+  export type AgentMemoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AgentMemory
+     */
+    select?: AgentMemorySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AgentMemory
+     */
+    omit?: AgentMemoryOmit<ExtArgs> | null
+    /**
+     * The data used to create many AgentMemories.
+     */
+    data: AgentMemoryCreateManyInput | AgentMemoryCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgentMemoryIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * AgentMemory update
+   */
+  export type AgentMemoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AgentMemory
+     */
+    select?: AgentMemorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AgentMemory
+     */
+    omit?: AgentMemoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgentMemoryInclude<ExtArgs> | null
+    /**
+     * The data needed to update a AgentMemory.
+     */
+    data: XOR<AgentMemoryUpdateInput, AgentMemoryUncheckedUpdateInput>
+    /**
+     * Choose, which AgentMemory to update.
+     */
+    where: AgentMemoryWhereUniqueInput
+  }
+
+  /**
+   * AgentMemory updateMany
+   */
+  export type AgentMemoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AgentMemories.
+     */
+    data: XOR<AgentMemoryUpdateManyMutationInput, AgentMemoryUncheckedUpdateManyInput>
+    /**
+     * Filter which AgentMemories to update
+     */
+    where?: AgentMemoryWhereInput
+    /**
+     * Limit how many AgentMemories to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AgentMemory updateManyAndReturn
+   */
+  export type AgentMemoryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AgentMemory
+     */
+    select?: AgentMemorySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AgentMemory
+     */
+    omit?: AgentMemoryOmit<ExtArgs> | null
+    /**
+     * The data used to update AgentMemories.
+     */
+    data: XOR<AgentMemoryUpdateManyMutationInput, AgentMemoryUncheckedUpdateManyInput>
+    /**
+     * Filter which AgentMemories to update
+     */
+    where?: AgentMemoryWhereInput
+    /**
+     * Limit how many AgentMemories to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgentMemoryIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * AgentMemory upsert
+   */
+  export type AgentMemoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AgentMemory
+     */
+    select?: AgentMemorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AgentMemory
+     */
+    omit?: AgentMemoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgentMemoryInclude<ExtArgs> | null
+    /**
+     * The filter to search for the AgentMemory to update in case it exists.
+     */
+    where: AgentMemoryWhereUniqueInput
+    /**
+     * In case the AgentMemory found by the `where` argument doesn't exist, create a new AgentMemory with this data.
+     */
+    create: XOR<AgentMemoryCreateInput, AgentMemoryUncheckedCreateInput>
+    /**
+     * In case the AgentMemory was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AgentMemoryUpdateInput, AgentMemoryUncheckedUpdateInput>
+  }
+
+  /**
+   * AgentMemory delete
+   */
+  export type AgentMemoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AgentMemory
+     */
+    select?: AgentMemorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AgentMemory
+     */
+    omit?: AgentMemoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgentMemoryInclude<ExtArgs> | null
+    /**
+     * Filter which AgentMemory to delete.
+     */
+    where: AgentMemoryWhereUniqueInput
+  }
+
+  /**
+   * AgentMemory deleteMany
+   */
+  export type AgentMemoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AgentMemories to delete
+     */
+    where?: AgentMemoryWhereInput
+    /**
+     * Limit how many AgentMemories to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AgentMemory without action
+   */
+  export type AgentMemoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AgentMemory
+     */
+    select?: AgentMemorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AgentMemory
+     */
+    omit?: AgentMemoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgentMemoryInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ResourceAllocation
+   */
+
+  export type AggregateResourceAllocation = {
+    _count: ResourceAllocationCountAggregateOutputType | null
+    _min: ResourceAllocationMinAggregateOutputType | null
+    _max: ResourceAllocationMaxAggregateOutputType | null
+  }
+
+  export type ResourceAllocationMinAggregateOutputType = {
+    id: string | null
+    resourceType: string | null
+    resourceId: string | null
+    projectId: string | null
+    allocatedAt: Date | null
+  }
+
+  export type ResourceAllocationMaxAggregateOutputType = {
+    id: string | null
+    resourceType: string | null
+    resourceId: string | null
+    projectId: string | null
+    allocatedAt: Date | null
+  }
+
+  export type ResourceAllocationCountAggregateOutputType = {
+    id: number
+    resourceType: number
+    resourceId: number
+    projectId: number
+    allocatedAt: number
+    metadata: number
+    _all: number
+  }
+
+
+  export type ResourceAllocationMinAggregateInputType = {
+    id?: true
+    resourceType?: true
+    resourceId?: true
+    projectId?: true
+    allocatedAt?: true
+  }
+
+  export type ResourceAllocationMaxAggregateInputType = {
+    id?: true
+    resourceType?: true
+    resourceId?: true
+    projectId?: true
+    allocatedAt?: true
+  }
+
+  export type ResourceAllocationCountAggregateInputType = {
+    id?: true
+    resourceType?: true
+    resourceId?: true
+    projectId?: true
+    allocatedAt?: true
+    metadata?: true
+    _all?: true
+  }
+
+  export type ResourceAllocationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ResourceAllocation to aggregate.
+     */
+    where?: ResourceAllocationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ResourceAllocations to fetch.
+     */
+    orderBy?: ResourceAllocationOrderByWithRelationInput | ResourceAllocationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ResourceAllocationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ResourceAllocations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ResourceAllocations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ResourceAllocations
+    **/
+    _count?: true | ResourceAllocationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ResourceAllocationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ResourceAllocationMaxAggregateInputType
+  }
+
+  export type GetResourceAllocationAggregateType<T extends ResourceAllocationAggregateArgs> = {
+        [P in keyof T & keyof AggregateResourceAllocation]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateResourceAllocation[P]>
+      : GetScalarType<T[P], AggregateResourceAllocation[P]>
+  }
+
+
+
+
+  export type ResourceAllocationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ResourceAllocationWhereInput
+    orderBy?: ResourceAllocationOrderByWithAggregationInput | ResourceAllocationOrderByWithAggregationInput[]
+    by: ResourceAllocationScalarFieldEnum[] | ResourceAllocationScalarFieldEnum
+    having?: ResourceAllocationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ResourceAllocationCountAggregateInputType | true
+    _min?: ResourceAllocationMinAggregateInputType
+    _max?: ResourceAllocationMaxAggregateInputType
+  }
+
+  export type ResourceAllocationGroupByOutputType = {
+    id: string
+    resourceType: string
+    resourceId: string
+    projectId: string
+    allocatedAt: Date
+    metadata: JsonValue | null
+    _count: ResourceAllocationCountAggregateOutputType | null
+    _min: ResourceAllocationMinAggregateOutputType | null
+    _max: ResourceAllocationMaxAggregateOutputType | null
+  }
+
+  type GetResourceAllocationGroupByPayload<T extends ResourceAllocationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ResourceAllocationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ResourceAllocationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ResourceAllocationGroupByOutputType[P]>
+            : GetScalarType<T[P], ResourceAllocationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ResourceAllocationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resourceType?: boolean
+    resourceId?: boolean
+    projectId?: boolean
+    allocatedAt?: boolean
+    metadata?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["resourceAllocation"]>
+
+  export type ResourceAllocationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resourceType?: boolean
+    resourceId?: boolean
+    projectId?: boolean
+    allocatedAt?: boolean
+    metadata?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["resourceAllocation"]>
+
+  export type ResourceAllocationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resourceType?: boolean
+    resourceId?: boolean
+    projectId?: boolean
+    allocatedAt?: boolean
+    metadata?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["resourceAllocation"]>
+
+  export type ResourceAllocationSelectScalar = {
+    id?: boolean
+    resourceType?: boolean
+    resourceId?: boolean
+    projectId?: boolean
+    allocatedAt?: boolean
+    metadata?: boolean
+  }
+
+  export type ResourceAllocationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resourceType" | "resourceId" | "projectId" | "allocatedAt" | "metadata", ExtArgs["result"]["resourceAllocation"]>
+  export type ResourceAllocationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+  export type ResourceAllocationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+  export type ResourceAllocationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+
+  export type $ResourceAllocationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ResourceAllocation"
+    objects: {
+      project: Prisma.$ProjectPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      resourceType: string
+      resourceId: string
+      projectId: string
+      allocatedAt: Date
+      metadata: Prisma.JsonValue | null
+    }, ExtArgs["result"]["resourceAllocation"]>
+    composites: {}
+  }
+
+  type ResourceAllocationGetPayload<S extends boolean | null | undefined | ResourceAllocationDefaultArgs> = $Result.GetResult<Prisma.$ResourceAllocationPayload, S>
+
+  type ResourceAllocationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ResourceAllocationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ResourceAllocationCountAggregateInputType | true
+    }
+
+  export interface ResourceAllocationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ResourceAllocation'], meta: { name: 'ResourceAllocation' } }
+    /**
+     * Find zero or one ResourceAllocation that matches the filter.
+     * @param {ResourceAllocationFindUniqueArgs} args - Arguments to find a ResourceAllocation
+     * @example
+     * // Get one ResourceAllocation
+     * const resourceAllocation = await prisma.resourceAllocation.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ResourceAllocationFindUniqueArgs>(args: SelectSubset<T, ResourceAllocationFindUniqueArgs<ExtArgs>>): Prisma__ResourceAllocationClient<$Result.GetResult<Prisma.$ResourceAllocationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ResourceAllocation that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ResourceAllocationFindUniqueOrThrowArgs} args - Arguments to find a ResourceAllocation
+     * @example
+     * // Get one ResourceAllocation
+     * const resourceAllocation = await prisma.resourceAllocation.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ResourceAllocationFindUniqueOrThrowArgs>(args: SelectSubset<T, ResourceAllocationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ResourceAllocationClient<$Result.GetResult<Prisma.$ResourceAllocationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ResourceAllocation that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ResourceAllocationFindFirstArgs} args - Arguments to find a ResourceAllocation
+     * @example
+     * // Get one ResourceAllocation
+     * const resourceAllocation = await prisma.resourceAllocation.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ResourceAllocationFindFirstArgs>(args?: SelectSubset<T, ResourceAllocationFindFirstArgs<ExtArgs>>): Prisma__ResourceAllocationClient<$Result.GetResult<Prisma.$ResourceAllocationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ResourceAllocation that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ResourceAllocationFindFirstOrThrowArgs} args - Arguments to find a ResourceAllocation
+     * @example
+     * // Get one ResourceAllocation
+     * const resourceAllocation = await prisma.resourceAllocation.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ResourceAllocationFindFirstOrThrowArgs>(args?: SelectSubset<T, ResourceAllocationFindFirstOrThrowArgs<ExtArgs>>): Prisma__ResourceAllocationClient<$Result.GetResult<Prisma.$ResourceAllocationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ResourceAllocations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ResourceAllocationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ResourceAllocations
+     * const resourceAllocations = await prisma.resourceAllocation.findMany()
+     * 
+     * // Get first 10 ResourceAllocations
+     * const resourceAllocations = await prisma.resourceAllocation.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const resourceAllocationWithIdOnly = await prisma.resourceAllocation.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ResourceAllocationFindManyArgs>(args?: SelectSubset<T, ResourceAllocationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ResourceAllocationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ResourceAllocation.
+     * @param {ResourceAllocationCreateArgs} args - Arguments to create a ResourceAllocation.
+     * @example
+     * // Create one ResourceAllocation
+     * const ResourceAllocation = await prisma.resourceAllocation.create({
+     *   data: {
+     *     // ... data to create a ResourceAllocation
+     *   }
+     * })
+     * 
+     */
+    create<T extends ResourceAllocationCreateArgs>(args: SelectSubset<T, ResourceAllocationCreateArgs<ExtArgs>>): Prisma__ResourceAllocationClient<$Result.GetResult<Prisma.$ResourceAllocationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ResourceAllocations.
+     * @param {ResourceAllocationCreateManyArgs} args - Arguments to create many ResourceAllocations.
+     * @example
+     * // Create many ResourceAllocations
+     * const resourceAllocation = await prisma.resourceAllocation.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ResourceAllocationCreateManyArgs>(args?: SelectSubset<T, ResourceAllocationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ResourceAllocations and returns the data saved in the database.
+     * @param {ResourceAllocationCreateManyAndReturnArgs} args - Arguments to create many ResourceAllocations.
+     * @example
+     * // Create many ResourceAllocations
+     * const resourceAllocation = await prisma.resourceAllocation.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ResourceAllocations and only return the `id`
+     * const resourceAllocationWithIdOnly = await prisma.resourceAllocation.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ResourceAllocationCreateManyAndReturnArgs>(args?: SelectSubset<T, ResourceAllocationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ResourceAllocationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ResourceAllocation.
+     * @param {ResourceAllocationDeleteArgs} args - Arguments to delete one ResourceAllocation.
+     * @example
+     * // Delete one ResourceAllocation
+     * const ResourceAllocation = await prisma.resourceAllocation.delete({
+     *   where: {
+     *     // ... filter to delete one ResourceAllocation
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ResourceAllocationDeleteArgs>(args: SelectSubset<T, ResourceAllocationDeleteArgs<ExtArgs>>): Prisma__ResourceAllocationClient<$Result.GetResult<Prisma.$ResourceAllocationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ResourceAllocation.
+     * @param {ResourceAllocationUpdateArgs} args - Arguments to update one ResourceAllocation.
+     * @example
+     * // Update one ResourceAllocation
+     * const resourceAllocation = await prisma.resourceAllocation.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ResourceAllocationUpdateArgs>(args: SelectSubset<T, ResourceAllocationUpdateArgs<ExtArgs>>): Prisma__ResourceAllocationClient<$Result.GetResult<Prisma.$ResourceAllocationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ResourceAllocations.
+     * @param {ResourceAllocationDeleteManyArgs} args - Arguments to filter ResourceAllocations to delete.
+     * @example
+     * // Delete a few ResourceAllocations
+     * const { count } = await prisma.resourceAllocation.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ResourceAllocationDeleteManyArgs>(args?: SelectSubset<T, ResourceAllocationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ResourceAllocations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ResourceAllocationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ResourceAllocations
+     * const resourceAllocation = await prisma.resourceAllocation.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ResourceAllocationUpdateManyArgs>(args: SelectSubset<T, ResourceAllocationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ResourceAllocations and returns the data updated in the database.
+     * @param {ResourceAllocationUpdateManyAndReturnArgs} args - Arguments to update many ResourceAllocations.
+     * @example
+     * // Update many ResourceAllocations
+     * const resourceAllocation = await prisma.resourceAllocation.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ResourceAllocations and only return the `id`
+     * const resourceAllocationWithIdOnly = await prisma.resourceAllocation.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ResourceAllocationUpdateManyAndReturnArgs>(args: SelectSubset<T, ResourceAllocationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ResourceAllocationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ResourceAllocation.
+     * @param {ResourceAllocationUpsertArgs} args - Arguments to update or create a ResourceAllocation.
+     * @example
+     * // Update or create a ResourceAllocation
+     * const resourceAllocation = await prisma.resourceAllocation.upsert({
+     *   create: {
+     *     // ... data to create a ResourceAllocation
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ResourceAllocation we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ResourceAllocationUpsertArgs>(args: SelectSubset<T, ResourceAllocationUpsertArgs<ExtArgs>>): Prisma__ResourceAllocationClient<$Result.GetResult<Prisma.$ResourceAllocationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ResourceAllocations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ResourceAllocationCountArgs} args - Arguments to filter ResourceAllocations to count.
+     * @example
+     * // Count the number of ResourceAllocations
+     * const count = await prisma.resourceAllocation.count({
+     *   where: {
+     *     // ... the filter for the ResourceAllocations we want to count
+     *   }
+     * })
+    **/
+    count<T extends ResourceAllocationCountArgs>(
+      args?: Subset<T, ResourceAllocationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ResourceAllocationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ResourceAllocation.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ResourceAllocationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ResourceAllocationAggregateArgs>(args: Subset<T, ResourceAllocationAggregateArgs>): Prisma.PrismaPromise<GetResourceAllocationAggregateType<T>>
+
+    /**
+     * Group by ResourceAllocation.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ResourceAllocationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ResourceAllocationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ResourceAllocationGroupByArgs['orderBy'] }
+        : { orderBy?: ResourceAllocationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ResourceAllocationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetResourceAllocationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ResourceAllocation model
+   */
+  readonly fields: ResourceAllocationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ResourceAllocation.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ResourceAllocationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ResourceAllocation model
+   */
+  interface ResourceAllocationFieldRefs {
+    readonly id: FieldRef<"ResourceAllocation", 'String'>
+    readonly resourceType: FieldRef<"ResourceAllocation", 'String'>
+    readonly resourceId: FieldRef<"ResourceAllocation", 'String'>
+    readonly projectId: FieldRef<"ResourceAllocation", 'String'>
+    readonly allocatedAt: FieldRef<"ResourceAllocation", 'DateTime'>
+    readonly metadata: FieldRef<"ResourceAllocation", 'Json'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ResourceAllocation findUnique
+   */
+  export type ResourceAllocationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ResourceAllocation
+     */
+    select?: ResourceAllocationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ResourceAllocation
+     */
+    omit?: ResourceAllocationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResourceAllocationInclude<ExtArgs> | null
+    /**
+     * Filter, which ResourceAllocation to fetch.
+     */
+    where: ResourceAllocationWhereUniqueInput
+  }
+
+  /**
+   * ResourceAllocation findUniqueOrThrow
+   */
+  export type ResourceAllocationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ResourceAllocation
+     */
+    select?: ResourceAllocationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ResourceAllocation
+     */
+    omit?: ResourceAllocationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResourceAllocationInclude<ExtArgs> | null
+    /**
+     * Filter, which ResourceAllocation to fetch.
+     */
+    where: ResourceAllocationWhereUniqueInput
+  }
+
+  /**
+   * ResourceAllocation findFirst
+   */
+  export type ResourceAllocationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ResourceAllocation
+     */
+    select?: ResourceAllocationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ResourceAllocation
+     */
+    omit?: ResourceAllocationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResourceAllocationInclude<ExtArgs> | null
+    /**
+     * Filter, which ResourceAllocation to fetch.
+     */
+    where?: ResourceAllocationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ResourceAllocations to fetch.
+     */
+    orderBy?: ResourceAllocationOrderByWithRelationInput | ResourceAllocationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ResourceAllocations.
+     */
+    cursor?: ResourceAllocationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ResourceAllocations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ResourceAllocations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ResourceAllocations.
+     */
+    distinct?: ResourceAllocationScalarFieldEnum | ResourceAllocationScalarFieldEnum[]
+  }
+
+  /**
+   * ResourceAllocation findFirstOrThrow
+   */
+  export type ResourceAllocationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ResourceAllocation
+     */
+    select?: ResourceAllocationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ResourceAllocation
+     */
+    omit?: ResourceAllocationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResourceAllocationInclude<ExtArgs> | null
+    /**
+     * Filter, which ResourceAllocation to fetch.
+     */
+    where?: ResourceAllocationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ResourceAllocations to fetch.
+     */
+    orderBy?: ResourceAllocationOrderByWithRelationInput | ResourceAllocationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ResourceAllocations.
+     */
+    cursor?: ResourceAllocationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ResourceAllocations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ResourceAllocations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ResourceAllocations.
+     */
+    distinct?: ResourceAllocationScalarFieldEnum | ResourceAllocationScalarFieldEnum[]
+  }
+
+  /**
+   * ResourceAllocation findMany
+   */
+  export type ResourceAllocationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ResourceAllocation
+     */
+    select?: ResourceAllocationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ResourceAllocation
+     */
+    omit?: ResourceAllocationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResourceAllocationInclude<ExtArgs> | null
+    /**
+     * Filter, which ResourceAllocations to fetch.
+     */
+    where?: ResourceAllocationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ResourceAllocations to fetch.
+     */
+    orderBy?: ResourceAllocationOrderByWithRelationInput | ResourceAllocationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ResourceAllocations.
+     */
+    cursor?: ResourceAllocationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ResourceAllocations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ResourceAllocations.
+     */
+    skip?: number
+    distinct?: ResourceAllocationScalarFieldEnum | ResourceAllocationScalarFieldEnum[]
+  }
+
+  /**
+   * ResourceAllocation create
+   */
+  export type ResourceAllocationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ResourceAllocation
+     */
+    select?: ResourceAllocationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ResourceAllocation
+     */
+    omit?: ResourceAllocationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResourceAllocationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ResourceAllocation.
+     */
+    data: XOR<ResourceAllocationCreateInput, ResourceAllocationUncheckedCreateInput>
+  }
+
+  /**
+   * ResourceAllocation createMany
+   */
+  export type ResourceAllocationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ResourceAllocations.
+     */
+    data: ResourceAllocationCreateManyInput | ResourceAllocationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ResourceAllocation createManyAndReturn
+   */
+  export type ResourceAllocationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ResourceAllocation
+     */
+    select?: ResourceAllocationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ResourceAllocation
+     */
+    omit?: ResourceAllocationOmit<ExtArgs> | null
+    /**
+     * The data used to create many ResourceAllocations.
+     */
+    data: ResourceAllocationCreateManyInput | ResourceAllocationCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResourceAllocationIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ResourceAllocation update
+   */
+  export type ResourceAllocationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ResourceAllocation
+     */
+    select?: ResourceAllocationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ResourceAllocation
+     */
+    omit?: ResourceAllocationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResourceAllocationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ResourceAllocation.
+     */
+    data: XOR<ResourceAllocationUpdateInput, ResourceAllocationUncheckedUpdateInput>
+    /**
+     * Choose, which ResourceAllocation to update.
+     */
+    where: ResourceAllocationWhereUniqueInput
+  }
+
+  /**
+   * ResourceAllocation updateMany
+   */
+  export type ResourceAllocationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ResourceAllocations.
+     */
+    data: XOR<ResourceAllocationUpdateManyMutationInput, ResourceAllocationUncheckedUpdateManyInput>
+    /**
+     * Filter which ResourceAllocations to update
+     */
+    where?: ResourceAllocationWhereInput
+    /**
+     * Limit how many ResourceAllocations to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ResourceAllocation updateManyAndReturn
+   */
+  export type ResourceAllocationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ResourceAllocation
+     */
+    select?: ResourceAllocationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ResourceAllocation
+     */
+    omit?: ResourceAllocationOmit<ExtArgs> | null
+    /**
+     * The data used to update ResourceAllocations.
+     */
+    data: XOR<ResourceAllocationUpdateManyMutationInput, ResourceAllocationUncheckedUpdateManyInput>
+    /**
+     * Filter which ResourceAllocations to update
+     */
+    where?: ResourceAllocationWhereInput
+    /**
+     * Limit how many ResourceAllocations to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResourceAllocationIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ResourceAllocation upsert
+   */
+  export type ResourceAllocationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ResourceAllocation
+     */
+    select?: ResourceAllocationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ResourceAllocation
+     */
+    omit?: ResourceAllocationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResourceAllocationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ResourceAllocation to update in case it exists.
+     */
+    where: ResourceAllocationWhereUniqueInput
+    /**
+     * In case the ResourceAllocation found by the `where` argument doesn't exist, create a new ResourceAllocation with this data.
+     */
+    create: XOR<ResourceAllocationCreateInput, ResourceAllocationUncheckedCreateInput>
+    /**
+     * In case the ResourceAllocation was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ResourceAllocationUpdateInput, ResourceAllocationUncheckedUpdateInput>
+  }
+
+  /**
+   * ResourceAllocation delete
+   */
+  export type ResourceAllocationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ResourceAllocation
+     */
+    select?: ResourceAllocationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ResourceAllocation
+     */
+    omit?: ResourceAllocationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResourceAllocationInclude<ExtArgs> | null
+    /**
+     * Filter which ResourceAllocation to delete.
+     */
+    where: ResourceAllocationWhereUniqueInput
+  }
+
+  /**
+   * ResourceAllocation deleteMany
+   */
+  export type ResourceAllocationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ResourceAllocations to delete
+     */
+    where?: ResourceAllocationWhereInput
+    /**
+     * Limit how many ResourceAllocations to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ResourceAllocation without action
+   */
+  export type ResourceAllocationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ResourceAllocation
+     */
+    select?: ResourceAllocationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ResourceAllocation
+     */
+    omit?: ResourceAllocationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResourceAllocationInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model SyncState
    */
 
@@ -54536,7 +59462,8 @@ export namespace Prisma {
     output: 'output',
     error: 'error',
     startedAt: 'startedAt',
-    completedAt: 'completedAt'
+    completedAt: 'completedAt',
+    projectId: 'projectId'
   };
 
   export type WorkflowExecutionScalarFieldEnum = (typeof WorkflowExecutionScalarFieldEnum)[keyof typeof WorkflowExecutionScalarFieldEnum]
@@ -54985,6 +59912,55 @@ export namespace Prisma {
   };
 
   export type ErrorLogScalarFieldEnum = (typeof ErrorLogScalarFieldEnum)[keyof typeof ErrorLogScalarFieldEnum]
+
+
+  export const WorkspaceScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    description: 'description',
+    ownerId: 'ownerId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type WorkspaceScalarFieldEnum = (typeof WorkspaceScalarFieldEnum)[keyof typeof WorkspaceScalarFieldEnum]
+
+
+  export const ProjectScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    description: 'description',
+    workspaceId: 'workspaceId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ProjectScalarFieldEnum = (typeof ProjectScalarFieldEnum)[keyof typeof ProjectScalarFieldEnum]
+
+
+  export const AgentMemoryScalarFieldEnum: {
+    id: 'id',
+    key: 'key',
+    value: 'value',
+    agentId: 'agentId',
+    projectId: 'projectId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type AgentMemoryScalarFieldEnum = (typeof AgentMemoryScalarFieldEnum)[keyof typeof AgentMemoryScalarFieldEnum]
+
+
+  export const ResourceAllocationScalarFieldEnum: {
+    id: 'id',
+    resourceType: 'resourceType',
+    resourceId: 'resourceId',
+    projectId: 'projectId',
+    allocatedAt: 'allocatedAt',
+    metadata: 'metadata'
+  };
+
+  export type ResourceAllocationScalarFieldEnum = (typeof ResourceAllocationScalarFieldEnum)[keyof typeof ResourceAllocationScalarFieldEnum]
 
 
   export const SyncStateScalarFieldEnum: {
@@ -55475,6 +60451,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptListRelationFilter
     workflowTemplates?: WorkflowTemplateListRelationFilter
     authEvents?: AuthEventListRelationFilter
+    workspaces?: WorkspaceListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -55503,6 +60480,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptOrderByRelationAggregateInput
     workflowTemplates?: WorkflowTemplateOrderByRelationAggregateInput
     authEvents?: AuthEventOrderByRelationAggregateInput
+    workspaces?: WorkspaceOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -55534,6 +60512,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptListRelationFilter
     workflowTemplates?: WorkflowTemplateListRelationFilter
     authEvents?: AuthEventListRelationFilter
+    workspaces?: WorkspaceListRelationFilter
   }, "id" | "email" | "username">
 
   export type UserOrderByWithAggregationInput = {
@@ -56543,7 +61522,9 @@ export namespace Prisma {
     error?: StringNullableFilter<"WorkflowExecution"> | string | null
     startedAt?: DateTimeFilter<"WorkflowExecution"> | Date | string
     completedAt?: DateTimeNullableFilter<"WorkflowExecution"> | Date | string | null
+    projectId?: StringNullableFilter<"WorkflowExecution"> | string | null
     workflow?: XOR<WorkflowScalarRelationFilter, WorkflowWhereInput>
+    project?: XOR<ProjectNullableScalarRelationFilter, ProjectWhereInput> | null
   }
 
   export type WorkflowExecutionOrderByWithRelationInput = {
@@ -56555,7 +61536,9 @@ export namespace Prisma {
     error?: SortOrderInput | SortOrder
     startedAt?: SortOrder
     completedAt?: SortOrderInput | SortOrder
+    projectId?: SortOrderInput | SortOrder
     workflow?: WorkflowOrderByWithRelationInput
+    project?: ProjectOrderByWithRelationInput
   }
 
   export type WorkflowExecutionWhereUniqueInput = Prisma.AtLeast<{
@@ -56570,7 +61553,9 @@ export namespace Prisma {
     error?: StringNullableFilter<"WorkflowExecution"> | string | null
     startedAt?: DateTimeFilter<"WorkflowExecution"> | Date | string
     completedAt?: DateTimeNullableFilter<"WorkflowExecution"> | Date | string | null
+    projectId?: StringNullableFilter<"WorkflowExecution"> | string | null
     workflow?: XOR<WorkflowScalarRelationFilter, WorkflowWhereInput>
+    project?: XOR<ProjectNullableScalarRelationFilter, ProjectWhereInput> | null
   }, "id">
 
   export type WorkflowExecutionOrderByWithAggregationInput = {
@@ -56582,6 +61567,7 @@ export namespace Prisma {
     error?: SortOrderInput | SortOrder
     startedAt?: SortOrder
     completedAt?: SortOrderInput | SortOrder
+    projectId?: SortOrderInput | SortOrder
     _count?: WorkflowExecutionCountOrderByAggregateInput
     _max?: WorkflowExecutionMaxOrderByAggregateInput
     _min?: WorkflowExecutionMinOrderByAggregateInput
@@ -56599,6 +61585,7 @@ export namespace Prisma {
     error?: StringNullableWithAggregatesFilter<"WorkflowExecution"> | string | null
     startedAt?: DateTimeWithAggregatesFilter<"WorkflowExecution"> | Date | string
     completedAt?: DateTimeNullableWithAggregatesFilter<"WorkflowExecution"> | Date | string | null
+    projectId?: StringNullableWithAggregatesFilter<"WorkflowExecution"> | string | null
   }
 
   export type WorkflowTemplateWhereInput = {
@@ -58880,6 +63867,263 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"ErrorLog"> | Date | string
   }
 
+  export type WorkspaceWhereInput = {
+    AND?: WorkspaceWhereInput | WorkspaceWhereInput[]
+    OR?: WorkspaceWhereInput[]
+    NOT?: WorkspaceWhereInput | WorkspaceWhereInput[]
+    id?: StringFilter<"Workspace"> | string
+    name?: StringFilter<"Workspace"> | string
+    description?: StringNullableFilter<"Workspace"> | string | null
+    ownerId?: StringFilter<"Workspace"> | string
+    createdAt?: DateTimeFilter<"Workspace"> | Date | string
+    updatedAt?: DateTimeFilter<"Workspace"> | Date | string
+    owner?: XOR<UserScalarRelationFilter, UserWhereInput>
+    projects?: ProjectListRelationFilter
+  }
+
+  export type WorkspaceOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    ownerId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    owner?: UserOrderByWithRelationInput
+    projects?: ProjectOrderByRelationAggregateInput
+  }
+
+  export type WorkspaceWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: WorkspaceWhereInput | WorkspaceWhereInput[]
+    OR?: WorkspaceWhereInput[]
+    NOT?: WorkspaceWhereInput | WorkspaceWhereInput[]
+    name?: StringFilter<"Workspace"> | string
+    description?: StringNullableFilter<"Workspace"> | string | null
+    ownerId?: StringFilter<"Workspace"> | string
+    createdAt?: DateTimeFilter<"Workspace"> | Date | string
+    updatedAt?: DateTimeFilter<"Workspace"> | Date | string
+    owner?: XOR<UserScalarRelationFilter, UserWhereInput>
+    projects?: ProjectListRelationFilter
+  }, "id">
+
+  export type WorkspaceOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    ownerId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: WorkspaceCountOrderByAggregateInput
+    _max?: WorkspaceMaxOrderByAggregateInput
+    _min?: WorkspaceMinOrderByAggregateInput
+  }
+
+  export type WorkspaceScalarWhereWithAggregatesInput = {
+    AND?: WorkspaceScalarWhereWithAggregatesInput | WorkspaceScalarWhereWithAggregatesInput[]
+    OR?: WorkspaceScalarWhereWithAggregatesInput[]
+    NOT?: WorkspaceScalarWhereWithAggregatesInput | WorkspaceScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Workspace"> | string
+    name?: StringWithAggregatesFilter<"Workspace"> | string
+    description?: StringNullableWithAggregatesFilter<"Workspace"> | string | null
+    ownerId?: StringWithAggregatesFilter<"Workspace"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Workspace"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Workspace"> | Date | string
+  }
+
+  export type ProjectWhereInput = {
+    AND?: ProjectWhereInput | ProjectWhereInput[]
+    OR?: ProjectWhereInput[]
+    NOT?: ProjectWhereInput | ProjectWhereInput[]
+    id?: StringFilter<"Project"> | string
+    name?: StringFilter<"Project"> | string
+    description?: StringNullableFilter<"Project"> | string | null
+    workspaceId?: StringFilter<"Project"> | string
+    createdAt?: DateTimeFilter<"Project"> | Date | string
+    updatedAt?: DateTimeFilter<"Project"> | Date | string
+    workspace?: XOR<WorkspaceScalarRelationFilter, WorkspaceWhereInput>
+    workflowExecutions?: WorkflowExecutionListRelationFilter
+    agentMemories?: AgentMemoryListRelationFilter
+    resourceAllocations?: ResourceAllocationListRelationFilter
+  }
+
+  export type ProjectOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    workspaceId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    workspace?: WorkspaceOrderByWithRelationInput
+    workflowExecutions?: WorkflowExecutionOrderByRelationAggregateInput
+    agentMemories?: AgentMemoryOrderByRelationAggregateInput
+    resourceAllocations?: ResourceAllocationOrderByRelationAggregateInput
+  }
+
+  export type ProjectWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ProjectWhereInput | ProjectWhereInput[]
+    OR?: ProjectWhereInput[]
+    NOT?: ProjectWhereInput | ProjectWhereInput[]
+    name?: StringFilter<"Project"> | string
+    description?: StringNullableFilter<"Project"> | string | null
+    workspaceId?: StringFilter<"Project"> | string
+    createdAt?: DateTimeFilter<"Project"> | Date | string
+    updatedAt?: DateTimeFilter<"Project"> | Date | string
+    workspace?: XOR<WorkspaceScalarRelationFilter, WorkspaceWhereInput>
+    workflowExecutions?: WorkflowExecutionListRelationFilter
+    agentMemories?: AgentMemoryListRelationFilter
+    resourceAllocations?: ResourceAllocationListRelationFilter
+  }, "id">
+
+  export type ProjectOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    workspaceId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ProjectCountOrderByAggregateInput
+    _max?: ProjectMaxOrderByAggregateInput
+    _min?: ProjectMinOrderByAggregateInput
+  }
+
+  export type ProjectScalarWhereWithAggregatesInput = {
+    AND?: ProjectScalarWhereWithAggregatesInput | ProjectScalarWhereWithAggregatesInput[]
+    OR?: ProjectScalarWhereWithAggregatesInput[]
+    NOT?: ProjectScalarWhereWithAggregatesInput | ProjectScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Project"> | string
+    name?: StringWithAggregatesFilter<"Project"> | string
+    description?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    workspaceId?: StringWithAggregatesFilter<"Project"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Project"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Project"> | Date | string
+  }
+
+  export type AgentMemoryWhereInput = {
+    AND?: AgentMemoryWhereInput | AgentMemoryWhereInput[]
+    OR?: AgentMemoryWhereInput[]
+    NOT?: AgentMemoryWhereInput | AgentMemoryWhereInput[]
+    id?: StringFilter<"AgentMemory"> | string
+    key?: StringFilter<"AgentMemory"> | string
+    value?: JsonFilter<"AgentMemory">
+    agentId?: StringNullableFilter<"AgentMemory"> | string | null
+    projectId?: StringFilter<"AgentMemory"> | string
+    createdAt?: DateTimeFilter<"AgentMemory"> | Date | string
+    updatedAt?: DateTimeFilter<"AgentMemory"> | Date | string
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
+  }
+
+  export type AgentMemoryOrderByWithRelationInput = {
+    id?: SortOrder
+    key?: SortOrder
+    value?: SortOrder
+    agentId?: SortOrderInput | SortOrder
+    projectId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    project?: ProjectOrderByWithRelationInput
+  }
+
+  export type AgentMemoryWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: AgentMemoryWhereInput | AgentMemoryWhereInput[]
+    OR?: AgentMemoryWhereInput[]
+    NOT?: AgentMemoryWhereInput | AgentMemoryWhereInput[]
+    key?: StringFilter<"AgentMemory"> | string
+    value?: JsonFilter<"AgentMemory">
+    agentId?: StringNullableFilter<"AgentMemory"> | string | null
+    projectId?: StringFilter<"AgentMemory"> | string
+    createdAt?: DateTimeFilter<"AgentMemory"> | Date | string
+    updatedAt?: DateTimeFilter<"AgentMemory"> | Date | string
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
+  }, "id">
+
+  export type AgentMemoryOrderByWithAggregationInput = {
+    id?: SortOrder
+    key?: SortOrder
+    value?: SortOrder
+    agentId?: SortOrderInput | SortOrder
+    projectId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: AgentMemoryCountOrderByAggregateInput
+    _max?: AgentMemoryMaxOrderByAggregateInput
+    _min?: AgentMemoryMinOrderByAggregateInput
+  }
+
+  export type AgentMemoryScalarWhereWithAggregatesInput = {
+    AND?: AgentMemoryScalarWhereWithAggregatesInput | AgentMemoryScalarWhereWithAggregatesInput[]
+    OR?: AgentMemoryScalarWhereWithAggregatesInput[]
+    NOT?: AgentMemoryScalarWhereWithAggregatesInput | AgentMemoryScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"AgentMemory"> | string
+    key?: StringWithAggregatesFilter<"AgentMemory"> | string
+    value?: JsonWithAggregatesFilter<"AgentMemory">
+    agentId?: StringNullableWithAggregatesFilter<"AgentMemory"> | string | null
+    projectId?: StringWithAggregatesFilter<"AgentMemory"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"AgentMemory"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"AgentMemory"> | Date | string
+  }
+
+  export type ResourceAllocationWhereInput = {
+    AND?: ResourceAllocationWhereInput | ResourceAllocationWhereInput[]
+    OR?: ResourceAllocationWhereInput[]
+    NOT?: ResourceAllocationWhereInput | ResourceAllocationWhereInput[]
+    id?: StringFilter<"ResourceAllocation"> | string
+    resourceType?: StringFilter<"ResourceAllocation"> | string
+    resourceId?: StringFilter<"ResourceAllocation"> | string
+    projectId?: StringFilter<"ResourceAllocation"> | string
+    allocatedAt?: DateTimeFilter<"ResourceAllocation"> | Date | string
+    metadata?: JsonNullableFilter<"ResourceAllocation">
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
+  }
+
+  export type ResourceAllocationOrderByWithRelationInput = {
+    id?: SortOrder
+    resourceType?: SortOrder
+    resourceId?: SortOrder
+    projectId?: SortOrder
+    allocatedAt?: SortOrder
+    metadata?: SortOrderInput | SortOrder
+    project?: ProjectOrderByWithRelationInput
+  }
+
+  export type ResourceAllocationWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ResourceAllocationWhereInput | ResourceAllocationWhereInput[]
+    OR?: ResourceAllocationWhereInput[]
+    NOT?: ResourceAllocationWhereInput | ResourceAllocationWhereInput[]
+    resourceType?: StringFilter<"ResourceAllocation"> | string
+    resourceId?: StringFilter<"ResourceAllocation"> | string
+    projectId?: StringFilter<"ResourceAllocation"> | string
+    allocatedAt?: DateTimeFilter<"ResourceAllocation"> | Date | string
+    metadata?: JsonNullableFilter<"ResourceAllocation">
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
+  }, "id">
+
+  export type ResourceAllocationOrderByWithAggregationInput = {
+    id?: SortOrder
+    resourceType?: SortOrder
+    resourceId?: SortOrder
+    projectId?: SortOrder
+    allocatedAt?: SortOrder
+    metadata?: SortOrderInput | SortOrder
+    _count?: ResourceAllocationCountOrderByAggregateInput
+    _max?: ResourceAllocationMaxOrderByAggregateInput
+    _min?: ResourceAllocationMinOrderByAggregateInput
+  }
+
+  export type ResourceAllocationScalarWhereWithAggregatesInput = {
+    AND?: ResourceAllocationScalarWhereWithAggregatesInput | ResourceAllocationScalarWhereWithAggregatesInput[]
+    OR?: ResourceAllocationScalarWhereWithAggregatesInput[]
+    NOT?: ResourceAllocationScalarWhereWithAggregatesInput | ResourceAllocationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ResourceAllocation"> | string
+    resourceType?: StringWithAggregatesFilter<"ResourceAllocation"> | string
+    resourceId?: StringWithAggregatesFilter<"ResourceAllocation"> | string
+    projectId?: StringWithAggregatesFilter<"ResourceAllocation"> | string
+    allocatedAt?: DateTimeWithAggregatesFilter<"ResourceAllocation"> | Date | string
+    metadata?: JsonNullableWithAggregatesFilter<"ResourceAllocation">
+  }
+
   export type SyncStateWhereInput = {
     AND?: SyncStateWhereInput | SyncStateWhereInput[]
     OR?: SyncStateWhereInput[]
@@ -59063,6 +64307,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
     workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventCreateNestedManyWithoutUserInput
+    workspaces?: WorkspaceCreateNestedManyWithoutOwnerInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -59091,6 +64336,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
     workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
+    workspaces?: WorkspaceUncheckedCreateNestedManyWithoutOwnerInput
   }
 
   export type UserUpdateInput = {
@@ -59119,6 +64365,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
     workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUpdateManyWithoutUserNestedInput
+    workspaces?: WorkspaceUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -59147,6 +64394,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
     workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
+    workspaces?: WorkspaceUncheckedUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -60269,6 +65517,7 @@ export namespace Prisma {
     startedAt?: Date | string
     completedAt?: Date | string | null
     workflow: WorkflowCreateNestedOneWithoutExecutionsInput
+    project?: ProjectCreateNestedOneWithoutWorkflowExecutionsInput
   }
 
   export type WorkflowExecutionUncheckedCreateInput = {
@@ -60280,6 +65529,7 @@ export namespace Prisma {
     error?: string | null
     startedAt?: Date | string
     completedAt?: Date | string | null
+    projectId?: string | null
   }
 
   export type WorkflowExecutionUpdateInput = {
@@ -60291,6 +65541,7 @@ export namespace Prisma {
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     workflow?: WorkflowUpdateOneRequiredWithoutExecutionsNestedInput
+    project?: ProjectUpdateOneWithoutWorkflowExecutionsNestedInput
   }
 
   export type WorkflowExecutionUncheckedUpdateInput = {
@@ -60302,6 +65553,7 @@ export namespace Prisma {
     error?: NullableStringFieldUpdateOperationsInput | string | null
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    projectId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type WorkflowExecutionCreateManyInput = {
@@ -60313,6 +65565,7 @@ export namespace Prisma {
     error?: string | null
     startedAt?: Date | string
     completedAt?: Date | string | null
+    projectId?: string | null
   }
 
   export type WorkflowExecutionUpdateManyMutationInput = {
@@ -60334,6 +65587,7 @@ export namespace Prisma {
     error?: NullableStringFieldUpdateOperationsInput | string | null
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    projectId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type WorkflowTemplateCreateInput = {
@@ -62906,6 +68160,277 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type WorkspaceCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    owner: UserCreateNestedOneWithoutWorkspacesInput
+    projects?: ProjectCreateNestedManyWithoutWorkspaceInput
+  }
+
+  export type WorkspaceUncheckedCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    ownerId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    projects?: ProjectUncheckedCreateNestedManyWithoutWorkspaceInput
+  }
+
+  export type WorkspaceUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    owner?: UserUpdateOneRequiredWithoutWorkspacesNestedInput
+    projects?: ProjectUpdateManyWithoutWorkspaceNestedInput
+  }
+
+  export type WorkspaceUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    ownerId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    projects?: ProjectUncheckedUpdateManyWithoutWorkspaceNestedInput
+  }
+
+  export type WorkspaceCreateManyInput = {
+    id?: string
+    name: string
+    description?: string | null
+    ownerId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WorkspaceUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WorkspaceUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    ownerId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProjectCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    workspace: WorkspaceCreateNestedOneWithoutProjectsInput
+    workflowExecutions?: WorkflowExecutionCreateNestedManyWithoutProjectInput
+    agentMemories?: AgentMemoryCreateNestedManyWithoutProjectInput
+    resourceAllocations?: ResourceAllocationCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    workspaceId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    workflowExecutions?: WorkflowExecutionUncheckedCreateNestedManyWithoutProjectInput
+    agentMemories?: AgentMemoryUncheckedCreateNestedManyWithoutProjectInput
+    resourceAllocations?: ResourceAllocationUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    workspace?: WorkspaceUpdateOneRequiredWithoutProjectsNestedInput
+    workflowExecutions?: WorkflowExecutionUpdateManyWithoutProjectNestedInput
+    agentMemories?: AgentMemoryUpdateManyWithoutProjectNestedInput
+    resourceAllocations?: ResourceAllocationUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    workspaceId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    workflowExecutions?: WorkflowExecutionUncheckedUpdateManyWithoutProjectNestedInput
+    agentMemories?: AgentMemoryUncheckedUpdateManyWithoutProjectNestedInput
+    resourceAllocations?: ResourceAllocationUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectCreateManyInput = {
+    id?: string
+    name: string
+    description?: string | null
+    workspaceId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProjectUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProjectUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    workspaceId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AgentMemoryCreateInput = {
+    id?: string
+    key: string
+    value: JsonNullValueInput | InputJsonValue
+    agentId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    project: ProjectCreateNestedOneWithoutAgentMemoriesInput
+  }
+
+  export type AgentMemoryUncheckedCreateInput = {
+    id?: string
+    key: string
+    value: JsonNullValueInput | InputJsonValue
+    agentId?: string | null
+    projectId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AgentMemoryUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    value?: JsonNullValueInput | InputJsonValue
+    agentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    project?: ProjectUpdateOneRequiredWithoutAgentMemoriesNestedInput
+  }
+
+  export type AgentMemoryUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    value?: JsonNullValueInput | InputJsonValue
+    agentId?: NullableStringFieldUpdateOperationsInput | string | null
+    projectId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AgentMemoryCreateManyInput = {
+    id?: string
+    key: string
+    value: JsonNullValueInput | InputJsonValue
+    agentId?: string | null
+    projectId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AgentMemoryUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    value?: JsonNullValueInput | InputJsonValue
+    agentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AgentMemoryUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    value?: JsonNullValueInput | InputJsonValue
+    agentId?: NullableStringFieldUpdateOperationsInput | string | null
+    projectId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ResourceAllocationCreateInput = {
+    id?: string
+    resourceType: string
+    resourceId: string
+    allocatedAt?: Date | string
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    project: ProjectCreateNestedOneWithoutResourceAllocationsInput
+  }
+
+  export type ResourceAllocationUncheckedCreateInput = {
+    id?: string
+    resourceType: string
+    resourceId: string
+    projectId: string
+    allocatedAt?: Date | string
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type ResourceAllocationUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resourceType?: StringFieldUpdateOperationsInput | string
+    resourceId?: StringFieldUpdateOperationsInput | string
+    allocatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    project?: ProjectUpdateOneRequiredWithoutResourceAllocationsNestedInput
+  }
+
+  export type ResourceAllocationUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resourceType?: StringFieldUpdateOperationsInput | string
+    resourceId?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    allocatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type ResourceAllocationCreateManyInput = {
+    id?: string
+    resourceType: string
+    resourceId: string
+    projectId: string
+    allocatedAt?: Date | string
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type ResourceAllocationUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resourceType?: StringFieldUpdateOperationsInput | string
+    resourceId?: StringFieldUpdateOperationsInput | string
+    allocatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type ResourceAllocationUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resourceType?: StringFieldUpdateOperationsInput | string
+    resourceId?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    allocatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+  }
+
   export type SyncStateCreateInput = {
     id?: string
     resourceType: string
@@ -63243,6 +68768,12 @@ export namespace Prisma {
     none?: AuthEventWhereInput
   }
 
+  export type WorkspaceListRelationFilter = {
+    every?: WorkspaceWhereInput
+    some?: WorkspaceWhereInput
+    none?: WorkspaceWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -63285,6 +68816,10 @@ export namespace Prisma {
   }
 
   export type AuthEventOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type WorkspaceOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -64141,6 +69676,11 @@ export namespace Prisma {
     isNot?: WorkflowWhereInput
   }
 
+  export type ProjectNullableScalarRelationFilter = {
+    is?: ProjectWhereInput | null
+    isNot?: ProjectWhereInput | null
+  }
+
   export type WorkflowExecutionCountOrderByAggregateInput = {
     id?: SortOrder
     workflowId?: SortOrder
@@ -64150,6 +69690,7 @@ export namespace Prisma {
     error?: SortOrder
     startedAt?: SortOrder
     completedAt?: SortOrder
+    projectId?: SortOrder
   }
 
   export type WorkflowExecutionMaxOrderByAggregateInput = {
@@ -64159,6 +69700,7 @@ export namespace Prisma {
     error?: SortOrder
     startedAt?: SortOrder
     completedAt?: SortOrder
+    projectId?: SortOrder
   }
 
   export type WorkflowExecutionMinOrderByAggregateInput = {
@@ -64168,6 +69710,7 @@ export namespace Prisma {
     error?: SortOrder
     startedAt?: SortOrder
     completedAt?: SortOrder
+    projectId?: SortOrder
   }
 
   export type EnumWorkflowExecutionStatusWithAggregatesFilter<$PrismaModel = never> = {
@@ -65822,6 +71365,153 @@ export namespace Prisma {
     createdAt?: SortOrder
   }
 
+  export type ProjectListRelationFilter = {
+    every?: ProjectWhereInput
+    some?: ProjectWhereInput
+    none?: ProjectWhereInput
+  }
+
+  export type ProjectOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type WorkspaceCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    ownerId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type WorkspaceMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    ownerId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type WorkspaceMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    ownerId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type WorkspaceScalarRelationFilter = {
+    is?: WorkspaceWhereInput
+    isNot?: WorkspaceWhereInput
+  }
+
+  export type AgentMemoryListRelationFilter = {
+    every?: AgentMemoryWhereInput
+    some?: AgentMemoryWhereInput
+    none?: AgentMemoryWhereInput
+  }
+
+  export type ResourceAllocationListRelationFilter = {
+    every?: ResourceAllocationWhereInput
+    some?: ResourceAllocationWhereInput
+    none?: ResourceAllocationWhereInput
+  }
+
+  export type AgentMemoryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ResourceAllocationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ProjectCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    workspaceId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProjectMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    workspaceId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProjectMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    workspaceId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProjectScalarRelationFilter = {
+    is?: ProjectWhereInput
+    isNot?: ProjectWhereInput
+  }
+
+  export type AgentMemoryCountOrderByAggregateInput = {
+    id?: SortOrder
+    key?: SortOrder
+    value?: SortOrder
+    agentId?: SortOrder
+    projectId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AgentMemoryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    key?: SortOrder
+    agentId?: SortOrder
+    projectId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AgentMemoryMinOrderByAggregateInput = {
+    id?: SortOrder
+    key?: SortOrder
+    agentId?: SortOrder
+    projectId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ResourceAllocationCountOrderByAggregateInput = {
+    id?: SortOrder
+    resourceType?: SortOrder
+    resourceId?: SortOrder
+    projectId?: SortOrder
+    allocatedAt?: SortOrder
+    metadata?: SortOrder
+  }
+
+  export type ResourceAllocationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    resourceType?: SortOrder
+    resourceId?: SortOrder
+    projectId?: SortOrder
+    allocatedAt?: SortOrder
+  }
+
+  export type ResourceAllocationMinOrderByAggregateInput = {
+    id?: SortOrder
+    resourceType?: SortOrder
+    resourceId?: SortOrder
+    projectId?: SortOrder
+    allocatedAt?: SortOrder
+  }
+
   export type SyncStateResourceTypeResourceIdTenantIdCompoundUniqueInput = {
     resourceType: string
     resourceId: string
@@ -65980,6 +71670,13 @@ export namespace Prisma {
     connect?: AuthEventWhereUniqueInput | AuthEventWhereUniqueInput[]
   }
 
+  export type WorkspaceCreateNestedManyWithoutOwnerInput = {
+    create?: XOR<WorkspaceCreateWithoutOwnerInput, WorkspaceUncheckedCreateWithoutOwnerInput> | WorkspaceCreateWithoutOwnerInput[] | WorkspaceUncheckedCreateWithoutOwnerInput[]
+    connectOrCreate?: WorkspaceCreateOrConnectWithoutOwnerInput | WorkspaceCreateOrConnectWithoutOwnerInput[]
+    createMany?: WorkspaceCreateManyOwnerInputEnvelope
+    connect?: WorkspaceWhereUniqueInput | WorkspaceWhereUniqueInput[]
+  }
+
   export type AgentUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<AgentCreateWithoutUserInput, AgentUncheckedCreateWithoutUserInput> | AgentCreateWithoutUserInput[] | AgentUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AgentCreateOrConnectWithoutUserInput | AgentCreateOrConnectWithoutUserInput[]
@@ -66048,6 +71745,13 @@ export namespace Prisma {
     connectOrCreate?: AuthEventCreateOrConnectWithoutUserInput | AuthEventCreateOrConnectWithoutUserInput[]
     createMany?: AuthEventCreateManyUserInputEnvelope
     connect?: AuthEventWhereUniqueInput | AuthEventWhereUniqueInput[]
+  }
+
+  export type WorkspaceUncheckedCreateNestedManyWithoutOwnerInput = {
+    create?: XOR<WorkspaceCreateWithoutOwnerInput, WorkspaceUncheckedCreateWithoutOwnerInput> | WorkspaceCreateWithoutOwnerInput[] | WorkspaceUncheckedCreateWithoutOwnerInput[]
+    connectOrCreate?: WorkspaceCreateOrConnectWithoutOwnerInput | WorkspaceCreateOrConnectWithoutOwnerInput[]
+    createMany?: WorkspaceCreateManyOwnerInputEnvelope
+    connect?: WorkspaceWhereUniqueInput | WorkspaceWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -66219,6 +71923,20 @@ export namespace Prisma {
     deleteMany?: AuthEventScalarWhereInput | AuthEventScalarWhereInput[]
   }
 
+  export type WorkspaceUpdateManyWithoutOwnerNestedInput = {
+    create?: XOR<WorkspaceCreateWithoutOwnerInput, WorkspaceUncheckedCreateWithoutOwnerInput> | WorkspaceCreateWithoutOwnerInput[] | WorkspaceUncheckedCreateWithoutOwnerInput[]
+    connectOrCreate?: WorkspaceCreateOrConnectWithoutOwnerInput | WorkspaceCreateOrConnectWithoutOwnerInput[]
+    upsert?: WorkspaceUpsertWithWhereUniqueWithoutOwnerInput | WorkspaceUpsertWithWhereUniqueWithoutOwnerInput[]
+    createMany?: WorkspaceCreateManyOwnerInputEnvelope
+    set?: WorkspaceWhereUniqueInput | WorkspaceWhereUniqueInput[]
+    disconnect?: WorkspaceWhereUniqueInput | WorkspaceWhereUniqueInput[]
+    delete?: WorkspaceWhereUniqueInput | WorkspaceWhereUniqueInput[]
+    connect?: WorkspaceWhereUniqueInput | WorkspaceWhereUniqueInput[]
+    update?: WorkspaceUpdateWithWhereUniqueWithoutOwnerInput | WorkspaceUpdateWithWhereUniqueWithoutOwnerInput[]
+    updateMany?: WorkspaceUpdateManyWithWhereWithoutOwnerInput | WorkspaceUpdateManyWithWhereWithoutOwnerInput[]
+    deleteMany?: WorkspaceScalarWhereInput | WorkspaceScalarWhereInput[]
+  }
+
   export type AgentUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<AgentCreateWithoutUserInput, AgentUncheckedCreateWithoutUserInput> | AgentCreateWithoutUserInput[] | AgentUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AgentCreateOrConnectWithoutUserInput | AgentCreateOrConnectWithoutUserInput[]
@@ -66357,6 +72075,20 @@ export namespace Prisma {
     update?: AuthEventUpdateWithWhereUniqueWithoutUserInput | AuthEventUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: AuthEventUpdateManyWithWhereWithoutUserInput | AuthEventUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: AuthEventScalarWhereInput | AuthEventScalarWhereInput[]
+  }
+
+  export type WorkspaceUncheckedUpdateManyWithoutOwnerNestedInput = {
+    create?: XOR<WorkspaceCreateWithoutOwnerInput, WorkspaceUncheckedCreateWithoutOwnerInput> | WorkspaceCreateWithoutOwnerInput[] | WorkspaceUncheckedCreateWithoutOwnerInput[]
+    connectOrCreate?: WorkspaceCreateOrConnectWithoutOwnerInput | WorkspaceCreateOrConnectWithoutOwnerInput[]
+    upsert?: WorkspaceUpsertWithWhereUniqueWithoutOwnerInput | WorkspaceUpsertWithWhereUniqueWithoutOwnerInput[]
+    createMany?: WorkspaceCreateManyOwnerInputEnvelope
+    set?: WorkspaceWhereUniqueInput | WorkspaceWhereUniqueInput[]
+    disconnect?: WorkspaceWhereUniqueInput | WorkspaceWhereUniqueInput[]
+    delete?: WorkspaceWhereUniqueInput | WorkspaceWhereUniqueInput[]
+    connect?: WorkspaceWhereUniqueInput | WorkspaceWhereUniqueInput[]
+    update?: WorkspaceUpdateWithWhereUniqueWithoutOwnerInput | WorkspaceUpdateWithWhereUniqueWithoutOwnerInput[]
+    updateMany?: WorkspaceUpdateManyWithWhereWithoutOwnerInput | WorkspaceUpdateManyWithWhereWithoutOwnerInput[]
+    deleteMany?: WorkspaceScalarWhereInput | WorkspaceScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutAuthSessionsInput = {
@@ -67374,6 +73106,12 @@ export namespace Prisma {
     connect?: WorkflowWhereUniqueInput
   }
 
+  export type ProjectCreateNestedOneWithoutWorkflowExecutionsInput = {
+    create?: XOR<ProjectCreateWithoutWorkflowExecutionsInput, ProjectUncheckedCreateWithoutWorkflowExecutionsInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutWorkflowExecutionsInput
+    connect?: ProjectWhereUniqueInput
+  }
+
   export type EnumWorkflowExecutionStatusFieldUpdateOperationsInput = {
     set?: $Enums.WorkflowExecutionStatus
   }
@@ -67384,6 +73122,16 @@ export namespace Prisma {
     upsert?: WorkflowUpsertWithoutExecutionsInput
     connect?: WorkflowWhereUniqueInput
     update?: XOR<XOR<WorkflowUpdateToOneWithWhereWithoutExecutionsInput, WorkflowUpdateWithoutExecutionsInput>, WorkflowUncheckedUpdateWithoutExecutionsInput>
+  }
+
+  export type ProjectUpdateOneWithoutWorkflowExecutionsNestedInput = {
+    create?: XOR<ProjectCreateWithoutWorkflowExecutionsInput, ProjectUncheckedCreateWithoutWorkflowExecutionsInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutWorkflowExecutionsInput
+    upsert?: ProjectUpsertWithoutWorkflowExecutionsInput
+    disconnect?: ProjectWhereInput | boolean
+    delete?: ProjectWhereInput | boolean
+    connect?: ProjectWhereUniqueInput
+    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutWorkflowExecutionsInput, ProjectUpdateWithoutWorkflowExecutionsInput>, ProjectUncheckedUpdateWithoutWorkflowExecutionsInput>
   }
 
   export type UserCreateNestedOneWithoutWorkflowTemplatesInput = {
@@ -68303,6 +74051,230 @@ export namespace Prisma {
   export type PromptSnippetUpdatetagsInput = {
     set?: string[]
     push?: string | string[]
+  }
+
+  export type UserCreateNestedOneWithoutWorkspacesInput = {
+    create?: XOR<UserCreateWithoutWorkspacesInput, UserUncheckedCreateWithoutWorkspacesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutWorkspacesInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type ProjectCreateNestedManyWithoutWorkspaceInput = {
+    create?: XOR<ProjectCreateWithoutWorkspaceInput, ProjectUncheckedCreateWithoutWorkspaceInput> | ProjectCreateWithoutWorkspaceInput[] | ProjectUncheckedCreateWithoutWorkspaceInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutWorkspaceInput | ProjectCreateOrConnectWithoutWorkspaceInput[]
+    createMany?: ProjectCreateManyWorkspaceInputEnvelope
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+  }
+
+  export type ProjectUncheckedCreateNestedManyWithoutWorkspaceInput = {
+    create?: XOR<ProjectCreateWithoutWorkspaceInput, ProjectUncheckedCreateWithoutWorkspaceInput> | ProjectCreateWithoutWorkspaceInput[] | ProjectUncheckedCreateWithoutWorkspaceInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutWorkspaceInput | ProjectCreateOrConnectWithoutWorkspaceInput[]
+    createMany?: ProjectCreateManyWorkspaceInputEnvelope
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutWorkspacesNestedInput = {
+    create?: XOR<UserCreateWithoutWorkspacesInput, UserUncheckedCreateWithoutWorkspacesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutWorkspacesInput
+    upsert?: UserUpsertWithoutWorkspacesInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutWorkspacesInput, UserUpdateWithoutWorkspacesInput>, UserUncheckedUpdateWithoutWorkspacesInput>
+  }
+
+  export type ProjectUpdateManyWithoutWorkspaceNestedInput = {
+    create?: XOR<ProjectCreateWithoutWorkspaceInput, ProjectUncheckedCreateWithoutWorkspaceInput> | ProjectCreateWithoutWorkspaceInput[] | ProjectUncheckedCreateWithoutWorkspaceInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutWorkspaceInput | ProjectCreateOrConnectWithoutWorkspaceInput[]
+    upsert?: ProjectUpsertWithWhereUniqueWithoutWorkspaceInput | ProjectUpsertWithWhereUniqueWithoutWorkspaceInput[]
+    createMany?: ProjectCreateManyWorkspaceInputEnvelope
+    set?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    disconnect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    delete?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    update?: ProjectUpdateWithWhereUniqueWithoutWorkspaceInput | ProjectUpdateWithWhereUniqueWithoutWorkspaceInput[]
+    updateMany?: ProjectUpdateManyWithWhereWithoutWorkspaceInput | ProjectUpdateManyWithWhereWithoutWorkspaceInput[]
+    deleteMany?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+  }
+
+  export type ProjectUncheckedUpdateManyWithoutWorkspaceNestedInput = {
+    create?: XOR<ProjectCreateWithoutWorkspaceInput, ProjectUncheckedCreateWithoutWorkspaceInput> | ProjectCreateWithoutWorkspaceInput[] | ProjectUncheckedCreateWithoutWorkspaceInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutWorkspaceInput | ProjectCreateOrConnectWithoutWorkspaceInput[]
+    upsert?: ProjectUpsertWithWhereUniqueWithoutWorkspaceInput | ProjectUpsertWithWhereUniqueWithoutWorkspaceInput[]
+    createMany?: ProjectCreateManyWorkspaceInputEnvelope
+    set?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    disconnect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    delete?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    update?: ProjectUpdateWithWhereUniqueWithoutWorkspaceInput | ProjectUpdateWithWhereUniqueWithoutWorkspaceInput[]
+    updateMany?: ProjectUpdateManyWithWhereWithoutWorkspaceInput | ProjectUpdateManyWithWhereWithoutWorkspaceInput[]
+    deleteMany?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+  }
+
+  export type WorkspaceCreateNestedOneWithoutProjectsInput = {
+    create?: XOR<WorkspaceCreateWithoutProjectsInput, WorkspaceUncheckedCreateWithoutProjectsInput>
+    connectOrCreate?: WorkspaceCreateOrConnectWithoutProjectsInput
+    connect?: WorkspaceWhereUniqueInput
+  }
+
+  export type WorkflowExecutionCreateNestedManyWithoutProjectInput = {
+    create?: XOR<WorkflowExecutionCreateWithoutProjectInput, WorkflowExecutionUncheckedCreateWithoutProjectInput> | WorkflowExecutionCreateWithoutProjectInput[] | WorkflowExecutionUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: WorkflowExecutionCreateOrConnectWithoutProjectInput | WorkflowExecutionCreateOrConnectWithoutProjectInput[]
+    createMany?: WorkflowExecutionCreateManyProjectInputEnvelope
+    connect?: WorkflowExecutionWhereUniqueInput | WorkflowExecutionWhereUniqueInput[]
+  }
+
+  export type AgentMemoryCreateNestedManyWithoutProjectInput = {
+    create?: XOR<AgentMemoryCreateWithoutProjectInput, AgentMemoryUncheckedCreateWithoutProjectInput> | AgentMemoryCreateWithoutProjectInput[] | AgentMemoryUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: AgentMemoryCreateOrConnectWithoutProjectInput | AgentMemoryCreateOrConnectWithoutProjectInput[]
+    createMany?: AgentMemoryCreateManyProjectInputEnvelope
+    connect?: AgentMemoryWhereUniqueInput | AgentMemoryWhereUniqueInput[]
+  }
+
+  export type ResourceAllocationCreateNestedManyWithoutProjectInput = {
+    create?: XOR<ResourceAllocationCreateWithoutProjectInput, ResourceAllocationUncheckedCreateWithoutProjectInput> | ResourceAllocationCreateWithoutProjectInput[] | ResourceAllocationUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ResourceAllocationCreateOrConnectWithoutProjectInput | ResourceAllocationCreateOrConnectWithoutProjectInput[]
+    createMany?: ResourceAllocationCreateManyProjectInputEnvelope
+    connect?: ResourceAllocationWhereUniqueInput | ResourceAllocationWhereUniqueInput[]
+  }
+
+  export type WorkflowExecutionUncheckedCreateNestedManyWithoutProjectInput = {
+    create?: XOR<WorkflowExecutionCreateWithoutProjectInput, WorkflowExecutionUncheckedCreateWithoutProjectInput> | WorkflowExecutionCreateWithoutProjectInput[] | WorkflowExecutionUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: WorkflowExecutionCreateOrConnectWithoutProjectInput | WorkflowExecutionCreateOrConnectWithoutProjectInput[]
+    createMany?: WorkflowExecutionCreateManyProjectInputEnvelope
+    connect?: WorkflowExecutionWhereUniqueInput | WorkflowExecutionWhereUniqueInput[]
+  }
+
+  export type AgentMemoryUncheckedCreateNestedManyWithoutProjectInput = {
+    create?: XOR<AgentMemoryCreateWithoutProjectInput, AgentMemoryUncheckedCreateWithoutProjectInput> | AgentMemoryCreateWithoutProjectInput[] | AgentMemoryUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: AgentMemoryCreateOrConnectWithoutProjectInput | AgentMemoryCreateOrConnectWithoutProjectInput[]
+    createMany?: AgentMemoryCreateManyProjectInputEnvelope
+    connect?: AgentMemoryWhereUniqueInput | AgentMemoryWhereUniqueInput[]
+  }
+
+  export type ResourceAllocationUncheckedCreateNestedManyWithoutProjectInput = {
+    create?: XOR<ResourceAllocationCreateWithoutProjectInput, ResourceAllocationUncheckedCreateWithoutProjectInput> | ResourceAllocationCreateWithoutProjectInput[] | ResourceAllocationUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ResourceAllocationCreateOrConnectWithoutProjectInput | ResourceAllocationCreateOrConnectWithoutProjectInput[]
+    createMany?: ResourceAllocationCreateManyProjectInputEnvelope
+    connect?: ResourceAllocationWhereUniqueInput | ResourceAllocationWhereUniqueInput[]
+  }
+
+  export type WorkspaceUpdateOneRequiredWithoutProjectsNestedInput = {
+    create?: XOR<WorkspaceCreateWithoutProjectsInput, WorkspaceUncheckedCreateWithoutProjectsInput>
+    connectOrCreate?: WorkspaceCreateOrConnectWithoutProjectsInput
+    upsert?: WorkspaceUpsertWithoutProjectsInput
+    connect?: WorkspaceWhereUniqueInput
+    update?: XOR<XOR<WorkspaceUpdateToOneWithWhereWithoutProjectsInput, WorkspaceUpdateWithoutProjectsInput>, WorkspaceUncheckedUpdateWithoutProjectsInput>
+  }
+
+  export type WorkflowExecutionUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<WorkflowExecutionCreateWithoutProjectInput, WorkflowExecutionUncheckedCreateWithoutProjectInput> | WorkflowExecutionCreateWithoutProjectInput[] | WorkflowExecutionUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: WorkflowExecutionCreateOrConnectWithoutProjectInput | WorkflowExecutionCreateOrConnectWithoutProjectInput[]
+    upsert?: WorkflowExecutionUpsertWithWhereUniqueWithoutProjectInput | WorkflowExecutionUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: WorkflowExecutionCreateManyProjectInputEnvelope
+    set?: WorkflowExecutionWhereUniqueInput | WorkflowExecutionWhereUniqueInput[]
+    disconnect?: WorkflowExecutionWhereUniqueInput | WorkflowExecutionWhereUniqueInput[]
+    delete?: WorkflowExecutionWhereUniqueInput | WorkflowExecutionWhereUniqueInput[]
+    connect?: WorkflowExecutionWhereUniqueInput | WorkflowExecutionWhereUniqueInput[]
+    update?: WorkflowExecutionUpdateWithWhereUniqueWithoutProjectInput | WorkflowExecutionUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: WorkflowExecutionUpdateManyWithWhereWithoutProjectInput | WorkflowExecutionUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: WorkflowExecutionScalarWhereInput | WorkflowExecutionScalarWhereInput[]
+  }
+
+  export type AgentMemoryUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<AgentMemoryCreateWithoutProjectInput, AgentMemoryUncheckedCreateWithoutProjectInput> | AgentMemoryCreateWithoutProjectInput[] | AgentMemoryUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: AgentMemoryCreateOrConnectWithoutProjectInput | AgentMemoryCreateOrConnectWithoutProjectInput[]
+    upsert?: AgentMemoryUpsertWithWhereUniqueWithoutProjectInput | AgentMemoryUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: AgentMemoryCreateManyProjectInputEnvelope
+    set?: AgentMemoryWhereUniqueInput | AgentMemoryWhereUniqueInput[]
+    disconnect?: AgentMemoryWhereUniqueInput | AgentMemoryWhereUniqueInput[]
+    delete?: AgentMemoryWhereUniqueInput | AgentMemoryWhereUniqueInput[]
+    connect?: AgentMemoryWhereUniqueInput | AgentMemoryWhereUniqueInput[]
+    update?: AgentMemoryUpdateWithWhereUniqueWithoutProjectInput | AgentMemoryUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: AgentMemoryUpdateManyWithWhereWithoutProjectInput | AgentMemoryUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: AgentMemoryScalarWhereInput | AgentMemoryScalarWhereInput[]
+  }
+
+  export type ResourceAllocationUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<ResourceAllocationCreateWithoutProjectInput, ResourceAllocationUncheckedCreateWithoutProjectInput> | ResourceAllocationCreateWithoutProjectInput[] | ResourceAllocationUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ResourceAllocationCreateOrConnectWithoutProjectInput | ResourceAllocationCreateOrConnectWithoutProjectInput[]
+    upsert?: ResourceAllocationUpsertWithWhereUniqueWithoutProjectInput | ResourceAllocationUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: ResourceAllocationCreateManyProjectInputEnvelope
+    set?: ResourceAllocationWhereUniqueInput | ResourceAllocationWhereUniqueInput[]
+    disconnect?: ResourceAllocationWhereUniqueInput | ResourceAllocationWhereUniqueInput[]
+    delete?: ResourceAllocationWhereUniqueInput | ResourceAllocationWhereUniqueInput[]
+    connect?: ResourceAllocationWhereUniqueInput | ResourceAllocationWhereUniqueInput[]
+    update?: ResourceAllocationUpdateWithWhereUniqueWithoutProjectInput | ResourceAllocationUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: ResourceAllocationUpdateManyWithWhereWithoutProjectInput | ResourceAllocationUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: ResourceAllocationScalarWhereInput | ResourceAllocationScalarWhereInput[]
+  }
+
+  export type WorkflowExecutionUncheckedUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<WorkflowExecutionCreateWithoutProjectInput, WorkflowExecutionUncheckedCreateWithoutProjectInput> | WorkflowExecutionCreateWithoutProjectInput[] | WorkflowExecutionUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: WorkflowExecutionCreateOrConnectWithoutProjectInput | WorkflowExecutionCreateOrConnectWithoutProjectInput[]
+    upsert?: WorkflowExecutionUpsertWithWhereUniqueWithoutProjectInput | WorkflowExecutionUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: WorkflowExecutionCreateManyProjectInputEnvelope
+    set?: WorkflowExecutionWhereUniqueInput | WorkflowExecutionWhereUniqueInput[]
+    disconnect?: WorkflowExecutionWhereUniqueInput | WorkflowExecutionWhereUniqueInput[]
+    delete?: WorkflowExecutionWhereUniqueInput | WorkflowExecutionWhereUniqueInput[]
+    connect?: WorkflowExecutionWhereUniqueInput | WorkflowExecutionWhereUniqueInput[]
+    update?: WorkflowExecutionUpdateWithWhereUniqueWithoutProjectInput | WorkflowExecutionUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: WorkflowExecutionUpdateManyWithWhereWithoutProjectInput | WorkflowExecutionUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: WorkflowExecutionScalarWhereInput | WorkflowExecutionScalarWhereInput[]
+  }
+
+  export type AgentMemoryUncheckedUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<AgentMemoryCreateWithoutProjectInput, AgentMemoryUncheckedCreateWithoutProjectInput> | AgentMemoryCreateWithoutProjectInput[] | AgentMemoryUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: AgentMemoryCreateOrConnectWithoutProjectInput | AgentMemoryCreateOrConnectWithoutProjectInput[]
+    upsert?: AgentMemoryUpsertWithWhereUniqueWithoutProjectInput | AgentMemoryUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: AgentMemoryCreateManyProjectInputEnvelope
+    set?: AgentMemoryWhereUniqueInput | AgentMemoryWhereUniqueInput[]
+    disconnect?: AgentMemoryWhereUniqueInput | AgentMemoryWhereUniqueInput[]
+    delete?: AgentMemoryWhereUniqueInput | AgentMemoryWhereUniqueInput[]
+    connect?: AgentMemoryWhereUniqueInput | AgentMemoryWhereUniqueInput[]
+    update?: AgentMemoryUpdateWithWhereUniqueWithoutProjectInput | AgentMemoryUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: AgentMemoryUpdateManyWithWhereWithoutProjectInput | AgentMemoryUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: AgentMemoryScalarWhereInput | AgentMemoryScalarWhereInput[]
+  }
+
+  export type ResourceAllocationUncheckedUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<ResourceAllocationCreateWithoutProjectInput, ResourceAllocationUncheckedCreateWithoutProjectInput> | ResourceAllocationCreateWithoutProjectInput[] | ResourceAllocationUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ResourceAllocationCreateOrConnectWithoutProjectInput | ResourceAllocationCreateOrConnectWithoutProjectInput[]
+    upsert?: ResourceAllocationUpsertWithWhereUniqueWithoutProjectInput | ResourceAllocationUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: ResourceAllocationCreateManyProjectInputEnvelope
+    set?: ResourceAllocationWhereUniqueInput | ResourceAllocationWhereUniqueInput[]
+    disconnect?: ResourceAllocationWhereUniqueInput | ResourceAllocationWhereUniqueInput[]
+    delete?: ResourceAllocationWhereUniqueInput | ResourceAllocationWhereUniqueInput[]
+    connect?: ResourceAllocationWhereUniqueInput | ResourceAllocationWhereUniqueInput[]
+    update?: ResourceAllocationUpdateWithWhereUniqueWithoutProjectInput | ResourceAllocationUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: ResourceAllocationUpdateManyWithWhereWithoutProjectInput | ResourceAllocationUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: ResourceAllocationScalarWhereInput | ResourceAllocationScalarWhereInput[]
+  }
+
+  export type ProjectCreateNestedOneWithoutAgentMemoriesInput = {
+    create?: XOR<ProjectCreateWithoutAgentMemoriesInput, ProjectUncheckedCreateWithoutAgentMemoriesInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutAgentMemoriesInput
+    connect?: ProjectWhereUniqueInput
+  }
+
+  export type ProjectUpdateOneRequiredWithoutAgentMemoriesNestedInput = {
+    create?: XOR<ProjectCreateWithoutAgentMemoriesInput, ProjectUncheckedCreateWithoutAgentMemoriesInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutAgentMemoriesInput
+    upsert?: ProjectUpsertWithoutAgentMemoriesInput
+    connect?: ProjectWhereUniqueInput
+    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutAgentMemoriesInput, ProjectUpdateWithoutAgentMemoriesInput>, ProjectUncheckedUpdateWithoutAgentMemoriesInput>
+  }
+
+  export type ProjectCreateNestedOneWithoutResourceAllocationsInput = {
+    create?: XOR<ProjectCreateWithoutResourceAllocationsInput, ProjectUncheckedCreateWithoutResourceAllocationsInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutResourceAllocationsInput
+    connect?: ProjectWhereUniqueInput
+  }
+
+  export type ProjectUpdateOneRequiredWithoutResourceAllocationsNestedInput = {
+    create?: XOR<ProjectCreateWithoutResourceAllocationsInput, ProjectUncheckedCreateWithoutResourceAllocationsInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutResourceAllocationsInput
+    upsert?: ProjectUpsertWithoutResourceAllocationsInput
+    connect?: ProjectWhereUniqueInput
+    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutResourceAllocationsInput, ProjectUpdateWithoutResourceAllocationsInput>, ProjectUncheckedUpdateWithoutResourceAllocationsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -69324,6 +75296,34 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type WorkspaceCreateWithoutOwnerInput = {
+    id?: string
+    name: string
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    projects?: ProjectCreateNestedManyWithoutWorkspaceInput
+  }
+
+  export type WorkspaceUncheckedCreateWithoutOwnerInput = {
+    id?: string
+    name: string
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    projects?: ProjectUncheckedCreateNestedManyWithoutWorkspaceInput
+  }
+
+  export type WorkspaceCreateOrConnectWithoutOwnerInput = {
+    where: WorkspaceWhereUniqueInput
+    create: XOR<WorkspaceCreateWithoutOwnerInput, WorkspaceUncheckedCreateWithoutOwnerInput>
+  }
+
+  export type WorkspaceCreateManyOwnerInputEnvelope = {
+    data: WorkspaceCreateManyOwnerInput | WorkspaceCreateManyOwnerInput[]
+    skipDuplicates?: boolean
+  }
+
   export type AgentUpsertWithWhereUniqueWithoutUserInput = {
     where: AgentWhereUniqueInput
     update: XOR<AgentUpdateWithoutUserInput, AgentUncheckedUpdateWithoutUserInput>
@@ -69658,6 +75658,34 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"AuthEvent"> | Date | string
   }
 
+  export type WorkspaceUpsertWithWhereUniqueWithoutOwnerInput = {
+    where: WorkspaceWhereUniqueInput
+    update: XOR<WorkspaceUpdateWithoutOwnerInput, WorkspaceUncheckedUpdateWithoutOwnerInput>
+    create: XOR<WorkspaceCreateWithoutOwnerInput, WorkspaceUncheckedCreateWithoutOwnerInput>
+  }
+
+  export type WorkspaceUpdateWithWhereUniqueWithoutOwnerInput = {
+    where: WorkspaceWhereUniqueInput
+    data: XOR<WorkspaceUpdateWithoutOwnerInput, WorkspaceUncheckedUpdateWithoutOwnerInput>
+  }
+
+  export type WorkspaceUpdateManyWithWhereWithoutOwnerInput = {
+    where: WorkspaceScalarWhereInput
+    data: XOR<WorkspaceUpdateManyMutationInput, WorkspaceUncheckedUpdateManyWithoutOwnerInput>
+  }
+
+  export type WorkspaceScalarWhereInput = {
+    AND?: WorkspaceScalarWhereInput | WorkspaceScalarWhereInput[]
+    OR?: WorkspaceScalarWhereInput[]
+    NOT?: WorkspaceScalarWhereInput | WorkspaceScalarWhereInput[]
+    id?: StringFilter<"Workspace"> | string
+    name?: StringFilter<"Workspace"> | string
+    description?: StringNullableFilter<"Workspace"> | string | null
+    ownerId?: StringFilter<"Workspace"> | string
+    createdAt?: DateTimeFilter<"Workspace"> | Date | string
+    updatedAt?: DateTimeFilter<"Workspace"> | Date | string
+  }
+
   export type UserCreateWithoutAuthSessionsInput = {
     id?: string
     email: string
@@ -69683,6 +75711,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
     workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventCreateNestedManyWithoutUserInput
+    workspaces?: WorkspaceCreateNestedManyWithoutOwnerInput
   }
 
   export type UserUncheckedCreateWithoutAuthSessionsInput = {
@@ -69710,6 +75739,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
     workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
+    workspaces?: WorkspaceUncheckedCreateNestedManyWithoutOwnerInput
   }
 
   export type UserCreateOrConnectWithoutAuthSessionsInput = {
@@ -69753,6 +75783,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
     workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUpdateManyWithoutUserNestedInput
+    workspaces?: WorkspaceUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAuthSessionsInput = {
@@ -69780,6 +75811,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
     workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
+    workspaces?: WorkspaceUncheckedUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserCreateWithoutLoginAttemptsInput = {
@@ -69807,6 +75839,7 @@ export namespace Prisma {
     authSessions?: AuthSessionCreateNestedManyWithoutUserInput
     workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventCreateNestedManyWithoutUserInput
+    workspaces?: WorkspaceCreateNestedManyWithoutOwnerInput
   }
 
   export type UserUncheckedCreateWithoutLoginAttemptsInput = {
@@ -69834,6 +75867,7 @@ export namespace Prisma {
     authSessions?: AuthSessionUncheckedCreateNestedManyWithoutUserInput
     workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
+    workspaces?: WorkspaceUncheckedCreateNestedManyWithoutOwnerInput
   }
 
   export type UserCreateOrConnectWithoutLoginAttemptsInput = {
@@ -69877,6 +75911,7 @@ export namespace Prisma {
     authSessions?: AuthSessionUpdateManyWithoutUserNestedInput
     workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUpdateManyWithoutUserNestedInput
+    workspaces?: WorkspaceUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutLoginAttemptsInput = {
@@ -69904,6 +75939,7 @@ export namespace Prisma {
     authSessions?: AuthSessionUncheckedUpdateManyWithoutUserNestedInput
     workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
+    workspaces?: WorkspaceUncheckedUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserCreateWithoutAuthEventsInput = {
@@ -69931,6 +75967,7 @@ export namespace Prisma {
     authSessions?: AuthSessionCreateNestedManyWithoutUserInput
     loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
     workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
+    workspaces?: WorkspaceCreateNestedManyWithoutOwnerInput
   }
 
   export type UserUncheckedCreateWithoutAuthEventsInput = {
@@ -69958,6 +75995,7 @@ export namespace Prisma {
     authSessions?: AuthSessionUncheckedCreateNestedManyWithoutUserInput
     loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
     workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
+    workspaces?: WorkspaceUncheckedCreateNestedManyWithoutOwnerInput
   }
 
   export type UserCreateOrConnectWithoutAuthEventsInput = {
@@ -70001,6 +76039,7 @@ export namespace Prisma {
     authSessions?: AuthSessionUpdateManyWithoutUserNestedInput
     loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
     workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
+    workspaces?: WorkspaceUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAuthEventsInput = {
@@ -70028,6 +76067,7 @@ export namespace Prisma {
     authSessions?: AuthSessionUncheckedUpdateManyWithoutUserNestedInput
     loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
     workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
+    workspaces?: WorkspaceUncheckedUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserCreateWithoutAgentsInput = {
@@ -70055,6 +76095,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
     workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventCreateNestedManyWithoutUserInput
+    workspaces?: WorkspaceCreateNestedManyWithoutOwnerInput
   }
 
   export type UserUncheckedCreateWithoutAgentsInput = {
@@ -70082,6 +76123,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
     workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
+    workspaces?: WorkspaceUncheckedCreateNestedManyWithoutOwnerInput
   }
 
   export type UserCreateOrConnectWithoutAgentsInput = {
@@ -70637,6 +76679,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
     workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUpdateManyWithoutUserNestedInput
+    workspaces?: WorkspaceUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAgentsInput = {
@@ -70664,6 +76707,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
     workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
+    workspaces?: WorkspaceUncheckedUpdateManyWithoutOwnerNestedInput
   }
 
   export type AgentMetadataUpsertWithoutAgentInput = {
@@ -71395,6 +77439,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
     workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventCreateNestedManyWithoutUserInput
+    workspaces?: WorkspaceCreateNestedManyWithoutOwnerInput
   }
 
   export type UserUncheckedCreateWithoutChatRoomsInput = {
@@ -71422,6 +77467,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
     workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
+    workspaces?: WorkspaceUncheckedCreateNestedManyWithoutOwnerInput
   }
 
   export type UserCreateOrConnectWithoutChatRoomsInput = {
@@ -71517,6 +77563,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
     workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUpdateManyWithoutUserNestedInput
+    workspaces?: WorkspaceUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutChatRoomsInput = {
@@ -71544,6 +77591,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
     workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
+    workspaces?: WorkspaceUncheckedUpdateManyWithoutOwnerNestedInput
   }
 
   export type MessageUpsertWithWhereUniqueWithoutRoomInput = {
@@ -71587,6 +77635,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
     workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventCreateNestedManyWithoutUserInput
+    workspaces?: WorkspaceCreateNestedManyWithoutOwnerInput
   }
 
   export type UserUncheckedCreateWithoutMessagesInput = {
@@ -71614,6 +77663,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
     workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
+    workspaces?: WorkspaceUncheckedCreateNestedManyWithoutOwnerInput
   }
 
   export type UserCreateOrConnectWithoutMessagesInput = {
@@ -71877,6 +77927,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
     workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUpdateManyWithoutUserNestedInput
+    workspaces?: WorkspaceUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutMessagesInput = {
@@ -71904,6 +77955,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
     workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
+    workspaces?: WorkspaceUncheckedUpdateManyWithoutOwnerNestedInput
   }
 
   export type AgentUpsertWithoutMessagesInput = {
@@ -72139,6 +78191,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
     workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventCreateNestedManyWithoutUserInput
+    workspaces?: WorkspaceCreateNestedManyWithoutOwnerInput
   }
 
   export type UserUncheckedCreateWithoutWorkflowsInput = {
@@ -72166,6 +78219,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
     workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
+    workspaces?: WorkspaceUncheckedCreateNestedManyWithoutOwnerInput
   }
 
   export type UserCreateOrConnectWithoutWorkflowsInput = {
@@ -72288,6 +78342,7 @@ export namespace Prisma {
     error?: string | null
     startedAt?: Date | string
     completedAt?: Date | string | null
+    project?: ProjectCreateNestedOneWithoutWorkflowExecutionsInput
   }
 
   export type WorkflowExecutionUncheckedCreateWithoutWorkflowInput = {
@@ -72298,6 +78353,7 @@ export namespace Prisma {
     error?: string | null
     startedAt?: Date | string
     completedAt?: Date | string | null
+    projectId?: string | null
   }
 
   export type WorkflowExecutionCreateOrConnectWithoutWorkflowInput = {
@@ -72346,6 +78402,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
     workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUpdateManyWithoutUserNestedInput
+    workspaces?: WorkspaceUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutWorkflowsInput = {
@@ -72373,6 +78430,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
     workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
+    workspaces?: WorkspaceUncheckedUpdateManyWithoutOwnerNestedInput
   }
 
   export type AgentUpsertWithoutWorkflowsInput = {
@@ -72486,6 +78544,7 @@ export namespace Prisma {
     error?: StringNullableFilter<"WorkflowExecution"> | string | null
     startedAt?: DateTimeFilter<"WorkflowExecution"> | Date | string
     completedAt?: DateTimeNullableFilter<"WorkflowExecution"> | Date | string | null
+    projectId?: StringNullableFilter<"WorkflowExecution"> | string | null
   }
 
   export type WorkflowCreateWithoutStepsInput = {
@@ -72763,6 +78822,33 @@ export namespace Prisma {
     create: XOR<WorkflowCreateWithoutExecutionsInput, WorkflowUncheckedCreateWithoutExecutionsInput>
   }
 
+  export type ProjectCreateWithoutWorkflowExecutionsInput = {
+    id?: string
+    name: string
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    workspace: WorkspaceCreateNestedOneWithoutProjectsInput
+    agentMemories?: AgentMemoryCreateNestedManyWithoutProjectInput
+    resourceAllocations?: ResourceAllocationCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateWithoutWorkflowExecutionsInput = {
+    id?: string
+    name: string
+    description?: string | null
+    workspaceId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    agentMemories?: AgentMemoryUncheckedCreateNestedManyWithoutProjectInput
+    resourceAllocations?: ResourceAllocationUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectCreateOrConnectWithoutWorkflowExecutionsInput = {
+    where: ProjectWhereUniqueInput
+    create: XOR<ProjectCreateWithoutWorkflowExecutionsInput, ProjectUncheckedCreateWithoutWorkflowExecutionsInput>
+  }
+
   export type WorkflowUpsertWithoutExecutionsInput = {
     update: XOR<WorkflowUpdateWithoutExecutionsInput, WorkflowUncheckedUpdateWithoutExecutionsInput>
     create: XOR<WorkflowCreateWithoutExecutionsInput, WorkflowUncheckedCreateWithoutExecutionsInput>
@@ -72816,6 +78902,39 @@ export namespace Prisma {
     steps?: WorkflowStepUncheckedUpdateManyWithoutWorkflowNestedInput
   }
 
+  export type ProjectUpsertWithoutWorkflowExecutionsInput = {
+    update: XOR<ProjectUpdateWithoutWorkflowExecutionsInput, ProjectUncheckedUpdateWithoutWorkflowExecutionsInput>
+    create: XOR<ProjectCreateWithoutWorkflowExecutionsInput, ProjectUncheckedCreateWithoutWorkflowExecutionsInput>
+    where?: ProjectWhereInput
+  }
+
+  export type ProjectUpdateToOneWithWhereWithoutWorkflowExecutionsInput = {
+    where?: ProjectWhereInput
+    data: XOR<ProjectUpdateWithoutWorkflowExecutionsInput, ProjectUncheckedUpdateWithoutWorkflowExecutionsInput>
+  }
+
+  export type ProjectUpdateWithoutWorkflowExecutionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    workspace?: WorkspaceUpdateOneRequiredWithoutProjectsNestedInput
+    agentMemories?: AgentMemoryUpdateManyWithoutProjectNestedInput
+    resourceAllocations?: ResourceAllocationUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutWorkflowExecutionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    workspaceId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    agentMemories?: AgentMemoryUncheckedUpdateManyWithoutProjectNestedInput
+    resourceAllocations?: ResourceAllocationUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
   export type UserCreateWithoutWorkflowTemplatesInput = {
     id?: string
     email: string
@@ -72841,6 +78960,7 @@ export namespace Prisma {
     authSessions?: AuthSessionCreateNestedManyWithoutUserInput
     loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
     authEvents?: AuthEventCreateNestedManyWithoutUserInput
+    workspaces?: WorkspaceCreateNestedManyWithoutOwnerInput
   }
 
   export type UserUncheckedCreateWithoutWorkflowTemplatesInput = {
@@ -72868,6 +78988,7 @@ export namespace Prisma {
     authSessions?: AuthSessionUncheckedCreateNestedManyWithoutUserInput
     loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
     authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
+    workspaces?: WorkspaceUncheckedCreateNestedManyWithoutOwnerInput
   }
 
   export type UserCreateOrConnectWithoutWorkflowTemplatesInput = {
@@ -72911,6 +79032,7 @@ export namespace Prisma {
     authSessions?: AuthSessionUpdateManyWithoutUserNestedInput
     loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
     authEvents?: AuthEventUpdateManyWithoutUserNestedInput
+    workspaces?: WorkspaceUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutWorkflowTemplatesInput = {
@@ -72938,6 +79060,7 @@ export namespace Prisma {
     authSessions?: AuthSessionUncheckedUpdateManyWithoutUserNestedInput
     loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
     authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
+    workspaces?: WorkspaceUncheckedUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserCreateWithoutPipelinesInput = {
@@ -72965,6 +79088,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
     workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventCreateNestedManyWithoutUserInput
+    workspaces?: WorkspaceCreateNestedManyWithoutOwnerInput
   }
 
   export type UserUncheckedCreateWithoutPipelinesInput = {
@@ -72992,6 +79116,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
     workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
+    workspaces?: WorkspaceUncheckedCreateNestedManyWithoutOwnerInput
   }
 
   export type UserCreateOrConnectWithoutPipelinesInput = {
@@ -73148,6 +79273,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
     workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUpdateManyWithoutUserNestedInput
+    workspaces?: WorkspaceUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPipelinesInput = {
@@ -73175,6 +79301,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
     workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
+    workspaces?: WorkspaceUncheckedUpdateManyWithoutOwnerNestedInput
   }
 
   export type AgentUpsertWithoutPipelinesInput = {
@@ -73377,6 +79504,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
     workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventCreateNestedManyWithoutUserInput
+    workspaces?: WorkspaceCreateNestedManyWithoutOwnerInput
   }
 
   export type UserUncheckedCreateWithoutTasksInput = {
@@ -73404,6 +79532,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
     workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
     authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
+    workspaces?: WorkspaceUncheckedCreateNestedManyWithoutOwnerInput
   }
 
   export type UserCreateOrConnectWithoutTasksInput = {
@@ -73579,6 +79708,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
     workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUpdateManyWithoutUserNestedInput
+    workspaces?: WorkspaceUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTasksInput = {
@@ -73606,6 +79736,7 @@ export namespace Prisma {
     loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
     workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
     authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
+    workspaces?: WorkspaceUncheckedUpdateManyWithoutOwnerNestedInput
   }
 
   export type TaskExecutionUpsertWithWhereUniqueWithoutTaskInput = {
@@ -75767,6 +81898,525 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type UserCreateWithoutWorkspacesInput = {
+    id?: string
+    email: string
+    username?: string | null
+    name?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    hashedPassword: string
+    role?: $Enums.UserRole
+    roles?: UserCreaterolesInput | $Enums.UserRole[]
+    isActive?: boolean
+    lastLogin?: Date | string | null
+    preferences?: NullableJsonNullValueInput | InputJsonValue
+    refreshToken?: string | null
+    deletedAt?: Date | string | null
+    emailVerified?: boolean
+    agents?: AgentCreateNestedManyWithoutUserInput
+    pipelines?: PipelineCreateNestedManyWithoutUserInput
+    tasks?: TaskCreateNestedManyWithoutUserInput
+    workflows?: WorkflowCreateNestedManyWithoutCreatorInput
+    chatRooms?: ChatRoomCreateNestedManyWithoutOwnerInput
+    messages?: MessageCreateNestedManyWithoutSenderInput
+    authSessions?: AuthSessionCreateNestedManyWithoutUserInput
+    loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutCreatorInput
+    authEvents?: AuthEventCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutWorkspacesInput = {
+    id?: string
+    email: string
+    username?: string | null
+    name?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    hashedPassword: string
+    role?: $Enums.UserRole
+    roles?: UserCreaterolesInput | $Enums.UserRole[]
+    isActive?: boolean
+    lastLogin?: Date | string | null
+    preferences?: NullableJsonNullValueInput | InputJsonValue
+    refreshToken?: string | null
+    deletedAt?: Date | string | null
+    emailVerified?: boolean
+    agents?: AgentUncheckedCreateNestedManyWithoutUserInput
+    pipelines?: PipelineUncheckedCreateNestedManyWithoutUserInput
+    tasks?: TaskUncheckedCreateNestedManyWithoutUserInput
+    workflows?: WorkflowUncheckedCreateNestedManyWithoutCreatorInput
+    chatRooms?: ChatRoomUncheckedCreateNestedManyWithoutOwnerInput
+    messages?: MessageUncheckedCreateNestedManyWithoutSenderInput
+    authSessions?: AuthSessionUncheckedCreateNestedManyWithoutUserInput
+    loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
+    workflowTemplates?: WorkflowTemplateUncheckedCreateNestedManyWithoutCreatorInput
+    authEvents?: AuthEventUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutWorkspacesInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutWorkspacesInput, UserUncheckedCreateWithoutWorkspacesInput>
+  }
+
+  export type ProjectCreateWithoutWorkspaceInput = {
+    id?: string
+    name: string
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    workflowExecutions?: WorkflowExecutionCreateNestedManyWithoutProjectInput
+    agentMemories?: AgentMemoryCreateNestedManyWithoutProjectInput
+    resourceAllocations?: ResourceAllocationCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateWithoutWorkspaceInput = {
+    id?: string
+    name: string
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    workflowExecutions?: WorkflowExecutionUncheckedCreateNestedManyWithoutProjectInput
+    agentMemories?: AgentMemoryUncheckedCreateNestedManyWithoutProjectInput
+    resourceAllocations?: ResourceAllocationUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectCreateOrConnectWithoutWorkspaceInput = {
+    where: ProjectWhereUniqueInput
+    create: XOR<ProjectCreateWithoutWorkspaceInput, ProjectUncheckedCreateWithoutWorkspaceInput>
+  }
+
+  export type ProjectCreateManyWorkspaceInputEnvelope = {
+    data: ProjectCreateManyWorkspaceInput | ProjectCreateManyWorkspaceInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutWorkspacesInput = {
+    update: XOR<UserUpdateWithoutWorkspacesInput, UserUncheckedUpdateWithoutWorkspacesInput>
+    create: XOR<UserCreateWithoutWorkspacesInput, UserUncheckedCreateWithoutWorkspacesInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutWorkspacesInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutWorkspacesInput, UserUncheckedUpdateWithoutWorkspacesInput>
+  }
+
+  export type UserUpdateWithoutWorkspacesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    username?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    hashedPassword?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    roles?: UserUpdaterolesInput | $Enums.UserRole[]
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    preferences?: NullableJsonNullValueInput | InputJsonValue
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    agents?: AgentUpdateManyWithoutUserNestedInput
+    pipelines?: PipelineUpdateManyWithoutUserNestedInput
+    tasks?: TaskUpdateManyWithoutUserNestedInput
+    workflows?: WorkflowUpdateManyWithoutCreatorNestedInput
+    chatRooms?: ChatRoomUpdateManyWithoutOwnerNestedInput
+    messages?: MessageUpdateManyWithoutSenderNestedInput
+    authSessions?: AuthSessionUpdateManyWithoutUserNestedInput
+    loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUpdateManyWithoutCreatorNestedInput
+    authEvents?: AuthEventUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutWorkspacesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    username?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    hashedPassword?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    roles?: UserUpdaterolesInput | $Enums.UserRole[]
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    preferences?: NullableJsonNullValueInput | InputJsonValue
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    agents?: AgentUncheckedUpdateManyWithoutUserNestedInput
+    pipelines?: PipelineUncheckedUpdateManyWithoutUserNestedInput
+    tasks?: TaskUncheckedUpdateManyWithoutUserNestedInput
+    workflows?: WorkflowUncheckedUpdateManyWithoutCreatorNestedInput
+    chatRooms?: ChatRoomUncheckedUpdateManyWithoutOwnerNestedInput
+    messages?: MessageUncheckedUpdateManyWithoutSenderNestedInput
+    authSessions?: AuthSessionUncheckedUpdateManyWithoutUserNestedInput
+    loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
+    workflowTemplates?: WorkflowTemplateUncheckedUpdateManyWithoutCreatorNestedInput
+    authEvents?: AuthEventUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type ProjectUpsertWithWhereUniqueWithoutWorkspaceInput = {
+    where: ProjectWhereUniqueInput
+    update: XOR<ProjectUpdateWithoutWorkspaceInput, ProjectUncheckedUpdateWithoutWorkspaceInput>
+    create: XOR<ProjectCreateWithoutWorkspaceInput, ProjectUncheckedCreateWithoutWorkspaceInput>
+  }
+
+  export type ProjectUpdateWithWhereUniqueWithoutWorkspaceInput = {
+    where: ProjectWhereUniqueInput
+    data: XOR<ProjectUpdateWithoutWorkspaceInput, ProjectUncheckedUpdateWithoutWorkspaceInput>
+  }
+
+  export type ProjectUpdateManyWithWhereWithoutWorkspaceInput = {
+    where: ProjectScalarWhereInput
+    data: XOR<ProjectUpdateManyMutationInput, ProjectUncheckedUpdateManyWithoutWorkspaceInput>
+  }
+
+  export type ProjectScalarWhereInput = {
+    AND?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+    OR?: ProjectScalarWhereInput[]
+    NOT?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+    id?: StringFilter<"Project"> | string
+    name?: StringFilter<"Project"> | string
+    description?: StringNullableFilter<"Project"> | string | null
+    workspaceId?: StringFilter<"Project"> | string
+    createdAt?: DateTimeFilter<"Project"> | Date | string
+    updatedAt?: DateTimeFilter<"Project"> | Date | string
+  }
+
+  export type WorkspaceCreateWithoutProjectsInput = {
+    id?: string
+    name: string
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    owner: UserCreateNestedOneWithoutWorkspacesInput
+  }
+
+  export type WorkspaceUncheckedCreateWithoutProjectsInput = {
+    id?: string
+    name: string
+    description?: string | null
+    ownerId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WorkspaceCreateOrConnectWithoutProjectsInput = {
+    where: WorkspaceWhereUniqueInput
+    create: XOR<WorkspaceCreateWithoutProjectsInput, WorkspaceUncheckedCreateWithoutProjectsInput>
+  }
+
+  export type WorkflowExecutionCreateWithoutProjectInput = {
+    id?: string
+    status?: $Enums.WorkflowExecutionStatus
+    input?: NullableJsonNullValueInput | InputJsonValue
+    output?: NullableJsonNullValueInput | InputJsonValue
+    error?: string | null
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    workflow: WorkflowCreateNestedOneWithoutExecutionsInput
+  }
+
+  export type WorkflowExecutionUncheckedCreateWithoutProjectInput = {
+    id?: string
+    workflowId: string
+    status?: $Enums.WorkflowExecutionStatus
+    input?: NullableJsonNullValueInput | InputJsonValue
+    output?: NullableJsonNullValueInput | InputJsonValue
+    error?: string | null
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+  }
+
+  export type WorkflowExecutionCreateOrConnectWithoutProjectInput = {
+    where: WorkflowExecutionWhereUniqueInput
+    create: XOR<WorkflowExecutionCreateWithoutProjectInput, WorkflowExecutionUncheckedCreateWithoutProjectInput>
+  }
+
+  export type WorkflowExecutionCreateManyProjectInputEnvelope = {
+    data: WorkflowExecutionCreateManyProjectInput | WorkflowExecutionCreateManyProjectInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type AgentMemoryCreateWithoutProjectInput = {
+    id?: string
+    key: string
+    value: JsonNullValueInput | InputJsonValue
+    agentId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AgentMemoryUncheckedCreateWithoutProjectInput = {
+    id?: string
+    key: string
+    value: JsonNullValueInput | InputJsonValue
+    agentId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AgentMemoryCreateOrConnectWithoutProjectInput = {
+    where: AgentMemoryWhereUniqueInput
+    create: XOR<AgentMemoryCreateWithoutProjectInput, AgentMemoryUncheckedCreateWithoutProjectInput>
+  }
+
+  export type AgentMemoryCreateManyProjectInputEnvelope = {
+    data: AgentMemoryCreateManyProjectInput | AgentMemoryCreateManyProjectInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ResourceAllocationCreateWithoutProjectInput = {
+    id?: string
+    resourceType: string
+    resourceId: string
+    allocatedAt?: Date | string
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type ResourceAllocationUncheckedCreateWithoutProjectInput = {
+    id?: string
+    resourceType: string
+    resourceId: string
+    allocatedAt?: Date | string
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type ResourceAllocationCreateOrConnectWithoutProjectInput = {
+    where: ResourceAllocationWhereUniqueInput
+    create: XOR<ResourceAllocationCreateWithoutProjectInput, ResourceAllocationUncheckedCreateWithoutProjectInput>
+  }
+
+  export type ResourceAllocationCreateManyProjectInputEnvelope = {
+    data: ResourceAllocationCreateManyProjectInput | ResourceAllocationCreateManyProjectInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type WorkspaceUpsertWithoutProjectsInput = {
+    update: XOR<WorkspaceUpdateWithoutProjectsInput, WorkspaceUncheckedUpdateWithoutProjectsInput>
+    create: XOR<WorkspaceCreateWithoutProjectsInput, WorkspaceUncheckedCreateWithoutProjectsInput>
+    where?: WorkspaceWhereInput
+  }
+
+  export type WorkspaceUpdateToOneWithWhereWithoutProjectsInput = {
+    where?: WorkspaceWhereInput
+    data: XOR<WorkspaceUpdateWithoutProjectsInput, WorkspaceUncheckedUpdateWithoutProjectsInput>
+  }
+
+  export type WorkspaceUpdateWithoutProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    owner?: UserUpdateOneRequiredWithoutWorkspacesNestedInput
+  }
+
+  export type WorkspaceUncheckedUpdateWithoutProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    ownerId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WorkflowExecutionUpsertWithWhereUniqueWithoutProjectInput = {
+    where: WorkflowExecutionWhereUniqueInput
+    update: XOR<WorkflowExecutionUpdateWithoutProjectInput, WorkflowExecutionUncheckedUpdateWithoutProjectInput>
+    create: XOR<WorkflowExecutionCreateWithoutProjectInput, WorkflowExecutionUncheckedCreateWithoutProjectInput>
+  }
+
+  export type WorkflowExecutionUpdateWithWhereUniqueWithoutProjectInput = {
+    where: WorkflowExecutionWhereUniqueInput
+    data: XOR<WorkflowExecutionUpdateWithoutProjectInput, WorkflowExecutionUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type WorkflowExecutionUpdateManyWithWhereWithoutProjectInput = {
+    where: WorkflowExecutionScalarWhereInput
+    data: XOR<WorkflowExecutionUpdateManyMutationInput, WorkflowExecutionUncheckedUpdateManyWithoutProjectInput>
+  }
+
+  export type AgentMemoryUpsertWithWhereUniqueWithoutProjectInput = {
+    where: AgentMemoryWhereUniqueInput
+    update: XOR<AgentMemoryUpdateWithoutProjectInput, AgentMemoryUncheckedUpdateWithoutProjectInput>
+    create: XOR<AgentMemoryCreateWithoutProjectInput, AgentMemoryUncheckedCreateWithoutProjectInput>
+  }
+
+  export type AgentMemoryUpdateWithWhereUniqueWithoutProjectInput = {
+    where: AgentMemoryWhereUniqueInput
+    data: XOR<AgentMemoryUpdateWithoutProjectInput, AgentMemoryUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type AgentMemoryUpdateManyWithWhereWithoutProjectInput = {
+    where: AgentMemoryScalarWhereInput
+    data: XOR<AgentMemoryUpdateManyMutationInput, AgentMemoryUncheckedUpdateManyWithoutProjectInput>
+  }
+
+  export type AgentMemoryScalarWhereInput = {
+    AND?: AgentMemoryScalarWhereInput | AgentMemoryScalarWhereInput[]
+    OR?: AgentMemoryScalarWhereInput[]
+    NOT?: AgentMemoryScalarWhereInput | AgentMemoryScalarWhereInput[]
+    id?: StringFilter<"AgentMemory"> | string
+    key?: StringFilter<"AgentMemory"> | string
+    value?: JsonFilter<"AgentMemory">
+    agentId?: StringNullableFilter<"AgentMemory"> | string | null
+    projectId?: StringFilter<"AgentMemory"> | string
+    createdAt?: DateTimeFilter<"AgentMemory"> | Date | string
+    updatedAt?: DateTimeFilter<"AgentMemory"> | Date | string
+  }
+
+  export type ResourceAllocationUpsertWithWhereUniqueWithoutProjectInput = {
+    where: ResourceAllocationWhereUniqueInput
+    update: XOR<ResourceAllocationUpdateWithoutProjectInput, ResourceAllocationUncheckedUpdateWithoutProjectInput>
+    create: XOR<ResourceAllocationCreateWithoutProjectInput, ResourceAllocationUncheckedCreateWithoutProjectInput>
+  }
+
+  export type ResourceAllocationUpdateWithWhereUniqueWithoutProjectInput = {
+    where: ResourceAllocationWhereUniqueInput
+    data: XOR<ResourceAllocationUpdateWithoutProjectInput, ResourceAllocationUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type ResourceAllocationUpdateManyWithWhereWithoutProjectInput = {
+    where: ResourceAllocationScalarWhereInput
+    data: XOR<ResourceAllocationUpdateManyMutationInput, ResourceAllocationUncheckedUpdateManyWithoutProjectInput>
+  }
+
+  export type ResourceAllocationScalarWhereInput = {
+    AND?: ResourceAllocationScalarWhereInput | ResourceAllocationScalarWhereInput[]
+    OR?: ResourceAllocationScalarWhereInput[]
+    NOT?: ResourceAllocationScalarWhereInput | ResourceAllocationScalarWhereInput[]
+    id?: StringFilter<"ResourceAllocation"> | string
+    resourceType?: StringFilter<"ResourceAllocation"> | string
+    resourceId?: StringFilter<"ResourceAllocation"> | string
+    projectId?: StringFilter<"ResourceAllocation"> | string
+    allocatedAt?: DateTimeFilter<"ResourceAllocation"> | Date | string
+    metadata?: JsonNullableFilter<"ResourceAllocation">
+  }
+
+  export type ProjectCreateWithoutAgentMemoriesInput = {
+    id?: string
+    name: string
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    workspace: WorkspaceCreateNestedOneWithoutProjectsInput
+    workflowExecutions?: WorkflowExecutionCreateNestedManyWithoutProjectInput
+    resourceAllocations?: ResourceAllocationCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateWithoutAgentMemoriesInput = {
+    id?: string
+    name: string
+    description?: string | null
+    workspaceId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    workflowExecutions?: WorkflowExecutionUncheckedCreateNestedManyWithoutProjectInput
+    resourceAllocations?: ResourceAllocationUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectCreateOrConnectWithoutAgentMemoriesInput = {
+    where: ProjectWhereUniqueInput
+    create: XOR<ProjectCreateWithoutAgentMemoriesInput, ProjectUncheckedCreateWithoutAgentMemoriesInput>
+  }
+
+  export type ProjectUpsertWithoutAgentMemoriesInput = {
+    update: XOR<ProjectUpdateWithoutAgentMemoriesInput, ProjectUncheckedUpdateWithoutAgentMemoriesInput>
+    create: XOR<ProjectCreateWithoutAgentMemoriesInput, ProjectUncheckedCreateWithoutAgentMemoriesInput>
+    where?: ProjectWhereInput
+  }
+
+  export type ProjectUpdateToOneWithWhereWithoutAgentMemoriesInput = {
+    where?: ProjectWhereInput
+    data: XOR<ProjectUpdateWithoutAgentMemoriesInput, ProjectUncheckedUpdateWithoutAgentMemoriesInput>
+  }
+
+  export type ProjectUpdateWithoutAgentMemoriesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    workspace?: WorkspaceUpdateOneRequiredWithoutProjectsNestedInput
+    workflowExecutions?: WorkflowExecutionUpdateManyWithoutProjectNestedInput
+    resourceAllocations?: ResourceAllocationUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutAgentMemoriesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    workspaceId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    workflowExecutions?: WorkflowExecutionUncheckedUpdateManyWithoutProjectNestedInput
+    resourceAllocations?: ResourceAllocationUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectCreateWithoutResourceAllocationsInput = {
+    id?: string
+    name: string
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    workspace: WorkspaceCreateNestedOneWithoutProjectsInput
+    workflowExecutions?: WorkflowExecutionCreateNestedManyWithoutProjectInput
+    agentMemories?: AgentMemoryCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateWithoutResourceAllocationsInput = {
+    id?: string
+    name: string
+    description?: string | null
+    workspaceId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    workflowExecutions?: WorkflowExecutionUncheckedCreateNestedManyWithoutProjectInput
+    agentMemories?: AgentMemoryUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectCreateOrConnectWithoutResourceAllocationsInput = {
+    where: ProjectWhereUniqueInput
+    create: XOR<ProjectCreateWithoutResourceAllocationsInput, ProjectUncheckedCreateWithoutResourceAllocationsInput>
+  }
+
+  export type ProjectUpsertWithoutResourceAllocationsInput = {
+    update: XOR<ProjectUpdateWithoutResourceAllocationsInput, ProjectUncheckedUpdateWithoutResourceAllocationsInput>
+    create: XOR<ProjectCreateWithoutResourceAllocationsInput, ProjectUncheckedCreateWithoutResourceAllocationsInput>
+    where?: ProjectWhereInput
+  }
+
+  export type ProjectUpdateToOneWithWhereWithoutResourceAllocationsInput = {
+    where?: ProjectWhereInput
+    data: XOR<ProjectUpdateWithoutResourceAllocationsInput, ProjectUncheckedUpdateWithoutResourceAllocationsInput>
+  }
+
+  export type ProjectUpdateWithoutResourceAllocationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    workspace?: WorkspaceUpdateOneRequiredWithoutProjectsNestedInput
+    workflowExecutions?: WorkflowExecutionUpdateManyWithoutProjectNestedInput
+    agentMemories?: AgentMemoryUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutResourceAllocationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    workspaceId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    workflowExecutions?: WorkflowExecutionUncheckedUpdateManyWithoutProjectNestedInput
+    agentMemories?: AgentMemoryUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
   export type AgentCreateManyUserInput = {
     id?: string
     name: string
@@ -75899,6 +82549,14 @@ export namespace Prisma {
     type: string
     details?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
+  }
+
+  export type WorkspaceCreateManyOwnerInput = {
+    id?: string
+    name: string
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type AgentUpdateWithoutUserInput = {
@@ -76339,6 +82997,32 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     details?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WorkspaceUpdateWithoutOwnerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    projects?: ProjectUpdateManyWithoutWorkspaceNestedInput
+  }
+
+  export type WorkspaceUncheckedUpdateWithoutOwnerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    projects?: ProjectUncheckedUpdateManyWithoutWorkspaceNestedInput
+  }
+
+  export type WorkspaceUncheckedUpdateManyWithoutOwnerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ChatCreateManyAgentInput = {
@@ -77201,6 +83885,7 @@ export namespace Prisma {
     error?: string | null
     startedAt?: Date | string
     completedAt?: Date | string | null
+    projectId?: string | null
   }
 
   export type WorkflowStepUpdateWithoutWorkflowInput = {
@@ -77265,6 +83950,7 @@ export namespace Prisma {
     error?: NullableStringFieldUpdateOperationsInput | string | null
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    project?: ProjectUpdateOneWithoutWorkflowExecutionsNestedInput
   }
 
   export type WorkflowExecutionUncheckedUpdateWithoutWorkflowInput = {
@@ -77275,6 +83961,7 @@ export namespace Prisma {
     error?: NullableStringFieldUpdateOperationsInput | string | null
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    projectId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type WorkflowExecutionUncheckedUpdateManyWithoutWorkflowInput = {
@@ -77285,6 +83972,7 @@ export namespace Prisma {
     error?: NullableStringFieldUpdateOperationsInput | string | null
     startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    projectId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type TaskCreateManyPipelineInput = {
@@ -77823,6 +84511,156 @@ export namespace Prisma {
     changelog?: NullableStringFieldUpdateOperationsInput | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProjectCreateManyWorkspaceInput = {
+    id?: string
+    name: string
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProjectUpdateWithoutWorkspaceInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    workflowExecutions?: WorkflowExecutionUpdateManyWithoutProjectNestedInput
+    agentMemories?: AgentMemoryUpdateManyWithoutProjectNestedInput
+    resourceAllocations?: ResourceAllocationUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutWorkspaceInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    workflowExecutions?: WorkflowExecutionUncheckedUpdateManyWithoutProjectNestedInput
+    agentMemories?: AgentMemoryUncheckedUpdateManyWithoutProjectNestedInput
+    resourceAllocations?: ResourceAllocationUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateManyWithoutWorkspaceInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WorkflowExecutionCreateManyProjectInput = {
+    id?: string
+    workflowId: string
+    status?: $Enums.WorkflowExecutionStatus
+    input?: NullableJsonNullValueInput | InputJsonValue
+    output?: NullableJsonNullValueInput | InputJsonValue
+    error?: string | null
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+  }
+
+  export type AgentMemoryCreateManyProjectInput = {
+    id?: string
+    key: string
+    value: JsonNullValueInput | InputJsonValue
+    agentId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ResourceAllocationCreateManyProjectInput = {
+    id?: string
+    resourceType: string
+    resourceId: string
+    allocatedAt?: Date | string
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type WorkflowExecutionUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: EnumWorkflowExecutionStatusFieldUpdateOperationsInput | $Enums.WorkflowExecutionStatus
+    input?: NullableJsonNullValueInput | InputJsonValue
+    output?: NullableJsonNullValueInput | InputJsonValue
+    error?: NullableStringFieldUpdateOperationsInput | string | null
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    workflow?: WorkflowUpdateOneRequiredWithoutExecutionsNestedInput
+  }
+
+  export type WorkflowExecutionUncheckedUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    workflowId?: StringFieldUpdateOperationsInput | string
+    status?: EnumWorkflowExecutionStatusFieldUpdateOperationsInput | $Enums.WorkflowExecutionStatus
+    input?: NullableJsonNullValueInput | InputJsonValue
+    output?: NullableJsonNullValueInput | InputJsonValue
+    error?: NullableStringFieldUpdateOperationsInput | string | null
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type WorkflowExecutionUncheckedUpdateManyWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    workflowId?: StringFieldUpdateOperationsInput | string
+    status?: EnumWorkflowExecutionStatusFieldUpdateOperationsInput | $Enums.WorkflowExecutionStatus
+    input?: NullableJsonNullValueInput | InputJsonValue
+    output?: NullableJsonNullValueInput | InputJsonValue
+    error?: NullableStringFieldUpdateOperationsInput | string | null
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type AgentMemoryUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    value?: JsonNullValueInput | InputJsonValue
+    agentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AgentMemoryUncheckedUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    value?: JsonNullValueInput | InputJsonValue
+    agentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AgentMemoryUncheckedUpdateManyWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    value?: JsonNullValueInput | InputJsonValue
+    agentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ResourceAllocationUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resourceType?: StringFieldUpdateOperationsInput | string
+    resourceId?: StringFieldUpdateOperationsInput | string
+    allocatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type ResourceAllocationUncheckedUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resourceType?: StringFieldUpdateOperationsInput | string
+    resourceId?: StringFieldUpdateOperationsInput | string
+    allocatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type ResourceAllocationUncheckedUpdateManyWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resourceType?: StringFieldUpdateOperationsInput | string
+    resourceId?: StringFieldUpdateOperationsInput | string
+    allocatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
 

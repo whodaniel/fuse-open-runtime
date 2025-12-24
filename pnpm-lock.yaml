@@ -2001,6 +2001,9 @@ importers:
       '@the-new-fuse/infrastructure':
         specifier: workspace:*
         version: link:../infrastructure
+      '@the-new-fuse/mcp-core':
+        specifier: workspace:*
+        version: link:../mcp-core
       '@the-new-fuse/types':
         specifier: workspace:*
         version: link:../types
