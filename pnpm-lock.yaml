@@ -4460,6 +4460,9 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: ^1.2.8
         version: 1.2.8(@types/react-dom@19.2.3(@types/react@19.2.9))(@types/react@19.2.9)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      '@the-new-fuse/a2a-core':
+        specifier: workspace:*
+        version: link:../a2a-core
       '@the-new-fuse/api-client':
         specifier: workspace:*
         version: link:../api-client
@@ -4469,9 +4472,6 @@ importers:
       '@the-new-fuse/hooks':
         specifier: workspace:*
         version: link:../hooks
-      '@the-new-fuse/types':
-        specifier: workspace:*
-        version: link:../types
       '@the-new-fuse/utils':
         specifier: workspace:*
         version: link:../utils
