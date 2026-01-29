@@ -3744,6 +3744,52 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
 
+  packages/kimi-orchestrator:
+    dependencies:
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.25.2
+        version: 1.25.3(hono@4.11.4)(zod@4.3.5)
+      '@the-new-fuse/relay-core':
+        specifier: workspace:*
+        version: link:../relay-core
+      '@the-new-fuse/types':
+        specifier: workspace:*
+        version: link:../types
+      '@the-new-fuse/utils':
+        specifier: workspace:*
+        version: link:../utils
+      ioredis:
+        specifier: ^5.8.1
+        version: 5.9.2
+      uuid:
+        specifier: ^9.0.1
+        version: 9.0.1
+      ws:
+        specifier: ^8.18.3
+        version: 8.19.0(bufferutil@4.1.0)(utf-8-validate@5.0.10)
+      zod:
+        specifier: ^4.2.1
+        version: 4.3.5
+    devDependencies:
+      '@types/ioredis':
+        specifier: ^5.0.0
+        version: 5.0.0
+      '@types/node':
+        specifier: ^24.8.1
+        version: 24.10.9
+      '@types/uuid':
+        specifier: ^9.0.8
+        version: 9.0.8
+      '@types/ws':
+        specifier: ^8.18.1
+        version: 8.18.1
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.1.2
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
   packages/layout:
     devDependencies:
       rimraf:
@@ -10874,6 +10920,10 @@ packages:
     resolution: {integrity: sha512-5heqtZMvQ4nXARY0o8rc8cjkJjct2ScM12yCJ/h731S9He93a2cv+kAhwPCNwTKDfNH9gjRfLG4VpAEYJU0/gQ==}
     peerDependencies:
       ioredis: '>=5'
+
+  '@types/ioredis@5.0.0':
+    resolution: {integrity: sha512-zJbJ3FVE17CNl5KXzdeSPtdltc4tMT3TzC6fxQS0sQngkbFZ6h+0uTafsRqu+eSLIugf6Yb0Ea0SUuRr42Nk9g==}
+    deprecated: This is a stub types definition. ioredis provides its own type definitions, so you do not need this installed.
 
   '@types/istanbul-lib-coverage@2.0.6':
     resolution: {integrity: sha512-2QF/t/auWm0lsy8XtKVPG19v3sSOQlJe/YHZgfjb/KBBHOGSV+J2q/S671rcq9uTBrLAXmZpqJiaQbMT+zNU1w==}
@@ -29584,6 +29634,12 @@ snapshots:
   '@types/ioredis-mock@8.2.6(ioredis@5.9.2)':
     dependencies:
       ioredis: 5.9.2
+
+  '@types/ioredis@5.0.0':
+    dependencies:
+      ioredis: 5.9.2
+    transitivePeerDependencies:
+      - supports-color
 
   '@types/istanbul-lib-coverage@2.0.6': {}
 
