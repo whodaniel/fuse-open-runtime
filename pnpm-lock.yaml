@@ -350,6 +350,9 @@ importers:
       '@the-new-fuse/shared':
         specifier: workspace:*
         version: link:../../packages/shared
+      '@the-new-fuse/tnf-cli':
+        specifier: workspace:*
+        version: link:../../packages/tnf-cli
       '@the-new-fuse/types':
         specifier: workspace:*
         version: link:../../packages/types
