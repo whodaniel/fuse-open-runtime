@@ -1199,6 +1199,12 @@ importers:
 
   apps/frontend:
     dependencies:
+      '@emotion/react':
+        specifier: ^11.14.0
+        version: 11.14.0(@types/react@19.2.9)(react@19.2.3)
+      '@emotion/styled':
+        specifier: ^11.14.1
+        version: 11.14.1(@emotion/react@11.14.0(@types/react@19.2.9)(react@19.2.3))(@types/react@19.2.9)(react@19.2.3)
       '@firebase/app':
         specifier: ^0.9.25 || ^0.14.0
         version: 0.14.7
@@ -1220,6 +1226,12 @@ importers:
       '@monaco-editor/react':
         specifier: ^4.7.0
         version: 4.7.0(monaco-editor@0.54.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      '@mui/icons-material':
+        specifier: ^7.3.7
+        version: 7.3.7(@mui/material@7.3.7(@emotion/react@11.14.0(@types/react@19.2.9)(react@19.2.3))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.9)(react@19.2.3))(@types/react@19.2.9)(react@19.2.3))(@types/react@19.2.9)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(@types/react@19.2.9)(react@19.2.3)
+      '@mui/material':
+        specifier: ^7.3.7
+        version: 7.3.7(@emotion/react@11.14.0(@types/react@19.2.9)(react@19.2.3))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.9)(react@19.2.3))(@types/react@19.2.9)(react@19.2.3))(@types/react@19.2.9)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@paypal/react-paypal-js':
         specifier: ^8.8.1
         version: 8.9.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -4196,6 +4208,9 @@ importers:
       '@the-new-fuse/database':
         specifier: workspace:*
         version: link:../database
+      '@the-new-fuse/extension-system':
+        specifier: workspace:*
+        version: link:../extension-system
       chokidar:
         specifier: ^4.0.3
         version: 4.0.3
@@ -4626,6 +4641,9 @@ importers:
       uuid:
         specifier: ^9.0.1
         version: 9.0.1
+      zod:
+        specifier: ^3.25.42
+        version: 3.25.76
     devDependencies:
       '@types/node':
         specifier: ^24.8.1
