@@ -28153,7 +28153,7 @@
       "confidence": 60
     },
     {
-      "path": ".jules/tasks/JULES_TASK_05_core_prisma_migration.md",
+      "path": ".jules/tasks/JULES_TASK_05_core_drizzle_migration.md",
       "size": 1857,
       "type": "md",
       "directory": ".jules/tasks",
@@ -43855,7 +43855,7 @@
       "confidence": 85
     },
     {
-      "path": ".agent/tasks/prisma-to-drizzle-cleanup.md",
+      "path": ".agent/tasks/drizzle-to-drizzle-cleanup.md",
       "size": 4338,
       "type": "md",
       "directory": ".agent/tasks",

@@ -912,10 +912,10 @@
 [2025-06-19T07:13:02.335Z]   Fixed template literal expressions: 2 instances fixed in packages/core/src/database/migrations/migration-runner.ts
 [2025-06-19T07:13:02.336Z]   Fixed missing closing braces: 16 instances fixed in packages/core/src/database/migrations/migration-runner.ts
 [2025-06-19T07:13:02.338Z] Fixed 18 patterns in packages/core/src/database/migrations/migration-runner.ts
-[2025-06-19T07:13:02.338Z] Processing file: packages/core/src/database/prisma.service.ts
-[2025-06-19T07:13:02.339Z] Backup created: syntax-repair-backup-2025-06-19T07-13-00-647Z/packages_core_src_database_prisma.service.ts
-[2025-06-19T07:13:02.340Z]   Fixed missing closing braces: 2 instances fixed in packages/core/src/database/prisma.service.ts
-[2025-06-19T07:13:02.340Z] Fixed 2 patterns in packages/core/src/database/prisma.service.ts
+[2025-06-19T07:13:02.338Z] Processing file: packages/core/src/database/drizzle.service.ts
+[2025-06-19T07:13:02.339Z] Backup created: syntax-repair-backup-2025-06-19T07-13-00-647Z/packages_core_src_database_drizzle.service.ts
+[2025-06-19T07:13:02.340Z]   Fixed missing closing braces: 2 instances fixed in packages/core/src/database/drizzle.service.ts
+[2025-06-19T07:13:02.340Z] Fixed 2 patterns in packages/core/src/database/drizzle.service.ts
 [2025-06-19T07:13:02.340Z] Processing file: packages/core/src/database/query-performance-monitor.service.ts
 [2025-06-19T07:13:02.347Z] Backup created: syntax-repair-backup-2025-06-19T07-13-00-647Z/packages_core_src_database_query-performance-monitor.service.ts
 [2025-06-19T07:13:02.347Z]   Fixed import statement missing 'from' keyword: 1 instances fixed in packages/core/src/database/query-performance-monitor.service.ts
@@ -2487,11 +2487,11 @@
 [2025-06-19T07:13:04.275Z] Processing file: packages/core/src/pipeline/state.ts
 [2025-06-19T07:13:04.276Z] Backup created: syntax-repair-backup-2025-06-19T07-13-00-647Z/packages_core_src_pipeline_state.ts
 [2025-06-19T07:13:04.277Z] No fixes needed for packages/core/src/pipeline/state.ts
-[2025-06-19T07:13:04.277Z] Processing file: packages/core/src/prisma/prisma.service.ts
-[2025-06-19T07:13:04.277Z] Backup created: syntax-repair-backup-2025-06-19T07-13-00-647Z/packages_core_src_prisma_prisma.service.ts
-[2025-06-19T07:13:04.277Z]   Fixed import statement missing 'from' keyword: 1 instances fixed in packages/core/src/prisma/prisma.service.ts
-[2025-06-19T07:13:04.277Z]   Fixed missing closing braces: 2 instances fixed in packages/core/src/prisma/prisma.service.ts
-[2025-06-19T07:13:04.279Z] Fixed 3 patterns in packages/core/src/prisma/prisma.service.ts
+[2025-06-19T07:13:04.277Z] Processing file: packages/core/src/drizzle/drizzle.service.ts
+[2025-06-19T07:13:04.277Z] Backup created: syntax-repair-backup-2025-06-19T07-13-00-647Z/packages_core_src_drizzle_drizzle.service.ts
+[2025-06-19T07:13:04.277Z]   Fixed import statement missing 'from' keyword: 1 instances fixed in packages/core/src/drizzle/drizzle.service.ts
+[2025-06-19T07:13:04.277Z]   Fixed missing closing braces: 2 instances fixed in packages/core/src/drizzle/drizzle.service.ts
+[2025-06-19T07:13:04.279Z] Fixed 3 patterns in packages/core/src/drizzle/drizzle.service.ts
 [2025-06-19T07:13:04.279Z] Processing file: packages/core/src/processing/featureProcessor.ts
 [2025-06-19T07:13:04.279Z] Backup created: syntax-repair-backup-2025-06-19T07-13-00-647Z/packages_core_src_processing_featureProcessor.ts
 [2025-06-19T07:13:04.279Z]   Fixed template literal expressions: 5 instances fixed in packages/core/src/processing/featureProcessor.ts
