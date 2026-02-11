@@ -23,13 +23,14 @@ overrides:
   validator@<13.15.22: '>=13.15.22'
   node-forge@<1.3.2: '>=1.3.2'
   body-parser@>=2.2.0 <2.2.1: '>=2.2.1'
-  '@modelcontextprotocol/sdk@<1.24.0': '>=1.24.0'
+  '@modelcontextprotocol/sdk@<1.26.0': '>=1.26.0'
   vite@<=5.4.19: '>=7.1.5'
   vite@>=6.0.0 <=6.4.0: '>=7.1.11'
   vite@>=6.2.0 <=6.2.6: '>=7.1.11'
   '@eslint/plugin-kit@<0.3.4': '>=0.3.4'
   brace-expansion@>=1.0.0 <=1.1.11: '>=2.0.2'
   brace-expansion@>=2.0.0 <=2.0.1: '>=2.0.2'
+  '@isaacs/brace-expansion@<=5.0.0': '>=5.0.1'
   electron@<28.3.2: '>=28.3.2'
   electron@<35.7.5: '>=35.7.5'
   zustand: 4.5.5
@@ -45,8 +46,8 @@ importers:
         specifier: ^0.3.25
         version: 0.3.31
       '@modelcontextprotocol/sdk':
-        specifier: ^1.25.2
-        version: 1.25.3(hono@4.11.4)(zod@4.3.5)
+        specifier: ^1.26.0
+        version: 1.26.0(zod@4.3.5)
       '@nestjs/common':
         specifier: ^11.1.11
         version: 11.1.12(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -106,7 +107,7 @@ importers:
         version: 4.0.3
       css-minimizer-webpack-plugin:
         specifier: ^7.0.4
-        version: 7.0.4(esbuild@0.27.3)(lightningcss@1.30.2)(webpack@5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3))
+        version: 7.0.4(esbuild@0.27.3)(lightningcss@1.30.2)(webpack@5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3))
       diff:
         specifier: ^8.0.2
         version: 8.0.3
@@ -115,7 +116,7 @@ importers:
         version: 2.1.35
       mini-css-extract-plugin:
         specifier: ^2.9.4
-        version: 2.10.0(webpack@5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3))
+        version: 2.10.0(webpack@5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3))
       moment:
         specifier: ^2.30.1
         version: 2.30.1
@@ -142,7 +143,7 @@ importers:
         version: 4.3.3
       terser-webpack-plugin:
         specifier: ^5.3.16
-        version: 5.3.16(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack@5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3))
+        version: 5.3.16(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack@5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3))
       tsx:
         specifier: ^4.20.3
         version: 4.21.0
@@ -236,7 +237,7 @@ importers:
         version: 29.4.6(@babel/core@7.29.0)(@jest/transform@30.2.0)(@jest/types@30.2.0)(babel-jest@30.2.0(@babel/core@7.29.0))(esbuild@0.27.3)(jest-util@30.2.0)(jest@30.2.0(@types/node@24.10.9)(babel-plugin-macros@3.1.0)(esbuild-register@3.6.0(esbuild@0.27.3)))(typescript@5.7.3)
       ts-loader:
         specifier: ^9.5.4
-        version: 9.5.4(typescript@5.7.3)(webpack@5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3))
+        version: 9.5.4(typescript@5.7.3)(webpack@5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3))
       turbo:
         specifier: ^2.7.5
         version: 2.7.5
@@ -246,6 +247,9 @@ importers:
 
   apps/ai-arcade:
     dependencies:
+      '@paypal/react-paypal-js':
+        specifier: ^8.1.0
+        version: 8.9.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -272,20 +276,20 @@ importers:
   apps/api:
     dependencies:
       '@apollo/server':
-        specifier: ^5.2.0
-        version: 5.2.0(graphql@16.12.0)
+        specifier: ^5.4.0
+        version: 5.4.0(graphql@16.12.0)
       '@as-integrations/express5':
         specifier: ^1.1.2
-        version: 1.1.2(@apollo/server@5.2.0(graphql@16.12.0))(express@5.2.1)
+        version: 1.1.2(@apollo/server@5.4.0(graphql@16.12.0))(express@5.2.1)
       '@firebase/app-compat':
         specifier: ^0.5.4
         version: 0.5.7
       '@modelcontextprotocol/sdk':
-        specifier: ^1.25.2
-        version: 1.25.3(hono@4.11.4)(zod@4.3.5)
+        specifier: ^1.26.0
+        version: 1.26.0(zod@4.3.5)
       '@nestjs/apollo':
         specifier: ^13.2.3
-        version: 13.2.3(@apollo/server@5.2.0(graphql@16.12.0))(@as-integrations/express5@1.1.2(@apollo/server@5.2.0(graphql@16.12.0))(express@5.2.1))(@nestjs/common@11.1.12(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.12)(@nestjs/graphql@13.2.3(@nestjs/common@11.1.12(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.12)(bufferutil@4.1.0)(class-transformer@0.5.1)(class-validator@0.14.3)(crossws@0.3.5)(graphql@16.12.0)(reflect-metadata@0.2.2)(utf-8-validate@5.0.10))(graphql@16.12.0)
+        version: 13.2.3(@apollo/server@5.4.0(graphql@16.12.0))(@as-integrations/express5@1.1.2(@apollo/server@5.4.0(graphql@16.12.0))(express@5.2.1))(@nestjs/common@11.1.12(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.12)(@nestjs/graphql@13.2.3(@nestjs/common@11.1.12(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.12)(bufferutil@4.1.0)(class-transformer@0.5.1)(class-validator@0.14.3)(crossws@0.3.5)(graphql@16.12.0)(reflect-metadata@0.2.2)(utf-8-validate@5.0.10))(graphql@16.12.0)
       '@nestjs/common':
         specifier: ^11.1.12
         version: 11.1.12(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -390,7 +394,7 @@ importers:
         version: 9.7.0(@babel/runtime@7.28.6)(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5)
       '@web3auth/node-sdk':
         specifier: ^5.0.0
-        version: 5.0.0(@azure/identity@4.13.0)(@babel/runtime@7.28.6)(@sentry/core@9.47.1)(bufferutil@4.1.0)(color@5.0.3)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.9.2)(react@19.2.3)(typescript@5.9.3)(utf-8-validate@5.0.10)(viem@2.44.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5))(zod@4.3.5)
+        version: 5.0.0(@azure/identity@4.13.0)(@babel/runtime@7.28.6)(@sentry/core@9.47.1)(bufferutil@4.1.0)(color@5.0.3)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.9.2)(react@19.2.3)(typescript@5.9.3)(utf-8-validate@5.0.10)(viem@2.45.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5))(zod@4.3.5)
       axios:
         specifier: ^1.13.5
         version: 1.13.5
@@ -464,8 +468,8 @@ importers:
         specifier: 29.4.6
         version: 29.4.6(@babel/core@7.29.0)(@jest/transform@30.2.0)(@jest/types@30.2.0)(babel-jest@30.2.0(@babel/core@7.29.0))(esbuild@0.27.3)(jest-util@30.2.0)(jest@30.2.0(@types/node@25.0.9)(babel-plugin-macros@3.1.0)(esbuild-register@3.6.0(esbuild@0.27.3))(ts-node@10.9.2(@swc/core@1.15.10(@swc/helpers@0.5.18))(@types/node@25.0.9)(typescript@5.9.3)))(typescript@5.9.3)
       viem:
-        specifier: ^2.44.4
-        version: 2.44.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5)
+        specifier: ^2.45.2
+        version: 2.45.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5)
       winston:
         specifier: ^3.19.0
         version: 3.19.0
@@ -602,10 +606,10 @@ importers:
         version: 6.0.3
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.52.0
-        version: 8.53.1(@typescript-eslint/parser@8.53.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+        version: 8.53.1(@typescript-eslint/parser@8.55.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       '@typescript-eslint/parser':
-        specifier: ^8.51.0
-        version: 8.53.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+        specifier: ^8.54.0
+        version: 8.55.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       eslint:
         specifier: ^9.39.2
         version: 9.39.2(jiti@2.6.1)
@@ -614,13 +618,13 @@ importers:
         version: 10.1.8(eslint@9.39.2(jiti@2.6.1))
       eslint-plugin-prettier:
         specifier: ^5.5.4
-        version: 5.5.5(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@9.39.2(jiti@2.6.1)))(eslint@9.39.2(jiti@2.6.1))(prettier@3.8.0)
+        version: 5.5.5(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@9.39.2(jiti@2.6.1)))(eslint@9.39.2(jiti@2.6.1))(prettier@3.8.1)
       jest:
         specifier: ^30.2.0
         version: 30.2.0(@types/node@25.0.9)(babel-plugin-macros@3.1.0)(esbuild-register@3.6.0(esbuild@0.27.3))(ts-node@10.9.2(@swc/core@1.15.10(@swc/helpers@0.5.18))(@types/node@25.0.9)(typescript@5.9.3))
       prettier:
-        specifier: ^3.7.4
-        version: 3.8.0
+        specifier: ^3.8.1
+        version: 3.8.1
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -632,7 +636,7 @@ importers:
         version: 29.4.6(@babel/core@7.29.0)(@jest/transform@30.2.0)(@jest/types@30.2.0)(babel-jest@30.2.0(@babel/core@7.29.0))(esbuild@0.27.3)(jest-util@30.2.0)(jest@30.2.0(@types/node@25.0.9)(babel-plugin-macros@3.1.0)(esbuild-register@3.6.0(esbuild@0.27.3))(ts-node@10.9.2(@swc/core@1.15.10(@swc/helpers@0.5.18))(@types/node@25.0.9)(typescript@5.9.3)))(typescript@5.9.3)
       ts-loader:
         specifier: ^9.5.4
-        version: 9.5.4(typescript@5.9.3)(webpack@5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3))
+        version: 9.5.4(typescript@5.9.3)(webpack@5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3))
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@swc/core@1.15.10(@swc/helpers@0.5.18))(@types/node@25.0.9)(typescript@5.9.3)
@@ -727,8 +731,8 @@ importers:
         specifier: 9.0.0
         version: 9.0.0(express-session@1.18.2)(redis@5.10.0)
       cors:
-        specifier: ^2.8.5
-        version: 2.8.5
+        specifier: ^2.8.6
+        version: 2.8.6
       cron:
         specifier: 4.4.0
         version: 4.4.0
@@ -790,8 +794,8 @@ importers:
         specifier: ^7.12.0
         version: 7.12.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       react-router-dom:
-        specifier: ^7.10.1
-        version: 7.12.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        specifier: ^7.13.0
+        version: 7.13.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       reflect-metadata:
         specifier: ^0.2.2
         version: 0.2.2
@@ -979,13 +983,13 @@ importers:
         version: 3.2.1
       copy-webpack-plugin:
         specifier: 11.0.0
-        version: 11.0.0(webpack@5.104.1)
+        version: 11.0.0(webpack@5.105.1)
       css-loader:
         specifier: ^6.10.0
-        version: 6.11.0(webpack@5.104.1)
+        version: 6.11.0(webpack@5.105.1)
       css-minimizer-webpack-plugin:
         specifier: ^6.0.0
-        version: 6.0.0(esbuild@0.27.3)(lightningcss@1.30.2)(webpack@5.104.1)
+        version: 6.0.0(esbuild@0.27.3)(lightningcss@1.30.2)(webpack@5.105.1)
       cssnano:
         specifier: ^6.0.3
         version: 6.1.2(postcss@8.5.6)
@@ -1006,13 +1010,13 @@ importers:
         version: 30.2.0(bufferutil@4.1.0)(canvas@3.2.1)(utf-8-validate@5.0.10)
       mini-css-extract-plugin:
         specifier: ^2.9.2
-        version: 2.10.0(webpack@5.104.1)
+        version: 2.10.0(webpack@5.105.1)
       postcss:
         specifier: ^8.5.3
         version: 8.5.6
       postcss-loader:
         specifier: ^8.1.1
-        version: 8.2.0(postcss@8.5.6)(typescript@5.9.3)(webpack@5.104.1)
+        version: 8.2.0(postcss@8.5.6)(typescript@5.9.3)(webpack@5.105.1)
       postcss-preset-env:
         specifier: ^10.1.6
         version: 10.6.1(postcss@8.5.6)
@@ -1024,19 +1028,19 @@ importers:
         version: 5.0.10
       terser-webpack-plugin:
         specifier: ^5.3.14
-        version: 5.3.16(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack@5.104.1)
+        version: 5.3.16(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack@5.105.1)
       ts-loader:
         specifier: ^9.5.4
-        version: 9.5.4(typescript@5.9.3)(webpack@5.104.1)
+        version: 9.5.4(typescript@5.9.3)(webpack@5.105.1)
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
       webpack:
-        specifier: ^5.90.3
-        version: 5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
+        specifier: ^5.105.0
+        version: 5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
       webpack-cli:
         specifier: ^5.1.4
-        version: 5.1.4(webpack@5.104.1)
+        version: 5.1.4(webpack@5.105.1)
 
   apps/cloud-sandbox:
     dependencies:
@@ -1319,8 +1323,8 @@ importers:
         specifier: ^25.7.3
         version: 25.8.0(typescript@5.9.3)
       katex:
-        specifier: ^0.16.25
-        version: 0.16.27
+        specifier: ^0.16.28
+        version: 0.16.28
       lenis:
         specifier: ^1.3.17
         version: 1.3.17(react@19.2.3)
@@ -1376,8 +1380,8 @@ importers:
         specifier: ^9.2.0
         version: 9.2.0(@types/react@19.2.9)(react@19.2.3)(redux@5.0.1)
       react-router-dom:
-        specifier: ^7.10.1
-        version: 7.12.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        specifier: ^7.13.0
+        version: 7.13.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       react-syntax-highlighter:
         specifier: ^16.1.0
         version: 16.1.0(react@19.2.3)
@@ -1489,10 +1493,10 @@ importers:
         version: 4.2.2(@swc/helpers@0.5.18)(vite@7.3.1(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
       '@vitest/coverage-v8':
         specifier: latest
-        version: 4.0.18(vitest@4.0.17)
+        version: 4.0.18(vitest@4.0.18)
       '@vitest/ui':
         specifier: ^4.0.15
-        version: 4.0.17(vitest@4.0.17)
+        version: 4.0.17(vitest@4.0.18)
       autoprefixer:
         specifier: ^10.4.21
         version: 10.4.23(postcss@8.5.6)
@@ -1551,14 +1555,14 @@ importers:
         specifier: ^6.0.4
         version: 6.0.4(typescript@5.9.3)(vite@7.3.1(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
       vitest:
-        specifier: ^4.0.15
-        version: 4.0.17(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.0)(@types/node@25.0.9)(@vitest/ui@4.0.17)(jiti@2.6.1)(jsdom@27.4.0(@noble/hashes@1.8.0)(bufferutil@4.1.0)(canvas@3.2.1)(utf-8-validate@5.0.10))(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
+        specifier: ^4.0.18
+        version: 4.0.18(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.0)(@types/node@25.0.9)(@vitest/ui@4.0.17)(jiti@2.6.1)(jsdom@27.4.0(@noble/hashes@1.8.0)(bufferutil@4.1.0)(canvas@3.2.1)(utf-8-validate@5.0.10))(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
 
   apps/relay-server:
     dependencies:
       '@modelcontextprotocol/sdk':
-        specifier: '>=1.24.0'
-        version: 1.25.3(hono@4.11.4)(zod@4.3.5)
+        specifier: ^1.26.0
+        version: 1.26.0(zod@4.3.5)
       cors:
         specifier: ^2.8.5
         version: 2.8.5
@@ -1992,8 +1996,8 @@ importers:
         specifier: ^0.71.2
         version: 0.71.2(zod@4.3.5)
       '@modelcontextprotocol/sdk':
-        specifier: ^1.25.2
-        version: 1.25.3(hono@4.11.4)(zod@4.3.5)
+        specifier: ^1.26.0
+        version: 1.26.0(zod@4.3.5)
       '@vscode/codicons':
         specifier: ^0.0.36
         version: 0.0.36
@@ -2987,8 +2991,8 @@ importers:
         specifier: ^0.8.0
         version: 0.8.0
       '@modelcontextprotocol/sdk':
-        specifier: ^1.25.2
-        version: 1.25.3(hono@4.11.4)(zod@4.3.5)
+        specifier: ^1.26.0
+        version: 1.26.0(zod@4.3.5)
       '@nestjs/common':
         specifier: ^11.1.10
         version: 11.1.12(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -3760,8 +3764,8 @@ importers:
   packages/jules-skill:
     dependencies:
       '@modelcontextprotocol/sdk':
-        specifier: '>=1.24.0'
-        version: 1.25.3(hono@4.11.4)(zod@3.25.76)
+        specifier: ^1.26.0
+        version: 1.26.0(zod@3.25.76)
       execa:
         specifier: ^8.0.1
         version: 8.0.1
@@ -3791,8 +3795,8 @@ importers:
   packages/mcp-core:
     dependencies:
       '@modelcontextprotocol/sdk':
-        specifier: ^1.25.2
-        version: 1.25.3(hono@4.11.4)(zod@4.3.5)
+        specifier: ^1.26.0
+        version: 1.26.0(zod@4.3.5)
       '@the-new-fuse/core-error-handling':
         specifier: workspace:*
         version: link:../core-error-handling
@@ -3868,8 +3872,8 @@ importers:
   packages/mcp-skills-server:
     dependencies:
       '@modelcontextprotocol/sdk':
-        specifier: '>=1.24.0'
-        version: 1.25.3(hono@4.11.4)(zod@4.3.5)
+        specifier: ^1.26.0
+        version: 1.26.0(zod@4.3.5)
       glob:
         specifier: '>=11.1.0'
         version: 11.1.0
@@ -4086,8 +4090,8 @@ importers:
   packages/relay-core:
     dependencies:
       '@modelcontextprotocol/sdk':
-        specifier: ^1.25.2
-        version: 1.25.3(hono@4.11.4)(zod@4.3.5)
+        specifier: ^1.26.0
+        version: 1.26.0(zod@4.3.5)
       '@the-new-fuse/database':
         specifier: workspace:*
         version: link:../database
@@ -4138,8 +4142,8 @@ importers:
   packages/resource-registry:
     dependencies:
       '@modelcontextprotocol/sdk':
-        specifier: ^1.25.2
-        version: 1.25.3(hono@4.11.4)(zod@3.25.76)
+        specifier: ^1.26.0
+        version: 1.26.0(zod@3.25.76)
       '@nestjs/common':
         specifier: ^11.1.10
         version: 11.1.12(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -4646,25 +4650,25 @@ importers:
     devDependencies:
       '@storybook/addon-essentials':
         specifier: ^8.6.14
-        version: 8.6.14(@types/react@19.2.9)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
+        version: 8.6.14(@types/react@19.2.9)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
       '@storybook/addon-interactions':
         specifier: ^8.6.14
-        version: 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
+        version: 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
       '@storybook/addon-links':
         specifier: ^8.6.14
-        version: 8.6.15(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
+        version: 8.6.15(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
       '@storybook/blocks':
         specifier: ^8.6.14
-        version: 8.6.14(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
+        version: 8.6.14(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
       '@storybook/react':
         specifier: ^8.6.14
-        version: 8.6.15(@storybook/test@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))(typescript@5.9.3)
+        version: 8.6.15(@storybook/test@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))(typescript@5.9.3)
       '@storybook/react-vite':
         specifier: ^8.6.14
-        version: 8.6.15(@storybook/test@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(rollup@4.57.1)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))(typescript@5.9.3)(vite@7.3.1(@types/node@25.0.9)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
+        version: 8.6.15(@storybook/test@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(rollup@4.57.1)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))(typescript@5.9.3)(vite@7.3.1(@types/node@25.0.9)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
       '@storybook/test':
         specifier: ^8.6.14
-        version: 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
+        version: 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
       '@testing-library/dom':
         specifier: ^10.4.1
         version: 10.4.1
@@ -4721,7 +4725,7 @@ importers:
         version: 6.1.2
       storybook:
         specifier: ^8.6.14
-        version: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+        version: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
       tailwindcss:
         specifier: ^3.4.13
         version: 3.4.19(tsx@4.21.0)(yaml@2.8.2)
@@ -5147,8 +5151,8 @@ importers:
   tools/relay-mcp-server:
     dependencies:
       '@modelcontextprotocol/sdk':
-        specifier: '>=1.24.0'
-        version: 1.25.3(hono@4.11.4)(zod@4.3.5)
+        specifier: ^1.26.0
+        version: 1.26.0(zod@4.3.5)
       ws:
         specifier: ^8.14.2
         version: 8.19.0(bufferutil@4.1.0)(utf-8-validate@5.0.10)
@@ -5273,10 +5277,9 @@ packages:
     peerDependencies:
       '@apollo/server': ^4.0.0
 
-  '@apollo/server@5.2.0':
-    resolution: {integrity: sha512-OEAl5bwVitkvVkmZlgWksSnQ10FUr6q2qJMdkexs83lsvOGmd/y81X5LoETmKZux8UiQsy/A/xzP00b8hTHH/w==}
+  '@apollo/server@5.4.0':
+    resolution: {integrity: sha512-E0/2C5Rqp7bWCjaDh4NzYuEPDZ+dltTf2c0FI6GCKJA6GBetVferX3h1//1rS4+NxD36wrJsGGJK+xyT/M3ysg==}
     engines: {node: '>=20'}
-    deprecated: This version of Apollo Server is vulnerable to a denial of service (DoS) attack. Please update to @apollo/server 5.4.0 or later. For more details, see https://github.com/apollographql/apollo-server/security/advisories/GHSA-mp6q-xf9x-fwf7
     peerDependencies:
       graphql: ^16.11.0
 
@@ -7388,8 +7391,8 @@ packages:
     resolution: {integrity: sha512-yzMTt9lEb8Gv7zRioUilSglI0c0smZ9k5D65677DLWLtWJaXIS3CqcGyUFByYKlnUj6TkjLVs54fBl6+TiGQDQ==}
     engines: {node: 20 || >=22}
 
-  '@isaacs/brace-expansion@5.0.0':
-    resolution: {integrity: sha512-ZT55BDLV0yv0RBm2czMiZ+SqCGO7AvmOM3G/w2xhVPH+te0aKgFjmBvGlL1dH+ql2tgGO3MVrbb3jCKyvpgnxA==}
+  '@isaacs/brace-expansion@5.0.1':
+    resolution: {integrity: sha512-WMz71T1JS624nWj2n2fnYAuPovhv7EUhk69R6i9dsVyzxt5eM3bjwvgk9L+APE1TRscGysAVMANkB0jh0LQZrQ==}
     engines: {node: 20 || >=22}
 
   '@isaacs/cliui@8.0.2':
@@ -7796,8 +7799,8 @@ packages:
   '@microsoft/tsdoc@0.16.0':
     resolution: {integrity: sha512-xgAyonlVVS+q7Vc7qLW0UrJU7rSFcETRWsqdXZtjzRU8dF+6CkozTK4V4y1LwOX7j8r/vHphjDeMeGI4tNGeGA==}
 
-  '@modelcontextprotocol/sdk@1.25.3':
-    resolution: {integrity: sha512-vsAMBMERybvYgKbg/l4L1rhS7VXV1c0CtyJg72vwxONVX0l4ZfKVAnZEWTQixJGTzKnELjQ59e4NbdFDALRiAQ==}
+  '@modelcontextprotocol/sdk@1.26.0':
+    resolution: {integrity: sha512-Y5RmPncpiDtTXDbLKswIJzTqu2hyBKxTNsgKqKclDbhIgg1wgtf1fRuvxgTnRfcnxtvvgbIEcqUOzZrJ6iSReg==}
     engines: {node: '>=18'}
     peerDependencies:
       '@cfworker/json-schema': ^4.1.1
@@ -11604,8 +11607,21 @@ packages:
       eslint: ^8.57.0 || ^9.0.0
       typescript: '>=4.8.4 <6.0.0'
 
+  '@typescript-eslint/parser@8.55.0':
+    resolution: {integrity: sha512-4z2nCSBfVIMnbuu8uinj+f0o4qOeggYJLbjpPHka3KH1om7e+H9yLKTYgksTaHcGco+NClhhY2vyO3HsMH1RGw==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    peerDependencies:
+      eslint: ^8.57.0 || ^9.0.0
+      typescript: '>=4.8.4 <6.0.0'
+
   '@typescript-eslint/project-service@8.53.1':
     resolution: {integrity: sha512-WYC4FB5Ra0xidsmlPb+1SsnaSKPmS3gsjIARwbEkHkoWloQmuzcfypljaJcR78uyLA1h8sHdWWPHSLDI+MtNog==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    peerDependencies:
+      typescript: '>=4.8.4 <6.0.0'
+
+  '@typescript-eslint/project-service@8.55.0':
+    resolution: {integrity: sha512-zRcVVPFUYWa3kNnjaZGXSu3xkKV1zXy8M4nO/pElzQhFweb7PPtluDLQtKArEOGmjXoRjnUZ29NjOiF0eCDkcQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       typescript: '>=4.8.4 <6.0.0'
@@ -11614,8 +11630,18 @@ packages:
     resolution: {integrity: sha512-Lu23yw1uJMFY8cUeq7JlrizAgeQvWugNQzJp8C3x8Eo5Jw5Q2ykMdiiTB9vBVOOUBysMzmRRmUfwFrZuI2C4SQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
+  '@typescript-eslint/scope-manager@8.55.0':
+    resolution: {integrity: sha512-fVu5Omrd3jeqeQLiB9f1YsuK/iHFOwb04bCtY4BSCLgjNbOD33ZdV6KyEqplHr+IlpgT0QTZ/iJ+wT7hvTx49Q==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
   '@typescript-eslint/tsconfig-utils@8.53.1':
     resolution: {integrity: sha512-qfvLXS6F6b1y43pnf0pPbXJ+YoXIC7HKg0UGZ27uMIemKMKA6XH2DTxsEDdpdN29D+vHV07x/pnlPNVLhdhWiA==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    peerDependencies:
+      typescript: '>=4.8.4 <6.0.0'
+
+  '@typescript-eslint/tsconfig-utils@8.55.0':
+    resolution: {integrity: sha512-1R9cXqY7RQd7WuqSN47PK9EDpgFUK3VqdmbYrvWJZYDd0cavROGn+74ktWBlmJ13NXUQKlZ/iAEQHI/V0kKe0Q==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       typescript: '>=4.8.4 <6.0.0'
@@ -11631,8 +11657,18 @@ packages:
     resolution: {integrity: sha512-jr/swrr2aRmUAUjW5/zQHbMaui//vQlsZcJKijZf3M26bnmLj8LyZUpj8/Rd6uzaek06OWsqdofN/Thenm5O8A==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
+  '@typescript-eslint/types@8.55.0':
+    resolution: {integrity: sha512-ujT0Je8GI5BJWi+/mMoR0wxwVEQaxM+pi30xuMiJETlX80OPovb2p9E8ss87gnSVtYXtJoU9U1Cowcr6w2FE0w==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
   '@typescript-eslint/typescript-estree@8.53.1':
     resolution: {integrity: sha512-RGlVipGhQAG4GxV1s34O91cxQ/vWiHJTDHbXRr0li2q/BGg3RR/7NM8QDWgkEgrwQYCvmJV9ichIwyoKCQ+DTg==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    peerDependencies:
+      typescript: '>=4.8.4 <6.0.0'
+
+  '@typescript-eslint/typescript-estree@8.55.0':
+    resolution: {integrity: sha512-EwrH67bSWdx/3aRQhCoxDaHM+CrZjotc2UCCpEDVqfCE+7OjKAGWNY2HsCSTEVvWH2clYQK8pdeLp42EVs+xQw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       typescript: '>=4.8.4 <6.0.0'
@@ -11646,6 +11682,10 @@ packages:
 
   '@typescript-eslint/visitor-keys@8.53.1':
     resolution: {integrity: sha512-oy+wV7xDKFPRyNggmXuZQSBzvoLnpmJs+GhzRhPjrxl2b/jIlyjVokzm47CZCDUdXKr2zd7ZLodPfOBpOPyPlg==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@typescript-eslint/visitor-keys@8.55.0':
+    resolution: {integrity: sha512-AxNRwEie8Nn4eFS1FzDMJWIISMGoXMb037sgCBJ3UR6o0fQTzr2tqN9WT+DkWJPhIdQCfV7T6D387566VtnCJA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@typespec/ts-http-runtime@0.3.2':
@@ -13595,6 +13635,10 @@ packages:
     resolution: {integrity: sha512-KIHbLJqu73RGr/hnbrO9uBeixNGuvSQjul/jdFvS/KFSIH1hWVd1ng7zOHx+YrEfInLG7q4n6GHQ9cDtxv/P6g==}
     engines: {node: '>= 0.10'}
 
+  cors@2.8.6:
+    resolution: {integrity: sha512-tJtZBBHA6vjIAaF6EnIaq6laBBP9aq/Y3ouVJjEfoHbRBcHBAHYcMh/w8LDrk2PvIMMq8gmopa5D4V8RmbrxGw==}
+    engines: {node: '>= 0.10'}
+
   cosmiconfig@7.1.0:
     resolution: {integrity: sha512-AdmX6xUzdNASswsFtmwSt7Vj8po9IuqXm0UXz7QKPuEUmPB4XyjGfaAr2PSuELMwkRMVH1EpIkX5bTZGRB3eCA==}
     engines: {node: '>=10'}
@@ -14731,6 +14775,10 @@ packages:
     resolution: {integrity: sha512-LgQMM4WXU3QI+SYgEc2liRgznaD5ojbmY3sb8LxyguVkIg5FxdpTkvk72te2R38/TGKxH634oLxXRGY6d7AP+Q==}
     engines: {node: '>=10.13.0'}
 
+  enhanced-resolve@5.19.0:
+    resolution: {integrity: sha512-phv3E1Xl4tQOShqSte26C7Fl84EwUdZsyOuSSk9qtAGyyQs2s3jJzComh+Abf4g187lUUAvH+H26omrqia2aGg==}
+    engines: {node: '>=10.13.0'}
+
   enquirer@2.4.1:
     resolution: {integrity: sha512-rRqJg/6gd538VHvR3PSrdRBb/1Vy2YfzHqzvbhGIQpDRKIa4FgV/54b5Q1xYSxOOwKvjXweS26E0Q+nAMwp2pQ==}
     engines: {node: '>=8.6'}
@@ -15187,8 +15235,8 @@ packages:
   exponential-backoff@3.1.3:
     resolution: {integrity: sha512-ZgEeZXj30q+I0EN+CbSSpIyPaJ5HVQD18Z1m+u1FXbAeT94mr1zw50q4q6jiiC447Nl/YTcIYSAftiGqetwXCA==}
 
-  express-rate-limit@7.5.1:
-    resolution: {integrity: sha512-7iN8iPMDzOMHPUYllBEsQdWVB6fPDMPqwjBaFrgr4Jgr/+okjvzAy+UHlYYL/Vs0OsOrMkwS6PJDkFlJwoxUnw==}
+  express-rate-limit@8.2.1:
+    resolution: {integrity: sha512-PCZEIEIxqwhzw4KF0n7QF4QqruVTcF73O5kFKUnGOyjbCCgizBBiFaYpd/fnBLUMPw/BWw9OsiN7GgrNYr7j6g==}
     engines: {node: '>= 16'}
     peerDependencies:
       express: '>= 4.11'
@@ -16253,6 +16301,10 @@ packages:
     resolution: {integrity: sha512-tAAg/72/VxOUW7RQSX1pIxJVucYKcjFjfvj60L57jrZpYCHC3XN0WCQ3sNYL4Gmvv+7GPvTAjc+KSdeNuE8oWQ==}
     engines: {node: '>=12.22.0'}
 
+  ip-address@10.0.1:
+    resolution: {integrity: sha512-NWv9YLW4PoW2B7xtzaS3NCot75m6nK7Icdv0o3lfMceJVRfSoQwqD4wEH5rLwoKJwUiZ/rfpiVBhnaF0FK4HoA==}
+    engines: {node: '>= 12'}
+
   ip-address@10.1.0:
     resolution: {integrity: sha512-XXADHxXmvT9+CRxhXg56LJovE+bmWnEWB78LB83VZTprKTmaC5QfruXocxzTZ2Kl0DNwKuBdlIhjL8LeY8Sf8Q==}
     engines: {node: '>= 12'}
@@ -16966,6 +17018,10 @@ packages:
 
   katex@0.16.27:
     resolution: {integrity: sha512-aeQoDkuRWSqQN6nSvVCEFvfXdqo1OQiCmmW1kc9xSdjutPv7BGO7pqY9sQRJpMOGrEdfDgF2TfRXe5eUAD2Waw==}
+    hasBin: true
+
+  katex@0.16.28:
+    resolution: {integrity: sha512-YHzO7721WbmAL6Ov1uzN/l5mY5WWWhJBSW+jq4tkfZfsxmo1hu6frS0EOswvjBUnWE6NtjEs48SFn5CQESRLZg==}
     hasBin: true
 
   keccak@3.0.4:
@@ -18412,6 +18468,14 @@ packages:
       typescript:
         optional: true
 
+  ox@0.12.1:
+    resolution: {integrity: sha512-uU0llpthaaw4UJoXlseCyBHmQ3bLrQmz9rRLIAUHqv46uHuae9SE+ukYBRIPVCnlEnHKuWjDUcDFHWx9gbGNoA==}
+    peerDependencies:
+      typescript: '>=5.4.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   ox@0.9.3:
     resolution: {integrity: sha512-KzyJP+fPV4uhuuqrTZyok4DC7vFzi7HLUFiUNEmpbyh59htKWkOC98IONC1zgXJPbHAhQgqs6B0Z6StCGhmQvg==}
     peerDependencies:
@@ -19366,6 +19430,11 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
+  prettier@3.8.1:
+    resolution: {integrity: sha512-UOnG6LftzbdaHZcKoPFtOcCKztrQ57WkHDeRD9t/PTQtmT0NHSeWWepj6pS0z/N7+08BHFDQVUrfmfMRcZwbMg==}
+    engines: {node: '>=14'}
+    hasBin: true
+
   pretty-format@27.5.1:
     resolution: {integrity: sha512-Qb1gy5OrP5+zDf2Bvnzdl3jsTf1qXVMazbvCoKhtKqVs4/YK4ozX4gKQJJVyNe+cajNPn0KoC0MC3FUmaHWEmQ==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
@@ -19732,8 +19801,25 @@ packages:
       react: '>=18'
       react-dom: '>=18'
 
+  react-router-dom@7.13.0:
+    resolution: {integrity: sha512-5CO/l5Yahi2SKC6rGZ+HDEjpjkGaG/ncEP7eWFTvFxbHP8yeeI0PxTDjimtpXYlR3b3i9/WIL4VJttPrESIf2g==}
+    engines: {node: '>=20.0.0'}
+    peerDependencies:
+      react: '>=18'
+      react-dom: '>=18'
+
   react-router@7.12.0:
     resolution: {integrity: sha512-kTPDYPFzDVGIIGNLS5VJykK0HfHLY5MF3b+xj0/tTyNYL1gF1qs7u67Z9jEhQk2sQ98SUaHxlG31g1JtF7IfVw==}
+    engines: {node: '>=20.0.0'}
+    peerDependencies:
+      react: '>=18'
+      react-dom: '>=18'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+
+  react-router@7.13.0:
+    resolution: {integrity: sha512-PZgus8ETambRT17BUm/LL8lX3Of+oiLaPuVTRH3l1eLvSPpKO3AvhAEb5N7ihAFZQrYDqkvvWfFh9p0z9VsjLw==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       react: '>=18'
@@ -21886,6 +21972,14 @@ packages:
       typescript:
         optional: true
 
+  viem@2.45.3:
+    resolution: {integrity: sha512-axOD7rIbGiDHHA1MHKmpqqTz3CMCw7YpE/FVypddQMXL5i364VkNZh9JeEJH17NO484LaZUOMueo35IXyL76Mw==}
+    peerDependencies:
+      typescript: '>=5.0.4'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   vite-plugin-compression@0.5.1:
     resolution: {integrity: sha512-5QJKBDc+gNYVqL/skgFAP81Yuzo9R+EAf19d+EtsMF/i8kFUpNi3J/H01QD3Oo8zBQn+NzoCIFkpPLynoOzaJg==}
     peerDependencies:
@@ -22123,6 +22217,16 @@ packages:
 
   webpack@5.104.1:
     resolution: {integrity: sha512-Qphch25abbMNtekmEGJmeRUhLDbe+QfiWTiqpKYkpCOWY64v9eyl+KRRLmqOFA2AvKPpc9DC6+u2n76tQLBoaA==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    peerDependencies:
+      webpack-cli: '*'
+    peerDependenciesMeta:
+      webpack-cli:
+        optional: true
+
+  webpack@5.105.1:
+    resolution: {integrity: sha512-Gdj3X74CLJJ8zy4URmK42W7wTZUJrqL+z8nyGEr4dTN0kb3nVs+ZvjbTOqRYPD7qX4tUmwyHL9Q9K6T1seW6Yw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     peerDependencies:
@@ -22642,12 +22746,12 @@ snapshots:
       '@apollo/utils.logger': 3.0.0
       graphql: 16.12.0
 
-  '@apollo/server-plugin-landing-page-graphql-playground@4.0.1(@apollo/server@5.2.0(graphql@16.12.0))':
+  '@apollo/server-plugin-landing-page-graphql-playground@4.0.1(@apollo/server@5.4.0(graphql@16.12.0))':
     dependencies:
-      '@apollo/server': 5.2.0(graphql@16.12.0)
+      '@apollo/server': 5.4.0(graphql@16.12.0)
       '@apollographql/graphql-playground-html': 1.6.29
 
-  '@apollo/server@5.2.0(graphql@16.12.0)':
+  '@apollo/server@5.4.0(graphql@16.12.0)':
     dependencies:
       '@apollo/cache-control-types': 1.0.3(graphql@16.12.0)
       '@apollo/server-gateway-interface': 2.0.0(graphql@16.12.0)
@@ -22662,11 +22766,12 @@ snapshots:
       '@graphql-tools/schema': 10.0.31(graphql@16.12.0)
       async-retry: 1.3.3
       body-parser: 2.2.2
-      cors: 2.8.5
+      content-type: 1.0.5
+      cors: 2.8.6
       finalhandler: 2.1.1
       graphql: 16.12.0
       loglevel: 1.9.2
-      lru-cache: 11.2.4
+      lru-cache: 11.2.6
       negotiator: 1.0.0
       uuid: 11.1.0
       whatwg-mimetype: 4.0.0
@@ -22693,7 +22798,7 @@ snapshots:
   '@apollo/utils.keyvaluecache@4.0.0':
     dependencies:
       '@apollo/utils.logger': 3.0.0
-      lru-cache: 11.2.4
+      lru-cache: 11.2.6
 
   '@apollo/utils.logger@3.0.0': {}
 
@@ -22730,9 +22835,9 @@ snapshots:
     dependencies:
       xss: 1.0.15
 
-  '@as-integrations/express5@1.1.2(@apollo/server@5.2.0(graphql@16.12.0))(express@5.2.1)':
+  '@as-integrations/express5@1.1.2(@apollo/server@5.4.0(graphql@16.12.0))(express@5.2.1)':
     dependencies:
-      '@apollo/server': 5.2.0(graphql@16.12.0)
+      '@apollo/server': 5.4.0(graphql@16.12.0)
       express: 5.2.1
 
   '@asamuzakjp/css-color@3.2.0':
@@ -22749,7 +22854,7 @@ snapshots:
       '@csstools/css-color-parser': 3.1.0(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)
       '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
       '@csstools/css-tokenizer': 3.0.4
-      lru-cache: 11.2.4
+      lru-cache: 11.2.6
 
   '@asamuzakjp/dom-selector@6.7.6':
     dependencies:
@@ -25668,7 +25773,7 @@ snapshots:
 
   '@isaacs/balanced-match@4.0.1': {}
 
-  '@isaacs/brace-expansion@5.0.0':
+  '@isaacs/brace-expansion@5.0.1':
     dependencies:
       '@isaacs/balanced-match': 4.0.1
 
@@ -26423,14 +26528,14 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@metamask/smart-accounts-kit@0.3.0(viem@2.44.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5))':
+  '@metamask/smart-accounts-kit@0.3.0(viem@2.45.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5))':
     dependencies:
       '@metamask/7715-permission-types': 0.4.0
       '@metamask/delegation-abis': 0.11.0
       '@metamask/delegation-core': 0.3.0
       '@metamask/delegation-deployments': 0.15.0
       buffer: 6.0.3
-      viem: 2.44.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5)
+      viem: 2.45.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5)
       webauthn-p256: 0.0.10
     transitivePeerDependencies:
       - supports-color
@@ -26460,7 +26565,7 @@ snapshots:
       '@noble/hashes': 1.8.0
       '@scure/base': 1.2.6
       '@types/debug': 4.1.12
-      debug: 4.3.4
+      debug: 4.4.3(supports-color@8.1.1)
       pony-cause: 2.1.11
       semver: 7.7.4
       uuid: 9.0.1
@@ -26474,7 +26579,7 @@ snapshots:
       '@noble/hashes': 1.8.0
       '@scure/base': 1.2.6
       '@types/debug': 4.1.12
-      debug: 4.3.4
+      debug: 4.4.3(supports-color@8.1.1)
       pony-cause: 2.1.11
       semver: 7.7.4
       uuid: 9.0.1
@@ -26485,18 +26590,19 @@ snapshots:
 
   '@microsoft/tsdoc@0.16.0': {}
 
-  '@modelcontextprotocol/sdk@1.25.3(hono@4.11.4)(zod@3.25.76)':
+  '@modelcontextprotocol/sdk@1.26.0(zod@3.25.76)':
     dependencies:
       '@hono/node-server': 1.19.9(hono@4.11.4)
       ajv: 8.17.1
       ajv-formats: 3.0.1(ajv@8.17.1)
       content-type: 1.0.5
-      cors: 2.8.5
+      cors: 2.8.6
       cross-spawn: 7.0.6
       eventsource: 3.0.7
       eventsource-parser: 3.0.6
       express: 5.2.1
-      express-rate-limit: 7.5.1(express@5.2.1)
+      express-rate-limit: 8.2.1(express@5.2.1)
+      hono: 4.11.4
       jose: 6.1.3
       json-schema-typed: 8.0.2
       pkce-challenge: 5.0.1
@@ -26504,21 +26610,21 @@ snapshots:
       zod: 3.25.76
       zod-to-json-schema: 3.25.1(zod@3.25.76)
     transitivePeerDependencies:
-      - hono
       - supports-color
 
-  '@modelcontextprotocol/sdk@1.25.3(hono@4.11.4)(zod@4.3.5)':
+  '@modelcontextprotocol/sdk@1.26.0(zod@4.3.5)':
     dependencies:
       '@hono/node-server': 1.19.9(hono@4.11.4)
       ajv: 8.17.1
       ajv-formats: 3.0.1(ajv@8.17.1)
       content-type: 1.0.5
-      cors: 2.8.5
+      cors: 2.8.6
       cross-spawn: 7.0.6
       eventsource: 3.0.7
       eventsource-parser: 3.0.6
       express: 5.2.1
-      express-rate-limit: 7.5.1(express@5.2.1)
+      express-rate-limit: 8.2.1(express@5.2.1)
+      hono: 4.11.4
       jose: 6.1.3
       json-schema-typed: 8.0.2
       pkce-challenge: 5.0.1
@@ -26526,7 +26632,6 @@ snapshots:
       zod: 4.3.5
       zod-to-json-schema: 3.25.1(zod@4.3.5)
     transitivePeerDependencies:
-      - hono
       - supports-color
 
   '@monaco-editor/loader@1.7.0':
@@ -26663,10 +26768,10 @@ snapshots:
       '@tybys/wasm-util': 0.10.1
     optional: true
 
-  '@nestjs/apollo@13.2.3(@apollo/server@5.2.0(graphql@16.12.0))(@as-integrations/express5@1.1.2(@apollo/server@5.2.0(graphql@16.12.0))(express@5.2.1))(@nestjs/common@11.1.12(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.12)(@nestjs/graphql@13.2.3(@nestjs/common@11.1.12(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.12)(bufferutil@4.1.0)(class-transformer@0.5.1)(class-validator@0.14.3)(crossws@0.3.5)(graphql@16.12.0)(reflect-metadata@0.2.2)(utf-8-validate@5.0.10))(graphql@16.12.0)':
+  '@nestjs/apollo@13.2.3(@apollo/server@5.4.0(graphql@16.12.0))(@as-integrations/express5@1.1.2(@apollo/server@5.4.0(graphql@16.12.0))(express@5.2.1))(@nestjs/common@11.1.12(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.12)(@nestjs/graphql@13.2.3(@nestjs/common@11.1.12(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.12)(bufferutil@4.1.0)(class-transformer@0.5.1)(class-validator@0.14.3)(crossws@0.3.5)(graphql@16.12.0)(reflect-metadata@0.2.2)(utf-8-validate@5.0.10))(graphql@16.12.0)':
     dependencies:
-      '@apollo/server': 5.2.0(graphql@16.12.0)
-      '@apollo/server-plugin-landing-page-graphql-playground': 4.0.1(@apollo/server@5.2.0(graphql@16.12.0))
+      '@apollo/server': 5.4.0(graphql@16.12.0)
+      '@apollo/server-plugin-landing-page-graphql-playground': 4.0.1(@apollo/server@5.4.0(graphql@16.12.0))
       '@nestjs/common': 11.1.12(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/core': 11.1.12(@nestjs/common@11.1.12(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/microservices@11.1.12)(@nestjs/platform-express@11.1.12)(@nestjs/websockets@11.1.12)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/graphql': 13.2.3(@nestjs/common@11.1.12(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.12)(bufferutil@4.1.0)(class-transformer@0.5.1)(class-validator@0.14.3)(crossws@0.3.5)(graphql@16.12.0)(reflect-metadata@0.2.2)(utf-8-validate@5.0.10)
@@ -26675,7 +26780,7 @@ snapshots:
       lodash.omit: 4.5.0
       tslib: 2.8.1
     optionalDependencies:
-      '@as-integrations/express5': 1.1.2(@apollo/server@5.2.0(graphql@16.12.0))(express@5.2.1)
+      '@as-integrations/express5': 1.1.2(@apollo/server@5.4.0(graphql@16.12.0))(express@5.2.1)
 
   '@nestjs/axios@4.0.1(@nestjs/common@11.1.12(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.13.5)(rxjs@7.8.2)':
     dependencies:
@@ -27454,7 +27559,7 @@ snapshots:
 
   '@npmcli/fs@3.1.1':
     dependencies:
-      semver: 7.7.3
+      semver: 7.7.4
 
   '@nuxt/opencollective@0.4.1':
     dependencies:
@@ -27867,6 +27972,13 @@ snapshots:
   '@paypal/paypal-js@9.2.0':
     dependencies:
       promise-polyfill: 8.3.0
+
+  '@paypal/react-paypal-js@8.9.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@paypal/paypal-js': 9.2.0
+      '@paypal/sdk-constants': 1.0.157
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@paypal/react-paypal-js@8.9.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
     dependencies:
@@ -29344,125 +29456,125 @@ snapshots:
 
   '@standard-schema/utils@0.3.0': {}
 
-  '@storybook/addon-actions@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/addon-actions@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
       '@storybook/global': 5.0.0
       '@types/uuid': 9.0.8
       dequal: 2.0.3
       polished: 4.3.1
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
       uuid: 9.0.1
 
-  '@storybook/addon-backgrounds@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/addon-backgrounds@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
       '@storybook/global': 5.0.0
       memoizerific: 1.11.3
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
       ts-dedent: 2.2.0
 
-  '@storybook/addon-controls@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/addon-controls@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
       '@storybook/global': 5.0.0
       dequal: 2.0.3
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
       ts-dedent: 2.2.0
 
-  '@storybook/addon-docs@8.6.14(@types/react@19.2.9)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/addon-docs@8.6.14(@types/react@19.2.9)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
       '@mdx-js/react': 3.1.1(@types/react@19.2.9)(react@19.2.3)
-      '@storybook/blocks': 8.6.14(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
-      '@storybook/csf-plugin': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
-      '@storybook/react-dom-shim': 8.6.14(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
+      '@storybook/blocks': 8.6.14(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
+      '@storybook/csf-plugin': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
+      '@storybook/react-dom-shim': 8.6.14(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
       ts-dedent: 2.2.0
     transitivePeerDependencies:
       - '@types/react'
 
-  '@storybook/addon-essentials@8.6.14(@types/react@19.2.9)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/addon-essentials@8.6.14(@types/react@19.2.9)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
-      '@storybook/addon-actions': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
-      '@storybook/addon-backgrounds': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
-      '@storybook/addon-controls': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
-      '@storybook/addon-docs': 8.6.14(@types/react@19.2.9)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
-      '@storybook/addon-highlight': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
-      '@storybook/addon-measure': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
-      '@storybook/addon-outline': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
-      '@storybook/addon-toolbars': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
-      '@storybook/addon-viewport': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      '@storybook/addon-actions': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
+      '@storybook/addon-backgrounds': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
+      '@storybook/addon-controls': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
+      '@storybook/addon-docs': 8.6.14(@types/react@19.2.9)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
+      '@storybook/addon-highlight': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
+      '@storybook/addon-measure': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
+      '@storybook/addon-outline': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
+      '@storybook/addon-toolbars': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
+      '@storybook/addon-viewport': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
       ts-dedent: 2.2.0
     transitivePeerDependencies:
       - '@types/react'
 
-  '@storybook/addon-highlight@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/addon-highlight@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
       '@storybook/global': 5.0.0
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
 
-  '@storybook/addon-interactions@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/addon-interactions@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
       '@storybook/global': 5.0.0
-      '@storybook/instrumenter': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
-      '@storybook/test': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
+      '@storybook/instrumenter': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
+      '@storybook/test': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
       polished: 4.3.1
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
       ts-dedent: 2.2.0
 
-  '@storybook/addon-links@8.6.15(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/addon-links@8.6.15(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
       '@storybook/global': 5.0.0
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
       ts-dedent: 2.2.0
     optionalDependencies:
       react: 19.2.3
 
-  '@storybook/addon-measure@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/addon-measure@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
       '@storybook/global': 5.0.0
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
       tiny-invariant: 1.3.3
 
-  '@storybook/addon-outline@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/addon-outline@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
       '@storybook/global': 5.0.0
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
       ts-dedent: 2.2.0
 
-  '@storybook/addon-toolbars@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/addon-toolbars@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
 
-  '@storybook/addon-viewport@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/addon-viewport@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
       memoizerific: 1.11.3
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
 
-  '@storybook/blocks@8.6.14(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/blocks@8.6.14(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
       '@storybook/icons': 1.6.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
       ts-dedent: 2.2.0
     optionalDependencies:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
 
-  '@storybook/builder-vite@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))(vite@7.3.1(@types/node@25.0.9)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))':
+  '@storybook/builder-vite@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))(vite@7.3.1(@types/node@25.0.9)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))':
     dependencies:
-      '@storybook/csf-plugin': 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
+      '@storybook/csf-plugin': 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
       browser-assert: 1.2.1
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
       ts-dedent: 2.2.0
       vite: 7.3.1(@types/node@25.0.9)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
 
-  '@storybook/components@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/components@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
 
-  '@storybook/core@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))(utf-8-validate@5.0.10)':
+  '@storybook/core@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))(utf-8-validate@5.0.10)':
     dependencies:
-      '@storybook/theming': 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
+      '@storybook/theming': 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
       better-opn: 3.0.2
       browser-assert: 1.2.1
       esbuild: 0.27.3
@@ -29474,21 +29586,21 @@ snapshots:
       util: 0.12.5
       ws: 8.19.0(bufferutil@4.1.0)(utf-8-validate@5.0.10)
     optionalDependencies:
-      prettier: 3.8.0
+      prettier: 3.8.1
     transitivePeerDependencies:
       - bufferutil
       - storybook
       - supports-color
       - utf-8-validate
 
-  '@storybook/csf-plugin@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/csf-plugin@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
       unplugin: 1.16.1
 
-  '@storybook/csf-plugin@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/csf-plugin@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
       unplugin: 1.16.1
 
   '@storybook/csf@0.1.13':
@@ -29502,100 +29614,100 @@ snapshots:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
 
-  '@storybook/instrumenter@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/instrumenter@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
       '@storybook/global': 5.0.0
       '@vitest/utils': 2.1.9
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
 
-  '@storybook/instrumenter@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/instrumenter@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
       '@storybook/global': 5.0.0
       '@vitest/utils': 2.1.9
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
 
-  '@storybook/manager-api@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/manager-api@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
 
-  '@storybook/preview-api@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/preview-api@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
 
-  '@storybook/react-dom-shim@8.6.14(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
-    dependencies:
-      react: 19.2.3
-      react-dom: 19.2.3(react@19.2.3)
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
-
-  '@storybook/react-dom-shim@8.6.15(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/react-dom-shim@8.6.14(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
 
-  '@storybook/react-vite@8.6.15(@storybook/test@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(rollup@4.57.1)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))(typescript@5.9.3)(vite@7.3.1(@types/node@25.0.9)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))':
+  '@storybook/react-dom-shim@8.6.15(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
+    dependencies:
+      react: 19.2.3
+      react-dom: 19.2.3(react@19.2.3)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
+
+  '@storybook/react-vite@8.6.15(@storybook/test@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(rollup@4.57.1)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))(typescript@5.9.3)(vite@7.3.1(@types/node@25.0.9)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))':
     dependencies:
       '@joshwooding/vite-plugin-react-docgen-typescript': 0.5.0(typescript@5.9.3)(vite@7.3.1(@types/node@25.0.9)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
       '@rollup/pluginutils': 5.3.0(rollup@4.57.1)
-      '@storybook/builder-vite': 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))(vite@7.3.1(@types/node@25.0.9)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
-      '@storybook/react': 8.6.15(@storybook/test@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))(typescript@5.9.3)
+      '@storybook/builder-vite': 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))(vite@7.3.1(@types/node@25.0.9)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
+      '@storybook/react': 8.6.15(@storybook/test@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))(typescript@5.9.3)
       find-up: 5.0.0
       magic-string: 0.30.21
       react: 19.2.3
       react-docgen: 7.1.1
       react-dom: 19.2.3(react@19.2.3)
       resolve: 1.22.11
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
       tsconfig-paths: 4.2.0
       vite: 7.3.1(@types/node@25.0.9)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
     optionalDependencies:
-      '@storybook/test': 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
+      '@storybook/test': 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
     transitivePeerDependencies:
       - rollup
       - supports-color
       - typescript
 
-  '@storybook/react@8.6.15(@storybook/test@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))(typescript@5.9.3)':
+  '@storybook/react@8.6.15(@storybook/test@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))(typescript@5.9.3)':
     dependencies:
-      '@storybook/components': 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
+      '@storybook/components': 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
       '@storybook/global': 5.0.0
-      '@storybook/manager-api': 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
-      '@storybook/preview-api': 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
-      '@storybook/react-dom-shim': 8.6.15(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
-      '@storybook/theming': 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
+      '@storybook/manager-api': 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
+      '@storybook/preview-api': 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
+      '@storybook/react-dom-shim': 8.6.15(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
+      '@storybook/theming': 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
     optionalDependencies:
-      '@storybook/test': 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
+      '@storybook/test': 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
       typescript: 5.9.3
 
-  '@storybook/test@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/test@8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
       '@storybook/global': 5.0.0
-      '@storybook/instrumenter': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
+      '@storybook/instrumenter': 8.6.14(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
       '@testing-library/dom': 10.4.0
       '@testing-library/jest-dom': 6.5.0
       '@testing-library/user-event': 14.5.2(@testing-library/dom@10.4.0)
       '@vitest/expect': 2.0.5
       '@vitest/spy': 2.0.5
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
 
-  '@storybook/test@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/test@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
       '@storybook/global': 5.0.0
-      '@storybook/instrumenter': 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))
+      '@storybook/instrumenter': 8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))
       '@testing-library/dom': 10.4.0
       '@testing-library/jest-dom': 6.5.0
       '@testing-library/user-event': 14.5.2(@testing-library/dom@10.4.0)
       '@vitest/expect': 2.0.5
       '@vitest/spy': 2.0.5
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
 
-  '@storybook/theming@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))':
+  '@storybook/theming@8.6.15(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))':
     dependencies:
-      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10)
+      storybook: 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)
 
   '@supabase/auth-js@2.91.0':
     dependencies:
@@ -30041,13 +30153,13 @@ snapshots:
     dependencies:
       elliptic: 6.6.1
 
-  '@toruslabs/ethereum-controllers@8.15.0(@babel/runtime@7.28.6)(@sentry/core@9.47.1)(bufferutil@4.1.0)(color@5.0.3)(utf-8-validate@5.0.10)(viem@2.44.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5))':
+  '@toruslabs/ethereum-controllers@8.15.0(@babel/runtime@7.28.6)(@sentry/core@9.47.1)(bufferutil@4.1.0)(color@5.0.3)(utf-8-validate@5.0.10)(viem@2.45.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5))':
     dependencies:
       '@babel/runtime': 7.28.6
       '@ethereumjs/common': 10.1.0
       '@ethereumjs/tx': 10.1.0
       '@ethereumjs/util': 10.1.0
-      '@metamask/smart-accounts-kit': 0.3.0(viem@2.44.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5))
+      '@metamask/smart-accounts-kit': 0.3.0(viem@2.45.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5))
       '@toruslabs/base-controllers': 8.15.0(@babel/runtime@7.28.6)(@sentry/core@9.47.1)(bufferutil@4.1.0)(color@5.0.3)(utf-8-validate@5.0.10)
       '@toruslabs/http-helpers': 8.1.1(@babel/runtime@7.28.6)(@sentry/core@9.47.1)
       '@web3auth/auth': 10.8.0(@babel/runtime@7.28.6)(@sentry/core@9.47.1)(bufferutil@4.1.0)(color@5.0.3)(utf-8-validate@5.0.10)
@@ -30061,8 +30173,8 @@ snapshots:
       fast-safe-stringify: 2.1.1
       jsonschema: 1.5.0
       loglevel: 1.9.2
-      permissionless: 0.3.3(viem@2.44.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5))
-      viem: 2.44.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5)
+      permissionless: 0.3.3(viem@2.45.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5))
+      viem: 2.45.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5)
     transitivePeerDependencies:
       - '@sentry/core'
       - bufferutil
@@ -31025,6 +31137,22 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@typescript-eslint/eslint-plugin@8.53.1(@typescript-eslint/parser@8.55.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)':
+    dependencies:
+      '@eslint-community/regexpp': 4.12.2
+      '@typescript-eslint/parser': 8.55.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+      '@typescript-eslint/scope-manager': 8.53.1
+      '@typescript-eslint/type-utils': 8.53.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+      '@typescript-eslint/utils': 8.53.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+      '@typescript-eslint/visitor-keys': 8.53.1
+      eslint: 9.39.2(jiti@2.6.1)
+      ignore: 7.0.5
+      natural-compare: 1.4.0
+      ts-api-utils: 2.4.0(typescript@5.9.3)
+      typescript: 5.9.3
+    transitivePeerDependencies:
+      - supports-color
+
   '@typescript-eslint/parser@8.53.1(eslint@8.57.1)(typescript@5.7.3)':
     dependencies:
       '@typescript-eslint/scope-manager': 8.53.1
@@ -31049,6 +31177,18 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@typescript-eslint/parser@8.55.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)':
+    dependencies:
+      '@typescript-eslint/scope-manager': 8.55.0
+      '@typescript-eslint/types': 8.55.0
+      '@typescript-eslint/typescript-estree': 8.55.0(typescript@5.9.3)
+      '@typescript-eslint/visitor-keys': 8.55.0
+      debug: 4.4.3(supports-color@8.1.1)
+      eslint: 9.39.2(jiti@2.6.1)
+      typescript: 5.9.3
+    transitivePeerDependencies:
+      - supports-color
+
   '@typescript-eslint/project-service@8.53.1(typescript@5.7.3)':
     dependencies:
       '@typescript-eslint/tsconfig-utils': 8.53.1(typescript@5.7.3)
@@ -31067,16 +31207,34 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@typescript-eslint/project-service@8.55.0(typescript@5.9.3)':
+    dependencies:
+      '@typescript-eslint/tsconfig-utils': 8.55.0(typescript@5.9.3)
+      '@typescript-eslint/types': 8.55.0
+      debug: 4.4.3(supports-color@8.1.1)
+      typescript: 5.9.3
+    transitivePeerDependencies:
+      - supports-color
+
   '@typescript-eslint/scope-manager@8.53.1':
     dependencies:
       '@typescript-eslint/types': 8.53.1
       '@typescript-eslint/visitor-keys': 8.53.1
+
+  '@typescript-eslint/scope-manager@8.55.0':
+    dependencies:
+      '@typescript-eslint/types': 8.55.0
+      '@typescript-eslint/visitor-keys': 8.55.0
 
   '@typescript-eslint/tsconfig-utils@8.53.1(typescript@5.7.3)':
     dependencies:
       typescript: 5.7.3
 
   '@typescript-eslint/tsconfig-utils@8.53.1(typescript@5.9.3)':
+    dependencies:
+      typescript: 5.9.3
+
+  '@typescript-eslint/tsconfig-utils@8.55.0(typescript@5.9.3)':
     dependencies:
       typescript: 5.9.3
 
@@ -31106,6 +31264,8 @@ snapshots:
 
   '@typescript-eslint/types@8.53.1': {}
 
+  '@typescript-eslint/types@8.55.0': {}
+
   '@typescript-eslint/typescript-estree@8.53.1(typescript@5.7.3)':
     dependencies:
       '@typescript-eslint/project-service': 8.53.1(typescript@5.7.3)
@@ -31130,6 +31290,21 @@ snapshots:
       debug: 4.4.3(supports-color@8.1.1)
       minimatch: 9.0.5
       semver: 7.7.3
+      tinyglobby: 0.2.15
+      ts-api-utils: 2.4.0(typescript@5.9.3)
+      typescript: 5.9.3
+    transitivePeerDependencies:
+      - supports-color
+
+  '@typescript-eslint/typescript-estree@8.55.0(typescript@5.9.3)':
+    dependencies:
+      '@typescript-eslint/project-service': 8.55.0(typescript@5.9.3)
+      '@typescript-eslint/tsconfig-utils': 8.55.0(typescript@5.9.3)
+      '@typescript-eslint/types': 8.55.0
+      '@typescript-eslint/visitor-keys': 8.55.0
+      debug: 4.4.3(supports-color@8.1.1)
+      minimatch: 9.0.5
+      semver: 7.7.4
       tinyglobby: 0.2.15
       ts-api-utils: 2.4.0(typescript@5.9.3)
       typescript: 5.9.3
@@ -31172,6 +31347,11 @@ snapshots:
   '@typescript-eslint/visitor-keys@8.53.1':
     dependencies:
       '@typescript-eslint/types': 8.53.1
+      eslint-visitor-keys: 4.2.1
+
+  '@typescript-eslint/visitor-keys@8.55.0':
+    dependencies:
+      '@typescript-eslint/types': 8.55.0
       eslint-visitor-keys: 4.2.1
 
   '@typespec/ts-http-runtime@0.3.2':
@@ -31428,6 +31608,20 @@ snapshots:
       tinyrainbow: 3.0.3
       vitest: 4.0.17(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.0)(@types/node@24.10.9)(@vitest/ui@4.0.17)(jiti@2.6.1)(jsdom@27.4.0(@noble/hashes@1.8.0)(bufferutil@4.1.0)(canvas@3.2.1)(utf-8-validate@5.0.10))(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
 
+  '@vitest/coverage-v8@4.0.18(vitest@4.0.18)':
+    dependencies:
+      '@bcoe/v8-coverage': 1.0.2
+      '@vitest/utils': 4.0.18
+      ast-v8-to-istanbul: 0.3.10
+      istanbul-lib-coverage: 3.2.2
+      istanbul-lib-report: 3.0.1
+      istanbul-reports: 3.2.0
+      magicast: 0.5.1
+      obug: 2.1.1
+      std-env: 3.10.0
+      tinyrainbow: 3.0.3
+      vitest: 4.0.18(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.0)(@types/node@25.0.9)(@vitest/ui@4.0.17)(jiti@2.6.1)(jsdom@27.4.0(@noble/hashes@1.8.0)(bufferutil@4.1.0)(canvas@3.2.1)(utf-8-validate@5.0.10))(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
+
   '@vitest/expect@2.0.5':
     dependencies:
       '@vitest/spy': 2.0.5
@@ -31461,14 +31655,6 @@ snapshots:
     optionalDependencies:
       vite: 7.3.1(@types/node@24.10.9)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
 
-  '@vitest/mocker@4.0.17(vite@7.3.1(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))':
-    dependencies:
-      '@vitest/spy': 4.0.17
-      estree-walker: 3.0.3
-      magic-string: 0.30.21
-    optionalDependencies:
-      vite: 7.3.1(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
-
   '@vitest/mocker@4.0.18(vite@7.3.1(@types/node@18.19.130)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))':
     dependencies:
       '@vitest/spy': 4.0.18
@@ -31476,6 +31662,14 @@ snapshots:
       magic-string: 0.30.21
     optionalDependencies:
       vite: 7.3.1(@types/node@18.19.130)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
+
+  '@vitest/mocker@4.0.18(vite@7.3.1(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))':
+    dependencies:
+      '@vitest/spy': 4.0.18
+      estree-walker: 3.0.3
+      magic-string: 0.30.21
+    optionalDependencies:
+      vite: 7.3.1(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
 
   '@vitest/pretty-format@2.0.5':
     dependencies:
@@ -31533,6 +31727,17 @@ snapshots:
       tinyglobby: 0.2.15
       tinyrainbow: 3.0.3
       vitest: 4.0.17(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.0)(@types/node@24.10.9)(@vitest/ui@4.0.17)(jiti@2.6.1)(jsdom@27.4.0(@noble/hashes@1.8.0)(bufferutil@4.1.0)(canvas@3.2.1)(utf-8-validate@5.0.10))(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
+
+  '@vitest/ui@4.0.17(vitest@4.0.18)':
+    dependencies:
+      '@vitest/utils': 4.0.17
+      fflate: 0.8.2
+      flatted: 3.3.3
+      pathe: 2.0.3
+      sirv: 3.0.2
+      tinyglobby: 0.2.15
+      tinyrainbow: 3.0.3
+      vitest: 4.0.18(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.0)(@types/node@25.0.9)(@vitest/ui@4.0.17)(jiti@2.6.1)(jsdom@27.4.0(@noble/hashes@1.8.0)(bufferutil@4.1.0)(canvas@3.2.1)(utf-8-validate@5.0.10))(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
 
   '@vitest/utils@2.0.5':
     dependencies:
@@ -32127,7 +32332,7 @@ snapshots:
       bn.js: 5.2.2
       ethers: 6.16.0(bufferutil@4.1.0)(utf-8-validate@5.0.10)
       jsonschema: 1.5.0
-      viem: 2.44.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5)
+      viem: 2.45.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5)
     transitivePeerDependencies:
       - '@sentry/types'
       - bufferutil
@@ -32136,7 +32341,7 @@ snapshots:
       - utf-8-validate
       - zod
 
-  '@web3auth/no-modal@10.13.0(@azure/identity@4.13.0)(@babel/runtime@7.28.6)(@sentry/core@9.47.1)(bufferutil@4.1.0)(color@5.0.3)(encoding@0.1.13)(ioredis@5.9.2)(react@19.2.3)(typescript@5.9.3)(utf-8-validate@5.0.10)(viem@2.44.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5))(zod@4.3.5)':
+  '@web3auth/no-modal@10.13.0(@azure/identity@4.13.0)(@babel/runtime@7.28.6)(@sentry/core@9.47.1)(bufferutil@4.1.0)(color@5.0.3)(encoding@0.1.13)(ioredis@5.9.2)(react@19.2.3)(typescript@5.9.3)(utf-8-validate@5.0.10)(viem@2.45.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5))(zod@4.3.5)':
     dependencies:
       '@babel/runtime': 7.28.6
       '@ethereumjs/util': 10.1.0
@@ -32148,7 +32353,7 @@ snapshots:
       '@toruslabs/bs58': 1.0.0(@babel/runtime@7.28.6)
       '@toruslabs/constants': 15.0.0(@babel/runtime@7.28.6)
       '@toruslabs/eccrypto': 6.2.0
-      '@toruslabs/ethereum-controllers': 8.15.0(@babel/runtime@7.28.6)(@sentry/core@9.47.1)(bufferutil@4.1.0)(color@5.0.3)(utf-8-validate@5.0.10)(viem@2.44.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5))
+      '@toruslabs/ethereum-controllers': 8.15.0(@babel/runtime@7.28.6)(@sentry/core@9.47.1)(bufferutil@4.1.0)(color@5.0.3)(utf-8-validate@5.0.10)(viem@2.45.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5))
       '@toruslabs/http-helpers': 8.1.1(@babel/runtime@7.28.6)(@sentry/core@9.47.1)
       '@toruslabs/loglevel-sentry': 8.1.0(@babel/runtime@7.28.6)
       '@toruslabs/secure-pub-sub': 3.0.2(@babel/runtime@7.28.6)(@sentry/core@9.47.1)(bufferutil@4.1.0)(utf-8-validate@5.0.10)
@@ -32172,13 +32377,13 @@ snapshots:
       jwt-decode: 4.0.0
       loglevel: 1.9.2
       mipd: 0.0.7(typescript@5.9.3)
-      permissionless: 0.3.3(viem@2.44.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5))
+      permissionless: 0.3.3(viem@2.45.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5))
       ripple-keypairs: 1.3.1
       ts-custom-error: 3.3.1
       xrpl: 2.14.3(bufferutil@4.1.0)(utf-8-validate@5.0.10)
     optionalDependencies:
       react: 19.2.3
-      viem: 2.44.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5)
+      viem: 2.45.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5)
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -32209,7 +32414,7 @@ snapshots:
       - utf-8-validate
       - zod
 
-  '@web3auth/node-sdk@5.0.0(@azure/identity@4.13.0)(@babel/runtime@7.28.6)(@sentry/core@9.47.1)(bufferutil@4.1.0)(color@5.0.3)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.9.2)(react@19.2.3)(typescript@5.9.3)(utf-8-validate@5.0.10)(viem@2.44.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5))(zod@4.3.5)':
+  '@web3auth/node-sdk@5.0.0(@azure/identity@4.13.0)(@babel/runtime@7.28.6)(@sentry/core@9.47.1)(bufferutil@4.1.0)(color@5.0.3)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.9.2)(react@19.2.3)(typescript@5.9.3)(utf-8-validate@5.0.10)(viem@2.45.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5))(zod@4.3.5)':
     dependencies:
       '@segment/analytics-node': 2.3.0(encoding@0.1.13)
       '@solana/keys': 2.3.0(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.9.3)
@@ -32219,7 +32424,7 @@ snapshots:
       '@toruslabs/http-helpers': 8.1.1(@babel/runtime@7.28.6)(@sentry/core@9.47.1)
       '@toruslabs/torus.js': 16.0.0(@babel/runtime@7.28.6)(@sentry/core@9.47.1)
       '@web3auth/auth': 10.8.0(@babel/runtime@7.28.6)(@sentry/core@9.47.1)(bufferutil@4.1.0)(color@5.0.3)(utf-8-validate@5.0.10)
-      '@web3auth/no-modal': 10.13.0(@azure/identity@4.13.0)(@babel/runtime@7.28.6)(@sentry/core@9.47.1)(bufferutil@4.1.0)(color@5.0.3)(encoding@0.1.13)(ioredis@5.9.2)(react@19.2.3)(typescript@5.9.3)(utf-8-validate@5.0.10)(viem@2.44.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5))(zod@4.3.5)
+      '@web3auth/no-modal': 10.13.0(@azure/identity@4.13.0)(@babel/runtime@7.28.6)(@sentry/core@9.47.1)(bufferutil@4.1.0)(color@5.0.3)(encoding@0.1.13)(ioredis@5.9.2)(react@19.2.3)(typescript@5.9.3)(utf-8-validate@5.0.10)(viem@2.45.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5))(zod@4.3.5)
       ethers: 6.16.0(bufferutil@4.1.0)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -32354,20 +32559,20 @@ snapshots:
 
   '@webgpu/types@0.1.69': {}
 
-  '@webpack-cli/configtest@2.1.1(webpack-cli@5.1.4)(webpack@5.104.1)':
+  '@webpack-cli/configtest@2.1.1(webpack-cli@5.1.4)(webpack@5.105.1)':
     dependencies:
-      webpack: 5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
-      webpack-cli: 5.1.4(webpack@5.104.1)
+      webpack: 5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
+      webpack-cli: 5.1.4(webpack@5.105.1)
 
-  '@webpack-cli/info@2.0.2(webpack-cli@5.1.4)(webpack@5.104.1)':
+  '@webpack-cli/info@2.0.2(webpack-cli@5.1.4)(webpack@5.105.1)':
     dependencies:
-      webpack: 5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
-      webpack-cli: 5.1.4(webpack@5.104.1)
+      webpack: 5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
+      webpack-cli: 5.1.4(webpack@5.105.1)
 
-  '@webpack-cli/serve@2.0.5(webpack-cli@5.1.4)(webpack@5.104.1)':
+  '@webpack-cli/serve@2.0.5(webpack-cli@5.1.4)(webpack@5.105.1)':
     dependencies:
-      webpack: 5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
-      webpack-cli: 5.1.4(webpack@5.104.1)
+      webpack: 5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
+      webpack-cli: 5.1.4(webpack@5.105.1)
 
   '@whatwg-node/promise-helpers@1.3.2':
     dependencies:
@@ -33896,7 +34101,7 @@ snapshots:
     dependencies:
       toggle-selection: 1.0.6
 
-  copy-webpack-plugin@11.0.0(webpack@5.104.1):
+  copy-webpack-plugin@11.0.0(webpack@5.105.1):
     dependencies:
       fast-glob: 3.3.3
       glob-parent: 6.0.2
@@ -33904,7 +34109,7 @@ snapshots:
       normalize-path: 3.0.0
       schema-utils: 4.3.3
       serialize-javascript: 6.0.2
-      webpack: 5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
+      webpack: 5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
 
   core-util-is@1.0.2:
     optional: true
@@ -33912,6 +34117,11 @@ snapshots:
   core-util-is@1.0.3: {}
 
   cors@2.8.5:
+    dependencies:
+      object-assign: 4.1.1
+      vary: 1.1.2
+
+  cors@2.8.6:
     dependencies:
       object-assign: 4.1.1
       vary: 1.1.2
@@ -34086,7 +34296,7 @@ snapshots:
       postcss-selector-parser: 7.1.1
       postcss-value-parser: 4.2.0
 
-  css-loader@6.11.0(webpack@5.104.1):
+  css-loader@6.11.0(webpack@5.105.1):
     dependencies:
       icss-utils: 5.1.0(postcss@8.5.6)
       postcss: 8.5.6
@@ -34097,9 +34307,9 @@ snapshots:
       postcss-value-parser: 4.2.0
       semver: 7.7.3
     optionalDependencies:
-      webpack: 5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
+      webpack: 5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
 
-  css-minimizer-webpack-plugin@6.0.0(esbuild@0.27.3)(lightningcss@1.30.2)(webpack@5.104.1):
+  css-minimizer-webpack-plugin@6.0.0(esbuild@0.27.3)(lightningcss@1.30.2)(webpack@5.105.1):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       cssnano: 6.1.2(postcss@8.5.6)
@@ -34107,12 +34317,12 @@ snapshots:
       postcss: 8.5.6
       schema-utils: 4.3.3
       serialize-javascript: 6.0.2
-      webpack: 5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
+      webpack: 5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
     optionalDependencies:
       esbuild: 0.27.3
       lightningcss: 1.30.2
 
-  css-minimizer-webpack-plugin@7.0.4(esbuild@0.27.3)(lightningcss@1.30.2)(webpack@5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)):
+  css-minimizer-webpack-plugin@7.0.4(esbuild@0.27.3)(lightningcss@1.30.2)(webpack@5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       cssnano: 7.1.2(postcss@8.5.6)
@@ -34120,7 +34330,7 @@ snapshots:
       postcss: 8.5.6
       schema-utils: 4.3.3
       serialize-javascript: 6.0.2
-      webpack: 5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)
+      webpack: 5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)
     optionalDependencies:
       esbuild: 0.27.3
       lightningcss: 1.30.2
@@ -35155,7 +35365,7 @@ snapshots:
       accepts: 1.3.8
       base64id: 2.0.0
       cookie: 0.7.2
-      cors: 2.8.5
+      cors: 2.8.6
       debug: 4.4.3(supports-color@8.1.1)
       engine.io-parser: 5.2.3
       ws: 8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10)
@@ -35165,6 +35375,11 @@ snapshots:
       - utf-8-validate
 
   enhanced-resolve@5.18.4:
+    dependencies:
+      graceful-fs: 4.2.11
+      tapable: 2.3.0
+
+  enhanced-resolve@5.19.0:
     dependencies:
       graceful-fs: 4.2.11
       tapable: 2.3.0
@@ -35412,12 +35627,12 @@ snapshots:
     dependencies:
       '@next/eslint-plugin-next': 15.5.9
       '@rushstack/eslint-patch': 1.15.0
-      '@typescript-eslint/eslint-plugin': 8.53.1(@typescript-eslint/parser@8.53.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
-      '@typescript-eslint/parser': 8.53.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+      '@typescript-eslint/eslint-plugin': 8.53.1(@typescript-eslint/parser@8.55.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+      '@typescript-eslint/parser': 8.55.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       eslint: 9.39.2(jiti@2.6.1)
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.10.1(eslint-plugin-import@2.32.0)(eslint@9.39.2(jiti@2.6.1))
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.53.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1)(eslint@9.39.2(jiti@2.6.1))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.53.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.6.1))
       eslint-plugin-jsx-a11y: 6.10.2(eslint@9.39.2(jiti@2.6.1))
       eslint-plugin-react: 7.37.5(eslint@9.39.2(jiti@2.6.1))
       eslint-plugin-react-hooks: 5.2.0(eslint@9.39.2(jiti@2.6.1))
@@ -35462,7 +35677,7 @@ snapshots:
       tinyglobby: 0.2.15
       unrs-resolver: 1.11.1
     optionalDependencies:
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.53.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1)(eslint@9.39.2(jiti@2.6.1))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.53.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.6.1))
     transitivePeerDependencies:
       - supports-color
 
@@ -35532,7 +35747,7 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.53.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1)(eslint@9.39.2(jiti@2.6.1)):
+  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.53.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.6.1)):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.9
@@ -35618,6 +35833,16 @@ snapshots:
     dependencies:
       eslint: 9.39.2(jiti@2.6.1)
       prettier: 3.8.0
+      prettier-linter-helpers: 1.0.1
+      synckit: 0.11.12
+    optionalDependencies:
+      '@types/eslint': 9.6.1
+      eslint-config-prettier: 10.1.8(eslint@9.39.2(jiti@2.6.1))
+
+  eslint-plugin-prettier@5.5.5(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@9.39.2(jiti@2.6.1)))(eslint@9.39.2(jiti@2.6.1))(prettier@3.8.1):
+    dependencies:
+      eslint: 9.39.2(jiti@2.6.1)
+      prettier: 3.8.1
       prettier-linter-helpers: 1.0.1
       synckit: 0.11.12
     optionalDependencies:
@@ -36022,9 +36247,10 @@ snapshots:
 
   exponential-backoff@3.1.3: {}
 
-  express-rate-limit@7.5.1(express@5.2.1):
+  express-rate-limit@8.2.1(express@5.2.1):
     dependencies:
       express: 5.2.1
+      ip-address: 10.0.1
 
   express-session@1.18.2:
     dependencies:
@@ -36957,7 +37183,7 @@ snapshots:
       lodash: 4.17.21
       markdown-table: 2.0.0
       sha1: 1.1.1
-      viem: 2.44.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5)
+      viem: 2.45.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5)
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -37450,6 +37676,8 @@ snapshots:
       standard-as-callback: 2.1.0
     transitivePeerDependencies:
       - supports-color
+
+  ip-address@10.0.1: {}
 
   ip-address@10.1.0: {}
 
@@ -38769,6 +38997,10 @@ snapshots:
     dependencies:
       commander: 8.3.0
 
+  katex@0.16.28:
+    dependencies:
+      commander: 8.3.0
+
   keccak@3.0.4:
     dependencies:
       node-addon-api: 2.0.2
@@ -39513,7 +39745,7 @@ snapshots:
     dependencies:
       '@types/katex': 0.16.8
       devlop: 1.1.0
-      katex: 0.16.27
+      katex: 0.16.28
       micromark-factory-space: 2.0.1
       micromark-util-character: 2.1.1
       micromark-util-symbol: 2.0.1
@@ -39678,17 +39910,17 @@ snapshots:
 
   min-indent@1.0.1: {}
 
-  mini-css-extract-plugin@2.10.0(webpack@5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)):
+  mini-css-extract-plugin@2.10.0(webpack@5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)):
     dependencies:
       schema-utils: 4.3.3
       tapable: 2.3.0
-      webpack: 5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)
+      webpack: 5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)
 
-  mini-css-extract-plugin@2.10.0(webpack@5.104.1):
+  mini-css-extract-plugin@2.10.0(webpack@5.105.1):
     dependencies:
       schema-utils: 4.3.3
       tapable: 2.3.0
-      webpack: 5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
+      webpack: 5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
 
   minimalistic-assert@1.0.1: {}
 
@@ -39696,7 +39928,7 @@ snapshots:
 
   minimatch@10.1.1:
     dependencies:
-      '@isaacs/brace-expansion': 5.0.0
+      '@isaacs/brace-expansion': 5.0.1
 
   minimatch@3.0.4:
     dependencies:
@@ -40461,6 +40693,21 @@ snapshots:
     transitivePeerDependencies:
       - zod
 
+  ox@0.12.1(typescript@5.9.3)(zod@4.3.5):
+    dependencies:
+      '@adraffy/ens-normalize': 1.11.1
+      '@noble/ciphers': 1.3.0
+      '@noble/curves': 1.9.1
+      '@noble/hashes': 1.8.0
+      '@scure/bip32': 1.7.0
+      '@scure/bip39': 1.6.0
+      abitype: 1.2.3(typescript@5.9.3)(zod@4.3.5)
+      eventemitter3: 5.0.1
+    optionalDependencies:
+      typescript: 5.9.3
+    transitivePeerDependencies:
+      - zod
+
   ox@0.9.3(typescript@5.9.3)(zod@4.3.5):
     dependencies:
       '@adraffy/ens-normalize': 1.11.1
@@ -40633,7 +40880,7 @@ snapshots:
 
   path-scurry@2.0.1:
     dependencies:
-      lru-cache: 11.2.4
+      lru-cache: 11.2.6
       minipass: 7.1.2
 
   path-to-regexp@0.1.12: {}
@@ -40661,9 +40908,9 @@ snapshots:
 
   pend@1.2.0: {}
 
-  permissionless@0.3.3(viem@2.44.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5)):
+  permissionless@0.3.3(viem@2.45.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5)):
     dependencies:
-      viem: 2.44.4(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5)
+      viem: 2.45.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5)
 
   pg-cloudflare@1.3.0:
     optional: true
@@ -40984,14 +41231,14 @@ snapshots:
       tsx: 4.21.0
       yaml: 2.8.2
 
-  postcss-loader@8.2.0(postcss@8.5.6)(typescript@5.9.3)(webpack@5.104.1):
+  postcss-loader@8.2.0(postcss@8.5.6)(typescript@5.9.3)(webpack@5.105.1):
     dependencies:
       cosmiconfig: 9.0.0(typescript@5.9.3)
       jiti: 2.6.1
       postcss: 8.5.6
       semver: 7.7.3
     optionalDependencies:
-      webpack: 5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
+      webpack: 5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
     transitivePeerDependencies:
       - typescript
 
@@ -41450,6 +41697,8 @@ snapshots:
 
   prettier@3.8.0: {}
 
+  prettier@3.8.1: {}
+
   pretty-format@27.5.1:
     dependencies:
       ansi-regex: 5.0.1
@@ -41904,7 +42153,21 @@ snapshots:
       react-dom: 19.2.3(react@19.2.3)
       react-router: 7.12.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
 
+  react-router-dom@7.13.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
+    dependencies:
+      react: 19.2.3
+      react-dom: 19.2.3(react@19.2.3)
+      react-router: 7.13.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+
   react-router@7.12.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
+    dependencies:
+      cookie: 1.1.1
+      react: 19.2.3
+      set-cookie-parser: 2.7.2
+    optionalDependencies:
+      react-dom: 19.2.3(react@19.2.3)
+
+  react-router@7.13.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
     dependencies:
       cookie: 1.1.1
       react: 19.2.3
@@ -42832,7 +43095,7 @@ snapshots:
     dependencies:
       accepts: 1.3.8
       base64id: 2.0.0
-      cors: 2.8.5
+      cors: 2.8.6
       debug: 4.4.3(supports-color@8.1.1)
       engine.io: 6.6.5(bufferutil@4.1.0)(utf-8-validate@5.0.10)
       socket.io-adapter: 2.5.6(bufferutil@4.1.0)(utf-8-validate@5.0.10)
@@ -42951,11 +43214,11 @@ snapshots:
       es-errors: 1.3.0
       internal-slot: 1.1.0
 
-  storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10):
+  storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10):
     dependencies:
-      '@storybook/core': 8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.0)(utf-8-validate@5.0.10))(utf-8-validate@5.0.10)
+      '@storybook/core': 8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(storybook@8.6.15(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))(utf-8-validate@5.0.10)
     optionalDependencies:
-      prettier: 3.8.0
+      prettier: 3.8.1
     transitivePeerDependencies:
       - bufferutil
       - supports-color
@@ -43405,14 +43668,26 @@ snapshots:
       '@swc/core': 1.15.10(@swc/helpers@0.5.18)
       esbuild: 0.27.3
 
-  terser-webpack-plugin@5.3.16(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack@5.104.1):
+  terser-webpack-plugin@5.3.16(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack@5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       jest-worker: 27.5.1
       schema-utils: 4.3.3
       serialize-javascript: 6.0.2
       terser: 5.46.0
-      webpack: 5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
+      webpack: 5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)
+    optionalDependencies:
+      '@swc/core': 1.15.10(@swc/helpers@0.5.18)
+      esbuild: 0.27.3
+
+  terser-webpack-plugin@5.3.16(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack@5.105.1):
+    dependencies:
+      '@jridgewell/trace-mapping': 0.3.31
+      jest-worker: 27.5.1
+      schema-utils: 4.3.3
+      serialize-javascript: 6.0.2
+      terser: 5.46.0
+      webpack: 5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
     optionalDependencies:
       '@swc/core': 1.15.10(@swc/helpers@0.5.18)
       esbuild: 0.27.3
@@ -43903,7 +44178,7 @@ snapshots:
       esbuild: 0.27.3
       jest-util: 30.2.0
 
-  ts-loader@9.5.4(typescript@5.7.3)(webpack@5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)):
+  ts-loader@9.5.4(typescript@5.7.3)(webpack@5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)):
     dependencies:
       chalk: 4.1.2
       enhanced-resolve: 5.18.4
@@ -43911,7 +44186,7 @@ snapshots:
       semver: 7.7.3
       source-map: 0.7.6
       typescript: 5.7.3
-      webpack: 5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)
+      webpack: 5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)
 
   ts-loader@9.5.4(typescript@5.9.3)(webpack@5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)):
     dependencies:
@@ -43923,7 +44198,7 @@ snapshots:
       typescript: 5.9.3
       webpack: 5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)
 
-  ts-loader@9.5.4(typescript@5.9.3)(webpack@5.104.1):
+  ts-loader@9.5.4(typescript@5.9.3)(webpack@5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)):
     dependencies:
       chalk: 4.1.2
       enhanced-resolve: 5.18.4
@@ -43931,7 +44206,17 @@ snapshots:
       semver: 7.7.3
       source-map: 0.7.6
       typescript: 5.9.3
-      webpack: 5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
+      webpack: 5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)
+
+  ts-loader@9.5.4(typescript@5.9.3)(webpack@5.105.1):
+    dependencies:
+      chalk: 4.1.2
+      enhanced-resolve: 5.18.4
+      micromatch: 4.0.8
+      semver: 7.7.3
+      source-map: 0.7.6
+      typescript: 5.9.3
+      webpack: 5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
 
   ts-morph@12.0.0:
     dependencies:
@@ -44714,6 +44999,23 @@ snapshots:
       - utf-8-validate
       - zod
 
+  viem@2.45.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.5):
+    dependencies:
+      '@noble/curves': 1.9.1
+      '@noble/hashes': 1.8.0
+      '@scure/bip32': 1.7.0
+      '@scure/bip39': 1.6.0
+      abitype: 1.2.3(typescript@5.9.3)(zod@4.3.5)
+      isows: 1.0.7(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))
+      ox: 0.12.1(typescript@5.9.3)(zod@4.3.5)
+      ws: 8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10)
+    optionalDependencies:
+      typescript: 5.9.3
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+      - zod
+
   vite-plugin-compression@0.5.1(vite@7.3.1(@types/node@24.10.9)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)):
     dependencies:
       chalk: 4.1.2
@@ -44888,47 +45190,6 @@ snapshots:
       - tsx
       - yaml
 
-  vitest@4.0.17(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.0)(@types/node@25.0.9)(@vitest/ui@4.0.17)(jiti@2.6.1)(jsdom@27.4.0(@noble/hashes@1.8.0)(bufferutil@4.1.0)(canvas@3.2.1)(utf-8-validate@5.0.10))(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2):
-    dependencies:
-      '@vitest/expect': 4.0.17
-      '@vitest/mocker': 4.0.17(vite@7.3.1(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
-      '@vitest/pretty-format': 4.0.17
-      '@vitest/runner': 4.0.17
-      '@vitest/snapshot': 4.0.17
-      '@vitest/spy': 4.0.17
-      '@vitest/utils': 4.0.17
-      es-module-lexer: 1.7.0
-      expect-type: 1.3.0
-      magic-string: 0.30.21
-      obug: 2.1.1
-      pathe: 2.0.3
-      picomatch: 4.0.3
-      std-env: 3.10.0
-      tinybench: 2.9.0
-      tinyexec: 1.0.2
-      tinyglobby: 0.2.15
-      tinyrainbow: 3.0.3
-      vite: 7.3.1(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
-      why-is-node-running: 2.3.0
-    optionalDependencies:
-      '@edge-runtime/vm': 3.2.0
-      '@opentelemetry/api': 1.9.0
-      '@types/node': 25.0.9
-      '@vitest/ui': 4.0.17(vitest@4.0.17)
-      jsdom: 27.4.0(@noble/hashes@1.8.0)(bufferutil@4.1.0)(canvas@3.2.1)(utf-8-validate@5.0.10)
-    transitivePeerDependencies:
-      - jiti
-      - less
-      - lightningcss
-      - msw
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - terser
-      - tsx
-      - yaml
-
   vitest@4.0.18(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.0)(@types/node@18.19.130)(@vitest/ui@4.0.17)(jiti@2.6.1)(jsdom@27.4.0(@noble/hashes@1.8.0)(bufferutil@4.1.0)(canvas@3.2.1)(utf-8-validate@5.0.10))(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2):
     dependencies:
       '@vitest/expect': 4.0.18
@@ -44956,6 +45217,47 @@ snapshots:
       '@opentelemetry/api': 1.9.0
       '@types/node': 18.19.130
       '@vitest/ui': 4.0.17(vitest@4.0.17)
+      jsdom: 27.4.0(@noble/hashes@1.8.0)(bufferutil@4.1.0)(canvas@3.2.1)(utf-8-validate@5.0.10)
+    transitivePeerDependencies:
+      - jiti
+      - less
+      - lightningcss
+      - msw
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - terser
+      - tsx
+      - yaml
+
+  vitest@4.0.18(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.0)(@types/node@25.0.9)(@vitest/ui@4.0.17)(jiti@2.6.1)(jsdom@27.4.0(@noble/hashes@1.8.0)(bufferutil@4.1.0)(canvas@3.2.1)(utf-8-validate@5.0.10))(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2):
+    dependencies:
+      '@vitest/expect': 4.0.18
+      '@vitest/mocker': 4.0.18(vite@7.3.1(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
+      '@vitest/pretty-format': 4.0.18
+      '@vitest/runner': 4.0.18
+      '@vitest/snapshot': 4.0.18
+      '@vitest/spy': 4.0.18
+      '@vitest/utils': 4.0.18
+      es-module-lexer: 1.7.0
+      expect-type: 1.3.0
+      magic-string: 0.30.21
+      obug: 2.1.1
+      pathe: 2.0.3
+      picomatch: 4.0.3
+      std-env: 3.10.0
+      tinybench: 2.9.0
+      tinyexec: 1.0.2
+      tinyglobby: 0.2.15
+      tinyrainbow: 3.0.3
+      vite: 7.3.1(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
+      why-is-node-running: 2.3.0
+    optionalDependencies:
+      '@edge-runtime/vm': 3.2.0
+      '@opentelemetry/api': 1.9.0
+      '@types/node': 25.0.9
+      '@vitest/ui': 4.0.17(vitest@4.0.18)
       jsdom: 27.4.0(@noble/hashes@1.8.0)(bufferutil@4.1.0)(canvas@3.2.1)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - jiti
@@ -45049,12 +45351,12 @@ snapshots:
 
   webidl-conversions@8.0.1: {}
 
-  webpack-cli@5.1.4(webpack@5.104.1):
+  webpack-cli@5.1.4(webpack@5.105.1):
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
-      '@webpack-cli/configtest': 2.1.1(webpack-cli@5.1.4)(webpack@5.104.1)
-      '@webpack-cli/info': 2.0.2(webpack-cli@5.1.4)(webpack@5.104.1)
-      '@webpack-cli/serve': 2.0.5(webpack-cli@5.1.4)(webpack@5.104.1)
+      '@webpack-cli/configtest': 2.1.1(webpack-cli@5.1.4)(webpack@5.105.1)
+      '@webpack-cli/info': 2.0.2(webpack-cli@5.1.4)(webpack@5.105.1)
+      '@webpack-cli/serve': 2.0.5(webpack-cli@5.1.4)(webpack@5.105.1)
       colorette: 2.0.20
       commander: 10.0.1
       cross-spawn: 7.0.6
@@ -45063,7 +45365,7 @@ snapshots:
       import-local: 3.2.0
       interpret: 3.1.1
       rechoir: 0.8.0
-      webpack: 5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
+      webpack: 5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4)
       webpack-merge: 5.10.0
 
   webpack-merge@5.10.0:
@@ -45110,7 +45412,7 @@ snapshots:
       - esbuild
       - uglify-js
 
-  webpack@5.104.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4):
+  webpack@5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3):
     dependencies:
       '@types/eslint-scope': 3.7.7
       '@types/estree': 1.0.8
@@ -45122,7 +45424,7 @@ snapshots:
       acorn-import-phases: 1.0.4(acorn@8.15.0)
       browserslist: 4.28.1
       chrome-trace-event: 1.0.4
-      enhanced-resolve: 5.18.4
+      enhanced-resolve: 5.19.0
       es-module-lexer: 2.0.0
       eslint-scope: 5.1.1
       events: 3.3.0
@@ -45134,11 +45436,43 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 4.3.3
       tapable: 2.3.0
-      terser-webpack-plugin: 5.3.16(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack@5.104.1)
+      terser-webpack-plugin: 5.3.16(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack@5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3))
+      watchpack: 2.5.1
+      webpack-sources: 3.3.3
+    transitivePeerDependencies:
+      - '@swc/core'
+      - esbuild
+      - uglify-js
+
+  webpack@5.105.1(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack-cli@5.1.4):
+    dependencies:
+      '@types/eslint-scope': 3.7.7
+      '@types/estree': 1.0.8
+      '@types/json-schema': 7.0.15
+      '@webassemblyjs/ast': 1.14.1
+      '@webassemblyjs/wasm-edit': 1.14.1
+      '@webassemblyjs/wasm-parser': 1.14.1
+      acorn: 8.15.0
+      acorn-import-phases: 1.0.4(acorn@8.15.0)
+      browserslist: 4.28.1
+      chrome-trace-event: 1.0.4
+      enhanced-resolve: 5.19.0
+      es-module-lexer: 2.0.0
+      eslint-scope: 5.1.1
+      events: 3.3.0
+      glob-to-regexp: 0.4.1
+      graceful-fs: 4.2.11
+      json-parse-even-better-errors: 2.3.1
+      loader-runner: 4.3.1
+      mime-types: 2.1.35
+      neo-async: 2.6.2
+      schema-utils: 4.3.3
+      tapable: 2.3.0
+      terser-webpack-plugin: 5.3.16(@swc/core@1.15.10(@swc/helpers@0.5.18))(esbuild@0.27.3)(webpack@5.105.1)
       watchpack: 2.5.1
       webpack-sources: 3.3.3
     optionalDependencies:
-      webpack-cli: 5.1.4(webpack@5.104.1)
+      webpack-cli: 5.1.4(webpack@5.105.1)
     transitivePeerDependencies:
       - '@swc/core'
       - esbuild
