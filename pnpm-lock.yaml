@@ -1199,12 +1199,6 @@ importers:
       '@firebase/app':
         specifier: ^0.14.8
         version: 0.14.8
-      '@firebase/app-compat':
-        specifier: ^0.2.0 || ^0.5.0
-        version: 0.5.8
-      '@firebase/app-types':
-        specifier: ^0.9.0
-        version: 0.9.3
       '@firebase/auth':
         specifier: ^1.12.0
         version: 1.12.0(@firebase/app@0.14.8)
