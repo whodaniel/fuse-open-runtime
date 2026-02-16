@@ -1208,6 +1208,9 @@ importers:
       '@firebase/auth':
         specifier: ^1.10.0
         version: 1.12.0(@firebase/app@0.14.8)
+      '@firebase/firestore':
+        specifier: ^4.7.0
+        version: 4.11.0(@firebase/app@0.14.8)
       '@hello-pangea/dnd':
         specifier: ^18.0.1
         version: 18.0.1(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
