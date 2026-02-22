@@ -393,7 +393,7 @@
       "confidence": 85
     },
     {
-      "path": ".gemini/PRISMA_NAMESPACE_EXPORT_FIX.md",
+      "path": ".gemini/DRIZZLE_NAMESPACE_EXPORT_FIX.md",
       "size": 3288,
       "type": "md",
       "directory": ".gemini",
@@ -7311,7 +7311,7 @@
       "confidence": 80
     },
     {
-      "path": "docs/database/PRISMA_TO_DRIZZLE_MIGRATION_PLAN.md",
+      "path": "docs/database/DRIZZLE_TO_DRIZZLE_MIGRATION_PLAN.md",
       "size": 10072,
       "type": "md",
       "directory": "docs/database",
@@ -28153,7 +28153,7 @@
       "confidence": 60
     },
     {
-      "path": ".jules/tasks/JULES_TASK_05_core_prisma_migration.md",
+      "path": ".jules/tasks/JULES_TASK_05_core_drizzle_migration.md",
       "size": 1857,
       "type": "md",
       "directory": ".jules/tasks",
@@ -43789,7 +43789,7 @@
       "confidence": 85
     },
     {
-      "path": ".agent/artifacts/PRISMA_TO_DRIZZLE_MIGRATION_PLAN.md",
+      "path": ".agent/artifacts/DRIZZLE_TO_DRIZZLE_MIGRATION_PLAN.md",
       "size": 6110,
       "type": "md",
       "directory": ".agent/artifacts",
@@ -43855,7 +43855,7 @@
       "confidence": 85
     },
     {
-      "path": ".agent/tasks/prisma-to-drizzle-cleanup.md",
+      "path": ".agent/tasks/drizzle-to-drizzle-cleanup.md",
       "size": 4338,
       "type": "md",
       "directory": ".agent/tasks",
