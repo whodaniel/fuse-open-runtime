@@ -9,7 +9,7 @@ import {
   buildExecutionBoard,
 } from '../swarm/orchestrator/index.mjs';
 
-const appRoot = '/Users/danielgoldberg/Desktop/A1-Inter-LLM-Com/The-New-Fuse/apps/casin8-games';
+const appRoot = '/path/to/Desktop/A1-Inter-LLM-Com/The-New-Fuse/apps/casin8-games';
 const docsDir = path.join(appRoot, 'docs');
 const gapPath = path.join(docsDir, 'SWARM_GAP_REPORT.json');
 
