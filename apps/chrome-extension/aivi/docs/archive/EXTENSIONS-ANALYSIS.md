@@ -11,7 +11,7 @@ does and what we can learn from them:
 
 **ID:** `gpgbiinpmelaihndlegbgfkmnpofgfei`  
 **Version:** 3.7  
-**Location:** `/Users/danielgoldberg/Projects/gpgbiinpmelaihndlegbgfkmnpofgfei`
+**Location:** `/path/to/Projects/gpgbiinpmelaihndlegbgfkmnpofgfei`
 
 ### What It Does
 
@@ -52,7 +52,7 @@ does and what we can learn from them:
 
 **ID:** `bplnofkhjdphoihfkfcddikgmecfehdd`  
 **Version:** 3.0.5  
-**Location:** `/Users/danielgoldberg/Projects/bplnofkhjdphoihfkfcddikgmecfehdd`
+**Location:** `/path/to/Projects/bplnofkhjdphoihfkfcddikgmecfehdd`
 
 ### What It Does
 
@@ -100,7 +100,7 @@ does and what we can learn from them:
 
 **ID:** `kdmnjgijlmjgmimahnillepgcgeemffb`  
 **Version:** 18.0.6  
-**Location:** `/Users/danielgoldberg/.gemini/antigravity-browser-profile/Default/Extensions/kdmnjgijlmjgmimahnillepgcgeemffb`
+**Location:** `/path/to/.gemini/antigravity-browser-profile/Default/Extensions/kdmnjgijlmjgmimahnillepgcgeemffb`
 
 ### What It Does
 
@@ -138,7 +138,7 @@ does and what we can learn from them:
 
 **ID:** `hjoonjdnhagnpfgifhjolheimamcafok`  
 **Version:** 1.5.5.25995  
-**Location:** `/Users/danielgoldberg/Projects/hjoonjdnhagnpfgifhjolheimamcafok`
+**Location:** `/path/to/Projects/hjoonjdnhagnpfgifhjolheimamcafok`
 
 ### What It Does
 

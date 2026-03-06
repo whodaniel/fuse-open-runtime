@@ -2174,9 +2174,9 @@ capabilities.
 ## References
 
 - **Plan File:**
-  `/Users/danielgoldberg/.claude/plans/tranquil-juggling-token.md`
+  `/path/to/.claude/plans/tranquil-juggling-token.md`
 - **VSCode Extension Root:**
-  `/Users/danielgoldberg/Desktop/A1-Inter-LLM-Com/The-New-Fuse/apps/vscode-extension/`
+  `/path/to/Desktop/A1-Inter-LLM-Com/The-New-Fuse/apps/vscode-extension/`
 - **Implementation Branch:** `main`
 - **Date:** January 24, 2026
 
