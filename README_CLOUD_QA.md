@@ -45,7 +45,7 @@ monitor the tests using Antigravity.
 ### Method 1: Cloud QA Script (Easiest)
 
 ```bash
-cd /Users/danielgoldberg/Desktop/A1-Inter-LLM-Com/The-New-Fuse
+cd /path/to/Desktop/A1-Inter-LLM-Com/The-New-Fuse
 ./scripts/run-cloud-qa.sh
 ```
 

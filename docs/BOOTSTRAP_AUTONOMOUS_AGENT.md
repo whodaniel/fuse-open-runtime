@@ -64,10 +64,10 @@ Add the TNF Skills MCP Server to Claude Desktop configuration.
     "tnf-skills": {
       "command": "node",
       "args": [
-        "/Users/danielgoldberg/Desktop/A1-Inter-LLM-Com/The-New-Fuse/packages/mcp-skills-server/dist/index.js"
+        "/path/to/Desktop/A1-Inter-LLM-Com/The-New-Fuse/packages/mcp-skills-server/dist/index.js"
       ],
       "env": {
-        "SKILLS_BASE_PATH": "/Users/danielgoldberg/Desktop/A1-Inter-LLM-Com/The-New-Fuse/.agent"
+        "SKILLS_BASE_PATH": "/path/to/Desktop/A1-Inter-LLM-Com/The-New-Fuse/.agent"
       }
     }
   }
