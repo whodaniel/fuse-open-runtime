@@ -2,6 +2,11 @@ import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { drizzleUserRepository } from '@the-new-fuse/database';
 
+const MASTER_SUPER_ADMIN_EMAILS = (process.env.MASTER_SUPER_ADMIN_EMAILS || 'bizsynth@gmail.com')
+  .split(',')
+  .map((email) => email.trim().toLowerCase())
+  .filter(Boolean);
+
 @Injectable()
 export class RolesGuard implements CanActivate {
   constructor(private reflector: Reflector) {}
@@ -20,7 +25,7 @@ export class RolesGuard implements CanActivate {
     }
 
     // Master Admin Bypass - bizsynth@gmail.com has access to EVERYTHING
-    if (user.email && user.email.toLowerCase() === 'bizsynth@gmail.com') {
+    if (user.email && MASTER_SUPER_ADMIN_EMAILS.includes(user.email.toLowerCase())) {
       return true;
     }
 
