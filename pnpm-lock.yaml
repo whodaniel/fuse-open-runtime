@@ -607,9 +607,6 @@ importers:
       '@the-new-fuse/types':
         specifier: workspace:*
         version: link:../../packages/types
-      '@types/uuid':
-        specifier: ^11.0.0
-        version: 11.0.0
       axios:
         specifier: ^1.13.5
         version: 1.13.6
