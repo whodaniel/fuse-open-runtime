@@ -607,6 +607,9 @@ importers:
       '@the-new-fuse/types':
         specifier: workspace:*
         version: link:../../packages/types
+      '@types/jest':
+        specifier: ^30.0.0
+        version: 30.0.0
       axios:
         specifier: ^1.13.5
         version: 1.13.6
@@ -644,9 +647,6 @@ importers:
       '@types/express':
         specifier: ^5.0.6
         version: 5.0.6
-      '@types/jest':
-        specifier: ^30.0.0
-        version: 30.0.0
       '@types/node':
         specifier: ^25.3.0
         version: 25.4.0
