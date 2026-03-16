@@ -990,6 +990,8 @@ importers:
         specifier: ^5.103.0
         version: 5.105.4(@swc/core@1.15.18(@swc/helpers@0.5.19))(esbuild@0.27.3)
 
+  apps/casin8-games: {}
+
   apps/chrome-extension:
     dependencies:
       '@fortawesome/fontawesome-free':
