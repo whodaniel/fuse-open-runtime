@@ -92,4 +92,16 @@ as the design input for this split:
 1. `cloudflare-sharedstate` implementation moved to `whodaniel/fuse-control-plane`
 2. this repo retains only public SharedState client and contract surfaces
 3. `packages/relay-core/src/master-clock.ts` is now a public boundary stub only
-4. `packages/relay-core/src/broker-agent.ts` is now a public boundary stub only
+4. policy and escalation ownership for `packages/relay-core/src/broker-agent.ts` moved to `whodaniel/fuse-control-plane`
+
+## Rebuilt In This Repo
+
+1. runtime-only `packages/relay-core/src/broker-agent.ts`
+2. broker heartbeat, worker selection, and relay dispatch behavior
+
+## Still Private In Control Plane
+
+1. broker policy gates
+2. Director escalation
+3. TWIP context-risk enforcement
+4. orchestration ledger mutation
