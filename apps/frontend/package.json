@@ -45,7 +45,7 @@
     "@heroicons/react": "^2.1.5",
     "@hookform/resolvers": "^5.2.2",
     "@monaco-editor/react": "^4.7.0",
-    "@paypal/react-paypal-js": "^8.8.1",
+    "@paypal/react-paypal-js": "^9.0.2",
     "@radix-ui/react-scroll-area": "^1.2.10",
     "@radix-ui/react-toast": "^1.2.15",
     "@react-three/drei": "^10.7.7",
