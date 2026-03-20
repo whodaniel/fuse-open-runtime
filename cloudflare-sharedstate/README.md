@@ -1,32 +1,12 @@
-# Cloudflare SharedState (TNF Canonical Control Plane)
+# Cloudflare SharedState Boundary Stub
 
-This Worker is the cloud home for the TNF SharedState protocol.
+The live `cloudflare-sharedstate` implementation has been extracted to the
+private `whodaniel/fuse-control-plane` repository.
 
-It provides:
+This open-runtime repo intentionally keeps only:
 
-- append-only receipts
-- taskboard projections
-- per-runtime context manifests
-- deposit/withdraw/mirror APIs
-- serverless policy gate evaluation APIs:
-  - `POST /gates/cron/evaluate`
-  - `POST /gates/self-edit/evaluate`
-  - `POST /gates/federation/evaluate`
+1. public SharedState contracts in `packages/control-plane-contracts`,
+2. public backend client adapters in `apps/backend/src/modules/shared-state`.
 
-It is the cloud-native successor to `~/.tnf_sharedstate`.
-
-## Storage
-
-Planned bindings:
-
-- R2: receipts + artifacts + mirrors
-- D1: indexes/materialized views (task state, latest context pointers)
-- Durable Object (optional): canonical receipt sequencer (ordering + hash chain)
-
-## Security
-
-- Protect endpoints behind Cloudflare Access
-- Secrets via Wrangler secrets store
-- Strict redaction policy on mirror endpoints
-- Gate evaluation endpoints should run fail-closed and be consumed by broker
-  intake paths before execution dispatch.
+It no longer carries the private Cloudflare Worker implementation, schemas, or
+deployment configuration.

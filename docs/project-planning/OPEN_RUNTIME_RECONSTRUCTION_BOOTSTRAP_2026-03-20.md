@@ -84,6 +84,10 @@ as the design input for this split:
 
 ## Still Pending Extraction Out Of This Repo
 
-1. `cloudflare-sharedstate`
-2. private orchestration internals
-3. agency provisioning and entitlement logic
+1. private orchestration internals
+2. agency provisioning and entitlement logic
+
+## Extracted Away From This Repo
+
+1. `cloudflare-sharedstate` implementation moved to `whodaniel/fuse-control-plane`
+2. this repo retains only public SharedState client and contract surfaces
