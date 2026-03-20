@@ -91,3 +91,4 @@ as the design input for this split:
 
 1. `cloudflare-sharedstate` implementation moved to `whodaniel/fuse-control-plane`
 2. this repo retains only public SharedState client and contract surfaces
+3. `packages/relay-core/src/master-clock.ts` is now a public boundary stub only
