@@ -105,3 +105,8 @@ as the design input for this split:
 2. Director escalation
 3. TWIP context-risk enforcement
 4. orchestration ledger mutation
+
+## Rebuilt As Public Facade
+
+1. `apps/backend/src/modules/orchestrator` controller + client boundary
+2. contract-based DTOs for orchestrator health, agents, registration, and execute

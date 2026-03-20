@@ -3,6 +3,7 @@
  */
 export { OrchestratorController } from './orchestrator.controller';
 export { OrchestratorModule } from './orchestrator.module';
+export { OrchestratorClient } from './orchestrator.client';
 export {
   AgentHeartbeat,
   HeartbeatConfig,

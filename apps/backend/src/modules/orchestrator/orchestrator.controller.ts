@@ -20,40 +20,23 @@ import {
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import type {
+  AgentHeartbeatRequest,
+  AgentListResponse,
+  AgentStatusResponse,
+  GatewayExecuteRequest,
+  GatewayExecuteResponse,
+  OrchestratorHealthResponse,
+  RegisterAgentRequest,
+  RegisterAgentResponse,
+  TnfStatusResponse,
+} from '@the-new-fuse/control-plane-contracts';
 import { OrchestratorService } from './orchestrator.service';
-
-interface RegisterAgentDto {
-  agentId: string;
-  agentName?: string;
-  agentType?: string;
-  expectedResponseTimeMs?: number;
-  capabilities?: string[];
-}
-
-interface HeartbeatDto {
-  agentId: string;
-  taskId?: string;
-  status?: string;
-  metadata?: Record<string, unknown>;
-}
 
 interface ActivityDto {
   agentId: string;
   activityType: string;
   metadata?: Record<string, unknown>;
-}
-
-interface ExecuteDto {
-  channel: 'telegram';
-  requestId: string;
-  idempotencyKey?: string;
-  sessionId?: string;
-  update: {
-    message?: {
-      text?: string;
-      from?: { id?: string | number };
-    };
-  };
 }
 
 @ApiTags('orchestrator')
@@ -69,8 +52,8 @@ export class OrchestratorController {
   @Get('health')
   @ApiOperation({ summary: 'Get system health and agent metrics' })
   @ApiResponse({ status: 200, description: 'System health metrics' })
-  getSystemHealth() {
-    const health = this.orchestratorService.getSystemHealth();
+  async getSystemHealth(): Promise<OrchestratorHealthResponse> {
+    const health = await this.orchestratorService.getSystemHealth();
     return {
       status: 'operational',
       timestamp: new Date().toISOString(),
@@ -87,78 +70,34 @@ export class OrchestratorController {
   @HttpCode(HttpStatus.CREATED)
   @ApiOperation({ summary: 'Register a new agent for heartbeat monitoring' })
   @ApiResponse({ status: 201, description: 'Agent registered successfully' })
-  registerAgent(@Body() dto: RegisterAgentDto) {
+  async registerAgent(@Body() dto: RegisterAgentRequest): Promise<RegisterAgentResponse> {
     this.logger.log(`📝 Registering agent: ${dto.agentId} (${dto.agentName || 'unnamed'})`);
 
-    this.orchestratorService.registerAgent(dto.agentId, dto.expectedResponseTimeMs);
-
-    return {
-      success: true,
-      message: `Agent ${dto.agentId} registered successfully`,
-      timestamp: new Date().toISOString(),
-    };
+    return this.orchestratorService.registerAgent(dto);
   }
 
   @Post('heartbeat')
   @HttpCode(HttpStatus.OK)
   @ApiOperation({ summary: 'Record a heartbeat from an agent' })
   @ApiResponse({ status: 200, description: 'Heartbeat recorded' })
-  recordHeartbeat(@Body() dto: HeartbeatDto) {
-    this.orchestratorService.recordAgentHeartbeat(dto.agentId, dto.taskId);
-
-    return {
-      success: true,
-      received: new Date().toISOString(),
-    };
+  async recordHeartbeat(
+    @Body() dto: AgentHeartbeatRequest
+  ): Promise<{ success: boolean; received: string }> {
+    return this.orchestratorService.recordAgentHeartbeat(dto);
   }
 
   @Get('agents')
   @ApiOperation({ summary: 'Get all registered agents and their status' })
   @ApiResponse({ status: 200, description: 'List of all agents' })
-  getAllAgents() {
-    const heartbeatService = this.orchestratorService.getHeartbeatService();
-
-    if (!heartbeatService) {
-      return { agents: [], message: 'Heartbeat service not initialized' };
-    }
-
-    const agentMap = heartbeatService.getAllAgentStatuses();
-    const agents = Array.from(agentMap.values()).map((agent) => ({
-      agentId: agent.agentId,
-      status: agent.status,
-      lastHeartbeat: agent.lastHeartbeat.toISOString(),
-      lastActivity: agent.lastActivity.toISOString(),
-      currentTask: agent.currentTask,
-      consecutiveFailures: agent.consecutiveFailures,
-    }));
-
-    return { agents, count: agents.length };
+  async getAllAgents(): Promise<AgentListResponse> {
+    return this.orchestratorService.getAllAgents();
   }
 
   @Get('agents/:agentId')
   @ApiOperation({ summary: 'Get status of a specific agent' })
   @ApiResponse({ status: 200, description: 'Agent status' })
-  getAgentStatus(@Param('agentId') agentId: string) {
-    const heartbeatService = this.orchestratorService.getHeartbeatService();
-
-    if (!heartbeatService) {
-      return { error: 'Heartbeat service not initialized' };
-    }
-
-    const status = heartbeatService.getAgentStatus(agentId);
-
-    if (!status) {
-      return { error: `Agent ${agentId} not found` };
-    }
-
-    return {
-      agentId: status.agentId,
-      status: status.status,
-      lastHeartbeat: status.lastHeartbeat.toISOString(),
-      lastActivity: status.lastActivity.toISOString(),
-      currentTask: status.currentTask,
-      consecutiveFailures: status.consecutiveFailures,
-    };
+  async getAgentStatus(@Param('agentId') agentId: string): Promise<AgentStatusResponse> {
+    return this.orchestratorService.getAgentStatus(agentId);
   }
 
   @Post('execute')
@@ -168,7 +107,10 @@ export class OrchestratorController {
       'Gateway execution endpoint for channel ingress (idempotent by requestId/idempotencyKey)',
   })
   @ApiResponse({ status: 200, description: 'Execution response with replyText' })
-  async execute(@Body() dto: ExecuteDto, @Headers('authorization') authorization?: string) {
+  async execute(
+    @Body() dto: GatewayExecuteRequest,
+    @Headers('authorization') authorization?: string
+  ) {
     const requiredToken = this.configService.get<string>('ORCHESTRATOR_EXEC_AUTH');
     if (requiredToken) {
       const got = authorization || '';
@@ -196,32 +138,13 @@ export class OrchestratorController {
       requestId: dto.requestId,
       replyText: result.replyText,
       metadata: result.metadata,
-    };
+    } as GatewayExecuteResponse;
   }
 
   @Get('tnf-status')
   @ApiOperation({ summary: 'Get TNF Core Agent status (The New Fuse as Master Agent)' })
   @ApiResponse({ status: 200, description: 'TNF Core status' })
-  getTNFStatus() {
-    const heartbeatService = this.orchestratorService.getHeartbeatService();
-    const tnfStatus = heartbeatService?.getAgentStatus('tnf-core');
-    const health = this.orchestratorService.getSystemHealth();
-
-    return {
-      identity: 'TNF Core - The New Fuse Master Agent',
-      description: 'TNF is the primary agent that orchestrates all other agents in the ecosystem',
-      status: tnfStatus?.status || 'unknown',
-      lastHeartbeat: tnfStatus?.lastHeartbeat?.toISOString(),
-      systemHealth: health,
-      capabilities: [
-        'agent_orchestration',
-        'heartbeat_monitoring',
-        'task_coordination',
-        'stagnation_detection',
-        'escalation_handling',
-        'handoff_protocols',
-      ],
-      timestamp: new Date().toISOString(),
-    };
+  async getTNFStatus(): Promise<TnfStatusResponse> {
+    return this.orchestratorService.getTNFStatus();
   }
 }
