@@ -30,6 +30,12 @@
       "@the-new-fuse/database/drizzle": [
         "../../packages/database/dist/drizzle"
       ],
+      "@the-new-fuse/control-plane-contracts": [
+        "../../packages/control-plane-contracts/dist"
+      ],
+      "@the-new-fuse/control-plane-contracts/*": [
+        "../../packages/control-plane-contracts/dist/*"
+      ],
       "@the-new-fuse/types": ["../../packages/types/dist"],
       "@the-new-fuse/mcp-core": ["../../packages/mcp-core/dist"],
       "@the-new-fuse/mcp-core/*": ["../../packages/mcp-core/dist/*"],
