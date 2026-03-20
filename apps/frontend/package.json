@@ -160,7 +160,7 @@
     "prettier-plugin-organize-imports": "^4.3.0",
     "rollup-plugin-visualizer": "^6.0.5",
     "selenium-webdriver": "^4.39.0",
-    "tailwindcss": "^4.2.1",
+    "tailwindcss": "^4.2.2",
     "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
