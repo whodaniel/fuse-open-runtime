@@ -120,6 +120,17 @@ backend facade.
 `orchestrator.service.ts` remains only as a compatibility shim for old imports;
 it is no longer part of the runtime authority path.
 
+## Private Control-Plane Integration
+
+Open-runtime now expects a private orchestrator ingress reachable through:
+
+1. `ORCHESTRATOR_API_BASE`
+2. optional `ORCHESTRATOR_EXEC_AUTH`
+
+The current bootstrap private server lives in
+`whodaniel/fuse-control-plane/services/backend-orchestrator/src/server.ts` and
+implements the route shape already consumed by `OrchestratorClient`.
+
 ## Confirmed Public Runtime Surfaces
 
 1. `apps/backend/src/modules/relay`

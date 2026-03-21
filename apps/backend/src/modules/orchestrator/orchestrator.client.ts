@@ -26,6 +26,17 @@ export class OrchestratorClient {
     }
   }
 
+  /**
+   * Expected private control-plane ingress:
+   *
+   * 1. GET `/orchestrator/health`
+   * 2. POST `/orchestrator/register`
+   * 3. POST `/orchestrator/heartbeat`
+   * 4. GET `/orchestrator/agents`
+   * 5. GET `/orchestrator/agents/:agentId`
+   * 6. POST `/orchestrator/execute`
+   * 7. GET `/orchestrator/tnf-status`
+   */
   private buildUrl(path: string): string {
     return `${this.apiBase.replace(/\/+$/, '')}${path}`;
   }
