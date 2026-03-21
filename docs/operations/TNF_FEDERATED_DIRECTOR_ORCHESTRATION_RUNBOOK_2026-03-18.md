@@ -15,6 +15,10 @@ lineage.
    - Polls terminal inventory and macro-board telemetry.
    - Publishes terminal-aware workstream signals.
    - Flags high-risk runtime traits early (`approval_bypass`, `remote_mcp`).
+   - Runs discovery polling continuously under heartbeat-governed cadence rather
+     than as a one-off manual inspection step.
+   - Assigns provisional TNF agent identity on first discovery and enriches the
+     record during onboarding.
 2. Orchestrator (cloud planner)
    - Converts goals into assignment packets.
    - Attaches MCID lineage + gate decisions.
@@ -31,9 +35,16 @@ lineage.
 
 1. Director runs TWIP scan + macro board:
    - `node scripts/protocols/twip-macro-board.cjs --tenant tnf-local --limit 1000 --include-commands`
+   - for newly discovered sessions, capture a discovery fingerprint including
+     `tty`, `shell_pid`, `pwd`, `foreground_process`, `hostname`, `username`,
+     `node_id`, `discovered_at`, and optional `session_marker`
+   - assign provisional `tnf_agent_id` immediately instead of waiting for full
+     onboarding
 2. Director emits sanitized signal using:
    - `docs/protocols/schemas/twip-workstream-signal.schema.json`
    - `docs/protocols/schemas/twip-terminal-context.schema.json`
+   - attach discovery tags covering runtime, transport, trust scope, and
+     discovery status
 3. Orchestrator builds assignment packet with:
    - `cumulative_id` (`tnf/mcid/0.1`)
    - `twid` (when terminal-bound)
@@ -78,6 +89,20 @@ lineage.
    - `data/protocols/agent-owned-docs.registry.json`
 2. `approval_required_paths` are hard stops without manual approval.
 3. Every edit request must pass schema + gate chain before write execution.
+
+## 6.1 Continuous Local Director Polling Contract
+
+The Local Director should be live and polling at all times while the local TNF
+runtime is active.
+
+Operational meaning:
+
+1. discovery polling is part of normal continuity, not a human-only fallback,
+2. missed polling intervals should surface as Director continuity degradation,
+3. newly discovered terminal-bound actors should be fingerprinted and
+   provisionally registered on first sight,
+4. live coordinating actors should be enrolled into heartbeat and stall-defense
+   monitoring as part of discovery or invocation.
 
 ## 7. Verifications and Commands
 

@@ -12,7 +12,8 @@ Provide one trackable implementation outline to make TNF fully federated across:
 2. federation channels (Chrome extension + relay),
 3. network-wide orchestration gates (broker + policy API),
 4. cloud runtime planes (Cloudflare, Railway, Supabase),
-5. master cumulative ID lineage (MCID) across handoff, scheduling, and logs.
+5. master cumulative ID lineage (MCID) across handoff, scheduling, and logs,
+6. first-sight discovery identity and enrichment across onboarding.
 
 ## 2. Fresh Context Snapshot
 
@@ -61,6 +62,9 @@ Web visualizer smoke check:
 5. Agent self-edits remain owner/path bounded with explicit approval for
    protected paths.
 6. Terminal-awareness polling is formalized as governed cron categories.
+7. Local Director polling remains continuously live while TNF is active.
+8. Newly discovered agents receive provisional TNF identity, fingerprint, and
+   baseline tags on first detection.
 
 ## 5. Architecture Split (Cloud + Edge + Stateful)
 
@@ -87,6 +91,8 @@ Web visualizer smoke check:
    - `scope.cron_namespace`
    - `lineage.schedule_id`
    - `lineage.schedule_run_id`
+4. Discovery polling should also maintain first-sight agent/session identity
+   records for later onboarding enrichment.
 
 ## 7. Execution Tracks
 
