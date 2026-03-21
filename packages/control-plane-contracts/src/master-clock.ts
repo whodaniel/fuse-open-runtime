@@ -1,5 +1,29 @@
 export type TenantScope = 'tnf' | 'agency' | 'user' | 'local';
 
+export interface ClockNodeCertificateClaims {
+  certificate_id: string;
+  issued_at: string;
+  expires_at: string;
+  master_clock_id: string;
+  issuer: 'master-clock-central';
+  node_id: string;
+  tenant_scope: TenantScope;
+  wallet_address: string;
+  nft_id: string;
+  agency_id?: string;
+  collective_access: true;
+  node_signing_public_key_pem: string;
+  node_encryption_public_key_pem: string;
+}
+
+export interface ClockNodeCertificate {
+  claims: ClockNodeCertificateClaims;
+  signature_algorithm: 'ed25519';
+  issuer_signing_public_key_pem: string;
+  signature_b64: string;
+  certificate_fingerprint: string;
+}
+
 export interface RegisterClockNodeRequest {
   node_id: string;
   tenant_scope: TenantScope;
@@ -17,6 +41,7 @@ export interface RegisterClockNodeRequest {
 export interface RegisteredClockNode extends RegisterClockNodeRequest {
   collective_access: boolean;
   status: 'active' | 'paused';
+  certificate: ClockNodeCertificate;
   registered_at: string;
 }
 
@@ -48,6 +73,9 @@ export interface MasterClockSignalPlaintext {
     recognized: true;
     verifiable: true;
     nft_required: true;
+    certificate_id: string;
+    certificate_fingerprint: string;
+    attested: true;
   };
   metadata?: Record<string, unknown>;
 }

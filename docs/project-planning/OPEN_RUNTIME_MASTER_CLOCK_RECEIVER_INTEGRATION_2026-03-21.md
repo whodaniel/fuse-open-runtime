@@ -33,9 +33,10 @@ Open-runtime owns:
 
 1. receiver-side verification,
 2. receiver-side decryption,
-3. local dispatch into runtime continuity and stall-defense hooks,
-4. signed node acknowledgement,
-5. local polling/bootstrap path.
+3. certificate attestation checks against the locally registered node,
+4. local dispatch into runtime continuity and stall-defense hooks,
+5. signed node acknowledgement,
+6. local polling/bootstrap path.
 
 ## Current Public Receiver Components
 
@@ -53,7 +54,8 @@ Current bootstrap behavior is:
 1. signal signature is mandatory,
 2. per-node encryption is mandatory,
 3. wallet and NFT provide enrollment evidence,
-4. node signing and encryption keys provide runtime cryptographic identity.
+4. node signing and encryption keys provide runtime cryptographic identity,
+5. receiver-side certificate attestation is required when the node has a registered certificate.
 
 Default receiver behavior is now `configured` trust mode.
 
@@ -111,7 +113,7 @@ Trust-anchor compatibility:
 4. node polls `GET /master-clock/signals/latest/:nodeId`
 5. receiver verifies the central signature
 6. receiver decrypts the envelope with the local node encryption key
-7. receiver validates target node, wallet, NFT, and freshness
+7. receiver validates target node, wallet, NFT, freshness, and certificate attestation
 8. Local Sub-Director dispatch runs
 9. node signs and posts `POST /master-clock/signals/ack`
 
@@ -131,9 +133,25 @@ continuity active:
 This is intentionally public/runtime behavior, not central orchestration
 authority.
 
+## Validation
+
+Receiver bootstrap was validated against the current private Master Clock source
+through a source-aligned control API wrapper:
+
+1. node auto-registration,
+2. certificate issuance and local attestation check,
+3. signed and encrypted heartbeat issue,
+4. open-runtime polling, verification, decryption, and dispatch,
+5. signed acknowledgement recorded back into the control API.
+
+Validated result:
+
+1. `ok: true`
+2. `ackCount: 1`
+
 ## Remaining Gaps
 
-1. certificate or attestation-backed runtime trust is not implemented yet
+1. certificate authority is still single-issuer bootstrap rather than a fuller chain or rotation protocol
 2. receiver-side persistence is local-file based, not yet multi-runtime shared
 3. local continuity dispatch should eventually feed a broader node-health and
    agent-state export back to TNF Central

@@ -100,7 +100,7 @@ as the design input for this split:
 
 1. runtime-only `packages/relay-core/src/broker-agent.ts`
 2. broker heartbeat, worker selection, and relay dispatch behavior
-3. Master Clock receiver-side verification, decryption, local Sub-Director dispatch, and signed acknowledgement
+3. Master Clock receiver-side verification, decryption, certificate attestation checks, local Sub-Director dispatch, and signed acknowledgement
 
 ## Still Private In Control Plane
 
@@ -108,6 +108,9 @@ as the design input for this split:
 2. Director escalation
 3. TWIP context-risk enforcement
 4. orchestration ledger mutation
+5. Master Clock pulse issuance
+6. Master Clock node certificate minting
+7. canonical clock schedule authority
 
 ## Rebuilt As Public Facade
 

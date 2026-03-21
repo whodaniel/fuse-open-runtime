@@ -1,15 +1,15 @@
 import { EventEmitter } from 'events';
 import type { RegisterClockNodeRequest } from '@the-new-fuse/control-plane-contracts';
 import { Logger } from '../utils/Logger';
-import { MasterClockControlClient } from './MasterClockControlClient';
+import { MasterClockControlClient } from './MasterClockControlClient.js';
 import {
   InMemoryMasterClockReceiverStateStore,
   type MasterClockReceiverStateStore,
-} from './MasterClockReceiverStateStore';
+} from './MasterClockReceiverStateStore.js';
 import {
   MasterClockSignalReceiver,
   type MasterClockReceiveResult,
-} from './MasterClockSignalReceiver';
+} from './MasterClockSignalReceiver.js';
 
 export interface MasterClockPollingReceiverOptions {
   client: MasterClockControlClient;
@@ -47,9 +47,10 @@ export class MasterClockPollingReceiver extends EventEmitter {
 
   async start(): Promise<void> {
     if (this.autoRegister && this.registration) {
-      await this.client.registerNode(this.registration);
+      const registeredNode = await this.client.registerNode(this.registration);
+      this.receiver.setRegisteredNode(registeredNode);
       this.logger.info(
-        `[MasterClockReceiver] Registered collective node ${this.registration.node_id}`
+        `[MasterClockReceiver] Registered collective node ${registeredNode.node_id} certificate=${registeredNode.certificate.claims.certificate_id}`
       );
     }
 

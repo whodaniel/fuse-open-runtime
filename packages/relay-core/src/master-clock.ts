@@ -3,17 +3,17 @@
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import type { TenantScope } from '@the-new-fuse/control-plane-contracts';
-import { HeartbeatMonitoringService } from './services/HeartbeatMonitoringService';
-import { MasterClockControlClient } from './services/MasterClockControlClient';
-import { MasterClockPollingReceiver } from './services/MasterClockPollingReceiver';
-import { FileMasterClockReceiverStateStore } from './services/MasterClockReceiverStateStore';
+import { HeartbeatMonitoringService } from './services/HeartbeatMonitoringService.js';
+import { MasterClockControlClient } from './services/MasterClockControlClient.js';
+import { MasterClockPollingReceiver } from './services/MasterClockPollingReceiver.js';
+import { FileMasterClockReceiverStateStore } from './services/MasterClockReceiverStateStore.js';
 import {
   buildClockNodeRegistration,
   MasterClockSignalReceiver,
-} from './services/MasterClockSignalReceiver';
-import { RelayRuntimeSubDirector } from './services/RelayRuntimeSubDirector';
-import { StallDetector } from './services/stall-detector';
-import { Logger } from './utils/Logger';
+} from './services/MasterClockSignalReceiver.js';
+import { RelayRuntimeSubDirector } from './services/RelayRuntimeSubDirector.js';
+import { StallDetector } from './services/stall-detector.js';
+import { Logger } from './utils/Logger.js';
 
 function readRequiredEnv(name: string): string {
   const value = String(process.env[name] || '').trim();

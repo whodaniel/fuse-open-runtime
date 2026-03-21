@@ -1,5 +1,7 @@
 export type {
   BroadcastSignalsRequest,
+  ClockNodeCertificate,
+  ClockNodeCertificateClaims,
   IssueSignalRequest,
   MasterClockHealthResponse,
   MasterClockSignalEnvelope,

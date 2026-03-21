@@ -9,9 +9,11 @@ import {
   verify,
 } from 'node:crypto';
 import type {
+  ClockNodeCertificate,
   MasterClockSignalEnvelope,
   MasterClockSignalPlaintext,
   RegisterClockNodeRequest,
+  RegisteredClockNode,
   SignalAckRequest,
   TenantScope,
 } from '@the-new-fuse/control-plane-contracts';
@@ -110,6 +112,7 @@ export interface MasterClockDispatchTarget {
 export interface MasterClockSignalReceiverOptions {
   identity: MasterClockNodeIdentity;
   dispatchTarget: MasterClockDispatchTarget;
+  registeredNode?: RegisteredClockNode;
   maxPastSkewMs?: number;
   maxFutureSkewMs?: number;
   now?: () => number;
@@ -193,10 +196,12 @@ export class MasterClockSignalReceiver {
   private readonly maxPastSkewMs: number;
   private readonly maxFutureSkewMs: number;
   private readonly now: () => number;
+  private registeredNode?: RegisteredClockNode;
 
   constructor(options: MasterClockSignalReceiverOptions) {
     this.identity = options.identity;
     this.dispatchTarget = options.dispatchTarget;
+    this.registeredNode = options.registeredNode;
     this.maxPastSkewMs = options.maxPastSkewMs ?? 60_000;
     this.maxFutureSkewMs = options.maxFutureSkewMs ?? 5_000;
     this.now = options.now ?? (() => Date.now());
@@ -208,6 +213,10 @@ export class MasterClockSignalReceiver {
 
   getIdentity(): MasterClockNodeIdentity {
     return this.identity;
+  }
+
+  setRegisteredNode(registeredNode: RegisteredClockNode): void {
+    this.registeredNode = registeredNode;
   }
 
   async receive(signal: MasterClockSignalEnvelope): Promise<MasterClockReceiveResult> {
@@ -235,9 +244,18 @@ export class MasterClockSignalReceiver {
       }
     }
 
-    if (!plaintext.collective_sync.recognized || !plaintext.collective_sync.verifiable) {
+    if (
+      !plaintext.collective_sync.recognized ||
+      !plaintext.collective_sync.verifiable ||
+      !plaintext.collective_sync.nft_required ||
+      !plaintext.collective_sync.attested ||
+      !plaintext.collective_sync.certificate_id ||
+      !plaintext.collective_sync.certificate_fingerprint
+    ) {
       throw new Error('MASTER_CLOCK_COLLECTIVE_SYNC_INVALID');
     }
+
+    this.assertRegisteredNodeAttestation(plaintext);
 
     const dispatch = await this.dispatchTarget.dispatch(plaintext);
     const ack = this.createAck(plaintext, dispatch);
@@ -342,6 +360,9 @@ export class MasterClockSignalReceiver {
     if (plaintext.tenant_scope !== this.identity.tenantScope) {
       throw new Error('MASTER_CLOCK_TENANT_SCOPE_MISMATCH');
     }
+    if (this.identity.agencyId && plaintext.agency_id !== this.identity.agencyId) {
+      throw new Error('MASTER_CLOCK_AGENCY_MISMATCH');
+    }
   }
 
   private assertFreshness(plaintext: MasterClockSignalPlaintext): void {
@@ -376,6 +397,8 @@ export class MasterClockSignalReceiver {
         master_clock_id: plaintext.master_clock_id,
         tenant_scope: plaintext.tenant_scope,
         stall_defense_required: plaintext.stall_defense.required,
+        certificate_id: plaintext.collective_sync.certificate_id,
+        certificate_fingerprint: plaintext.collective_sync.certificate_fingerprint,
         ...(dispatch.metadata || {}),
       },
     };
@@ -388,8 +411,123 @@ export class MasterClockSignalReceiver {
       ),
     };
   }
+
+  private assertRegisteredNodeAttestation(plaintext: MasterClockSignalPlaintext): void {
+    if (!this.registeredNode) {
+      return;
+    }
+
+    if (!verifyClockNodeCertificate(this.registeredNode.certificate, this.identity.trustedSigningPublicKeyPem)) {
+      throw new Error('MASTER_CLOCK_NODE_CERTIFICATE_INVALID');
+    }
+    if (Date.parse(this.registeredNode.certificate.claims.expires_at) <= this.now()) {
+      throw new Error('MASTER_CLOCK_NODE_CERTIFICATE_EXPIRED');
+    }
+
+    const derived = deriveClockNodePublicKeys({
+      signingPrivateKeyPem: this.identity.signingPrivateKeyPem,
+      encryptionPrivateKeyPem: this.identity.encryptionPrivateKeyPem,
+    });
+
+    if (this.registeredNode.node_id !== this.identity.nodeId) {
+      throw new Error('MASTER_CLOCK_REGISTERED_NODE_MISMATCH');
+    }
+    if (this.registeredNode.wallet_address !== this.identity.walletAddress) {
+      throw new Error('MASTER_CLOCK_REGISTERED_WALLET_MISMATCH');
+    }
+    if (this.registeredNode.nft_id !== this.identity.nftId) {
+      throw new Error('MASTER_CLOCK_REGISTERED_NFT_MISMATCH');
+    }
+    if (
+      createSigningPublicKeyFingerprint(this.registeredNode.node_signing_public_key_pem) !==
+      createSigningPublicKeyFingerprint(derived.nodeSigningPublicKeyPem)
+    ) {
+      throw new Error('MASTER_CLOCK_REGISTERED_SIGNING_KEY_MISMATCH');
+    }
+    if (
+      createSigningPublicKeyFingerprint(this.registeredNode.node_encryption_public_key_pem) !==
+      createSigningPublicKeyFingerprint(derived.nodeEncryptionPublicKeyPem)
+    ) {
+      throw new Error('MASTER_CLOCK_REGISTERED_ENCRYPTION_KEY_MISMATCH');
+    }
+    if (
+      plaintext.collective_sync.certificate_id !==
+      this.registeredNode.certificate.claims.certificate_id
+    ) {
+      throw new Error('MASTER_CLOCK_CERTIFICATE_ID_MISMATCH');
+    }
+    if (
+      plaintext.collective_sync.certificate_fingerprint !==
+      this.registeredNode.certificate.certificate_fingerprint
+    ) {
+      throw new Error('MASTER_CLOCK_CERTIFICATE_FINGERPRINT_MISMATCH');
+    }
+  }
 }
 
 export function createSigningPublicKeyFingerprint(signingPublicKeyPem: string): string {
-  return createHash('sha256').update(normalizePem(signingPublicKeyPem)).digest('hex');
+  const canonicalDer = createPublicKey(normalizePem(signingPublicKeyPem)).export({
+    type: 'spki',
+    format: 'der',
+  });
+  return createHash('sha256').update(Buffer.from(canonicalDer)).digest('hex');
+}
+
+export function createClockNodeCertificateFingerprint(
+  certificate: Pick<
+    ClockNodeCertificate,
+    'claims' | 'signature_algorithm' | 'issuer_signing_public_key_pem' | 'signature_b64'
+  >
+): string {
+  const canonicalClaims = canonicalizeClockNodeCertificateClaims(certificate.claims);
+  return createHash('sha256')
+    .update(
+      stableStringify({
+        claims: canonicalClaims,
+        signature_algorithm: certificate.signature_algorithm,
+        issuer_signing_public_key_pem: certificate.issuer_signing_public_key_pem,
+        signature_b64: certificate.signature_b64,
+      })
+    )
+    .digest('hex');
+}
+
+export function verifyClockNodeCertificate(
+  certificate: ClockNodeCertificate,
+  trustedSigningPublicKeyPem?: string
+): boolean {
+  const verificationKeyPem =
+    normalizePem(trustedSigningPublicKeyPem || certificate.issuer_signing_public_key_pem);
+  if (certificate.signature_algorithm !== 'ed25519') {
+    return false;
+  }
+  if (
+    createClockNodeCertificateFingerprint(certificate) !== certificate.certificate_fingerprint
+  ) {
+    return false;
+  }
+  return verify(
+    null,
+    Buffer.from(stableStringify(canonicalizeClockNodeCertificateClaims(certificate.claims))),
+    createPublicKey(verificationKeyPem),
+    Buffer.from(certificate.signature_b64, 'base64')
+  );
+}
+
+function canonicalizeClockNodeCertificateClaims(claims: ClockNodeCertificate['claims']) {
+  return {
+    certificate_id: claims.certificate_id,
+    issued_at: claims.issued_at,
+    expires_at: claims.expires_at,
+    master_clock_id: claims.master_clock_id,
+    issuer: claims.issuer,
+    node_id: claims.node_id,
+    tenant_scope: claims.tenant_scope,
+    wallet_address: claims.wallet_address,
+    nft_id: claims.nft_id,
+    agency_id: claims.agency_id,
+    collective_access: claims.collective_access,
+    node_signing_public_key_pem: claims.node_signing_public_key_pem,
+    node_encryption_public_key_pem: claims.node_encryption_public_key_pem,
+  };
 }

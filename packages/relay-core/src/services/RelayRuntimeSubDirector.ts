@@ -1,11 +1,11 @@
 import type { MasterClockSignalPlaintext } from '@the-new-fuse/control-plane-contracts';
-import type { HeartbeatMonitoringService } from './HeartbeatMonitoringService';
-import type { StallDetector } from './stall-detector';
+import type { HeartbeatMonitoringService } from './HeartbeatMonitoringService.js';
+import type { StallDetector } from './stall-detector.js';
 import type {
   MasterClockDispatchResult,
   MasterClockDispatchTarget,
-} from './MasterClockSignalReceiver';
-import { Logger } from '../utils/Logger';
+} from './MasterClockSignalReceiver.js';
+import { Logger } from '../utils/Logger.js';
 
 export interface RelayRuntimeSubDirectorOptions {
   agentId: string;
@@ -71,6 +71,8 @@ export class RelayRuntimeSubDirector implements MasterClockDispatchTarget {
       metadata: {
         continuity_channel_count: this.continuityChannels.length,
         receiver_agent_id: this.agentId,
+        certificate_id: signal.collective_sync.certificate_id,
+        attested: signal.collective_sync.attested,
       },
     };
   }
