@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.26.0",
+    "@the-new-fuse/control-plane-contracts": "workspace:*",
     "@the-new-fuse/database": "workspace:*",
     "chokidar": "^4.0.3",
     "ethers": "^6.15.0",

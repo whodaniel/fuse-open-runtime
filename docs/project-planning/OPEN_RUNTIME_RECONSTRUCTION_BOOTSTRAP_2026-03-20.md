@@ -93,13 +93,14 @@ as the design input for this split:
 1. `cloudflare-sharedstate` implementation moved to `whodaniel/fuse-control-plane`
 2. this repo retains only public SharedState client and contract surfaces
 3. admin-only `apps/backend/src/modules/shared-state` ingress moved to the private control plane
-4. `packages/relay-core/src/master-clock.ts` is now a public boundary stub only
+4. `packages/relay-core/src/master-clock.ts` is now a public receiver bootstrap rather than a central issuer daemon
 5. policy and escalation ownership for `packages/relay-core/src/broker-agent.ts` moved to `whodaniel/fuse-control-plane`
 
 ## Rebuilt In This Repo
 
 1. runtime-only `packages/relay-core/src/broker-agent.ts`
 2. broker heartbeat, worker selection, and relay dispatch behavior
+3. Master Clock receiver-side verification, decryption, local Sub-Director dispatch, and signed acknowledgement
 
 ## Still Private In Control Plane
 
@@ -132,6 +133,26 @@ Open-runtime now expects a private orchestrator ingress reachable through:
 The current bootstrap private server lives in
 `whodaniel/fuse-control-plane/services/backend-orchestrator/src/server.ts` and
 implements the route shape already consumed by `OrchestratorClient`.
+
+Open-runtime also now expects a private Master Clock ingress reachable through:
+
+1. `MASTER_CLOCK_API_BASE`
+2. optional `MASTER_CLOCK_CONTROL_AUTH`
+
+The current bootstrap private server lives in
+`whodaniel/fuse-control-plane/services/master-clock/src/server.ts`.
+
+Open-runtime now owns only the receiver side of that contract:
+
+1. fetch latest signal for the local node,
+2. verify central signature,
+3. decrypt the node-targeted envelope,
+4. dispatch the verified pulse into local Sub-Director continuity hooks,
+5. return a signed acknowledgement.
+
+Detailed bootstrap notes live in:
+
+1. `docs/project-planning/OPEN_RUNTIME_MASTER_CLOCK_RECEIVER_INTEGRATION_2026-03-21.md`
 
 ## Confirmed Public Runtime Surfaces
 

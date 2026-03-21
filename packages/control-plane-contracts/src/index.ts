@@ -1,4 +1,18 @@
 export type {
+  BroadcastSignalsRequest,
+  IssueSignalRequest,
+  MasterClockHealthResponse,
+  MasterClockSignalEnvelope,
+  MasterClockSignalPlaintext,
+  PulseSnapshot,
+  RegisterClockNodeRequest,
+  RegisteredClockNode,
+  SignalAckRecord,
+  SignalAckRequest,
+  TenantScope,
+} from './master-clock';
+
+export type {
   AgentActivityRequest,
   AgentHeartbeatRequest,
   AgentListResponse,

@@ -8,6 +8,10 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
+    "./master-clock": {
+      "types": "./dist/master-clock.d.ts",
+      "default": "./dist/master-clock.js"
+    },
     "./orchestrator": {
       "types": "./dist/orchestrator.d.ts",
       "default": "./dist/orchestrator.js"
