@@ -12,6 +12,10 @@
       "types": "./dist/orchestrator.d.ts",
       "default": "./dist/orchestrator.js"
     },
+    "./prompt-composer": {
+      "types": "./dist/prompt-composer.d.ts",
+      "default": "./dist/prompt-composer.js"
+    },
     "./shared-state": {
       "types": "./dist/shared-state.d.ts",
       "default": "./dist/shared-state.js"

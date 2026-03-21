@@ -2,6 +2,7 @@
 
 ## Complete Guide
 - **[Complete MCP Specifications](COMPLETE-MCP-SPECIFICATIONS.md)** - Comprehensive MCP protocol specifications, implementation details, server extensions, and troubleshooting
+- **[Prompt Composer Recovery Spec](PROMPT_COMPOSER_RECOVERY_SPEC_2026-03-21.md)** - Canonical recovery contract for the missing Prompt Composer, workflow-builder embedding, and customizable side menu
 
 ## Overview
 This section consolidates all Model Context Protocol (MCP) specifications into a single comprehensive guide that includes:

@@ -15,6 +15,22 @@ export type {
 } from './orchestrator';
 
 export type {
+  PromptComposerModuleConfig,
+  PromptComposerPlacement,
+  PromptComposerSnapshot,
+  PromptComposerState,
+  PromptDocument,
+  PromptDocumentSection,
+  PromptGroup,
+  PromptMenuItem,
+  PromptMenuItemKind,
+  PromptSidebarCustomization,
+  PromptSnippet,
+  PromptSnippetKind,
+  PromptSnippetReference,
+} from './prompt-composer';
+
+export type {
   DepositResponse,
   Receipt,
   ReceiptPermission,
