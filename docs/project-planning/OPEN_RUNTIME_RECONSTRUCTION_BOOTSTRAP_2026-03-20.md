@@ -80,7 +80,8 @@ as the design input for this split:
 
 1. `packages/control-plane-contracts`
 2. backend SharedState public contract imports
-3. backend SharedState client/facade split
+3. backend SharedState public client boundary
+4. backend SharedState admin controller/module removed from `AppModule`
 
 ## Still Pending Extraction Out Of This Repo
 
@@ -91,8 +92,9 @@ as the design input for this split:
 
 1. `cloudflare-sharedstate` implementation moved to `whodaniel/fuse-control-plane`
 2. this repo retains only public SharedState client and contract surfaces
-3. `packages/relay-core/src/master-clock.ts` is now a public boundary stub only
-4. policy and escalation ownership for `packages/relay-core/src/broker-agent.ts` moved to `whodaniel/fuse-control-plane`
+3. admin-only `apps/backend/src/modules/shared-state` ingress moved to the private control plane
+4. `packages/relay-core/src/master-clock.ts` is now a public boundary stub only
+5. policy and escalation ownership for `packages/relay-core/src/broker-agent.ts` moved to `whodaniel/fuse-control-plane`
 
 ## Rebuilt In This Repo
 

@@ -32,7 +32,6 @@ import { OrchestratorModule } from './modules/orchestrator';
 import { UserBotsModule } from './modules/poker-bots/user-bots.module';
 import { RelayModule } from './modules/relay/relay.module';
 import { SelfImprovementModule } from './modules/self-improvement/self-improvement.module';
-import { SharedStateModule } from './modules/shared-state/shared-state.module';
 import { SystemMetricsModule } from './modules/system-metrics/system-metrics.module';
 import { WorkflowTemplatesModule } from './modules/workflow-templates/workflow-templates.module';
 import { PerformanceMetricsModule } from './monitoring/performance-metrics.module';
@@ -132,7 +131,6 @@ const optionalAGUIImports: NestImport[] = (() => {
     OrchestratorModule, // TNF Orchestration - Heartbeat, Coordination, Handoffs
     RelayModule, // Relay Core - Agent-to-Agent communication relay
     SelfImprovementModule, // Autonomous improvement loop
-    SharedStateModule, // Cloudflare SharedState Integration
     ...optionalAGUIImports, // AG-UI Protocol - optional real-time agent visualization pipeline
     UserBotsModule,
   ],
