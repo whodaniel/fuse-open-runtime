@@ -110,3 +110,13 @@ as the design input for this split:
 
 1. `apps/backend/src/modules/orchestrator` controller + client boundary
 2. contract-based DTOs for orchestrator health, agents, registration, and execute
+
+## Confirmed Public Runtime Surfaces
+
+1. `apps/backend/src/modules/relay`
+2. relay REST management endpoints
+3. relay WebSocket gateway
+4. local relay fallback stores used when `@the-new-fuse/relay-core` is unavailable
+
+The relay module remains in open-runtime because it is transport and messaging
+infrastructure rather than control-plane authority.
