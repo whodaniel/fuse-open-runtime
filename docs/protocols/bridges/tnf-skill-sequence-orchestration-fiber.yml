@@ -1,0 +1,51 @@
+name: tnf-skill-sequence-orchestration-fiber
+from:
+  - skill: tnf-skill-bridging
+    output: minimal bridge contract + normalized handoff schema
+  - skill: inter-agentic-workflow-definer
+    output: standardized sequential workflow task templates
+  - skill: orchestrator-agent
+    output: skill execution order + assignment/scheduling decisions
+to:
+  - skill: tnf-task-production-pipeline
+    input: deterministic execution packets with bridge lineage
+  - skill: tnf-live-session-coordination
+    input: live-session lane split and operator-safe coordination metadata
+  - skill: tnf-master-clock-sync
+    input: schedule-linked execution cadence and wakefulness requirements
+validate:
+  - every sequential skill hop declares source artifact, target input, and next execution owner
+  - execution order includes explicit step_id, predecessor, successor, and correlation/workstream ids
+  - schedule-bearing steps include cadence metadata or explicit immediate/manual execution mode
+  - orchestrator-bearing steps emit temporal actor presence metadata with invocation and lease fields
+  - live-session coordination never requires raw tty injection when shared-thread or repo-artifact coordination is available
+  - bridge lineage remains stable across skill outputs, orchestrator plan state, and execution packets
+gates:
+  - name: BRIDGE_COMPLETENESS_GATE
+    deny_code: BRIDGE_CONTRACT_INCOMPLETE
+  - name: SEQUENCE_CONTINUITY_GATE
+    deny_code: SKILL_SEQUENCE_BREAK
+  - name: SCHEDULE_BINDING_GATE
+    deny_code: SCHEDULE_METADATA_REQUIRED
+  - name: LIVE_COORDINATION_SAFETY_GATE
+    condition: target_runtime=live_terminal AND coordination_transport=raw_tty
+    action: require_manual_or_artifact_fallback
+fail:
+  - quarantine the sequence when source artifact, next target, or schedule metadata is missing
+  - require presence beacon regeneration when orchestrator invocation is missing actor lifecycle metadata
+  - degrade to orchestrator review when execution would rely on unsafe raw TTY coordination
+  - require bridge-contract regeneration when standardized task templates and execution packets diverge
+log:
+  - docs/protocols/bridges/reports/tnf-skill-sequence-orchestration-fiber.md
+
+taxonomy_remediation:
+  owner: TNF Super Admin
+  reviewed_at: "2026-03-21T00:00:00.000Z"
+  source_path: "docs/protocols/bridges/tnf-skill-sequence-orchestration-fiber.yml"
+  checklist:
+    - confirm canonical scope and current status
+    - validate schema/path references
+    - validate fail/log pathways remain accurate
+  validation:
+    - bridge contract fields match current protocol schemas
+    - related report link exists and is current
