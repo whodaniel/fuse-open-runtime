@@ -1,5 +1,6 @@
 import {
   createDecipheriv,
+  createHash,
   createPrivateKey,
   createPublicKey,
   diffieHellman,
@@ -119,6 +120,7 @@ export interface MasterClockReceiveResult {
   ack: SignalAckRequest;
   dispatch: MasterClockDispatchResult;
   trustMode: 'configured' | 'envelope_bootstrap';
+  trustedSigningPublicKeyFingerprint: string;
 }
 
 export function deriveClockNodePublicKeys(input: {
@@ -215,6 +217,9 @@ export class MasterClockSignalReceiver {
     const trustMode = this.identity.trustedSigningPublicKeyPem
       ? 'configured'
       : 'envelope_bootstrap';
+    const trustedSigningPublicKeyFingerprint = createSigningPublicKeyFingerprint(
+      trustPublicKeyPem
+    );
 
     this.verifyEnvelopeSignature(signal, trustPublicKeyPem);
 
@@ -242,6 +247,7 @@ export class MasterClockSignalReceiver {
       ack,
       dispatch,
       trustMode,
+      trustedSigningPublicKeyFingerprint,
     };
   }
 
@@ -382,4 +388,8 @@ export class MasterClockSignalReceiver {
       ),
     };
   }
+}
+
+export function createSigningPublicKeyFingerprint(signingPublicKeyPem: string): string {
+  return createHash('sha256').update(normalizePem(signingPublicKeyPem)).digest('hex');
 }

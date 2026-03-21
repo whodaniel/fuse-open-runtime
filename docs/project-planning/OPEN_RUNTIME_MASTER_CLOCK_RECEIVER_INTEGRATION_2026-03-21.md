@@ -55,12 +55,21 @@ Current bootstrap behavior is:
 3. wallet and NFT provide enrollment evidence,
 4. node signing and encryption keys provide runtime cryptographic identity.
 
-If `MASTER_CLOCK_TRUSTED_SIGNING_PUBLIC_KEY_PEM` is configured, receiver trust
-is anchored to that key.
+Default receiver behavior is now `configured` trust mode.
 
-If it is not configured, the receiver can still verify cryptographic integrity
-using the envelope signing key, but that is only `envelope_bootstrap` trust and
-should not be treated as the final production trust model.
+That means open-runtime should be started with one of:
+
+1. `MASTER_CLOCK_TRUSTED_SIGNING_PUBLIC_KEY_PEM`
+2. `MASTER_CLOCK_TRUSTED_SIGNING_PUBLIC_KEY_PATH`
+3. `MASTER_CLOCK_SIGNING_PUBLIC_KEY_PEM`
+4. `MASTER_CLOCK_SIGNING_PUBLIC_KEY_PATH`
+
+The last two names exist so the same public key exported from the private
+Master Clock service can be consumed directly by open-runtime without being
+renamed.
+
+`bootstrap` trust mode is still available for local experiments, but it is now
+an explicit downgrade rather than the default.
 
 ## Receiver Bootstrap Env
 
@@ -83,8 +92,16 @@ Optional:
 6. `MASTER_CLOCK_CONTROL_AUTH`
 7. `MASTER_CLOCK_AUTO_REGISTER`
 8. `MASTER_CLOCK_POLL_INTERVAL_MS`
-9. `MASTER_CLOCK_SUBDIRECTOR_AGENT_ID`
-10. `MASTER_CLOCK_STALL_CHANNELS`
+9. `MASTER_CLOCK_RECEIVER_STATE_PATH`
+10. `MASTER_CLOCK_SUBDIRECTOR_AGENT_ID`
+11. `MASTER_CLOCK_STALL_CHANNELS`
+
+Trust-anchor compatibility:
+
+1. `MASTER_CLOCK_TRUSTED_SIGNING_PUBLIC_KEY_PEM`
+2. `MASTER_CLOCK_TRUSTED_SIGNING_PUBLIC_KEY_PATH`
+3. `MASTER_CLOCK_SIGNING_PUBLIC_KEY_PEM`
+4. `MASTER_CLOCK_SIGNING_PUBLIC_KEY_PATH`
 
 ## Receiver Flow
 
@@ -97,6 +114,9 @@ Optional:
 7. receiver validates target node, wallet, NFT, and freshness
 8. Local Sub-Director dispatch runs
 9. node signs and posts `POST /master-clock/signals/ack`
+
+The polling receiver now persists processed signal IDs locally so a restart does
+not re-ack the same signal by default.
 
 ## Local Sub-Director Behavior
 
@@ -114,6 +134,17 @@ authority.
 ## Remaining Gaps
 
 1. certificate or attestation-backed runtime trust is not implemented yet
-2. receiver-side persistent state is still memory-only
+2. receiver-side persistence is local-file based, not yet multi-runtime shared
 3. local continuity dispatch should eventually feed a broader node-health and
    agent-state export back to TNF Central
+
+## Signing Key Rotation
+
+1. generate the next central signing key pair on the private control-plane side
+2. update the private Master Clock deployment with the new private key and
+   public key
+3. distribute the new public key to open-runtime through one of the trusted key
+   env/path variables
+4. restart open-runtime receiver nodes so their persisted state now records the
+   new signing-key fingerprint
+5. retire the old key once the collective has converged

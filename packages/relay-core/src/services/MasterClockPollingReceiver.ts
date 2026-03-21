@@ -3,6 +3,10 @@ import type { RegisterClockNodeRequest } from '@the-new-fuse/control-plane-contr
 import { Logger } from '../utils/Logger';
 import { MasterClockControlClient } from './MasterClockControlClient';
 import {
+  InMemoryMasterClockReceiverStateStore,
+  type MasterClockReceiverStateStore,
+} from './MasterClockReceiverStateStore';
+import {
   MasterClockSignalReceiver,
   type MasterClockReceiveResult,
 } from './MasterClockSignalReceiver';
@@ -14,6 +18,7 @@ export interface MasterClockPollingReceiverOptions {
   pollIntervalMs?: number;
   autoRegister?: boolean;
   registration?: RegisterClockNodeRequest;
+  stateStore?: MasterClockReceiverStateStore;
 }
 
 export class MasterClockPollingReceiver extends EventEmitter {
@@ -23,9 +28,9 @@ export class MasterClockPollingReceiver extends EventEmitter {
   private readonly pollIntervalMs: number;
   private readonly autoRegister: boolean;
   private readonly registration?: RegisterClockNodeRequest;
+  private readonly stateStore: MasterClockReceiverStateStore;
   private pollTimer?: NodeJS.Timeout;
   private inFlight = false;
-  private lastProcessedSignalId = '';
 
   constructor(options: MasterClockPollingReceiverOptions) {
     super();
@@ -35,6 +40,9 @@ export class MasterClockPollingReceiver extends EventEmitter {
     this.pollIntervalMs = options.pollIntervalMs ?? 15_000;
     this.autoRegister = options.autoRegister ?? true;
     this.registration = options.registration;
+    this.stateStore =
+      options.stateStore ||
+      new InMemoryMasterClockReceiverStateStore(this.receiver.getNodeId());
   }
 
   async start(): Promise<void> {
@@ -42,6 +50,13 @@ export class MasterClockPollingReceiver extends EventEmitter {
       await this.client.registerNode(this.registration);
       this.logger.info(
         `[MasterClockReceiver] Registered collective node ${this.registration.node_id}`
+      );
+    }
+
+    const state = await this.stateStore.load();
+    if (state.processedSignals.length > 0) {
+      this.logger.info(
+        `[MasterClockReceiver] Loaded ${state.processedSignals.length} persisted processed signal markers`
       );
     }
 
@@ -70,13 +85,21 @@ export class MasterClockPollingReceiver extends EventEmitter {
         return null;
       }
 
-      if (signal.payload.signal_id === this.lastProcessedSignalId) {
+      if (await this.stateStore.hasProcessed(signal.payload.signal_id)) {
+        this.logger.info(
+          `[MasterClockReceiver] Skipping already processed signal ${signal.payload.signal_id}`
+        );
         return null;
       }
 
       const result = await this.receiver.receive(signal);
       await this.client.acknowledgeSignal(result.ack);
-      this.lastProcessedSignalId = result.ack.signal_id;
+      await this.stateStore.markProcessed({
+        signalId: result.ack.signal_id,
+        pulseId: result.plaintext.pulse_id,
+        acknowledgedAt: result.ack.synchronized_at,
+        trustedSigningPublicKeyFingerprint: result.trustedSigningPublicKeyFingerprint,
+      });
       this.emit('signal_processed', result);
       return result;
     } catch (error) {

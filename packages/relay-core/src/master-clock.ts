@@ -1,9 +1,12 @@
 #!/usr/bin/env node
 
+import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
 import type { TenantScope } from '@the-new-fuse/control-plane-contracts';
 import { HeartbeatMonitoringService } from './services/HeartbeatMonitoringService';
 import { MasterClockControlClient } from './services/MasterClockControlClient';
 import { MasterClockPollingReceiver } from './services/MasterClockPollingReceiver';
+import { FileMasterClockReceiverStateStore } from './services/MasterClockReceiverStateStore';
 import {
   buildClockNodeRegistration,
   MasterClockSignalReceiver,
@@ -60,6 +63,30 @@ function readCsvEnv(name: string): string[] {
     .filter(Boolean);
 }
 
+async function readPemEnv(options: {
+  pemEnv: string;
+  pathEnv?: string;
+  required?: boolean;
+}): Promise<string | undefined> {
+  const inlineValue = String(process.env[options.pemEnv] || '').trim();
+  if (inlineValue) {
+    return inlineValue;
+  }
+
+  if (options.pathEnv) {
+    const filePath = String(process.env[options.pathEnv] || '').trim();
+    if (filePath) {
+      return readFile(resolve(filePath), 'utf8');
+    }
+  }
+
+  if (options.required) {
+    throw new Error(`${options.pemEnv}_REQUIRED`);
+  }
+
+  return undefined;
+}
+
 async function main(): Promise<void> {
   const workspaceDir = process.cwd();
   const logger = new Logger('info', workspaceDir);
@@ -67,6 +94,25 @@ async function main(): Promise<void> {
   const pollIntervalMs = readNumberEnv('MASTER_CLOCK_POLL_INTERVAL_MS', 15_000);
   const tenantScope = readTenantScopeEnv('MASTER_CLOCK_NODE_TENANT_SCOPE', 'local');
   const continuityChannels = readCsvEnv('MASTER_CLOCK_STALL_CHANNELS');
+  const trustMode = String(process.env.MASTER_CLOCK_TRUST_MODE || 'configured')
+    .trim()
+    .toLowerCase();
+  const trustedSigningPublicKeyPem =
+    (await readPemEnv({
+      pemEnv: 'MASTER_CLOCK_TRUSTED_SIGNING_PUBLIC_KEY_PEM',
+      pathEnv: 'MASTER_CLOCK_TRUSTED_SIGNING_PUBLIC_KEY_PATH',
+    })) ||
+    (await readPemEnv({
+      pemEnv: 'MASTER_CLOCK_SIGNING_PUBLIC_KEY_PEM',
+      pathEnv: 'MASTER_CLOCK_SIGNING_PUBLIC_KEY_PATH',
+    }));
+
+  if (trustMode !== 'configured' && trustMode !== 'bootstrap') {
+    throw new Error('MASTER_CLOCK_TRUST_MODE_INVALID');
+  }
+  if (trustMode === 'configured' && !trustedSigningPublicKeyPem) {
+    throw new Error('MASTER_CLOCK_TRUSTED_SIGNING_PUBLIC_KEY_PEM_REQUIRED');
+  }
 
   const heartbeatService = new HeartbeatMonitoringService(
     {
@@ -105,7 +151,7 @@ async function main(): Promise<void> {
       signingPrivateKeyPem: readRequiredEnv('MASTER_CLOCK_NODE_SIGNING_PRIVATE_KEY_PEM'),
       encryptionPrivateKeyPem: readRequiredEnv('MASTER_CLOCK_NODE_ENCRYPTION_PRIVATE_KEY_PEM'),
       trustedSigningPublicKeyPem:
-        String(process.env.MASTER_CLOCK_TRUSTED_SIGNING_PUBLIC_KEY_PEM || '').trim() || undefined,
+        trustMode === 'configured' ? trustedSigningPublicKeyPem : undefined,
       expectedMasterClockId:
         String(process.env.MASTER_CLOCK_EXPECTED_ID || '').trim() || undefined,
       metadata: continuityChannels.length ? { continuity_channels: continuityChannels } : undefined,
@@ -125,6 +171,10 @@ async function main(): Promise<void> {
     pollIntervalMs,
     autoRegister: readBooleanEnv('MASTER_CLOCK_AUTO_REGISTER', true),
     registration: buildClockNodeRegistration(receiver.getIdentity()),
+    stateStore: new FileMasterClockReceiverStateStore(
+      String(process.env.MASTER_CLOCK_RECEIVER_STATE_PATH || './data/master-clock/receiver-state.json'),
+      receiver.getNodeId()
+    ),
   });
 
   heartbeatService.start();
@@ -147,6 +197,7 @@ async function main(): Promise<void> {
       `apiBase=${apiBase}`,
       `nodeId=${receiver.getNodeId()}`,
       `pollIntervalMs=${pollIntervalMs}`,
+      `trustMode=${trustMode}`,
     ].join(' ')
   );
 

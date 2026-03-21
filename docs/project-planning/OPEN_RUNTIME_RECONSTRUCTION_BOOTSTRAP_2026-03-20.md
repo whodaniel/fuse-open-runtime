@@ -138,6 +138,8 @@ Open-runtime also now expects a private Master Clock ingress reachable through:
 
 1. `MASTER_CLOCK_API_BASE`
 2. optional `MASTER_CLOCK_CONTROL_AUTH`
+3. configured signing trust anchor via `MASTER_CLOCK_TRUSTED_SIGNING_PUBLIC_KEY_*`
+   or compatible `MASTER_CLOCK_SIGNING_PUBLIC_KEY_*`
 
 The current bootstrap private server lives in
 `whodaniel/fuse-control-plane/services/master-clock/src/server.ts`.
@@ -149,6 +151,7 @@ Open-runtime now owns only the receiver side of that contract:
 3. decrypt the node-targeted envelope,
 4. dispatch the verified pulse into local Sub-Director continuity hooks,
 5. return a signed acknowledgement.
+6. persist processed signal IDs locally to prevent replay after restart.
 
 Detailed bootstrap notes live in:
 

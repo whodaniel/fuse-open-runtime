@@ -9,6 +9,7 @@ export * from './services/HeartbeatMonitoringService';
 export * from './services/MasterAgentRegistry';
 export * from './services/MasterClockControlClient';
 export * from './services/MasterClockPollingReceiver';
+export * from './services/MasterClockReceiverStateStore';
 export * from './services/MasterClockSignalReceiver';
 export * from './services/RelayRuntimeSubDirector';
 export * from './transports/FileTransport';
