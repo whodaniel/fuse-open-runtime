@@ -48,6 +48,14 @@ Each sequential skill hop must preserve:
 5. orchestrator presence or lease continuity when the step creates a coordinating actor,
 6. safe coordination transport.
 
+When the hop invokes `orchestrator-agent`, the fiber should also preserve:
+
+1. heartbeat recipient registration state,
+2. conversation stall-defense registration state,
+3. lease owner and lease expiry semantics,
+4. downgrade or removal conditions for `HANDOFF`, `COMPLETE`, `ABANDON`, or
+   lease expiry.
+
 ## Orchestrator Presence Rule
 
 When a sequential bridge invokes `orchestrator-agent`, that invocation should
@@ -57,7 +65,12 @@ The bridge should preserve enough metadata for:
 
 1. local Sub-Director presence substantiation,
 2. central actor recognition,
-3. durable audit or replay of the orchestration act.
+3. durable audit or replay of the orchestration act,
+4. lease-bound heartbeat enrollment,
+5. conversation stall-defense enrollment.
+
+Invocation is therefore not only a beacon event. It is also a continuity
+enrollment event for the duration of the coordinating actor lease.
 
 ## Live Coordination Rule
 

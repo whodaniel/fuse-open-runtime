@@ -18,6 +18,7 @@ validate:
   - execution order includes explicit step_id, predecessor, successor, and correlation/workstream ids
   - schedule-bearing steps include cadence metadata or explicit immediate/manual execution mode
   - orchestrator-bearing steps emit temporal actor presence metadata with invocation and lease fields
+  - orchestrator-bearing steps declare continuity enrollment metadata for heartbeat and conversation stall-defense coverage
   - live-session coordination never requires raw tty injection when shared-thread or repo-artifact coordination is available
   - bridge lineage remains stable across skill outputs, orchestrator plan state, and execution packets
 gates:
@@ -33,6 +34,7 @@ gates:
 fail:
   - quarantine the sequence when source artifact, next target, or schedule metadata is missing
   - require presence beacon regeneration when orchestrator invocation is missing actor lifecycle metadata
+  - require continuity-enrollment regeneration when orchestrator invocation is missing heartbeat or stall-defense registration metadata
   - degrade to orchestrator review when execution would rely on unsafe raw TTY coordination
   - require bridge-contract regeneration when standardized task templates and execution packets diverge
 log:
