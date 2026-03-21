@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import type {
-  AgentHeartbeatRequest,
   RegisterAgentRequest,
   SystemHealthMetrics,
 } from '@the-new-fuse/control-plane-contracts';
@@ -36,9 +35,11 @@ export interface StagnationAlert {
 /**
  * Compatibility shim.
  *
- * The authority-bearing orchestrator service now belongs behind the private
- * control-plane API. This class preserves the existing backend module surface
- * while delegating public interactions through OrchestratorClient.
+ * The open runtime no longer provides a real orchestrator service layer.
+ * Public HTTP routes now depend directly on `OrchestratorClient`.
+ *
+ * This file remains only to preserve import compatibility for code that still
+ * expects these symbols from `orchestrator.service`.
  */
 @Injectable()
 export class HeartbeatMonitoringService {
@@ -71,16 +72,14 @@ export class HeartbeatMonitoringService {
 }
 
 export class OrchestratorService extends OrchestratorClient {
-  private readonly heartbeatService = new HeartbeatMonitoringService();
-
   getHeartbeatService(): HeartbeatMonitoringService {
-    return this.heartbeatService;
+    return new HeartbeatMonitoringService();
   }
 
   async registerAgent(
     input: string | RegisterAgentRequest,
     expectedResponseTime?: number
-  ): Promise<any> {
+  ): Promise<unknown> {
     const dto =
       typeof input === 'string'
         ? ({ agentId: input, expectedResponseTimeMs: expectedResponseTime } as RegisterAgentRequest)
@@ -88,14 +87,7 @@ export class OrchestratorService extends OrchestratorClient {
     return super.registerAgent(dto);
   }
 
-  async recordAgentHeartbeat(input: string | AgentHeartbeatRequest, taskId?: string): Promise<any> {
-    const dto =
-      typeof input === 'string' ? ({ agentId: input, taskId } as AgentHeartbeatRequest) : input;
-    return super.recordAgentHeartbeat(dto);
-  }
-
   async getSystemHealth(): Promise<SystemHealthMetrics | null> {
-    const health = await super.getSystemHealth();
-    return health.metrics;
+    return (await super.getSystemHealth()).metrics;
   }
 }

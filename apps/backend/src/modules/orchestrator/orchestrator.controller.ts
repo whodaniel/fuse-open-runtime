@@ -31,7 +31,7 @@ import type {
   RegisterAgentResponse,
   TnfStatusResponse,
 } from '@the-new-fuse/control-plane-contracts';
-import { OrchestratorService } from './orchestrator.service';
+import { OrchestratorClient } from './orchestrator.client';
 
 interface ActivityDto {
   agentId: string;
@@ -45,7 +45,7 @@ export class OrchestratorController {
   private readonly logger = new Logger('OrchestratorController');
 
   constructor(
-    private readonly orchestratorService: OrchestratorService,
+    private readonly orchestratorClient: OrchestratorClient,
     private readonly configService: ConfigService
   ) {}
 
@@ -53,17 +53,7 @@ export class OrchestratorController {
   @ApiOperation({ summary: 'Get system health and agent metrics' })
   @ApiResponse({ status: 200, description: 'System health metrics' })
   async getSystemHealth(): Promise<OrchestratorHealthResponse> {
-    const health = await this.orchestratorService.getSystemHealth();
-    return {
-      status: 'operational',
-      timestamp: new Date().toISOString(),
-      metrics: health || {
-        totalAgents: 0,
-        activeAgents: 0,
-        stalledAgents: 0,
-        failedAgents: 0,
-      },
-    };
+    return this.orchestratorClient.getSystemHealth();
   }
 
   @Post('register')
@@ -73,7 +63,7 @@ export class OrchestratorController {
   async registerAgent(@Body() dto: RegisterAgentRequest): Promise<RegisterAgentResponse> {
     this.logger.log(`📝 Registering agent: ${dto.agentId} (${dto.agentName || 'unnamed'})`);
 
-    return this.orchestratorService.registerAgent(dto);
+    return this.orchestratorClient.registerAgent(dto);
   }
 
   @Post('heartbeat')
@@ -83,21 +73,21 @@ export class OrchestratorController {
   async recordHeartbeat(
     @Body() dto: AgentHeartbeatRequest
   ): Promise<{ success: boolean; received: string }> {
-    return this.orchestratorService.recordAgentHeartbeat(dto);
+    return this.orchestratorClient.recordAgentHeartbeat(dto);
   }
 
   @Get('agents')
   @ApiOperation({ summary: 'Get all registered agents and their status' })
   @ApiResponse({ status: 200, description: 'List of all agents' })
   async getAllAgents(): Promise<AgentListResponse> {
-    return this.orchestratorService.getAllAgents();
+    return this.orchestratorClient.getAllAgents();
   }
 
   @Get('agents/:agentId')
   @ApiOperation({ summary: 'Get status of a specific agent' })
   @ApiResponse({ status: 200, description: 'Agent status' })
   async getAgentStatus(@Param('agentId') agentId: string): Promise<AgentStatusResponse> {
-    return this.orchestratorService.getAgentStatus(agentId);
+    return this.orchestratorClient.getAgentStatus(agentId);
   }
 
   @Post('execute')
@@ -124,7 +114,7 @@ export class OrchestratorController {
       throw new BadRequestException('MESSAGE_TEXT_REQUIRED');
     }
 
-    const result = await this.orchestratorService.executeGatewayPrompt({
+    const result = await this.orchestratorClient.executeGatewayPrompt({
       requestId: dto.requestId,
       idempotencyKey: dto.idempotencyKey,
       sessionId: dto.sessionId,
@@ -145,6 +135,6 @@ export class OrchestratorController {
   @ApiOperation({ summary: 'Get TNF Core Agent status (The New Fuse as Master Agent)' })
   @ApiResponse({ status: 200, description: 'TNF Core status' })
   async getTNFStatus(): Promise<TnfStatusResponse> {
-    return this.orchestratorService.getTNFStatus();
+    return this.orchestratorClient.getTNFStatus();
   }
 }

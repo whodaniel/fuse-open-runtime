@@ -111,10 +111,14 @@ as the design input for this split:
 1. `apps/backend/src/modules/orchestrator` controller + client boundary
 2. contract-based DTOs for orchestrator health, agents, registration, and execute
 3. open-runtime no longer carries `AgentLifecycleManager`
+4. open-runtime controller routes now depend directly on `OrchestratorClient`
 
 The Redis-backed lifecycle manager, onboarding flow, and failure-recovery logic
 belong in the private control-plane orchestrator package rather than the public
 backend facade.
+
+`orchestrator.service.ts` remains only as a compatibility shim for old imports;
+it is no longer part of the runtime authority path.
 
 ## Confirmed Public Runtime Surfaces
 
