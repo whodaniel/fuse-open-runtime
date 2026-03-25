@@ -1,0 +1,12 @@
+{
+  "skillName": "orchestrator-agent",
+  "codexPaths": [
+    "/Users/danielgoldberg/.codex/skills/imported-claude-agents/orchestrator-agent/SKILL.md"
+  ],
+  "tnfSkillPaths": [
+    ".skills/imported-claude-agents/orchestrator-agent/SKILL.md"
+  ],
+  "representedInTnfCommon": true,
+  "commonRepresentationRef": "common/codex-skill-representation/orchestrator-agent.json",
+  "status": "present"
+}

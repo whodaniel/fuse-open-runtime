@@ -1,0 +1,12 @@
+{
+  "skillName": "temporal-agent-reclassifier",
+  "codexPaths": [
+    "/Users/danielgoldberg/.codex/skills/imported-claude-agents/temporal-agent-reclassifier/SKILL.md"
+  ],
+  "tnfSkillPaths": [
+    ".skills/imported-claude-agents/temporal-agent-reclassifier/SKILL.md"
+  ],
+  "representedInTnfCommon": true,
+  "commonRepresentationRef": "common/codex-skill-representation/temporal-agent-reclassifier.json",
+  "status": "present"
+}
