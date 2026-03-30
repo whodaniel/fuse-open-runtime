@@ -168,7 +168,7 @@
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-node-polyfills": "^0.22.0",
     "vite-tsconfig-paths": "^6.0.4",
-    "vitest": "^4.1.0"
+    "vitest": "^4.1.2"
   },
   "jest": {
     "testEnvironment": "jsdom"
