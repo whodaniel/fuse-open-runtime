@@ -5160,6 +5160,9 @@ importers:
       '@the-new-fuse/infrastructure':
         specifier: workspace:*
         version: link:../infrastructure
+      '@upstash/redis':
+        specifier: ^1.37.0
+        version: 1.37.0
       chalk:
         specifier: ^5.4.1
         version: 5.6.2
