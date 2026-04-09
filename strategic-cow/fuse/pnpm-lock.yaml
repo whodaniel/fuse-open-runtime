@@ -122,8 +122,8 @@ importers:
         specifier: ^3.0.21
         version: 3.2.29(@swc/core@1.15.11(@swc/helpers@0.5.18))(encoding@0.1.13)
       axios:
-        specifier: ^1.13.5
-        version: 1.13.5
+        specifier: ^1.15.0
+        version: 1.15.0
       cheerio:
         specifier: ^1.0.0-rc.12
         version: 1.2.0
@@ -436,8 +436,8 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0(@azure/identity@4.13.0)(@babel/runtime@7.28.6)(@sentry/core@9.47.1)(bufferutil@4.1.0)(color@5.0.3)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.9.2)(react@19.2.4)(typescript@5.9.3)(utf-8-validate@5.0.10)(viem@2.45.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.6))(zod@4.3.6)
       axios:
-        specifier: ^1.13.5
-        version: 1.13.5
+        specifier: ^1.15.0
+        version: 1.15.0
       bcrypt:
         specifier: ^6.0.0
         version: 6.0.0
@@ -573,7 +573,7 @@ importers:
     dependencies:
       '@nestjs/axios':
         specifier: ^4.0.1
-        version: 4.0.1(@nestjs/common@11.1.18(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.13.5)(rxjs@7.8.2)
+        version: 4.0.1(@nestjs/common@11.1.18(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.0)(rxjs@7.8.2)
       '@nestjs/config':
         specifier: ^4.0.3
         version: 4.0.3(@nestjs/common@11.1.18(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2)
@@ -599,8 +599,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/types
       axios:
-        specifier: ^1.13.5
-        version: 1.13.5
+        specifier: ^1.15.0
+        version: 1.15.0
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -744,8 +744,8 @@ importers:
         specifier: ^6.0.2
         version: 6.0.2(@nestjs/common@11.1.13(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(prom-client@15.1.3)
       axios:
-        specifier: ^1.13.5
-        version: 1.13.5
+        specifier: ^1.15.0
+        version: 1.15.0
       bcrypt:
         specifier: 6.0.0
         version: 6.0.0
@@ -1161,8 +1161,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/types
       axios:
-        specifier: ^1.13.5
-        version: 1.13.5
+        specifier: ^1.15.0
+        version: 1.15.0
       electron:
         specifier: '>=35.7.5'
         version: 40.4.1
@@ -1300,8 +1300,8 @@ importers:
         specifier: ^0.183.1
         version: 0.183.1
       axios:
-        specifier: ^1.13.5
-        version: 1.13.5
+        specifier: ^1.15.0
+        version: 1.15.0
       change-case:
         specifier: 5.4.4
         version: 5.4.4
@@ -1595,8 +1595,8 @@ importers:
         specifier: ^1.26.0
         version: 1.26.0(zod@3.25.76)
       axios:
-        specifier: ^1.13.5
-        version: 1.13.5
+        specifier: ^1.15.0
+        version: 1.15.0
       dotenv:
         specifier: ^16.4.7
         version: 16.6.1
@@ -1748,8 +1748,8 @@ importers:
         specifier: ^0.181.0
         version: 0.181.0
       axios:
-        specifier: ^1.13.5
-        version: 1.13.5
+        specifier: ^1.15.0
+        version: 1.15.0
       change-case:
         specifier: 5.4.4
         version: 5.4.4
@@ -2394,7 +2394,7 @@ importers:
     dependencies:
       '@nestjs/axios':
         specifier: ^4.0.1
-        version: 4.0.1(@nestjs/common@11.1.13(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.13.5)(rxjs@7.8.2)
+        version: 4.0.1(@nestjs/common@11.1.13(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.0)(rxjs@7.8.2)
       '@nestjs/common':
         specifier: ^11.1.10
         version: 11.1.13(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -2402,8 +2402,8 @@ importers:
         specifier: ^4.0.2
         version: 4.0.2(@nestjs/common@11.1.13(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2)
       axios:
-        specifier: ^1.13.5
-        version: 1.13.5
+        specifier: ^1.15.0
+        version: 1.15.0
       zod:
         specifier: ^4.1.12
         version: 4.3.6
@@ -2596,8 +2596,8 @@ importers:
         specifier: workspace:*
         version: link:../types
       axios:
-        specifier: ^1.13.5
-        version: 1.13.5
+        specifier: ^1.15.0
+        version: 1.15.0
       qs:
         specifier: ^6.14.1
         version: 6.14.2
@@ -3233,8 +3233,8 @@ importers:
         specifier: workspace:*
         version: link:../types
       axios:
-        specifier: ^1.13.5
-        version: 1.13.5
+        specifier: ^1.15.0
+        version: 1.15.0
       node-cron:
         specifier: ^4.2.1
         version: 4.2.1
@@ -3820,8 +3820,8 @@ importers:
         specifier: workspace:*
         version: link:../types
       axios:
-        specifier: ^1.13.5
-        version: 1.13.5
+        specifier: ^1.15.0
+        version: 1.15.0
       ioredis:
         specifier: ^5.3.2
         version: 5.9.2
@@ -4005,8 +4005,8 @@ importers:
         specifier: workspace:*
         version: link:../utils
       axios:
-        specifier: ^1.13.5
-        version: 1.13.5
+        specifier: ^1.15.0
+        version: 1.15.0
       fs-extra:
         specifier: ^11.2.0
         version: 11.3.3
@@ -4066,8 +4066,8 @@ importers:
         specifier: workspace:*
         version: link:../utils
       axios:
-        specifier: ^1.13.5
-        version: 1.13.5
+        specifier: ^1.15.0
+        version: 1.15.0
       node-port-check:
         specifier: ^2.0.1
         version: 2.0.1
@@ -4953,8 +4953,8 @@ importers:
         specifier: workspace:^
         version: link:../utils
       axios:
-        specifier: ^1.13.5
-        version: 1.13.5
+        specifier: ^1.15.0
+        version: 1.15.0
       cheerio:
         specifier: ^1.0.0-rc.12
         version: 1.2.0
@@ -13314,9 +13314,6 @@ packages:
   axe-core@4.11.1:
     resolution: {integrity: sha512-BASOg+YwO2C+346x3LZOeoovTIoTrRqEsqMa6fmfAV0P+U9mFr9NsyOEpiYvFjbc64NMrSswhV50WdXzdb/Z5A==}
     engines: {node: '>=4'}
-
-  axios@1.13.5:
-    resolution: {integrity: sha512-cz4ur7Vb0xS4/KUN0tPWe44eqxrIu31me+fbang3ijiNscE129POzipJJA6zniq2C/Z6sJCjMimjS8Lc/GAs8Q==}
 
   axios@1.15.0:
     resolution: {integrity: sha512-wWyJDlAatxk30ZJer+GeCWS209sA42X+N5jU2jy6oHTp7ufw8uzUTVFBX9+wTfAlhiJXGS0Bq7X6efruWjuK9Q==}
@@ -27089,22 +27086,10 @@ snapshots:
     optionalDependencies:
       '@as-integrations/express5': 1.1.2(@apollo/server@5.4.0(graphql@16.12.0))(express@5.2.1)
 
-  '@nestjs/axios@4.0.1(@nestjs/common@11.1.13(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.13.5)(rxjs@7.8.2)':
-    dependencies:
-      '@nestjs/common': 11.1.13(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      axios: 1.13.5
-      rxjs: 7.8.2
-
   '@nestjs/axios@4.0.1(@nestjs/common@11.1.13(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.0)(rxjs@7.8.2)':
     dependencies:
       '@nestjs/common': 11.1.13(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       axios: 1.15.0
-      rxjs: 7.8.2
-
-  '@nestjs/axios@4.0.1(@nestjs/common@11.1.18(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.13.5)(rxjs@7.8.2)':
-    dependencies:
-      '@nestjs/common': 11.1.18(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      axios: 1.13.5
       rxjs: 7.8.2
 
   '@nestjs/axios@4.0.1(@nestjs/common@11.1.18(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.0)(rxjs@7.8.2)':
@@ -34387,14 +34372,6 @@ snapshots:
 
   axe-core@4.11.1: {}
 
-  axios@1.13.5:
-    dependencies:
-      follow-redirects: 1.15.11(debug@4.4.3)
-      form-data: 4.0.5
-      proxy-from-env: 1.1.0
-    transitivePeerDependencies:
-      - debug
-
   axios@1.15.0:
     dependencies:
       follow-redirects: 1.15.11(debug@4.4.3)
@@ -38493,7 +38470,7 @@ snapshots:
       '@ethersproject/bytes': 5.8.0
       '@ethersproject/units': 5.8.0
       '@solidity-parser/parser': 0.20.2
-      axios: 1.13.5
+      axios: 1.15.0
       brotli-wasm: 2.0.1
       chalk: 4.1.2
       cli-table3: 0.6.5
@@ -46652,7 +46629,7 @@ snapshots:
 
   wait-on@9.0.4:
     dependencies:
-      axios: 1.13.5
+      axios: 1.15.0
       joi: 18.0.2
       lodash: 4.17.23
       minimist: 1.2.8
