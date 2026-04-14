@@ -59,6 +59,7 @@
     "drizzle-orm": "^0.38.4",
     "express": "^5.2.1",
     "express-session": "^1.18.2",
+    "glob": "^11.1.0",
     "graphql": "^16.8.1",
     "helmet": "^8.0.0",
     "ioredis": "^5.9.2",
