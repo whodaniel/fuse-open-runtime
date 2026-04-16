@@ -4890,15 +4890,18 @@ importers:
       '@the-new-fuse/types':
         specifier: workspace:*
         version: link:../types
+      '@upstash/redis':
+        specifier: ^1.37.0
+        version: 1.37.0
+      ioredis:
+        specifier: ^5.8.1
+        version: 5.9.3
       react:
         specifier: 19.0.0
         version: 19.0.0
       react-hot-toast:
         specifier: ^2.4.1
         version: 2.6.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      redis:
-        specifier: ^5.11.0
-        version: 5.12.1(@opentelemetry/api@1.9.1)
     devDependencies:
       '@types/jest':
         specifier: ^30.0.0
