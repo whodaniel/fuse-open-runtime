@@ -147,7 +147,7 @@
     "tailwindcss": "^4.1.14",
     "ts-jest": "^29.4.9",
     "ts-node": "^10.9.2",
-    "typescript": "^6.0.2",
+    "typescript": "^6.0.3",
     "vite": "^7.1.12",
     "vite-plugin-compression": "^0.5.1",
     "vite-tsconfig-paths": "^6.0.4",

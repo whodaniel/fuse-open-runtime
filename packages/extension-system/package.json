@@ -84,7 +84,7 @@
     "minimatch": "10.2.4",
     "rimraf": "^6.0.1",
     "ts-jest": "^29.4.9",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.3"
   },
   "peerDependencies": {
     "@the-new-fuse/relay-core": "workspace:*"

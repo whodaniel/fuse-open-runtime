@@ -82,7 +82,7 @@
     "jest": "30.3.0",
     "jest-mock-extended": "^4.0.0",
     "ts-jest": "29.4.9",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.3"
   },
   "peerDependencies": {
     "@nestjs/common": "^11.0.0",
