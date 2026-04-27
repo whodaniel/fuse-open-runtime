@@ -80,7 +80,7 @@
     "@typescript-eslint/parser": "^8.57.1",
     "eslint": "^9.38.0",
     "jest": "30.3.0",
-    "jest-mock-extended": "^4.0.0",
+    "jest-mock-extended": "^4.0.1",
     "ts-jest": "29.4.9",
     "typescript": "^6.0.2"
   },
