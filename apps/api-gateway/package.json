@@ -38,7 +38,7 @@
     "@the-new-fuse/relay-core": "workspace:*",
     "@the-new-fuse/types": "workspace:*",
     "@types/jest": "^30.0.0",
-    "axios": "^1.13.5",
+    "axios": "^1.15.2",
     "bcrypt": "^6.0.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.15.1",
