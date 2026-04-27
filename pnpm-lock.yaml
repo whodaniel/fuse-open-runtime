@@ -1606,7 +1606,7 @@ importers:
         version: 5.2.0(vite@7.3.2(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
       '@vitest/coverage-v8':
         specifier: latest
-        version: 4.1.4(vitest@4.1.4)
+        version: 4.1.5(vitest@4.1.4)
       '@vitest/ui':
         specifier: ^4.1.0
         version: 4.1.4(vitest@4.1.4)
@@ -1672,7 +1672,7 @@ importers:
         version: 6.1.1(typescript@5.9.3)(vite@7.3.2(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
       vitest:
         specifier: ^4.1.0
-        version: 4.1.4(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.1)(@types/node@25.6.0)(@vitest/coverage-v8@4.1.4)(@vitest/ui@4.1.4)(jsdom@27.4.0(@noble/hashes@2.2.0)(bufferutil@4.1.0)(canvas@3.2.3)(utf-8-validate@6.0.6))(vite@7.3.2(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
+        version: 4.1.4(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.1)(@types/node@25.6.0)(@vitest/coverage-v8@4.1.5)(@vitest/ui@4.1.4)(jsdom@27.4.0(@noble/hashes@2.2.0)(bufferutil@4.1.0)(canvas@3.2.3)(utf-8-validate@6.0.6))(vite@7.3.2(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
 
   apps/gemini-bridge-extension:
     dependencies:
@@ -1843,94 +1843,6 @@ importers:
         version: 20.19.39
       typescript:
         specifier: ^5.9.3
-        version: 5.9.3
-
-  apps/nexus-orchestrator:
-    dependencies:
-      '@google/genai':
-        specifier: ^1.29.0
-        version: 1.50.1(@modelcontextprotocol/sdk@1.29.0(zod@4.3.6))(bufferutil@4.1.0)(utf-8-validate@6.0.6)
-      '@react-three/drei':
-        specifier: ^10.7.7
-        version: 10.7.7(@react-three/fiber@9.6.0(@types/react@19.2.14)(immer@11.1.4)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(three@0.183.2))(@types/react@19.2.14)(@types/three@0.183.1)(immer@11.1.4)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(three@0.183.2)
-      '@react-three/fiber':
-        specifier: ^9.5.0
-        version: 9.6.0(@types/react@19.2.14)(immer@11.1.4)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(three@0.183.2)
-      '@tailwindcss/vite':
-        specifier: ^4.1.14
-        version: 4.2.2(vite@8.0.8(@types/node@22.19.17)(esbuild@0.27.7)(jiti@2.6.1)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
-      '@types/dompurify':
-        specifier: ^3.2.0
-        version: 3.2.0
-      '@vitejs/plugin-react':
-        specifier: ^5.0.4
-        version: 5.2.0(vite@8.0.8(@types/node@22.19.17)(esbuild@0.27.7)(jiti@2.6.1)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
-      better-sqlite3:
-        specifier: ^12.4.1
-        version: 12.9.0
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
-      dompurify:
-        specifier: ^3.3.2
-        version: 3.4.0
-      dotenv:
-        specifier: ^17.2.3
-        version: 17.4.2
-      express:
-        specifier: ^4.21.2
-        version: 4.22.1
-      lucide-react:
-        specifier: ^0.546.0
-        version: 0.546.0(react@19.0.0)
-      motion:
-        specifier: ^12.23.24
-        version: 12.38.0(@emotion/is-prop-valid@1.4.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      react:
-        specifier: 19.0.0
-        version: 19.0.0
-      react-dom:
-        specifier: 19.0.0
-        version: 19.0.0(react@19.0.0)
-      tailwind-merge:
-        specifier: ^3.5.0
-        version: 3.5.0
-      three:
-        specifier: ^0.183.2
-        version: 0.183.2
-      uuid:
-        specifier: ^13.0.0
-        version: 13.0.0
-      vite:
-        specifier: '>=7.1.11'
-        version: 8.0.8(@types/node@22.19.17)(esbuild@0.27.7)(jiti@2.6.1)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3)
-      zustand:
-        specifier: 4.5.5
-        version: 4.5.5(@types/react@19.2.14)(immer@11.1.4)(react@19.0.0)
-    devDependencies:
-      '@types/express':
-        specifier: ^4.17.21
-        version: 4.17.25
-      '@types/node':
-        specifier: ^22.14.0
-        version: 22.19.17
-      '@types/three':
-        specifier: ^0.183.1
-        version: 0.183.1
-      '@types/uuid':
-        specifier: ^10.0.0
-        version: 10.0.0
-      autoprefixer:
-        specifier: ^10.4.21
-        version: 10.5.0(postcss@8.5.9)
-      tailwindcss:
-        specifier: ^4.1.14
-        version: 4.2.2
-      tsx:
-        specifier: ^4.21.0
-        version: 4.21.0
-      typescript:
-        specifier: ~5.9.3
         version: 5.9.3
 
   apps/poker-room:
@@ -2328,7 +2240,7 @@ importers:
         version: 4.3.0(@swc/helpers@0.5.21)(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
       '@vitest/coverage-v8':
         specifier: latest
-        version: 4.1.4(vitest@4.1.4)
+        version: 4.1.5(vitest@4.1.4)
       '@vitest/ui':
         specifier: ^4.1.0
         version: 4.1.4(vitest@4.1.4)
@@ -2388,7 +2300,7 @@ importers:
         version: 6.1.1(typescript@6.0.2)(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
       vitest:
         specifier: ^4.1.0
-        version: 4.1.4(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.1)(@types/node@24.12.2)(@vitest/coverage-v8@4.1.4)(@vitest/ui@4.1.4)(jsdom@27.4.0(@noble/hashes@2.2.0)(bufferutil@4.1.0)(canvas@3.2.3)(utf-8-validate@6.0.6))(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
+        version: 4.1.4(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.1)(@types/node@24.12.2)(@vitest/coverage-v8@4.1.5)(@vitest/ui@4.1.4)(jsdom@27.4.0(@noble/hashes@2.2.0)(bufferutil@4.1.0)(canvas@3.2.3)(utf-8-validate@6.0.6))(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
 
   apps/telegram-mcp:
     dependencies:
@@ -2731,61 +2643,6 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
 
-  packages/agent-coordination:
-    dependencies:
-      '@nestjs/common':
-        specifier: ^11.1.16
-        version: 11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      '@nestjs/config':
-        specifier: ^4.0.2
-        version: 4.0.3(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2)
-      '@the-new-fuse/a2a-core':
-        specifier: workspace:^
-        version: link:../a2a-core
-      '@the-new-fuse/infrastructure':
-        specifier: workspace:*
-        version: link:../infrastructure
-      bullmq:
-        specifier: ^5.34.2
-        version: 5.74.1
-      ioredis:
-        specifier: ^5.8.1
-        version: 5.9.3
-      msgpack-lite:
-        specifier: ^0.1.26
-        version: 0.1.26
-      rxjs:
-        specifier: ^7.8.2
-        version: 7.8.2
-      uuid:
-        specifier: ^13.0.0
-        version: 13.0.0
-      zod:
-        specifier: ^4.1.12
-        version: 4.3.6
-    devDependencies:
-      '@types/jest':
-        specifier: ^30.0.0
-        version: 30.0.0
-      '@types/msgpack-lite':
-        specifier: ^0.1.11
-        version: 0.1.12
-      '@types/node':
-        specifier: ^24.8.1
-        version: 24.12.2
-      '@types/uuid':
-        specifier: ^11.0.0
-        version: 11.0.0
-      jest:
-        specifier: ^30.3.0
-        version: 30.3.0(@types/node@24.12.2)(babel-plugin-macros@3.1.0)
-      ts-jest:
-        specifier: ^29.4.6
-        version: 29.4.9(@babel/core@7.29.0)(@jest/transform@30.3.0)(@jest/types@30.3.0)(babel-jest@30.3.0(@babel/core@7.29.0))(esbuild@0.27.7)(jest-util@30.3.0)(jest@30.3.0(@types/node@24.12.2)(babel-plugin-macros@3.1.0))(typescript@5.9.3)
-      typescript:
-        specifier: ^5.9.3
-        version: 5.9.3
-
   packages/ap2-protocol:
     dependencies:
       '@nestjs/axios':
@@ -2833,7 +2690,7 @@ importers:
         version: 20.3.6(chokidar@4.0.3)
       '@nestjs/axios':
         specifier: ^4.0.1
-        version: 4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.0)(rxjs@7.8.2)
+        version: 4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.2)(rxjs@7.8.2)
       '@nestjs/common':
         specifier: ^11.1.16
         version: 11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -2863,7 +2720,7 @@ importers:
         version: 11.2.6(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)
       '@nestjs/terminus':
         specifier: ^11.0.0
-        version: 11.1.1(@grpc/grpc-js@1.14.3)(@grpc/proto-loader@0.8.0)(@nestjs/axios@4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.0)(rxjs@7.8.2))(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/microservices@11.1.19)(@nestjs/mongoose@11.0.4(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(mongoose@8.23.0(socks@2.8.7))(rxjs@7.8.2))(mongoose@8.23.0(socks@2.8.7))(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.28(babel-plugin-macros@3.1.0)(better-sqlite3@12.9.0)(ioredis@5.10.1)(mongodb@6.21.0(socks@2.8.7))(mysql2@3.22.0(@types/node@24.12.2))(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.1))(ts-node@10.9.2(@swc/core@1.15.26(@swc/helpers@0.5.21))(@types/node@24.12.2)(typescript@6.0.2)))
+        version: 11.1.1(@grpc/grpc-js@1.14.3)(@grpc/proto-loader@0.8.0)(@nestjs/axios@4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.2)(rxjs@7.8.2))(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/microservices@11.1.19)(@nestjs/mongoose@11.0.4(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(mongoose@8.23.0(socks@2.8.7))(rxjs@7.8.2))(mongoose@8.23.0(socks@2.8.7))(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.28(babel-plugin-macros@3.1.0)(better-sqlite3@12.9.0)(ioredis@5.10.1)(mongodb@6.21.0(socks@2.8.7))(mysql2@3.22.0(@types/node@24.12.2))(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.1))(ts-node@10.9.2(@swc/core@1.15.26(@swc/helpers@0.5.21))(@types/node@24.12.2)(typescript@6.0.2)))
       '@nestjs/throttler':
         specifier: ^6.5.0
         version: 6.5.0(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(reflect-metadata@0.2.2)
@@ -3126,7 +2983,7 @@ importers:
     dependencies:
       '@nestjs/axios':
         specifier: ^4.0.1
-        version: 4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.0)(rxjs@7.8.2)
+        version: 4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.2)(rxjs@7.8.2)
       '@nestjs/event-emitter':
         specifier: ^3.0.1
         version: 3.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)
@@ -3308,7 +3165,7 @@ importers:
         version: 0.21.0
       '@nestjs/axios':
         specifier: ^4.0.1
-        version: 4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.0)(rxjs@7.8.2)
+        version: 4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.2)(rxjs@7.8.2)
       '@nestjs/cache-manager':
         specifier: ^3.1.0
         version: 3.1.0(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(cache-manager@7.2.8)(keyv@5.6.0)(rxjs@7.8.2)
@@ -3329,7 +3186,7 @@ importers:
         version: 4.1.2(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)
       '@nestjs/terminus':
         specifier: ^11.1.1
-        version: 11.1.1(@grpc/grpc-js@1.14.3)(@grpc/proto-loader@0.8.0)(@nestjs/axios@4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.0)(rxjs@7.8.2))(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/microservices@11.1.19)(@nestjs/mongoose@11.0.4(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(mongoose@8.23.0(socks@2.8.7))(rxjs@7.8.2))(mongoose@8.23.0(socks@2.8.7))(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.28(babel-plugin-macros@3.1.0)(better-sqlite3@12.9.0)(ioredis@5.9.3)(mongodb@6.21.0(socks@2.8.7))(mysql2@3.22.0(@types/node@24.12.2))(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.1))(ts-node@10.9.2(@swc/core@1.15.26(@swc/helpers@0.5.21))(@types/node@24.12.2)(typescript@6.0.2)))
+        version: 11.1.1(@grpc/grpc-js@1.14.3)(@grpc/proto-loader@0.8.0)(@nestjs/axios@4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.2)(rxjs@7.8.2))(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/microservices@11.1.19)(@nestjs/mongoose@11.0.4(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(mongoose@8.23.0(socks@2.8.7))(rxjs@7.8.2))(mongoose@8.23.0(socks@2.8.7))(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.28(babel-plugin-macros@3.1.0)(better-sqlite3@12.9.0)(ioredis@5.9.3)(mongodb@6.21.0(socks@2.8.7))(mysql2@3.22.0(@types/node@24.12.2))(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.1))(ts-node@10.9.2(@swc/core@1.15.26(@swc/helpers@0.5.21))(@types/node@24.12.2)(typescript@6.0.2)))
       '@the-new-fuse/core-vector-db':
         specifier: workspace:*
         version: link:../core-vector-db
@@ -5425,10 +5282,10 @@ importers:
     dependencies:
       '@mui/icons-material':
         specifier: ^7.3.4
-        version: 7.3.10(@mui/material@7.3.10(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@types/react@19.2.14)(react@19.0.0)
+        version: 7.3.10(@mui/material@9.0.0(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@types/react@19.2.14)(react@19.0.0)
       '@mui/material':
-        specifier: ^7.3.4
-        version: 7.3.10(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: ^9.0.0
+        version: 9.0.0(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@nestjs/common':
         specifier: ^11.1.16
         version: 11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -7889,15 +7746,6 @@ packages:
     resolution: {integrity: sha512-n2FjE7NAOYyshogdc7KQOl/VZb4sneqPjWouSyia9CMDdMhRX5+RIbqalNmC7LOLzuLAN89VlF2HvG8na9G+zQ==}
     engines: {node: '>=14'}
 
-  '@google/genai@1.50.1':
-    resolution: {integrity: sha512-YbkX7H9+1Pt8wOt7DDREy8XSoiL6fRDzZQRyaVBarFf8MR3zHGqVdvM4cLbDXqPhxqvegZShgfxb8kw9C7YhAQ==}
-    engines: {node: '>=20.0.0'}
-    peerDependencies:
-      '@modelcontextprotocol/sdk': '>=1.26.0'
-    peerDependenciesMeta:
-      '@modelcontextprotocol/sdk':
-        optional: true
-
   '@google/generative-ai@0.21.0':
     resolution: {integrity: sha512-7XhUbtnlkSEZK15kN3t+tzIMxsbKm/dSkKBFalj+20NvPKe1kBY7mR2P7vuijEn+f06z5+A8bVGKO0v39cr6Wg==}
     engines: {node: '>=18.0.0'}
@@ -8812,8 +8660,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@mui/core-downloads-tracker@7.3.10':
-    resolution: {integrity: sha512-vrOpWRmPJSuwLo23J62wggEm/jvGdzqctej+UOCtgDUz6nZJQuj3ByPccVyaa7eQmwAzUwKN56FQPMKkqbj1GA==}
+  '@mui/core-downloads-tracker@9.0.0':
+    resolution: {integrity: sha512-uwQNGkhv0lf7ufxw6QXev77BW6pWbW+7uxYjU5+rfp4lBkFtMEgJCsarTM3Tn+i0lGx6+Ol2u88JdGXr0GDskA==}
 
   '@mui/icons-material@7.3.10':
     resolution: {integrity: sha512-Au0ma4NSKGKNiimukj8UT/W1x2Qx6Qwn2RvFGykiSqVLYBNlIOPbjnIMvrwLGLu89EEpTVdu/ys/OduZR+tWqw==}
@@ -8826,13 +8674,13 @@ packages:
       '@types/react':
         optional: true
 
-  '@mui/material@7.3.10':
-    resolution: {integrity: sha512-cHvGOk2ZEfbQt3LnGe0ZKd/ETs9gsUpkW66DCO+GSjMZhpdKU4XsuIr7zJ/B/2XaN8ihxuzHfYAR4zPtCN4RYg==}
+  '@mui/material@9.0.0':
+    resolution: {integrity: sha512-+VP/oQCDhDR87NQQgXnNBG8dwy6GNuQLnenS1pZvkbn2dKFSxRSRMybTpH9xUxXP+316mlYDy5CSbYtusnCWtw==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       '@emotion/react': ^11.5.0
       '@emotion/styled': ^11.3.0
-      '@mui/material-pigment-css': ^7.3.10
+      '@mui/material-pigment-css': ^9.0.0
       '@types/react': ^17.0.0 || ^18.0.0 || ^19.0.0
       react: 19.0.0
       react-dom: 19.0.0
@@ -8846,8 +8694,8 @@ packages:
       '@types/react':
         optional: true
 
-  '@mui/private-theming@7.3.10':
-    resolution: {integrity: sha512-j3EZN+zOctxUISvJSmsEPo5o2F8zse4l5vRkBY+ps6UtnL6J7o14kUaI4w7gwo73id9e3cDNMVQK/9BVaMHVBw==}
+  '@mui/private-theming@9.0.0':
+    resolution: {integrity: sha512-JtuZoaiCqwD6vjgYu6Xp3T7DZkrxJlgtDz5yESzhI34fEX5hHMh2VJUbuL9UOg8xrfIFMrq6dcYoH/7Zi4G0RA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       '@types/react': ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -8856,8 +8704,8 @@ packages:
       '@types/react':
         optional: true
 
-  '@mui/styled-engine@7.3.10':
-    resolution: {integrity: sha512-WxE9SiF8xskAQqGjsp0poXCkCqsoXFEsSr0HBXfApmGHR+DBnXRp+z46Vsltg4gpPM4Z96DeAQRpeAOnhNg7Ng==}
+  '@mui/styled-engine@9.0.0':
+    resolution: {integrity: sha512-9RLGdX4Jg0aQPRuvqh/OLzYSPlgd5zyEw5/1HIRfdavSiOd03WtUaGZH9/w1RoTYuRKwpgy0hpIFaMHIqPVIWg==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       '@emotion/react': ^11.4.1
@@ -8869,8 +8717,8 @@ packages:
       '@emotion/styled':
         optional: true
 
-  '@mui/system@7.3.10':
-    resolution: {integrity: sha512-/sfPpdpJaQn7BSF+avjIdHSYmxHp0UOBYNxSG9QGKfMOD6sLANCpRPCnanq1Pe0lFf0NHkO2iUk0TNzdWC1USQ==}
+  '@mui/system@9.0.0':
+    resolution: {integrity: sha512-YnC5Zg6j04IxiLc/boAKs0464jfZlLFVa7mf5E8lF0XOtZVUvG6R6gJK50lgUYdaaLdyLfxF6xR7LaPuEpeT/g==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       '@emotion/react': ^11.5.0
@@ -8885,16 +8733,16 @@ packages:
       '@types/react':
         optional: true
 
-  '@mui/types@7.4.12':
-    resolution: {integrity: sha512-iKNAF2u9PzSIj40CjvKJWxFXJo122jXVdrmdh0hMYd+FR+NuJMkr/L88XwWLCRiJ5P1j+uyac25+Kp6YC4hu6w==}
+  '@mui/types@9.0.0':
+    resolution: {integrity: sha512-i1cuFCAWN44b3AJWO7mh7tuh1sqbQSeVr/94oG0TX5uXivac8XalgE4/6fQZcmGZigzbQ35IXxj/4jLpRIBYZg==}
     peerDependencies:
       '@types/react': ^17.0.0 || ^18.0.0 || ^19.0.0
     peerDependenciesMeta:
       '@types/react':
         optional: true
 
-  '@mui/utils@7.3.10':
-    resolution: {integrity: sha512-7y2eIfy0h7JPz+Yy4pS+wgV68d46PuuxDqKBN4Q8VlPQSsCAGwroMCV6xWyc7g9dvEp8ZNFsknc59GHWO+r6Ow==}
+  '@mui/utils@9.0.0':
+    resolution: {integrity: sha512-bQcqyg/gjULUqTuyUjSAFr6LQGLvtkNtDbJerAtoUn9kGZ0hg5QJiN1PLHMLbeFpe3te1831uq7GFl2ITokGdg==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       '@types/react': ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -12828,9 +12676,6 @@ packages:
   '@types/ms@2.1.0':
     resolution: {integrity: sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==}
 
-  '@types/msgpack-lite@0.1.12':
-    resolution: {integrity: sha512-DzYHfFOxK1UCm3pErFyGCQzsNYjcy1chCtO5bLdvL0IbD6L0l0IZzYMHvFAmEDLJ+k6XJosY0WKKmjkOBu9gKQ==}
-
   '@types/multer@2.1.0':
     resolution: {integrity: sha512-zYZb0+nJhOHtPpGDb3vqPjwpdeGlGC157VpkqNQL+UU2qwoacoQ7MpsAmUptI/0Oa127X32JzWDqQVEXp2RcIA==}
 
@@ -12992,9 +12837,6 @@ packages:
 
   '@types/responselike@1.0.3':
     resolution: {integrity: sha512-H/+L+UkTV33uf49PH5pCAUBVPNj2nDBXTN+qS1dOwyyg24l3CcicicCA7ca+HMvJBZcFgl5r8e+RR6elsb4Lyw==}
-
-  '@types/retry@0.12.0':
-    resolution: {integrity: sha512-wWKOClTTiizcZhXnPY4wikVAwmdYHp8q6DmC+EJUzAMsycb7HB32Kh9RN4+0gExjmPmZSAQjgURXIGATPegAvA==}
 
   '@types/sanitize-html@2.16.1':
     resolution: {integrity: sha512-n9wjs8bCOTyN/ynwD8s/nTcTreIHB1vf31vhLMGqUPNHaweKC4/fAl4Dj+hUlCTKYgm4P3k83fmiFfzkZ6sgMA==}
@@ -13330,6 +13172,15 @@ packages:
       '@vitest/browser':
         optional: true
 
+  '@vitest/coverage-v8@4.1.5':
+    resolution: {integrity: sha512-38C0/Ddb7HcRG0Z4/DUem8x57d2p9jYgp18mkaYswEOQBGsI1CG4f/hjm0ZCeaJfWhSZ4k7jgs29V1Zom7Ki9A==}
+    peerDependencies:
+      '@vitest/browser': 4.1.5
+      vitest: 4.1.5
+    peerDependenciesMeta:
+      '@vitest/browser':
+        optional: true
+
   '@vitest/expect@2.0.5':
     resolution: {integrity: sha512-yHZtwuP7JZivj65Gxoi8upUN2OzHTi3zVfjwdpu2WrvCZPLwsJ2Ey5ILIPccoW23dd/zQBlJ4/dhi7DWNyXCpA==}
 
@@ -13362,6 +13213,9 @@ packages:
   '@vitest/pretty-format@4.1.4':
     resolution: {integrity: sha512-ddmDHU0gjEUyEVLxtZa7xamrpIefdEETu3nZjWtHeZX4QxqJ7tRxSteHVXJOcr8jhiLoGAhkK4WJ3WqBpjx42A==}
 
+  '@vitest/pretty-format@4.1.5':
+    resolution: {integrity: sha512-7I3q6l5qr03dVfMX2wCo9FxwSJbPdwKjy2uu/YPpU3wfHvIL4QHwVRp57OfGrDFeUJ8/8QdfBKIV12FTtLn00g==}
+
   '@vitest/runner@4.1.4':
     resolution: {integrity: sha512-xTp7VZ5aXP5ZJrn15UtJUWlx6qXLnGtF6jNxHepdPHpMfz/aVPx+htHtgcAL2mDXJgKhpoo2e9/hVJsIeFbytQ==}
 
@@ -13393,6 +13247,9 @@ packages:
 
   '@vitest/utils@4.1.4':
     resolution: {integrity: sha512-13QMT+eysM5uVGa1rG4kegGYNp6cnQcsTc67ELFbhNLQO+vgsygtYJx2khvdt4gVQqSSpC/KT5FZZxUpP3Oatw==}
+
+  '@vitest/utils@4.1.5':
+    resolution: {integrity: sha512-76wdkrmfXfqGjueGgnb45ITPyUi1ycZ4IHgC2bhPDUfWHklY/q3MdLOAB+TF1e6xfl8NxNY0ZYaPCFNWSsw3Ug==}
 
   '@vscode/codicons@0.0.36':
     resolution: {integrity: sha512-wsNOvNMMJ2BY8rC2N2MNBG7yOowV3ov8KlvUE/AiVUlHKTfWsw3OgAOQduX7h0Un6GssKD3aoTVH+TF3DSQwKQ==}
@@ -13698,6 +13555,7 @@ packages:
   '@xmldom/xmldom@0.8.12':
     resolution: {integrity: sha512-9k/gHF6n/pAi/9tqr3m3aqkuiNosYTurLLUtc7xQ9sxB/wm7WPygCv8GYa6mS0fLJEHhqMC1ATYhz++U/lRHqg==}
     engines: {node: '>=10.0.0'}
+    deprecated: this version has critical issues, please update to the latest version
 
   '@xrplf/isomorphic@1.0.1':
     resolution: {integrity: sha512-0bIpgx8PDjYdrLFeC3csF305QQ1L7sxaWnL5y71mCvhenZzJgku9QsA+9QCXBC1eNYtxWO/xR91zrXJy2T/ixg==}
@@ -14095,6 +13953,9 @@ packages:
 
   axios@1.15.0:
     resolution: {integrity: sha512-wWyJDlAatxk30ZJer+GeCWS209sA42X+N5jU2jy6oHTp7ufw8uzUTVFBX9+wTfAlhiJXGS0Bq7X6efruWjuK9Q==}
+
+  axios@1.15.2:
+    resolution: {integrity: sha512-wLrXxPtcrPTsNlJmKjkPnNPK2Ihe0hn0wGSaTEiHRPxwjvJwT3hKmXF4dpqxmPO9SoNb2FsYXj/xEo0gHN+D5A==}
 
   axobject-query@4.1.0:
     resolution: {integrity: sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ==}
@@ -19249,20 +19110,6 @@ packages:
   motion-utils@12.36.0:
     resolution: {integrity: sha512-eHWisygbiwVvf6PZ1vhaHCLamvkSbPIeAYxWUuL3a2PD/TROgE7FvfHWTIH4vMl798QLfMw15nRqIaRDXTlYRg==}
 
-  motion@12.38.0:
-    resolution: {integrity: sha512-uYfXzeHlgThchzwz5Te47dlv5JOUC7OB4rjJ/7XTUgtBZD8CchMN8qEJ4ZVsUmTyYA44zjV0fBwsiktRuFnn+w==}
-    peerDependencies:
-      '@emotion/is-prop-valid': '*'
-      react: 19.0.0
-      react-dom: 19.0.0
-    peerDependenciesMeta:
-      '@emotion/is-prop-valid':
-        optional: true
-      react:
-        optional: true
-      react-dom:
-        optional: true
-
   mpath@0.9.0:
     resolution: {integrity: sha512-ikJRQTk8hw5DEoFVxHG1Gn9T/xcjtdnOKIU1JTmGjZZlg9LST2mBLmcX3/ICIbgJydT2GOc15RnNy5mHmzfSew==}
     engines: {node: '>=4.0.0'}
@@ -19746,10 +19593,6 @@ packages:
   p-map@7.0.4:
     resolution: {integrity: sha512-tkAQEw8ysMzmkhgw8k+1U/iPhWNhykKnSk4Rd5zLoPJCuJaGRPo6YposrZgaxHKzDHdDWWZvE/Sk7hsL2X/CpQ==}
     engines: {node: '>=18'}
-
-  p-retry@4.6.2:
-    resolution: {integrity: sha512-312Id396EbJdvRONlngUx0NydfrIQ5lsYu0znKVUzVvArzEIt08V1qhtyESbGVd1FGX7UKtiFp5uwKZdM8wIuQ==}
-    engines: {node: '>=8'}
 
   p-retry@7.1.1:
     resolution: {integrity: sha512-J5ApzjyRkkf601HpEeykoiCvzHQjWxPAHhyjFcEUP2SWq0+35NKh8TLhpLw+Dkq5TZBFvUM6UigdE9hIVYTl5w==}
@@ -26287,19 +26130,6 @@ snapshots:
       - supports-color
     optional: true
 
-  '@google/genai@1.50.1(@modelcontextprotocol/sdk@1.29.0(zod@4.3.6))(bufferutil@4.1.0)(utf-8-validate@6.0.6)':
-    dependencies:
-      google-auth-library: 10.6.2
-      p-retry: 4.6.2
-      protobufjs: 7.5.5
-      ws: 8.20.0(bufferutil@4.1.0)(utf-8-validate@6.0.6)
-    optionalDependencies:
-      '@modelcontextprotocol/sdk': 1.29.0(zod@4.3.6)
-    transitivePeerDependencies:
-      - bufferutil
-      - supports-color
-      - utf-8-validate
-
   '@google/generative-ai@0.21.0': {}
 
   '@graphql-tools/merge@9.1.7(graphql@16.13.2)':
@@ -27708,11 +27538,6 @@ snapshots:
       promise-worker-transferable: 1.0.4
       three: 0.181.2
 
-  '@monogrid/gainmap-js@3.4.0(three@0.183.2)':
-    dependencies:
-      promise-worker-transferable: 1.0.4
-      three: 0.183.2
-
   '@msgpack/msgpack@3.1.3': {}
 
   '@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.3':
@@ -27733,23 +27558,23 @@ snapshots:
   '@msgpackr-extract/msgpackr-extract-win32-x64@3.0.3':
     optional: true
 
-  '@mui/core-downloads-tracker@7.3.10': {}
+  '@mui/core-downloads-tracker@9.0.0': {}
 
-  '@mui/icons-material@7.3.10(@mui/material@7.3.10(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@types/react@19.2.14)(react@19.0.0)':
+  '@mui/icons-material@7.3.10(@mui/material@9.0.0(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@types/react@19.2.14)(react@19.0.0)':
     dependencies:
       '@babel/runtime': 7.29.2
-      '@mui/material': 7.3.10(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@mui/material': 9.0.0(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react: 19.0.0
     optionalDependencies:
       '@types/react': 19.2.14
 
-  '@mui/material@7.3.10(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@mui/material@9.0.0(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@babel/runtime': 7.29.2
-      '@mui/core-downloads-tracker': 7.3.10
-      '@mui/system': 7.3.10(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0)
-      '@mui/types': 7.4.12(@types/react@19.2.14)
-      '@mui/utils': 7.3.10(@types/react@19.2.14)(react@19.0.0)
+      '@mui/core-downloads-tracker': 9.0.0
+      '@mui/system': 9.0.0(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0)
+      '@mui/types': 9.0.0(@types/react@19.2.14)
+      '@mui/utils': 9.0.0(@types/react@19.2.14)(react@19.0.0)
       '@popperjs/core': 2.11.8
       '@types/react-transition-group': 4.4.12(@types/react@19.2.14)
       clsx: 2.1.1
@@ -27764,16 +27589,16 @@ snapshots:
       '@emotion/styled': 11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0)
       '@types/react': 19.2.14
 
-  '@mui/private-theming@7.3.10(@types/react@19.2.14)(react@19.0.0)':
+  '@mui/private-theming@9.0.0(@types/react@19.2.14)(react@19.0.0)':
     dependencies:
       '@babel/runtime': 7.29.2
-      '@mui/utils': 7.3.10(@types/react@19.2.14)(react@19.0.0)
+      '@mui/utils': 9.0.0(@types/react@19.2.14)(react@19.0.0)
       prop-types: 15.8.1
       react: 19.0.0
     optionalDependencies:
       '@types/react': 19.2.14
 
-  '@mui/styled-engine@7.3.10(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0))(react@19.0.0)':
+  '@mui/styled-engine@9.0.0(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@babel/runtime': 7.29.2
       '@emotion/cache': 11.14.0
@@ -27786,13 +27611,13 @@ snapshots:
       '@emotion/react': 11.14.0(@types/react@19.2.14)(react@19.0.0)
       '@emotion/styled': 11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0)
 
-  '@mui/system@7.3.10(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0)':
+  '@mui/system@9.0.0(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0)':
     dependencies:
       '@babel/runtime': 7.29.2
-      '@mui/private-theming': 7.3.10(@types/react@19.2.14)(react@19.0.0)
-      '@mui/styled-engine': 7.3.10(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0))(react@19.0.0)
-      '@mui/types': 7.4.12(@types/react@19.2.14)
-      '@mui/utils': 7.3.10(@types/react@19.2.14)(react@19.0.0)
+      '@mui/private-theming': 9.0.0(@types/react@19.2.14)(react@19.0.0)
+      '@mui/styled-engine': 9.0.0(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0))(react@19.0.0)
+      '@mui/types': 9.0.0(@types/react@19.2.14)
+      '@mui/utils': 9.0.0(@types/react@19.2.14)(react@19.0.0)
       clsx: 2.1.1
       csstype: 3.2.3
       prop-types: 15.8.1
@@ -27802,16 +27627,16 @@ snapshots:
       '@emotion/styled': 11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0)
       '@types/react': 19.2.14
 
-  '@mui/types@7.4.12(@types/react@19.2.14)':
+  '@mui/types@9.0.0(@types/react@19.2.14)':
     dependencies:
       '@babel/runtime': 7.29.2
     optionalDependencies:
       '@types/react': 19.2.14
 
-  '@mui/utils@7.3.10(@types/react@19.2.14)(react@19.0.0)':
+  '@mui/utils@9.0.0(@types/react@19.2.14)(react@19.0.0)':
     dependencies:
       '@babel/runtime': 7.29.2
-      '@mui/types': 7.4.12(@types/react@19.2.14)
+      '@mui/types': 9.0.0(@types/react@19.2.14)
       '@types/prop-types': 15.7.15
       clsx: 2.1.1
       prop-types: 15.8.1
@@ -27846,16 +27671,22 @@ snapshots:
       lodash.omit: 4.18.0
       tslib: 2.8.1
 
-  '@nestjs/axios@4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.0)(rxjs@7.8.2)':
+  '@nestjs/axios@4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.2)(rxjs@7.8.2)':
     dependencies:
       '@nestjs/common': 11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      axios: 1.15.0
+      axios: 1.15.2
       rxjs: 7.8.2
 
   '@nestjs/axios@4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.0)(rxjs@7.8.2)':
     dependencies:
       '@nestjs/common': 11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       axios: 1.15.0
+      rxjs: 7.8.2
+
+  '@nestjs/axios@4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.2)(rxjs@7.8.2)':
+    dependencies:
+      '@nestjs/common': 11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      axios: 1.15.2
       rxjs: 7.8.2
 
   '@nestjs/bull-shared@11.0.4(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)':
@@ -28398,7 +28229,7 @@ snapshots:
       mongoose: 8.23.0(socks@2.8.7)
       typeorm: 0.3.28(babel-plugin-macros@3.1.0)(better-sqlite3@12.9.0)(ioredis@5.9.3)(mongodb@6.21.0(socks@2.8.7))(mysql2@3.22.0(@types/node@20.19.39))(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.1))(ts-node@10.9.2(@swc/core@1.15.26(@swc/helpers@0.5.21))(@types/node@20.19.39)(typescript@5.9.3))
 
-  '@nestjs/terminus@11.1.1(@grpc/grpc-js@1.14.3)(@grpc/proto-loader@0.8.0)(@nestjs/axios@4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.0)(rxjs@7.8.2))(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/microservices@11.1.19)(@nestjs/mongoose@11.0.4(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(mongoose@8.23.0(socks@2.8.7))(rxjs@7.8.2))(mongoose@8.23.0(socks@2.8.7))(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.28(babel-plugin-macros@3.1.0)(better-sqlite3@12.9.0)(ioredis@5.10.1)(mongodb@6.21.0(socks@2.8.7))(mysql2@3.22.0(@types/node@24.12.2))(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.1))(ts-node@10.9.2(@swc/core@1.15.26(@swc/helpers@0.5.21))(@types/node@24.12.2)(typescript@6.0.2)))':
+  '@nestjs/terminus@11.1.1(@grpc/grpc-js@1.14.3)(@grpc/proto-loader@0.8.0)(@nestjs/axios@4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.2)(rxjs@7.8.2))(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/microservices@11.1.19)(@nestjs/mongoose@11.0.4(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(mongoose@8.23.0(socks@2.8.7))(rxjs@7.8.2))(mongoose@8.23.0(socks@2.8.7))(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.28(babel-plugin-macros@3.1.0)(better-sqlite3@12.9.0)(ioredis@5.10.1)(mongodb@6.21.0(socks@2.8.7))(mysql2@3.22.0(@types/node@24.12.2))(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.1))(ts-node@10.9.2(@swc/core@1.15.26(@swc/helpers@0.5.21))(@types/node@24.12.2)(typescript@6.0.2)))':
     dependencies:
       '@nestjs/common': 11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/core': 11.1.19(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/microservices@11.1.19)(@nestjs/platform-express@11.1.19)(@nestjs/websockets@11.1.19)(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -28409,13 +28240,13 @@ snapshots:
     optionalDependencies:
       '@grpc/grpc-js': 1.14.3
       '@grpc/proto-loader': 0.8.0
-      '@nestjs/axios': 4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.0)(rxjs@7.8.2)
+      '@nestjs/axios': 4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.2)(rxjs@7.8.2)
       '@nestjs/microservices': 11.1.19(@grpc/grpc-js@1.14.3)(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/websockets@11.1.19)(cache-manager@7.2.8)(ioredis@5.10.1)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/mongoose': 11.0.4(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(mongoose@8.23.0(socks@2.8.7))(rxjs@7.8.2)
       mongoose: 8.23.0(socks@2.8.7)
       typeorm: 0.3.28(babel-plugin-macros@3.1.0)(better-sqlite3@12.9.0)(ioredis@5.10.1)(mongodb@6.21.0(socks@2.8.7))(mysql2@3.22.0(@types/node@24.12.2))(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.1))(ts-node@10.9.2(@swc/core@1.15.26(@swc/helpers@0.5.21))(@types/node@24.12.2)(typescript@6.0.2))
 
-  '@nestjs/terminus@11.1.1(@grpc/grpc-js@1.14.3)(@grpc/proto-loader@0.8.0)(@nestjs/axios@4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.0)(rxjs@7.8.2))(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/microservices@11.1.19)(@nestjs/mongoose@11.0.4(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(mongoose@8.23.0(socks@2.8.7))(rxjs@7.8.2))(mongoose@8.23.0(socks@2.8.7))(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.28(babel-plugin-macros@3.1.0)(better-sqlite3@12.9.0)(ioredis@5.9.3)(mongodb@6.21.0(socks@2.8.7))(mysql2@3.22.0(@types/node@24.12.2))(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.1))(ts-node@10.9.2(@swc/core@1.15.26(@swc/helpers@0.5.21))(@types/node@24.12.2)(typescript@6.0.2)))':
+  '@nestjs/terminus@11.1.1(@grpc/grpc-js@1.14.3)(@grpc/proto-loader@0.8.0)(@nestjs/axios@4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.2)(rxjs@7.8.2))(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/microservices@11.1.19)(@nestjs/mongoose@11.0.4(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(mongoose@8.23.0(socks@2.8.7))(rxjs@7.8.2))(mongoose@8.23.0(socks@2.8.7))(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.28(babel-plugin-macros@3.1.0)(better-sqlite3@12.9.0)(ioredis@5.9.3)(mongodb@6.21.0(socks@2.8.7))(mysql2@3.22.0(@types/node@24.12.2))(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.1))(ts-node@10.9.2(@swc/core@1.15.26(@swc/helpers@0.5.21))(@types/node@24.12.2)(typescript@6.0.2)))':
     dependencies:
       '@nestjs/common': 11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/core': 11.1.19(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/microservices@11.1.19)(@nestjs/platform-express@11.1.19)(@nestjs/websockets@11.1.19)(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -28426,7 +28257,7 @@ snapshots:
     optionalDependencies:
       '@grpc/grpc-js': 1.14.3
       '@grpc/proto-loader': 0.8.0
-      '@nestjs/axios': 4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.0)(rxjs@7.8.2)
+      '@nestjs/axios': 4.0.1(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.15.2)(rxjs@7.8.2)
       '@nestjs/microservices': 11.1.19(@grpc/grpc-js@1.14.3)(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/websockets@11.1.19)(cache-manager@7.2.8)(ioredis@5.9.3)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/mongoose': 11.0.4(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(mongoose@8.23.0(socks@2.8.7))(rxjs@7.8.2)
       mongoose: 8.23.0(socks@2.8.7)
@@ -30185,39 +30016,6 @@ snapshots:
       - '@types/three'
       - immer
 
-  '@react-three/drei@10.7.7(@react-three/fiber@9.6.0(@types/react@19.2.14)(immer@11.1.4)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(three@0.183.2))(@types/react@19.2.14)(@types/three@0.183.1)(immer@11.1.4)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(three@0.183.2)':
-    dependencies:
-      '@babel/runtime': 7.29.2
-      '@mediapipe/tasks-vision': 0.10.17
-      '@monogrid/gainmap-js': 3.4.0(three@0.183.2)
-      '@react-three/fiber': 9.6.0(@types/react@19.2.14)(immer@11.1.4)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(three@0.183.2)
-      '@use-gesture/react': 10.3.1(react@19.0.0)
-      camera-controls: 3.1.2(three@0.183.2)
-      cross-env: 7.0.3
-      detect-gpu: 5.0.70
-      glsl-noise: 0.0.0
-      hls.js: 1.6.16
-      maath: 0.10.8(@types/three@0.183.1)(three@0.183.2)
-      meshline: 3.3.1(three@0.183.2)
-      react: 19.0.0
-      stats-gl: 2.4.2(@types/three@0.183.1)(three@0.183.2)
-      stats.js: 0.17.0
-      suspend-react: 0.1.3(react@19.0.0)
-      three: 0.183.2
-      three-mesh-bvh: 0.8.3(three@0.183.2)
-      three-stdlib: 2.36.1(three@0.183.2)
-      troika-three-text: 0.52.4(three@0.183.2)
-      tunnel-rat: 0.1.2(@types/react@19.2.14)(immer@11.1.4)(react@19.0.0)
-      use-sync-external-store: 1.6.0(react@19.0.0)
-      utility-types: 3.11.0
-      zustand: 4.5.5(@types/react@19.2.14)(immer@11.1.4)(react@19.0.0)
-    optionalDependencies:
-      react-dom: 19.0.0(react@19.0.0)
-    transitivePeerDependencies:
-      - '@types/react'
-      - '@types/three'
-      - immer
-
   '@react-three/fiber@9.6.0(@types/react@19.2.14)(immer@11.1.4)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(three@0.181.2)':
     dependencies:
       '@babel/runtime': 7.29.2
@@ -30230,26 +30028,6 @@ snapshots:
       scheduler: 0.27.0
       suspend-react: 0.1.3(react@19.0.0)
       three: 0.181.2
-      use-sync-external-store: 1.6.0(react@19.0.0)
-      zustand: 4.5.5(@types/react@19.2.14)(immer@11.1.4)(react@19.0.0)
-    optionalDependencies:
-      react-dom: 19.0.0(react@19.0.0)
-    transitivePeerDependencies:
-      - '@types/react'
-      - immer
-
-  '@react-three/fiber@9.6.0(@types/react@19.2.14)(immer@11.1.4)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(three@0.183.2)':
-    dependencies:
-      '@babel/runtime': 7.29.2
-      '@types/webxr': 0.5.24
-      base64-js: 1.5.1
-      buffer: 6.0.3
-      its-fine: 2.0.0(@types/react@19.2.14)(react@19.0.0)
-      react: 19.0.0
-      react-use-measure: 2.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      scheduler: 0.27.0
-      suspend-react: 0.1.3(react@19.0.0)
-      three: 0.183.2
       use-sync-external-store: 1.6.0(react@19.0.0)
       zustand: 4.5.5(@types/react@19.2.14)(immer@11.1.4)(react@19.0.0)
     optionalDependencies:
@@ -32586,10 +32364,6 @@ snapshots:
 
   '@types/ms@2.1.0': {}
 
-  '@types/msgpack-lite@0.1.12':
-    dependencies:
-      '@types/node': 25.6.0
-
   '@types/multer@2.1.0':
     dependencies:
       '@types/express': 5.0.6
@@ -32794,8 +32568,6 @@ snapshots:
   '@types/responselike@1.0.3':
     dependencies:
       '@types/node': 25.6.0
-
-  '@types/retry@0.12.0': {}
 
   '@types/sanitize-html@2.16.1':
     dependencies:
@@ -33435,7 +33207,22 @@ snapshots:
       obug: 2.1.1
       std-env: 4.1.0
       tinyrainbow: 3.1.0
-      vitest: 4.1.4(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.1)(@types/node@24.12.2)(@vitest/coverage-v8@4.1.4)(@vitest/ui@4.1.4)(jsdom@27.4.0(@noble/hashes@2.2.0)(bufferutil@4.1.0)(canvas@3.2.3)(utf-8-validate@6.0.6))(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
+      vitest: 4.1.4(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.1)(@types/node@18.19.130)(@vitest/coverage-v8@4.1.4)(@vitest/ui@4.1.4)(jsdom@28.1.0(@noble/hashes@2.2.0)(canvas@3.2.3))(vite@8.0.8(@types/node@18.19.130)(esbuild@0.27.7)(jiti@2.6.1)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
+    optional: true
+
+  '@vitest/coverage-v8@4.1.5(vitest@4.1.4)':
+    dependencies:
+      '@bcoe/v8-coverage': 1.0.2
+      '@vitest/utils': 4.1.5
+      ast-v8-to-istanbul: 1.0.0
+      istanbul-lib-coverage: 3.2.2
+      istanbul-lib-report: 3.0.1
+      istanbul-reports: 3.2.0
+      magicast: 0.5.2
+      obug: 2.1.1
+      std-env: 4.1.0
+      tinyrainbow: 3.1.0
+      vitest: 4.1.4(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.1)(@types/node@24.12.2)(@vitest/coverage-v8@4.1.5)(@vitest/ui@4.1.4)(jsdom@27.4.0(@noble/hashes@2.2.0)(bufferutil@4.1.0)(canvas@3.2.3)(utf-8-validate@6.0.6))(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
 
   '@vitest/expect@2.0.5':
     dependencies:
@@ -33509,6 +33296,10 @@ snapshots:
     dependencies:
       tinyrainbow: 3.1.0
 
+  '@vitest/pretty-format@4.1.5':
+    dependencies:
+      tinyrainbow: 3.1.0
+
   '@vitest/runner@4.1.4':
     dependencies:
       '@vitest/utils': 4.1.4
@@ -33540,7 +33331,7 @@ snapshots:
       sirv: 3.0.2
       tinyglobby: 0.2.16
       tinyrainbow: 3.1.0
-      vitest: 4.1.4(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.1)(@types/node@24.12.2)(@vitest/coverage-v8@4.1.4)(@vitest/ui@4.1.4)(jsdom@27.4.0(@noble/hashes@2.2.0)(bufferutil@4.1.0)(canvas@3.2.3)(utf-8-validate@6.0.6))(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
+      vitest: 4.1.4(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.1)(@types/node@24.12.2)(@vitest/coverage-v8@4.1.5)(@vitest/ui@4.1.4)(jsdom@27.4.0(@noble/hashes@2.2.0)(bufferutil@4.1.0)(canvas@3.2.3)(utf-8-validate@6.0.6))(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
 
   '@vitest/utils@2.0.5':
     dependencies:
@@ -33564,6 +33355,12 @@ snapshots:
   '@vitest/utils@4.1.4':
     dependencies:
       '@vitest/pretty-format': 4.1.4
+      convert-source-map: 2.0.0
+      tinyrainbow: 3.1.0
+
+  '@vitest/utils@4.1.5':
+    dependencies:
+      '@vitest/pretty-format': 4.1.5
       convert-source-map: 2.0.0
       tinyrainbow: 3.1.0
 
@@ -34780,6 +34577,14 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
+  axios@1.15.2:
+    dependencies:
+      follow-redirects: 1.16.0(debug@4.4.3)
+      form-data: 4.0.5
+      proxy-from-env: 2.1.0
+    transitivePeerDependencies:
+      - debug
+
   axobject-query@4.1.0: {}
 
   azure-devops-node-api@12.5.0:
@@ -34920,6 +34725,7 @@ snapshots:
     dependencies:
       bindings: 1.5.0
       prebuild-install: 7.1.3
+    optional: true
 
   bidi-js@1.0.3:
     dependencies:
@@ -35306,10 +35112,6 @@ snapshots:
   camera-controls@3.1.2(three@0.181.2):
     dependencies:
       three: 0.181.2
-
-  camera-controls@3.1.2(three@0.183.2):
-    dependencies:
-      three: 0.183.2
 
   caniuse-api@3.0.0:
     dependencies:
@@ -41002,11 +40804,6 @@ snapshots:
       '@types/three': 0.181.0
       three: 0.181.2
 
-  maath@0.10.8(@types/three@0.183.1)(three@0.183.2):
-    dependencies:
-      '@types/three': 0.183.1
-      three: 0.183.2
-
   madge@8.0.0(typescript@5.9.3):
     dependencies:
       chalk: 4.1.2
@@ -41344,10 +41141,6 @@ snapshots:
   meshline@3.3.1(three@0.181.2):
     dependencies:
       three: 0.181.2
-
-  meshline@3.3.1(three@0.183.2):
-    dependencies:
-      three: 0.183.2
 
   meshoptimizer@0.22.0: {}
 
@@ -41853,15 +41646,6 @@ snapshots:
   motion-utils@11.18.1: {}
 
   motion-utils@12.36.0: {}
-
-  motion@12.38.0(@emotion/is-prop-valid@1.4.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
-    dependencies:
-      framer-motion: 12.38.0(@emotion/is-prop-valid@1.4.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      tslib: 2.8.1
-    optionalDependencies:
-      '@emotion/is-prop-valid': 1.4.0
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
 
   mpath@0.9.0: {}
 
@@ -42450,11 +42234,6 @@ snapshots:
       aggregate-error: 3.1.0
 
   p-map@7.0.4: {}
-
-  p-retry@4.6.2:
-    dependencies:
-      '@types/retry': 0.12.0
-      retry: 0.13.1
 
   p-retry@7.1.1:
     dependencies:
@@ -45043,11 +44822,6 @@ snapshots:
       '@types/three': 0.181.0
       three: 0.181.2
 
-  stats-gl@2.4.2(@types/three@0.183.1)(three@0.183.2):
-    dependencies:
-      '@types/three': 0.183.1
-      three: 0.183.2
-
   stats.js@0.17.0: {}
 
   statuses@2.0.2: {}
@@ -45731,10 +45505,6 @@ snapshots:
     dependencies:
       three: 0.181.2
 
-  three-mesh-bvh@0.8.3(three@0.183.2):
-    dependencies:
-      three: 0.183.2
-
   three-stdlib@2.36.1(three@0.181.2):
     dependencies:
       '@types/draco3d': 1.4.10
@@ -45744,16 +45514,6 @@ snapshots:
       fflate: 0.6.10
       potpack: 1.0.2
       three: 0.181.2
-
-  three-stdlib@2.36.1(three@0.183.2):
-    dependencies:
-      '@types/draco3d': 1.4.10
-      '@types/offscreencanvas': 2019.7.3
-      '@types/webxr': 0.5.24
-      draco3d: 1.5.7
-      fflate: 0.6.10
-      potpack: 1.0.2
-      three: 0.183.2
 
   three@0.181.2: {}
 
@@ -45886,21 +45646,9 @@ snapshots:
       troika-worker-utils: 0.52.0
       webgl-sdf-generator: 1.1.1
 
-  troika-three-text@0.52.4(three@0.183.2):
-    dependencies:
-      bidi-js: 1.0.3
-      three: 0.183.2
-      troika-three-utils: 0.52.4(three@0.183.2)
-      troika-worker-utils: 0.52.0
-      webgl-sdf-generator: 1.1.1
-
   troika-three-utils@0.52.4(three@0.181.2):
     dependencies:
       three: 0.181.2
-
-  troika-three-utils@0.52.4(three@0.183.2):
-    dependencies:
-      three: 0.183.2
 
   troika-worker-utils@0.52.0: {}
 
@@ -47264,38 +47012,6 @@ snapshots:
     transitivePeerDependencies:
       - msw
 
-  vitest@4.1.4(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.1)(@types/node@24.12.2)(@vitest/coverage-v8@4.1.4)(@vitest/ui@4.1.4)(jsdom@27.4.0(@noble/hashes@2.2.0)(bufferutil@4.1.0)(canvas@3.2.3)(utf-8-validate@6.0.6))(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3)):
-    dependencies:
-      '@vitest/expect': 4.1.4
-      '@vitest/mocker': 4.1.4(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
-      '@vitest/pretty-format': 4.1.4
-      '@vitest/runner': 4.1.4
-      '@vitest/snapshot': 4.1.4
-      '@vitest/spy': 4.1.4
-      '@vitest/utils': 4.1.4
-      es-module-lexer: 2.0.0
-      expect-type: 1.3.0
-      magic-string: 0.30.21
-      obug: 2.1.1
-      pathe: 2.0.3
-      picomatch: 4.0.4
-      std-env: 4.1.0
-      tinybench: 2.9.0
-      tinyexec: 1.1.1
-      tinyglobby: 0.2.16
-      tinyrainbow: 3.1.0
-      vite: 7.3.2(@types/node@24.12.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3)
-      why-is-node-running: 2.3.0
-    optionalDependencies:
-      '@edge-runtime/vm': 3.2.0
-      '@opentelemetry/api': 1.9.1
-      '@types/node': 24.12.2
-      '@vitest/coverage-v8': 4.1.4(vitest@4.1.4)
-      '@vitest/ui': 4.1.4(vitest@4.1.4)
-      jsdom: 27.4.0(@noble/hashes@2.2.0)(bufferutil@4.1.0)(canvas@3.2.3)(utf-8-validate@6.0.6)
-    transitivePeerDependencies:
-      - msw
-
   vitest@4.1.4(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.1)(@types/node@24.12.2)(@vitest/coverage-v8@4.1.4)(@vitest/ui@4.1.4)(jsdom@27.4.0(@noble/hashes@2.2.0)(bufferutil@4.1.0)(canvas@3.2.3)(utf-8-validate@6.0.6))(vite@8.0.8(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3)):
     dependencies:
       '@vitest/expect': 4.1.4
@@ -47360,7 +47076,39 @@ snapshots:
     transitivePeerDependencies:
       - msw
 
-  vitest@4.1.4(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.1)(@types/node@25.6.0)(@vitest/coverage-v8@4.1.4)(@vitest/ui@4.1.4)(jsdom@27.4.0(@noble/hashes@2.2.0)(bufferutil@4.1.0)(canvas@3.2.3)(utf-8-validate@6.0.6))(vite@7.3.2(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3)):
+  vitest@4.1.4(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.1)(@types/node@24.12.2)(@vitest/coverage-v8@4.1.5)(@vitest/ui@4.1.4)(jsdom@27.4.0(@noble/hashes@2.2.0)(bufferutil@4.1.0)(canvas@3.2.3)(utf-8-validate@6.0.6))(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3)):
+    dependencies:
+      '@vitest/expect': 4.1.4
+      '@vitest/mocker': 4.1.4(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
+      '@vitest/pretty-format': 4.1.4
+      '@vitest/runner': 4.1.4
+      '@vitest/snapshot': 4.1.4
+      '@vitest/spy': 4.1.4
+      '@vitest/utils': 4.1.4
+      es-module-lexer: 2.0.0
+      expect-type: 1.3.0
+      magic-string: 0.30.21
+      obug: 2.1.1
+      pathe: 2.0.3
+      picomatch: 4.0.4
+      std-env: 4.1.0
+      tinybench: 2.9.0
+      tinyexec: 1.1.1
+      tinyglobby: 0.2.16
+      tinyrainbow: 3.1.0
+      vite: 7.3.2(@types/node@24.12.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3)
+      why-is-node-running: 2.3.0
+    optionalDependencies:
+      '@edge-runtime/vm': 3.2.0
+      '@opentelemetry/api': 1.9.1
+      '@types/node': 24.12.2
+      '@vitest/coverage-v8': 4.1.5(vitest@4.1.4)
+      '@vitest/ui': 4.1.4(vitest@4.1.4)
+      jsdom: 27.4.0(@noble/hashes@2.2.0)(bufferutil@4.1.0)(canvas@3.2.3)(utf-8-validate@6.0.6)
+    transitivePeerDependencies:
+      - msw
+
+  vitest@4.1.4(@edge-runtime/vm@3.2.0)(@opentelemetry/api@1.9.1)(@types/node@25.6.0)(@vitest/coverage-v8@4.1.5)(@vitest/ui@4.1.4)(jsdom@27.4.0(@noble/hashes@2.2.0)(bufferutil@4.1.0)(canvas@3.2.3)(utf-8-validate@6.0.6))(vite@7.3.2(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3)):
     dependencies:
       '@vitest/expect': 4.1.4
       '@vitest/mocker': 4.1.4(vite@7.3.2(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
@@ -47386,7 +47134,7 @@ snapshots:
       '@edge-runtime/vm': 3.2.0
       '@opentelemetry/api': 1.9.1
       '@types/node': 25.6.0
-      '@vitest/coverage-v8': 4.1.4(vitest@4.1.4)
+      '@vitest/coverage-v8': 4.1.5(vitest@4.1.4)
       '@vitest/ui': 4.1.4(vitest@4.1.4)
       jsdom: 27.4.0(@noble/hashes@2.2.0)(bufferutil@4.1.0)(canvas@3.2.3)(utf-8-validate@6.0.6)
     transitivePeerDependencies:
