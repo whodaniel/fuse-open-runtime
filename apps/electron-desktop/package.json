@@ -37,7 +37,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@types/ws": "^8.5.10",
-    "@vitejs/plugin-react": "^4.2.1",
+    "@vitejs/plugin-react": "^6.0.1",
     "concurrently": "^8.2.2",
     "electron-builder": "^24.9.1",
     "typescript": "^5.9.3",
