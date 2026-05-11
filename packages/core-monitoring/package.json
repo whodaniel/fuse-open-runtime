@@ -33,7 +33,7 @@
     "@types/node": "^24.8.1",
     "check-disk-space": "^3.4.0",
     "eslint": "^9.38.0",
-    "jest": "^30.3.0",
+    "jest": "^30.4.2",
     "ts-jest": "^29.4.6",
     "typescript": "^5.9.3"
   },

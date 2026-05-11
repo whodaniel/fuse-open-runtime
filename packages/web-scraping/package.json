@@ -41,7 +41,7 @@
     "@types/node": "^24.0.13",
     "@types/url-parse": "^1.4.11",
     "eslint": "^8.57.1",
-    "jest": "^30.3.0",
+    "jest": "^30.4.2",
     "ts-jest": "^29.4.6",
     "typescript": "^5.9.3"
   },
