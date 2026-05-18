@@ -32,10 +32,10 @@
     "typescript": "^6.0.2"
   },
   "dependencies": {
-    "react": "^19.2.5"
+    "react": "^19.2.6"
   },
   "peerDependencies": {
-    "react": "^19.2.5"
+    "react": "^19.2.6"
   },
   "type": "module",
   "exports": {

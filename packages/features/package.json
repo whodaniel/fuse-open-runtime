@@ -31,7 +31,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "react": "^19.2.5",
+    "react": "^19.2.6",
     "lucide-react": "^0.460.0"
   },
   "devDependencies": {
