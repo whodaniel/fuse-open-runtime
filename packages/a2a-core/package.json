@@ -27,9 +27,9 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@nestjs/common": "^11.1.16",
+    "@nestjs/common": "^11.1.21",
     "@nestjs/config": "^4.0.2",
-    "@nestjs/websockets": "^11.1.16",
+    "@nestjs/websockets": "^11.1.21",
     "@the-new-fuse/ap2-protocol": "workspace:^",
     "@the-new-fuse/infrastructure": "workspace:*",
     "ioredis": "^5.8.1",

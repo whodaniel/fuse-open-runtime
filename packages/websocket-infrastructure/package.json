@@ -21,9 +21,9 @@
     "clean": "rm -rf dist tsconfig.tsbuildinfo"
   },
   "dependencies": {
-    "@nestjs/common": "^11.1.16",
-    "@nestjs/platform-socket.io": "^11.1.16",
-    "@nestjs/websockets": "^11.1.16",
+    "@nestjs/common": "^11.1.21",
+    "@nestjs/platform-socket.io": "^11.1.21",
+    "@nestjs/websockets": "^11.1.21",
     "@socket.io/redis-adapter": "^8.3.0",
     "compression": "^1.8.1",
     "ioredis": "^5.8.1",
