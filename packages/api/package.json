@@ -81,16 +81,16 @@
     "@types/passport": "^1.0.17",
     "@types/passport-jwt": "^4.0.1",
     "@types/ws": "^8.18.1",
-    "@typescript-eslint/eslint-plugin": "^8.57.1",
-    "@typescript-eslint/parser": "^8.57.1",
+    "@typescript-eslint/eslint-plugin": "^8.59.4",
+    "@typescript-eslint/parser": "^8.59.4",
     "eslint": "^9.38.0",
     "jest": "^30.3.0",
     "rimraf": "^6.0.1",
-    "ts-jest": "^29.4.9",
+    "ts-jest": "^29.4.11",
     "ts-loader": "^9.5.4",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^6.0.2",
+    "typescript": "^6.0.3",
     "webpack": "^5.102.1"
   }
 }
