@@ -31,8 +31,8 @@
     "cross-env": "^10.1.0",
     "jest": "^30.3.0",
     "rimraf": "^6.0.1",
-    "ts-jest": "^29.4.9",
-    "typescript": "^6.0.2"
+    "ts-jest": "^29.4.11",
+    "typescript": "^6.0.3"
   },
   "type": "module",
   "exports": {
