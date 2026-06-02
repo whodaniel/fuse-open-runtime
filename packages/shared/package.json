@@ -30,12 +30,12 @@
     "@the-new-fuse/types": "workspace:*",
     "@upstash/redis": "^1.37.0",
     "ioredis": "^5.8.1",
-    "react": "^19.2.5",
+    "react": "^19.2.7",
     "react-hot-toast": "^2.4.1"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
-    "@types/react": "^19.2.3",
+    "@types/react": "^19.2.16",
     "jest": "^30.3.0",
     "ts-jest": "^29.4.6",
     "typescript": "^5.9.3"

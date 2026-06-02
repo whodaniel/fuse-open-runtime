@@ -27,15 +27,15 @@
   "author": "The New Fuse Team",
   "license": "MIT",
   "devDependencies": {
-    "@types/react": "^19.2.14",
+    "@types/react": "^19.2.16",
     "rimraf": "^6.0.1",
     "typescript": "^6.0.2"
   },
   "dependencies": {
-    "react": "^19.2.5"
+    "react": "^19.2.7"
   },
   "peerDependencies": {
-    "react": "^19.2.5"
+    "react": "^19.2.7"
   },
   "type": "module",
   "exports": {
