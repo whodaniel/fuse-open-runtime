@@ -18,9 +18,9 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@nestjs/common": "^11.1.16",
-    "@nestjs/core": "^11.1.16",
-    "@nestjs/graphql": "13.2.4",
+    "@nestjs/common": "^11.1.25",
+    "@nestjs/core": "^11.1.25",
+    "@nestjs/graphql": "13.4.2",
     "@the-new-fuse/api-types": "workspace:*",
     "@the-new-fuse/infrastructure": "workspace:*",
     "@the-new-fuse/mcp-core": "workspace:*",
