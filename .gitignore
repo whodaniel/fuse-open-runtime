@@ -1,0 +1,341 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+**/client_secret.json
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# Legacy sub-repositories (monorepo separation remnants)
+strategic-cow/
+solid-shrimp/
+
+# Testing
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+*.log
+
+# Production builds
+dist/
+build/
+out/
+.next/
+
+# Compiled TypeScript output in source directories
+**/*.d.ts
+**/*.d.ts.map
+!apps/poker-room/global.d.ts
+# **/*.js # Commented out: unsafe for mixed TS/JS projects
+# **/*.js.map # Commented out: unsafe for mixed TS/JS projects
+!**/*.config.js
+!**/*.config.ts
+
+# Turbo
+.turbo/
+
+# Environment variables
+.env
+.env.full-auto
+.env.local
+.env.openai
+.env.telegram
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.production
+.tnf.local.env
+.tnf.local.env.*
+
+# IDE
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# 🔒 TNF PRIVATE ASSETS (Super Admin Only)
+# Infrastructure & Architecture
+docs/infrastructure/
+docs/architecture/
+docs/ci-cd/
+
+# Agent Knowledge & Configs
+# Keep agent definitions versioned for cross-provider parity.
+.claude/agents/*
+!.claude/agents/
+!.claude/agents/**
+packages/extension-system/src/agents/claude/
+
+# Business Logic & Personal
+docs/business/
+docs/personal/
+docs/MONETIZATION_*.md
+docs/BUSINESS_MODEL_*.md
+docs/AGENCY_REFACTORING_SUMMARY.md
+docs/ADAPTIVE_INSTANTIATION_PROTOCOL.md
+
+# Local-only planning/session docs (do not publish)
+docs/strategy/
+docs/session-*.md
+docs/UNIFIED_LEDGER_TIMELINE_GOALS_PLAN.md
+docs/TNF_DELEGATION_RUN_*.md
+docs/project-management/*PLAN*.md
+docs/project-management/*ROADMAP*.md
+docs/project-management/*INVENTORY*.md
+docs/project-management/*SUMMARY*.md
+docs/project-management/*audit*.md
+docs/project-management/*analysis*.md
+.agent/handoff_notes.txt
+.agent/HANDOFF_*
+.agent/memories.md
+.agent/runtime-state.json
+.agent/runtime-state/
+.agent/jules-logs/
+.agent/session-logs/
+.agent/test-reports/
+
+# Additional Private Data
+# Ignore private/runtime state but keep definition banks and pathway matrix.
+.agent/*
+!.agent/agents/
+!.agent/agents/**
+!.agent/skills/
+!.agent/skills/skill-management/
+!.agent/skills/skill-management/**
+!.agent/fleet/
+!.agent/fleet/agent-pathway-matrix.json
+.playwright-cli/
+data/autobiography/
+data/utp_events/
+documentation/scrapes/
+reports/personal-archaeology/
+apps/api/data/unified-task-ledger.json
+data/protocols/*.json
+data/protocols/*.jsonl
+data/protocols/*.md
+docs/library/README.md
+docs/library/REGISTRY.md
+data/wiki-inbox/
+data/mcp.clients/
+data/mcp_config.json
+
+# Personal timeline and narrative archaeology artifacts (private)
+data/protocols/email-*.json
+data/protocols/manual-fact-intake.*.json
+docs/library/EMAIL_*.md
+data/unified-task-ledger.json
+data/unified-task-ledger.json.bak-*
+data/private/
+data/original_master_data.csv
+worktrees/
+cloudflare-sharedstate/accelerator/target/
+apps/external/cursor-watch-learn/output/
+scripts/cloud_runtime/openclaw-codex-tenants.json
+archive/junk/
+
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Chrome extension directories (unpacked extensions with 32-char IDs)
+apps/[a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z]/
+**/[a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z]/
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Misc
+*.tsbuildinfo
+.eslintcache
+.cache/
+
+# Lock files
+.git/index.lock
+*.lock
+
+# Temporary files
+*.tmp
+*.temp
+*.backup
+*.bak
+.env.bak
+.env.bak2
+.mcp.json
+.kilocode/mcp.json
+.performance-monitoring-files.txt
+secrets-to-remove.txt
+api_vars.json
+api_vars_check.json
+temp_mcp_config.json
+packages/gemini-browser-skill/data/library_import/library_dump.html
+packages/gemini-browser-skill/ai_studio_dump.html
+packages/gemini-browser-skill/data/library_import/
+packages/gemini-browser-skill/data/processing_state.json
+packages/gemini-browser-skill/data/gap_analysis.txt
+packages/gemini-browser-skill/data/ProcessingStatusReport.md
+.documentation-system/analysis/
+.documentation-system/raw_manifest.txt
+.documentation-system/classified-manifest.json
+.documentation-system/manifest.json
+.tmp-agent-home/
+.!*
+home_verification.png
+**/login_debug.png
+apps/backend/build_log*.txt
+
+# Generated files
+packages/database/generated/
+
+# Python virtual environments
+venv/
+.venv/
+env/
+.env/
+ENV/
+**/venv/
+**/.venv/
+.venv_crawler/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Electron build artifacts
+apps/electron-desktop/release/
+apps/electron-desktop/release-debug/
+apps/electron-desktop/dist/
+apps/electron-desktop/out/
+*.dmg
+*.app
+*.exe
+*.AppImage
+
+# AI-generated content and temporary data
+data/video-reports/
+data/video-transcripts/
+data/protocols/*.snapshot.json
+data/protocols/twip-macro-board.state.json
+data/protocols/cron-job-locks/*.lock.json
+data/*-state.json
+data/AI_Knowledge_Base.md
+data/IMPLEMENTATION-PLAN.md
+AI_Knowledge_Base.md
+ai_video_library.html
+*.md.backup
+*-state.json
+packages/testing/performance-reports/
+docs/protocols/reports/twip-terminal-macro-board-*.md
+apps/frontend/public/visualizations/terminals/data/
+
+# Credential and secret files
+**/service-account-key.json
+**/firebase-credentials.json
+**/firebase-credentials.json.removed
+**/*-service-account*.json
+
+# Personal archaeology local secrets and generated data
+scripts/personal-archaeology/credentials.json
+scripts/personal-archaeology/token.json
+scripts/personal-archaeology/wallet.json
+scripts/personal-archaeology/downloads/
+scripts/personal-archaeology/archaeology.sqlite*
+
+# Google MCP Server Credentials
+packages/google-docs-mcp-server/credentials.json
+packages/google-docs-mcp-server/token.json
+packages/google-drive-mcp-server/credentials/
+packages/google-sheets-mcp-server/credentials.json
+
+# Test files with potential secrets
+**/test-openrouter*.js
+
+# Telemetry and monitoring IDs
+telemetry-id
+
+# Exceptions
+!packages/relay-core/dist/
+
+# Configuration files with secrets
+config.json
+**/config.json
+
+# Chrome extension testing and outputs
+apps/chrome-extension/test_runs/
+apps/chrome-extension/output/
+apps/chrome-extension/dist*
+
+# Casin8 runtime state and secrets
+apps/casin8-games/.data/
+.venv_crawler312/
+.voicebridge/
+logs/*.jsonl
+
+# Stripe Projects
+.projects/
+
+# Stale worktree directories
+pull-create/
+
+# LLVM Forge build artifacts
+bin/
+forge/
+
+# Debug screenshots at repo root
+ai_vision_input.png
+debug_full_screen.png
+discord_search_1.png
+iphone_live_verification.png
+iphone_screenshot.png
+spotlight_active.png
+
+# Root-level experimental/debug scripts
+iphone_vision_bridge.py
+tnf_audio_bridge.py
+
+# Agent runtime PIDs
+scripts/.agent-network-pids
+
+# LLM provider runtime state
+data/llm-provider-status.json
+.kilo/
+pull-create/
+solid-shrimp/
+strategic-cow/
+solid-shrimp/
+strategic-cow/
+pull-create/
+app_deploy/
+app_deploy_final/
+app_deploy_temp/
+deploy_temp/
+clean_landing/
+fix_landing/
+landing_clean_deploy/
+ui-audit-results/
+reports/
+!docs/protocols/reports/
+!docs/protocols/reports/TNF_VIRTUAL_LIBRARY_SURFACE_AUDIT.md
+apps/external/h17-webpilot/profile/
+apps/external/hardware/lightpanda
+
+# Large data files
+data/transcript*.json
+dump.rdb
+
+# Telegram bot credentials
+.env.tnf-telegram

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "c66467ae-a57a-4486-bc25-9e671a801068",
+    "agentId": "agent-search-engine",
+    "relatedAgentId": "agent-tagger",
+    "relationshipType": "similar",
+    "strengthScore": 0.25
+  },
+  {
+    "id": "cd710f96-2e49-4428-8f9f-f43fbc50ae82",
+    "agentId": "digital-product-creator-agent",
+    "relatedAgentId": "digital-product-factory-agent",
+    "relationshipType": "similar",
+    "strengthScore": 0.37
+  },
+  {
+    "id": "c39f1523-dd8d-49e5-8df0-148eb09ac026",
+    "agentId": "equipment-recommendation-agent",
+    "relatedAgentId": "podcast-equipment-agent",
+    "relationshipType": "similar",
+    "strengthScore": 0.26
+  },
+  {
+    "id": "9d00bce7-9274-4964-8534-7489a9813ad7",
+    "agentId": "monetization-strategy-agent",
+    "relatedAgentId": "podcast-monetization-strategy-agent",
+    "relationshipType": "similar",
+    "strengthScore": 0.34
+  },
+  {
+    "id": "57c71774-be13-4c02-90bf-de7152337109",
+    "agentId": "orchestrator-agent-copy",
+    "relatedAgentId": "orchestrator-agent",
+    "relationshipType": "similar",
+    "strengthScore": 0.96
+  }
+]
