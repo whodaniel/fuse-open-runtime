@@ -1,0 +1,1955 @@
+[
+  {
+    "id": "ad8d6fc9-7afe-4d0f-9ba9-73dd2d7e3f17",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Register and store all local .claude agents in the database",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "ddd31377-e5d4-49a7-a5e0-a0e9efdc1e8e",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Discover and profile external agents (Gemini CLI, OpenAI, etc.)",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "83623817-64bb-4d0e-b937-189ce4ac4db5",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Extract metadata, system prompts, and capabilities from agent files",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "90cd9cb7-115e-4644-a1b0-ad92426206db",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Maintain agent profiles with searchable metadata",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "576c2fed-83ba-4549-b9ac-d0bb554047cb",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Synchronize agent data with database automatically",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "064ec7ff-a85f-4778-9948-373fc772265f",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Track agent usage statistics and performance metrics",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "8e25cb8d-7ac4-48ef-be47-a0392256a583",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Enable agent discovery through database queries",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "6c4ebd13-58ad-47a6-a866-e115d68cdadf",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Scan .claude/agents/ directory for all local agent files",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "281171d7-df7b-4a2a-ade4-cbb19cfe1e90",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Discover external agent configurations and profiles",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "458077e6-159f-4fc6-a289-1a394ed64327",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Identify agent system prompt files (gemini.md, openai.md, etc.)",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "394386c4-11a6-4092-8b0e-6513559c7a02",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Build comprehensive inventory of available agents",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "b930103e-6d77-484d-9dc0-ec8a5955adbe",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Parse YAML frontmatter from agent .md files",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "dbd68e70-40da-4589-b28f-7c2f3f6c8b75",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Extract system prompts and instruction content",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "279b26ae-17f7-4cbd-9af5-b8b32d263881",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Generate searchable keywords and tags",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "06b7a2ba-8bac-4989-909e-51125fa7d72a",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Extract usage examples and documentation",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "c2184b67-9561-4098-bc8e-3a928de07f11",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Create agent database tables and relationships",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "ece630d3-5007-42aa-9fd6-c9988945ee5b",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Store agent profiles with complete metadata",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "e30c5275-a991-43bf-b240-c35407c9a095",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Index searchable fields for fast queries",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "5ae00087-e0ef-4030-9c6b-77b1faa62da4",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Maintain version history of agent changes",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "42ad1eb6-748b-46fe-8c4b-7ed74bac09ad",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Store system prompts and instruction content",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "7384a336-b85d-4a9d-8f30-ded7da3d100a",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Create comprehensive agent profiles",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "ad5eb3fc-a256-499b-bc79-83481fcf8052",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Build relationship graphs between agents",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "03fd141c-c5eb-48cd-b9ca-9840c342827a",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Calculate compatibility scores and suggestions",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "3481c70d-0062-49f6-b32f-36e6aad91b96",
+    "agentId": "agent-registry-manager",
+    "capabilityType": "domain",
+    "capabilityName": "Maintain agent performance metrics",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "1bd3f8b0-23b7-4ea2-ba24-99e861eab23c",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Primary-Sub Agent Relationships: Maps parent-child relationships and delegation patterns",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "c49f4e54-81d8-49aa-a5d5-bdfad13ccf3b",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Temporal Role Changes: Tracks when sub-agents are promoted to primary agents",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "e6342cc5-4467-4400-be89-0548da1655c2",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Authority Structures: Documents decision-making hierarchies and command chains",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "83326421-227d-4a93-8ac9-6f0365fce1da",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Delegation Patterns: Analyzes task delegation and responsibility distribution",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "4060a89a-ed51-4784-8fde-0baaa33d5b8b",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Agent Interactions: Maps direct and indirect agent communications",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "68bdee28-899d-43e8-88c9-d95c3bc0a1b9",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Workflow Chains: Traces multi-agent workflow execution patterns",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "46cee9b1-795c-4516-be1c-0628449fbb93",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Synergy Identification: Identifies highly collaborative agent clusters",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "cd6060c7-cc97-4e7c-85de-9ad9c3b2a7d3",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Data Dependencies: Tracks data flow between agents",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "dfc9b010-ed86-4c84-8a24-0c1b05c3f256",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Capability Dependencies: Analyzes complementary capability requirements",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "e19cc65b-77df-48e3-8b18-0409213c84c9",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Domain Overlap Analysis: Identifies overlapping responsibilities and potential conflicts",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "0243158e-a1be-4fa8-80b2-a17912cdfa65",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Role Promotion Events: Tracks sub-agent to primary agent promotions",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "7a8710c4-8c54-4498-9d4e-985a040ac2c3",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Authority Delegation: Maps temporary authority transfers",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "68d49306-fa0a-4422-b96d-b5fc9ab60256",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Collaboration Evolution: Analyzes how agent relationships change over time",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "37e5d048-c4d4-4e0c-bc72-16b248ec121c",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Network Topology Changes: Tracks structural changes in the agent network",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "41d6dd21-56f8-45f8-b140-cdc0d973410a",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Success Rate Correlations: Analyzes relationship success patterns",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "807647f9-f338-44cb-b517-3dfe1359a319",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Efficiency Metrics: Measures collaboration efficiency across agent pairs",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "c9992421-45e2-49d0-a806-ec845124594c",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Bottleneck Identification: Identifies relationship-based performance bottlenecks",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "0d6f76f7-6118-45e7-bf82-686dea67c614",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Optimization Recommendations: Suggests relationship structure improvements",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "edfe736f-5ec2-4202-a45e-184db3835602",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Primary Agent Networks: Maps top-level coordination patterns",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "004d3fb8-412a-4458-9b5b-2609bab3407b",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Sub-Agent Clusters: Identifies specialized sub-agent groups",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "8c2340e0-ef29-422a-b10d-c3feca1cb73a",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Cross-Hierarchy Communications: Tracks communications across hierarchy levels",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "9122b3d1-8d7f-4dd7-97a6-204b2d12d44e",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Escalation Patterns: Maps how tasks escalate through the hierarchy",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "ccbbbf34-a920-4936-a6df-6d0846a7acf1",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Sequential Workflows: Maps linear agent execution chains",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "b7baadea-4a1f-4026-ac4d-1625ba23a0a4",
+    "agentId": "agent-relationship-grapher",
+    "capabilityType": "domain",
+    "capabilityName": "Parallel Workflows: Identifies concurrent agent execution patterns",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "3d8b367e-0e0e-4cc7-9d69-40796fdaa939",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Execute complex agent searches with multiple criteria",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "348f3e98-4fbb-4d67-b245-acf4fa3e7fbc",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Provide intelligent agent recommendations",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "72ffb8ab-a03c-446c-86ab-c90617da899b",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Rank search results by relevance and suitability",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "bb2805f0-bd99-42db-b24b-8e9e2f2c4c45",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Support natural language and boolean search queries",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "c67915a7-d4eb-49a7-8d69-104d63caf8e4",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Generate agent comparison reports",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "5a96b75d-d3ca-4fb5-9f31-30902f831192",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Maintain search performance optimization",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "d9799c9b-110e-4489-9d30-355822bf300a",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Parse user search query (natural language or structured)",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "27056abc-c35d-48d9-8aa2-8fe59d3206fe",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Extract search criteria and filter parameters",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "90bbdf16-ea9e-4a25-9f31-0edf3f877480",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Convert to structured search operations",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "17fd2288-414c-4f0d-81fb-0cde4f7195e0",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Identify search intent and context",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "1fdd1432-d9a6-4591-817e-e2933f71cc81",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Apply domain filters (content, marketing, technical, etc.)",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "ca31f63b-46be-4047-8580-358ac1ff9317",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Filter by capability requirements",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "6a324d14-c486-403e-8d30-4ecfbbd1aa3c",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Apply complexity level constraints",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "57409d00-6075-4daa-bde8-817ac2f463a1",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Filter by workflow stage requirements",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "89dda34f-989a-42f8-9874-75ce12055ced",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Read agent configurations and metadata",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "e7a51d22-72b9-4927-aaf2-1c979dafce3e",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Match against search criteria",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "04e65395-46f0-4ec6-a383-d939c6d7405c",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Calculate relevance scores",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "e52128d4-9db6-485e-b8aa-ea896f173101",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Apply similarity algorithms",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "f40f0d9a-7c8f-4b53-b5d5-da664a6d992d",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Consider agent relationships and dependencies",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "ac7dcfca-ff83-4678-8bd5-185fff4ca02f",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Rank by relevance to search query",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "8aa79c82-977a-4fe2-84c3-45701a0d4d03",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Consider agent effectiveness and usage metrics",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "1ee19ed3-6de7-4e09-ba33-4bb2d87fa620",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Apply user preference weighting",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "5cef9a3b-dd9b-4092-8e4a-e022ad443c35",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Factor in agent availability and status",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "33203e00-e54e-4df0-acc7-bfa7dd2ad684",
+    "agentId": "agent-search-engine",
+    "capabilityType": "domain",
+    "capabilityName": "Prioritize recently updated agents when relevant",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "275a91d0-9ace-4b91-b71a-d74370a2a6e0",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Analyze agent configurations and extract key properties",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "c5cd0166-7ae3-47b7-a103-353a873ba43d",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Create and maintain agent taxonomy and categorization",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "db32c286-74a5-4730-9f15-b32ac1e2bad6",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Build searchable metadata for agent discovery",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "20393285-d78f-4246-8d54-9e290db14d42",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Monitor agent changes and update tags accordingly",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "dd7d21f4-6863-4f22-afb3-0323eb57ed87",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Maintain tag consistency and avoid duplication",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "050d21fa-7c3f-4d0b-9dac-469e2ce75182",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Scan .claude/agents/ directory for all agent files",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "930708a7-d22e-4baa-a636-e3d452bb1860",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Read each agent's configuration, description, and system prompt",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "25a1fbb4-face-4870-b7b7-4c347407f3c1",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Identify patterns and relationships between agents",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "c0ac5347-3166-4a6d-828e-bfed44ff1be0",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Generate relevant keywords from agent descriptions",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "9a968da7-5324-474e-b593-2519c5fdb18c",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Create domain-specific tags (content, marketing, technical, etc.)",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "489230b6-cb1e-4813-95ec-529cbfda2b40",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Add complexity level tags (beginner, intermediate, advanced)",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "8b770bd8-e624-4bd7-922c-e063df5ef720",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Create workflow stage tags (planning, execution, analysis, etc.)",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "73ee74a5-40c7-4ef2-b028-017cdf2281e3",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Build hierarchical category structure",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "821b68cf-f337-4b32-b3b9-b03d888da270",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Group related agents by domain and function",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "785f03ec-5247-46b1-a2bb-97eb06e79842",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Create cross-references for multi-domain agents",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "325c75c6-c3ab-4536-aa58-641cb41d37bf",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Establish tag relationships and dependencies",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "dfecb943-93cd-472b-a3f1-f462bd4f0bbe",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Generate structured metadata for each agent",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "c079c539-dd37-44ae-9df9-67633680c890",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Create searchable indices by multiple criteria",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "d737d4aa-3556-4d88-aeb4-bd98a4239dbd",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Build tag frequency and popularity metrics",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "83977aa8-3556-47dd-a8fb-0d22b6c835fb",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Maintain tag version history and changes",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "d4d761c9-312d-4ebb-b78d-c7aab508e436",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Create search configuration files",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "8bf91158-9436-4e74-964d-ccf2e5e1a38e",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Build query patterns for different search types",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "ff8cfa14-2185-40c4-b856-298140f575fa",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Implement filtering and sorting capabilities",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "a9b2e58a-01ce-4406-b623-3860cafca2bb",
+    "agentId": "agent-tagger",
+    "capabilityType": "domain",
+    "capabilityName": "Enable complex boolean search operations",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "6e177653-382c-4ae0-86cb-4a9013399a77",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "Function Call Chains: Traces function-to-function invocations across modules",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "4dfece90-c831-4a83-854a-3c1e872d7ec8",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "Method Dependencies: Maps class method interdependencies and inheritance chains",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "4c367592-3594-429c-b36f-c82447014b46",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "Conditional Logic Paths: Identifies branching logic and decision trees",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "d7dd87e9-045d-4f3f-8c38-7f8b06df5a3e",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "Error Handling Flows: Maps exception propagation and error handling pathways",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "2791d012-415c-457b-b490-1bb2cd08b05e",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "Async/Promise Chains: Traces asynchronous execution flows and callback patterns",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "22c94f0f-b78a-484e-bdb6-c7a68c8f1a34",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "Exit Points: Maps termination conditions and return pathways",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "7f01d035-9f39-4243-8e5c-8206ebe41a03",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "Loop Structures: Analyzes iterative logic and recursive patterns",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "885c05b2-854f-4078-8118-67137f2d1638",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "State Transitions: Tracks state changes and lifecycle management",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "1657b1fa-6002-41c7-874d-577a2e1fde28",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "Input Processing: Maps data ingestion and validation pathways",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "e3b284d5-ed6d-4172-b2a3-44f2b183a58e",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "Transformation Chains: Traces data modifications through processing layers",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "1e4f7985-9ae8-4cd7-91b3-0e408cbd5071",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "Output Generation: Identifies data serialization and response pathways",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "bc4d5fc2-7c7c-4f3d-a4e9-7b74040fe98f",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "Storage Interactions: Maps database read/write operations and caching layers",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "36a4308f-3dba-4071-9e2e-42f44ce9ad6b",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "Message Queues: Maps pub/sub and message broker interactions",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "c0fe2df7-4b93-4b8f-9051-89f756fbd39f",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "WebSocket Flows: Analyzes real-time communication patterns",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "8211f09a-cadd-4405-b5b2-341427911d8a",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "Microservice Dependencies: Traces cross-service data exchange",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "ab8a689e-8a8b-46db-b13c-923995d45a2f",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "MVC/MVP/MVVM Flows: Maps Model-View-Controller interaction patterns",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "b98a69c0-cd6c-415d-b9ad-67cccc4437ca",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "Repository Pattern: Traces data access abstraction layers",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "e59a03b9-82ad-4503-abff-e3bfe1c1c3dd",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "Service Layer Patterns: Identifies business logic encapsulation",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "da7de789-3e57-42cd-beb3-66debc1799be",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "Middleware Chains: Maps request/response processing pipelines",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "69c24d98-fa6e-4e66-8c49-95afa3367e02",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "Layered Architecture: Identifies presentation, business, and data layer interactions",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "a581bf8c-bdd9-4f87-aa98-f9251bdb226d",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "Event-Driven Architecture: Maps event publishing and subscription patterns",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "1b256b78-b1a2-4a5c-a2a9-aa19cfa5135a",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "CQRS Patterns: Separates command and query responsibility flows",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "b07361e4-8b43-47f3-aac1-76e015c90a9e",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "Saga Patterns: Traces distributed transaction workflows",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "e920c8d2-3d0f-4cf1-a6b8-ad6a88d8cdce",
+    "agentId": "codebase-pathway-tracer",
+    "capabilityType": "domain",
+    "capabilityName": "Import/Export Chains: Maps module dependency relationships",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "7eedb6d3-c6f0-4e06-a0c5-ea686b35d0de",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "contextual model selection",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "fb74a4d5-5ded-470e-b0be-466972c4e704",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "benchmark interpretation",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "3323b3c1-796f-4315-9796-5eab497bc767",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "release-intelligence tracking",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "d3520fec-670e-4215-9ae5-51761f2dff90",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "public-sentiment risk analysis",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "e747cb6d-7e76-4303-a47a-33650adc767b",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "cost-aware fallback design",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "0e017986-967e-412c-b5fd-d2c68cb483cb",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "provider diversification",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "23624451-68eb-4ecb-9103-b6137b841576",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "routing-policy recommendations",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "7c627cf1-f333-4341-b0c4-898d5aae7409",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "Determine whether the request is about research, policy, routing changes, benchmarking, sentiment analysis, provider diversification, or implementation.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "b323ea59-519d-4a37-babc-711131a2c7d6",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "Inspect TNF-local artifacts, config, telemetry, and routing state first.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "8cee4963-7c34-4580-9e56-0f3743594609",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "If recency matters, fetch current primary-source information from official docs, benchmark sources, model registries, release channels, or public community data.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "96046a6e-6b09-4acf-b7db-f8d3eb852b76",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "Separate hard evidence from inference.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "07db08d9-d6d0-4564-8a36-6a2f2f2295d4",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "List the most relevant models and providers for the target context.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "fe7f7817-df49-40f1-a048-3a9b2ab84b4f",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "Prefer task-specific evidence and TNF internal evals over general marketing claims.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "607f6faf-2370-46f2-a2b7-eb35f0fa4a52",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "Treat sentiment as a risk modifier, not a primary ranking source.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "f2dace13-cc0f-4075-b3d7-db2dae322208",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "Recommend a primary model and ordered fallbacks.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "4bf02189-c997-40bc-b7a8-f4d00bdf3fa2",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "Explain when TNF should stay free-first and when it should escalate to paid or premium routes.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "4d238787-f50e-4a02-8715-4c50ad27847f",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "Specify demotion conditions and rollback triggers.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "86811ea2-8cfa-4bcb-b812-54908d008d3a",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "If asked for execution, update the relevant TNF docs, configs, scripts, or agent definitions.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "e4b3774f-8c12-414d-8d7c-1567e3521ecb",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "Include the source systems consulted.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "5b54e31a-7ce3-4b80-93d4-0ab45427f159",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "Note freshness limits, blind spots, and unresolved uncertainty.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "eaaa3667-6aa0-4e70-9356-f9d5751eae4a",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "Route by task context, not by model reputation.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "6ed64ede-cd3c-4dae-9c82-a790554780e3",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "Prefer internal evals over public benchmarks when both exist.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "1920c5b3-d58d-4d75-83c7-05a0dc95c754",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "Use more than one source class before promoting a model.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "f97862f6-e1fd-4ab6-8e09-4df2a156ca76",
+    "agentId": "contextual-model-implementation-architect",
+    "capabilityType": "domain",
+    "capabilityName": "Keep free or cheap routes first when they are good enough.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "c06f8adc-cc60-4e11-9144-1570383c4ca4",
+    "agentId": "cursor-watch-learn-operator",
+    "capabilityType": "domain",
+    "capabilityName": "Sub-agent A: retention and event metrics.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "88e737df-ecb1-4b42-a186-f49fddeee1eb",
+    "agentId": "cursor-watch-learn-operator",
+    "capabilityType": "domain",
+    "capabilityName": "Sub-agent B: visual interpretation synthesis.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "be7de645-3ad1-48e2-b683-99a5a288487b",
+    "agentId": "cursor-watch-learn-operator",
+    "capabilityType": "domain",
+    "capabilityName": "Keep screenshot storage bounded; do not allow unbounded frame growth.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "00108af5-8794-45e2-88d1-352c7a65346b",
+    "agentId": "cursor-watch-learn-operator",
+    "capabilityType": "domain",
+    "capabilityName": "Use deterministic command presets for repeatable tests.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "84e35305-c4f0-4160-b7f1-7c2578927cf3",
+    "agentId": "cursor-watch-learn-operator",
+    "capabilityType": "domain",
+    "capabilityName": "Include absolute artifact paths in every report.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "b0ae249f-93c8-4241-8ec3-dbc59dcd3af0",
+    "agentId": "cursor-watch-learn-operator",
+    "capabilityType": "domain",
+    "capabilityName": "Run short validation rounds before long captures.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "c577dfa6-71ec-4935-a1d9-fc634db25f41",
+    "agentId": "cursor-watch-learn-operator",
+    "capabilityType": "domain",
+    "capabilityName": "Preserve unrelated files and existing user changes.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "a3156180-1a4f-47ef-a8ff-bbdcc19a2add",
+    "agentId": "cursor-watch-learn-operator",
+    "capabilityType": "domain",
+    "capabilityName": "run id and time range,",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "bb33921c-606b-4dc0-8cc3-07a2de5096e2",
+    "agentId": "cursor-watch-learn-operator",
+    "capabilityType": "domain",
+    "capabilityName": "total events by type,",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "212108aa-1dd8-45a0-a4c0-8865439829be",
+    "agentId": "cursor-watch-learn-operator",
+    "capabilityType": "domain",
+    "capabilityName": "retained vs pruned screenshot counts,",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "c595b8d1-27b0-422d-8a46-90e6c3ea40e6",
+    "agentId": "cursor-watch-learn-operator",
+    "capabilityType": "domain",
+    "capabilityName": "top findings with evidence,",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "734f6b81-83fc-43dc-a2ab-fd9d6149d337",
+    "agentId": "cursor-watch-learn-operator",
+    "capabilityType": "domain",
+    "capabilityName": "artifact paths for timeline, actionable report, full summation, and plain-language summary.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "2f13b163-b5cd-431f-bb6d-5b88a6b4c68c",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Design custom slash commands that expose sub-agent capabilities",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "061866a4-10cb-4be1-a887-5e59b199ad58",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Implement Markdown-based command definitions following Anthropic's latest protocol",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "60fe7763-b42f-4455-89bf-fd4fe56e9fa4",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Manage command argument handling and parameter passing",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "29f304bb-5d23-409a-9ee5-ea12b3890138",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Integrate with MCP (Model Context Protocol) servers for dynamic command discovery",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "9ee00917-5f4d-40c9-a145-4018324f4cfb",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Ensure compatibility with Claude Code's subagent delegation system",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "72773c16-cc70-452d-ac05-ca7f338eb908",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Maintain command documentation and usage examples",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "ac716f9c-2343-41ff-b8d4-9080531c4570",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Read and understand the target sub-agent's capabilities from its .md file",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "5fb593ed-842a-4cc7-b376-41e516273845",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Identify key functions that should be exposed as slash commands",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "1170902f-c1ee-4c9f-b394-6b78af655a4f",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Determine appropriate command naming conventions (kebab-case)",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "54ca4253-f6d0-43a4-8678-38e9b6b04f24",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Create intuitive command names that reflect agent purpose",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "9e16cd8d-c738-417c-a09f-e47965936119",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Define argument placeholders using $ARGUMENTS, $1, $2, etc.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "9f7f6092-2938-459f-be76-d597c27bf6bb",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Structure commands for both simple and complex parameter passing",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "4ab18690-9346-401a-87f8-626f66adcb14",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Consider command namespacing for organization",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "ba608b8a-7e76-4472-876b-194baab9e8bc",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Create Markdown files in .claude/commands/ directory",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "eaa6b5fd-3a33-43c9-9ed9-e573c1be72c1",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Use proper YAML frontmatter with description and metadata",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "ee756e3a-958d-4c3c-90b8-05a222bbd859",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Implement argument handling and validation",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "b7d7d559-9440-449b-9cc4-a60f1deededb",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Add usage examples and documentation",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "e0ede27e-18c8-4d53-a4fd-c9a993a92c50",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Configure MCP server connections for dynamic command discovery",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "e124d461-5aec-4721-9638-505529a8e47f",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Implement MCP prompt exposure using /mcp__servername__promptname format",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "7b7442eb-b2d4-49d3-9f39-1e11b016c347",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Ensure commands are discoverable through MCP protocol",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "bca7dc5c-1c6b-4abc-a85d-f845fb20ba87",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Verify command syntax and argument processing",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "b51c8c6a-8499-4cd0-8372-22a8d87a5860",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Test integration with Claude Code slash command system",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "8a0d6859-9eab-42fb-9fd6-ccef787c2665",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Validate sub-agent delegation functionality",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "4902e103-b65a-40fd-99c7-49936d9037c7",
+    "agentId": "custom-slash-command-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Ensure proper error handling and feedback",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "dc27c622-62ce-43e4-b224-2e192346b1df",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Natural Language Understanding: Deep comprehension of complex queries and context",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "7548d66c-da72-482e-90ae-4f2f85c48542",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Reasoning and Analysis: Multi-step logical reasoning and problem solving",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "d4e2b5b2-89b1-4d3c-913c-a7967a301409",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Code Generation: Advanced programming assistance across multiple languages",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "c81a3532-70b2-417d-9e46-63c53d3d6c41",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Creative Writing: High-quality content creation and storytelling",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "05481259-5419-441f-9263-b71d32cd63be",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Technical Documentation: Comprehensive technical writing and documentation",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "798915b3-fa7a-400d-807c-5ec0d85e45c4",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Image Analysis: Advanced image understanding and description",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "9acd759b-af3a-4ccb-abdc-c0f7cf8ecb58",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Document Processing: Extract and analyze information from various document types",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "41b58a39-d70a-42dd-bb4f-0afaad087a45",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Visual Code Review: Analyze code from screenshots and diagrams",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "4752fb75-c7f2-4a47-800c-f0fa83add3ea",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Chart and Graph Analysis: Interpret data visualizations and infographics",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "9cd3eb8a-afeb-48a4-808a-41757267f76c",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Web Search Integration: Access current information and real-time data",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "f2f4b2d9-54a0-40af-a33b-a39d0dbba418",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Current Events: Stay updated with latest news and developments",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "90b7c7ba-78a6-4b3e-91a7-cbdffe4710d2",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Live Data Analysis: Process and analyze real-time data streams",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "ae66f75b-e1e2-4e8a-9204-4d4294c47d37",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Dynamic Research: Conduct research with up-to-date information",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "01c9291a-25e0-491e-b7e9-59e0040c15a5",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "CLI Interface: Native terminal integration for seamless workflows",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "8bcaf4a1-c20d-4fe0-a3b0-5e36ebb65188",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Multi-Session Support: Maintain context across multiple terminal sessions",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "f5886f1c-0499-41a9-a656-de76803bbbe2",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Stream Processing: Handle continuous data streams and log monitoring",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "db7d941e-8ed0-4f8e-b41c-95c1d4f58c42",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Process Integration: Integrate with system processes and automation",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "f5e72321-81ef-4f07-ae56-13942f1527aa",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Model: Gemini 2.5 Pro (with Flash fallback)",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "6a67ace1-b91f-4eec-8c46-0ace3b729aac",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Context Window: 1 million tokens",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "5f8f5fd0-4f4d-4f34-a9ea-acf3bd50796a",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Modalities: Text, Images, Audio, Video, Code",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "8b4b2e5f-6d96-4d1a-9359-0ae73aa512f8",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Languages: 100+ natural languages supported",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "6a79eb37-99c8-43fa-9fef-5f7aa2af0de5",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Specializations: Code, Math, Reasoning, Creative tasks",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "5ca73171-4305-4292-94ff-32a41b6e0daf",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Rate Limits: Generous limits for high-throughput applications",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "01e1c26b-a86e-4329-abf4-7041a9ad29b4",
+    "agentId": "gemini",
+    "capabilityType": "domain",
+    "capabilityName": "Streaming: Real-time response streaming support",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "5f47cae4-6151-4b12-8a82-31436e66e9b7",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "SVG: Scalable vector graphics for web integration and print",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "fba7028e-bf99-4dc7-bee2-9d5136208122",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "PDF: High-quality print-ready documentation",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "09d7a355-0f8e-4149-99da-71aaacbd0070",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "EPS: Professional vector format for publications",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "8ce25c90-e607-4cc3-b7d4-a03bf6d64814",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "PNG/JPEG: Raster formats for presentations and documentation",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "27e3783e-ae22-4dc3-9706-f26c40598b60",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "D3.js Visualizations: Custom interactive web-based graphs",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "352da1ca-2664-492f-9630-0d74d32818a6",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "Cytoscape.js: Network analysis and visualization",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "70499854-cfd9-4f37-8ca2-ac7eb2f7f985",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "Vis.js: Dynamic, browser-based visualization networks",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "1aff272c-2cd4-4860-bd89-a31ac2bf552a",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "Mermaid Diagrams: Markdown-compatible diagrams",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "f65544fb-6711-402a-b227-2088a50e7c89",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "PlantUML: Text-based UML and architectural diagrams",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "e0721a35-2c31-47e0-8e6e-3c3d5672f422",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "Neo4j Import: Direct database population with pathway data",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "6e3ac8f8-6c81-4fab-9dfe-54e98ff7eeb9",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "GraphML: XML-based graph description language",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "3770c55b-17d2-4c92-a00f-ed7f00057a92",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "GEXF: Graph Exchange XML Format for Gephi",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "35c303f3-19cf-43e1-9436-d20e46946af7",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "Cypher Scripts: Neo4j query language exports",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "a4157163-0fcd-4103-8b44-29a22be37721",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "RDF/Turtle: Semantic web graph formats",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "e1d2cbda-8fcb-4561-85ef-22b01b972f47",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "Graphviz DOT: Professional graph layout engine",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "c970fd45-4f7b-405c-ab84-00f11b197ddf",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "Draw.io XML: Open-source diagramming format",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "4f23168c-60ab-4c9f-b15b-4016323c237b",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "Visio VSDX: Microsoft Visio integration",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "6e7713c4-7890-4629-a839-90fe9cffbb02",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "Module Dependency Graphs: Visual representation of code dependencies",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "341907d7-1539-4ec1-a17e-c4992204812c",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "Class Hierarchy Diagrams: Object-oriented structure visualization",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "590c2736-6eb9-4b52-a960-4d2f5a27a5ba",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "Function Call Graphs: Execution flow visualization",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "9a18e205-1f76-49e6-9dd6-837422a7237c",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "Package Structure Maps: High-level architecture overviews",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "59865496-1ce7-4ef1-b65e-66a64a1e7859",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "Pipeline Diagrams: Data transformation pathway visualization",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "f7f2acb0-c08b-4073-b1cb-63c3da2392c8",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "Entity Relationship Diagrams: Database schema and relationships",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "8219351c-ab06-4695-b805-ec64b8fa5f45",
+    "agentId": "graph-writer",
+    "capabilityType": "domain",
+    "capabilityName": "State Transition Diagrams: Application state flow mapping",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "c7b28aac-bd2c-4a0c-9219-eb5b8ce8a5c8",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "Process Discovery: Identify and catalog all processes occurring between agent nodes",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "19202c66-7f98-478e-a406-71fea43efce2",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "Connection Mapping: Map the specific connection types and interaction patterns",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "c2a79baf-6566-4ddf-86c8-e653cc7c836c",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "Data Flow Analysis: Analyze data transformation and flow between agents",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "f9af0ec7-4b4d-415d-9e8d-044861269a10",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "Communication Protocol Definition: Define standardized communication patterns",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "9b10e0a6-8b17-41d1-854d-a8d16947cd0c",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "Coordination Mechanism Design: Establish coordination frameworks",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "cf8a6ee5-7d99-4cbb-91e7-853cf37666e4",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "Sequential Patterns: Linear agent-to-agent workflow chains",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "cc307387-7b43-4a58-be3d-7a0086db9057",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "Parallel Patterns: Concurrent multi-agent coordination",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "da020275-cba4-4af7-bfa1-28f422065eee",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "Hierarchical Patterns: Nested agent delegation workflows",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "0489b64c-60b1-4a7d-b29e-332addd5e653",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "Mesh Patterns: Complex many-to-many agent interactions",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "61361dee-412f-4925-8316-57b07c0dba4c",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "Hybrid Patterns: Combined workflow pattern types",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "6d34c2d4-4a8f-4856-941f-a6414014b8f5",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "Execution Pattern Analysis: Monitor workflow execution to identify optimization opportunities",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "1c893902-429e-4f02-9ea8-51478344901c",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "Performance Optimization: Refine workflows based on performance metrics",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "b7beb969-7621-490b-b537-9863f41cface",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "Error Pattern Analysis: Identify and address common failure patterns",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "eb7624a8-bf79-4909-a6a1-8ff43a88cfea",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "Predictability Enhancement: Increase workflow predictability through refinement",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "83349059-5124-4784-846b-9f9f20aaa221",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "Standardization Evolution: Evolve standardized templates based on usage patterns",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "82769dfb-497b-4940-915b-c264e48c9a4d",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "immediate_response_required: true",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "bbe28922-72e5-4cb4-830c-a13822c8f779",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "blocking_operation: true",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "cf24d5a1-e145-4f9f-940e-f9e87929cef8",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "real_time_coordination: true",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "72d2068a-3ba7-4e75-85da-538ef5fb728d",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "error_propagation: immediate",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "ee0cf25d-5afc-45a7-958a-1dabcf07393b",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "input_validation:",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "1c1d1515-c1e9-437b-85e3-ca16bc9786bc",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "data_transformation:",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "3be3b36b-e830-449d-affd-c211447bf764",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "result_delivery:",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "be7918c9-ac17-46c9-acb7-eb354d27bf29",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "response_time_consistency: high",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "c67caa77-e537-4974-914e-0f2585a67d9e",
+    "agentId": "inter-agentic-workflow-definer",
+    "capabilityType": "domain",
+    "capabilityName": "outcome_determinism: high",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "a4966ff9-c614-440b-a886-6c972065f8db",
+    "agentId": "meta-agent-architect",
+    "capabilityType": "domain",
+    "capabilityName": "<list of best practices relevant to the new agent's domain.>",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "9f7bec65-44f2-406c-baaf-4acd1f5aa989",
+    "agentId": "meta-agent-architect",
+    "capabilityType": "domain",
+    "capabilityName": "<...>",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "119b4639-c0a4-493f-a65d-c28d0777d96d",
+    "agentId": "pi-coding-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Bash command execution within project context",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "811ef990-85ef-4fee-9810-548f5661b075",
+    "agentId": "pi-coding-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Multi-provider LLM inference (Google, Anthropic, OpenAI, OpenRouter, NVIDIA, DeepSeek, etc.)",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "855d5b49-648a-4f8f-b9a3-6ba3b2ce3fd1",
+    "agentId": "pi-coding-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Skill-based capability extension (loads from ~/.pi/agent/skills/ and ~/.agents/skills/)",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "6aa343cb-2580-4028-abf6-825ee131c0bc",
+    "agentId": "pi-coding-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Session persistence and resumption (--continue, --resume, --session)",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "e629506b-1c04-4463-b205-d1be129673ca",
+    "agentId": "pi-coding-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Plan-mode for structured task decomposition",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "21912be1-50bc-485f-bf12-1bcfcd86f3f4",
+    "agentId": "pi-coding-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Thinking level control (off, minimal, low, medium, high, xhigh)",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "50ad7719-f283-449e-8dad-a433b31edd4d",
+    "agentId": "pi-coding-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Model cycling with Ctrl+P during sessions",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "e5f0e7bd-4b0f-4162-8e0e-e036797706b4",
+    "agentId": "pi-coding-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Concordance skill: Already symlinked at ~/.pi/agent/skills/ via ~/.agents/skills/concordance",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "56e993c3-f7e5-402a-aea0-b791fa7aa3bb",
+    "agentId": "pi-coding-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Terminal Director Bridge: Already present in ~/.agents/skills/terminal-director-bridge",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "5df4f010-185d-423a-b59e-e349ee57ba6c",
+    "agentId": "pi-coding-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Supabase skills: Symlinked from ~/.agents/skills/supabase",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "eef0785c-cb84-4ddb-9dd5-a4b5f7852b27",
+    "agentId": "pi-coding-agent",
+    "capabilityType": "domain",
+    "capabilityName": "PI_CODING_AGENT_DIR — Config directory (default: ~/.pi/agent)",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "81a035b6-374e-493d-989d-d425dd0487ef",
+    "agentId": "pi-coding-agent",
+    "capabilityType": "domain",
+    "capabilityName": "PI_OFFLINE — Disable startup network operations",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "04fef2fe-014f-4fbe-99cb-c7e25cda7c39",
+    "agentId": "pi-coding-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Pipeline: Pi as a coding stage in multi-agent pipelines (receive spec, emit code)",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "eccb225e-9864-45a7-84e7-fed6f90f05fc",
+    "agentId": "pi-coding-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Swarm: Parallel Pi instances with different models for perspective diversity",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "5cb423f2-c009-42d8-ab1d-56c1e411a79d",
+    "agentId": "pi-coding-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Map-Reduce: Pi workers for distributed code generation tasks",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "c2e9a9f3-66ef-4ed7-8602-359cf184ac01",
+    "agentId": "pi-coding-agent",
+    "capabilityType": "domain",
+    "capabilityName": "Consensus: Multiple Pi runs with different providers for code review",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "729c48d1-26f4-45db-8107-4060f9122eba",
+    "agentId": "sub-director",
+    "capabilityType": "domain",
+    "capabilityName": "NFT Binding: You are the unique identity represented by LOCAL_SUBDIRECTOR_NFT_ID.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "da636291-91bb-412d-a681-6e94b15b69d5",
+    "agentId": "sub-director",
+    "capabilityType": "domain",
+    "capabilityName": "Wallet: All your actions are traceable to LOCAL_SUBDIRECTOR_WALLET_ADDRESS.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "c4f14eab-3341-4180-ba08-a7a2db97e2c1",
+    "agentId": "super-director",
+    "capabilityType": "domain",
+    "capabilityName": "Provider: nvidia",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "737978bf-e9d6-4e78-a616-ffdba5e995d4",
+    "agentId": "super-director",
+    "capabilityType": "domain",
+    "capabilityName": "Model: nvidia/llama-3.1-405b-instruct (or similar)",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "683c8d44-93ba-43fc-8a92-1041ebd300aa",
+    "agentId": "super-director",
+    "capabilityType": "domain",
+    "capabilityName": "Exclusive Control: Only your signed signals are recognized as top-level directives.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "3c174e8a-3a52-4283-8881-e1a355bad0b8",
+    "agentId": "super-director",
+    "capabilityType": "domain",
+    "capabilityName": "Verification: You sign all directives cryptographically, ensuring non-repudiation and integrity across the federated control plane.",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "b1eee163-3e12-49d6-a9e5-c86628d22fb0",
+    "agentId": "super-director",
+    "capabilityType": "domain",
+    "capabilityName": "Residency: CloudRuntime (Cloud).",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "0da279c0-e161-47b1-956d-ea84153a1405",
+    "agentId": "super-director",
+    "capabilityType": "domain",
+    "capabilityName": "Communication: Blast signals via Cloud Redis (tramway.proxy.rlwy.net).",
+    "capabilityLevel": "intermediate"
+  },
+  {
+    "id": "4614027f-6f55-4897-b97d-3be5e882ef93",
+    "agentId": "super-director",
+    "capabilityType": "domain",
+    "capabilityName": "Orchestration: Direct the Master Cloud Orchestrator and Master Cloud Broker.",
+    "capabilityLevel": "intermediate"
+  }
+]

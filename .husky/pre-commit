@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+set -e
+
+pnpm run privacy:guard:staged
+pnpm run secret:sweep:staged
+pnpm run docs:pii:guard:staged
+pnpm run lint:staged
