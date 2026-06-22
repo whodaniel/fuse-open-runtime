@@ -1,0 +1,38 @@
+#!/usr/bin/env sh
+set -e
+
+tmp_file="$(mktemp)"
+trap 'rm -f "$tmp_file"' EXIT
+
+zero_sha='0000000000000000000000000000000000000000'
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [ -z "$local_sha" ] && continue
+  [ "$local_sha" = "$zero_sha" ] && continue
+
+  if [ "$remote_sha" = "$zero_sha" ]; then
+    for commit in $(git rev-list "$local_sha" --not --all); do
+      git diff-tree --no-commit-id --name-only -r "$commit" >>"$tmp_file" || true
+    done
+  else
+    git diff --name-only --diff-filter=ACMR "$remote_sha..$local_sha" >>"$tmp_file" || true
+  fi
+done
+
+sort -u "$tmp_file" -o "$tmp_file"
+
+run_warn() {
+  if ! "$@"; then
+    echo "WARN: pre-push advisory check failed (non-blocking): $*"
+  fi
+}
+
+PRIVACY_GUARD_FILE_LIST="$tmp_file" pnpm run privacy:guard:pre-push
+PRIVACY_GUARD_FILE_LIST="$tmp_file" pnpm run secret:sweep:pre-push
+PRIVACY_GUARD_FILE_LIST="$tmp_file" pnpm run docs:pii:guard:pre-push
+
+# Local hook stays lightweight; strict governance executes in CI.
+run_warn pnpm run ownership:ledger:emit -- --file-list="$tmp_file" --output=data/protocols/CHANGE_OWNERSHIP.jsonl
+run_warn pnpm run conflict:tier -- --file-list="$tmp_file"
+run_warn env TNF_HANDOFF_FILE_LIST="$tmp_file" pnpm run handoff:pre-push
+run_warn pnpm run supabase:rls:audit:strict
